@@ -104,7 +104,8 @@ The build writes:
   measurements or Wikipedia prose scrapes.
 
 See [the schema guide](docs/schema.md), [data policy](DATA_POLICY.md), and
-[contribution workflow](CONTRIBUTING.md).
+[contribution workflow](CONTRIBUTING.md). Planned data-source expansion is
+tracked in the [roadmap](ROADMAP.md).
 
 ## Relationship to Inorganic Engineering
 
