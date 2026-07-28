@@ -25,7 +25,8 @@ All authoritative values use SQLite integers.
 meaning:
 
 - `particle` distinguishes quarks, leptons, bosons, and composite particles;
-- `element` records atomic number and symbol;
+- `element` records atomic number, symbol, PubChem chemical group/block,
+  electron configuration, and source-authored standard-state label;
 - `nuclide` records proton count, neutron count, and isomer index;
 - `chemical_species` distinguishes atoms, molecules, ions, formula units,
   complexes, polymers, and unresolved placeholders;
@@ -33,6 +34,12 @@ meaning:
 
 `alias` stores external identifiers and names without turning them into
 canonical identities.
+
+`nuclide_designation` records source-specific selection semantics. The initial
+NIST import uses `natural_isotopic_composition`; it does not assert that every
+selected nuclide is stable. Relative atomic mass and representative isotopic
+composition are separate `observation` rows with rational uncertainty and
+source conditions.
 
 ## Chemistry and matter
 

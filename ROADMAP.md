@@ -10,15 +10,19 @@ not permission to synthesize missing values.
 - [x] Strict normalized tables with foreign keys.
 - [x] Provenance, source, license, unit, uncertainty, and condition envelopes.
 - [x] Quark/lepton identity bootstrap.
+- [x] Complete PubChem periodic-table snapshot for elements 1–118.
+- [x] NIST representative natural isotope compositions for 288 nuclides.
 - [x] Inorganic Engineering element/species/material/reaction bootstrap.
 - [x] Integrity, exact reaction-balance, ordering, and reproducibility checks.
 - [ ] Deterministic SQLite-to-datapack exporter for Inorganic Engineering.
 
 ## 0.2 — elements, nuclides, and spectra
 
-- [ ] Import reviewed identities for elements 1–118.
-- [ ] Import known nuclides/isomers with masses, abundance, stability, and
-  half-life observations where licensed data supports them.
+- [x] Import reviewed identities for elements 1–118.
+- [x] Import common naturally representative nuclides with masses and
+  abundances.
+- [ ] Expand beyond the common set with reviewed stability, half-life, and
+  isomer observations where licensed data supports them.
 - [ ] Add source-specific IR, visible, UV, and X-ray importers.
 - [ ] Store axis/intensity units, resolution, sample state, uncertainty, and
   conditions for every spectrum.

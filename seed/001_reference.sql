@@ -1,6 +1,6 @@
 INSERT INTO database_metadata(key, value) VALUES
     ('title', 'Universe Database'),
-    ('schema_version', '1'),
+    ('schema_version', '3'),
     ('data_policy', 'No invented values; missing data remains absent'),
     ('artifact', 'universe.db');
 
@@ -22,6 +22,22 @@ INSERT INTO license(
         'https://creativecommons.org/licenses/by/4.0/',
         1,
         'Attribution is required.'
+    ),
+    (
+        'pubchem-no-restriction',
+        'PubChem-generated information availability terms',
+        NULL,
+        'https://pubchem.ncbi.nlm.nih.gov/docs/data-submission-policy',
+        1,
+        'PubChem-generated information is made available without cost and without restriction; contributor-specific content can have separate terms.'
+    ),
+    (
+        'nist-public-information',
+        'NIST public information reuse terms',
+        NULL,
+        'https://www.nist.gov/copyrights-disclaimers',
+        1,
+        'Unmarked NIST website information may be distributed or copied; attribution is requested. Database disclaimers apply.'
     );
 
 INSERT INTO source(
@@ -41,6 +57,22 @@ INSERT INTO source(
         'S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024).',
         'https://pdg.lbl.gov/2024/',
         'cc-by-4.0',
+        '2026-07-28'
+    ),
+    (
+        'pubchem-periodic-table-2026-07-28',
+        'PubChem Periodic Table',
+        'National Library of Medicine, PubChem Periodic Table, PUG REST periodic-table JSON snapshot retrieved 2026-07-28.',
+        'https://pubchem.ncbi.nlm.nih.gov/rest/pug/periodictable/JSON',
+        'pubchem-no-restriction',
+        '2026-07-28'
+    ),
+    (
+        'nist-isotopic-compositions-2026-07-28',
+        'NIST Atomic Weights and Isotopic Compositions',
+        'J. S. Coursey, D. J. Schwab, and R. A. Dragoset, NIST Atomic Weights and Isotopic Compositions with Relative Atomic Masses, snapshot retrieved 2026-07-28.',
+        'https://physics.nist.gov/PhysRefData/Compositions/index.html',
+        'nist-public-information',
         '2026-07-28'
     );
 
@@ -65,6 +97,24 @@ INSERT INTO dataset(
         'curated',
         1,
         'Identity, family, symbol, and exact charge only; no masses or lifetimes.'
+    ),
+    (
+        'dataset:pubchem-periodic-table-2026-07-28',
+        'PubChem Periodic Table',
+        '2026-07-28 snapshot',
+        'pubchem-periodic-table-2026-07-28',
+        'curated',
+        2,
+        'All 118 element identities plus PubChem AtomicMass, group classification, electron configuration, and standard-state fields.'
+    ),
+    (
+        'dataset:nist-natural-isotopes-2026-07-28',
+        'NIST representative natural isotopic compositions',
+        '2026-07-28 snapshot',
+        'nist-isotopic-compositions-2026-07-28',
+        'curated',
+        3,
+        'Nuclides with a non-empty representative isotopic-composition field. Trace-only and synthetic nuclides are not selected as common.'
     );
 
 INSERT INTO unit(
@@ -106,12 +156,28 @@ INSERT INTO condition_set(condition_set_id, description) VALUES
     (
         'condition:unspecified',
         'The source did not author the applicable conditions; this is not a standard-state claim.'
+    ),
+    (
+        'condition:nist_representative_terrestrial_composition',
+        'Representative terrestrial isotopic composition as defined by the NIST source; geological, commercial, or modified samples can differ.'
     );
 
 INSERT INTO property_definition(
     property_id, name, quantity_kind, canonical_unit_id
 ) VALUES
     ('property:atomic_mass', 'atomic mass per mole', 'molar_mass', 'unit:microgram_per_mole'),
+    (
+        'property:relative_atomic_mass',
+        'relative atomic mass',
+        'dimensionless',
+        'unit:one'
+    ),
+    (
+        'property:isotopic_composition',
+        'representative isotopic composition',
+        'dimensionless',
+        'unit:one'
+    ),
     ('property:molar_mass', 'molar mass', 'molar_mass', 'unit:microgram_per_mole'),
     ('property:density', 'density', 'density', 'unit:milligram_per_litre'),
     (

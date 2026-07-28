@@ -62,6 +62,99 @@ def validate(path: Path) -> list[str]:
                     f"{missing} {entity_type} entities lack a {table} row"
                 )
 
+        element_numbers = [
+            row[0]
+            for row in connection.execute(
+                "SELECT atomic_number FROM element ORDER BY atomic_number"
+            )
+        ]
+        if element_numbers != list(range(1, 119)):
+            errors.append("element table must contain atomic numbers 1 through 118")
+        incomplete_elements = scalar(
+            connection,
+            """
+            SELECT count(*)
+            FROM element
+            WHERE group_block IS NULL OR group_block = ''
+               OR electron_configuration IS NULL OR electron_configuration = ''
+               OR standard_state IS NULL OR standard_state = ''
+            """,
+        )
+        if incomplete_elements:
+            errors.append(
+                f"{incomplete_elements} elements lack periodic-table metadata"
+            )
+
+        invalid_nuclide_coordinates = scalar(
+            connection,
+            """
+            SELECT count(*)
+            FROM nuclide AS n
+            JOIN element AS e ON e.entity_id = n.element_id
+            WHERE n.proton_count <> e.atomic_number
+            """
+        )
+        if invalid_nuclide_coordinates:
+            errors.append(
+                f"{invalid_nuclide_coordinates} nuclides disagree with element atomic numbers"
+            )
+
+        natural_nuclides = [
+            row["nuclide_id"]
+            for row in connection.execute(
+                """
+                SELECT nuclide_id
+                FROM nuclide_designation
+                WHERE designation = 'natural_isotopic_composition'
+                ORDER BY nuclide_id
+                """
+            )
+        ]
+        abundance_totals: dict[str, Fraction] = defaultdict(Fraction)
+        for nuclide_id in natural_nuclides:
+            properties = {
+                row["property_id"]: row
+                for row in connection.execute(
+                    """
+                    SELECT property_id, value_numerator, value_denominator
+                    FROM observation
+                    WHERE subject_entity_id = ?
+                      AND property_id IN (
+                          'property:relative_atomic_mass',
+                          'property:isotopic_composition'
+                      )
+                    """,
+                    (nuclide_id,),
+                )
+            }
+            required = {
+                "property:relative_atomic_mass",
+                "property:isotopic_composition",
+            }
+            if properties.keys() != required:
+                errors.append(
+                    f"{nuclide_id} lacks exactly one mass and abundance observation"
+                )
+                continue
+            abundance_row = properties["property:isotopic_composition"]
+            abundance = Fraction(
+                abundance_row["value_numerator"],
+                abundance_row["value_denominator"],
+            )
+            if not 0 < abundance <= 1:
+                errors.append(f"{nuclide_id} has invalid isotopic composition {abundance}")
+                continue
+            element_id = connection.execute(
+                "SELECT element_id FROM nuclide WHERE entity_id = ?",
+                (nuclide_id,),
+            ).fetchone()[0]
+            abundance_totals[element_id] += abundance
+        for element_id, total in sorted(abundance_totals.items()):
+            if total != 1:
+                errors.append(
+                    f"representative isotopic compositions for {element_id} sum to {total}"
+                )
+
         for reaction in connection.execute(
             "SELECT reaction_id FROM reaction ORDER BY reaction_id"
         ):

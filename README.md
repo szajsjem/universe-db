@@ -14,8 +14,8 @@ today. The schema is broad; the reviewed data will grow source by source.
 | Family | Seeded now | Schema ready |
 |---|---:|:---:|
 | Quarks and leptons | 12 identities | yes |
-| Elements / atoms | 16 elements | yes |
-| Nuclides and isomers | 0 | yes |
+| Elements / atoms | 118 elements | yes |
+| Nuclides and isomers | 288 naturally representative isotopes | yes |
 | Chemical species | 25 | yes |
 | Molecular atom/bond graphs | 0 | yes |
 | Materials and ores | 13 | yes |
@@ -29,6 +29,21 @@ today. The schema is broad; the reviewed data will grow source by source.
 
 Zero means “not imported,” never “known to be absent.” Run
 `python3 scripts/report.py universe.db` for the live counts.
+
+The complete element identity table is generated from a vendored snapshot of
+PubChem’s official PUG REST periodic-table endpoint. It includes names,
+symbols, atomic numbers, relative atomic masses, chemical group/block,
+electron configurations, and source-authored standard-state labels for
+elements 1–118. PubChem values are retained as source-specific observations;
+they are not relabeled as CIAAW standard atomic weights.
+
+“Common isotopes” has a reproducible meaning here: the 288 nuclides across 84
+elements for which NIST publishes a non-empty representative terrestrial
+isotopic composition. Each stores proton/neutron counts, exact rational
+relative atomic mass and uncertainty, exact rational abundance and uncertainty,
+source notes, and a natural-composition designation. Their abundances sum
+exactly to one per represented element. Trace-only, synthetic, and merely
+well-known laboratory isotopes are not silently added to this set.
 
 The particle identity bootstrap is attributed to the Particle Data Group’s
 2024 *Review of Particle Physics* under CC BY 4.0. The chemistry bootstrap
@@ -50,11 +65,10 @@ SELECT entity_id, name
 FROM entity_summary
 WHERE entity_type = 'chemical_species';
 
-SELECT e.symbol, o.value_numerator, u.symbol AS unit
+SELECT e.symbol, o.value_numerator, o.value_denominator
 FROM element AS e
 JOIN observation AS o ON o.subject_entity_id = e.entity_id
-JOIN unit AS u ON u.unit_id = o.unit_id
-WHERE o.property_id = 'property:atomic_mass'
+WHERE o.property_id = 'property:relative_atomic_mass'
 ORDER BY e.atomic_number;
 
 SELECT r.name, rp.role, cs.formula, rp.coefficient_numerator
@@ -76,8 +90,21 @@ sha256sum --check universe.db.sha256
 ```
 
 `make check` performs SQLite integrity and foreign-key checks, exact reaction
-balance validation, a byte-for-byte reproducibility test, and an artifact
-freshness test. It does not invoke Gradle or build the Minecraft mod.
+balance validation, complete periodic-table validation, generated-seed
+validation, a byte-for-byte reproducibility test, and an artifact freshness
+test. It does not invoke Gradle or build the Minecraft mod.
+
+Normal builds are network-independent. To intentionally capture a new PubChem
+snapshot and regenerate its SQL:
+
+```sh
+python3 scripts/import_pubchem_periodic_table.py --download
+python3 scripts/import_nist_isotopes.py --download
+make check
+```
+
+A new upstream snapshot should receive a new dated source filename and dataset
+ID rather than overwriting a released source.
 
 The build writes:
 
@@ -118,6 +145,8 @@ independently.
 
 The schema, scripts, documentation, and original chemistry bootstrap data are
 MIT licensed. Particle identity data is attributed to the Particle Data Group
-under CC BY 4.0. Each external source has its own row in `license` and `source`.
+under CC BY 4.0. Periodic-table data is attributed to PubChem/NLM, and natural
+isotope data to NIST, under their published reuse terms. Each external source
+has its own row in `license` and `source`.
 Future imports must be redistributable before their data can enter the checked-
 in artifact. Citation does not override an upstream license.
