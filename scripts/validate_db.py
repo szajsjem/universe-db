@@ -583,6 +583,26 @@ def validate(path: Path) -> list[str]:
                 """,
                 "cross_section",
             ),
+            (
+                "cross-section velocity axis",
+                """
+                SELECT channel_id || ':' || point_index AS identity,
+                       u.quantity_kind
+                FROM nuclear_cross_section_velocity_point
+                JOIN unit AS u ON u.unit_id = speed_unit_id
+                """,
+                "speed",
+            ),
+            (
+                "velocity-indexed nuclear cross section",
+                """
+                SELECT channel_id || ':' || point_index AS identity,
+                       u.quantity_kind
+                FROM nuclear_cross_section_velocity_point
+                JOIN unit AS u ON u.unit_id = cross_section_unit_id
+                """,
+                "cross_section",
+            ),
         )
         for label, query, expected_kind in typed_unit_references:
             for row in connection.execute(query):
@@ -880,6 +900,24 @@ def validate(path: Path) -> list[str]:
                     f"{row['channel_id']} has invalid probability {probability}"
                 )
 
+        for row in connection.execute(
+            """
+            SELECT channel.channel_id, channel.parent_nuclide_id,
+                   observation.subject_entity_id, observation.property_id
+            FROM nuclear_channel AS channel
+            JOIN observation
+              ON observation.observation_id =
+                 channel.partial_half_life_observation_id
+            WHERE observation.subject_entity_id <> channel.parent_nuclide_id
+               OR observation.property_id <> 'property:half_life'
+            ORDER BY channel.channel_id
+            """
+        ):
+            errors.append(
+                f"{row['channel_id']} has a partial half-life observation "
+                "for the wrong subject or property"
+            )
+
         branch_groups = connection.execute(
             """
             SELECT DISTINCT parent_nuclide_id, condition_set_id
@@ -929,6 +967,12 @@ def validate(path: Path) -> list[str]:
                 "channel_id",
                 "energy_numerator",
                 "energy_denominator",
+            ),
+            "nuclear cross section velocity": (
+                "nuclear_cross_section_velocity_point",
+                "channel_id",
+                "speed_numerator",
+                "speed_denominator",
             ),
         }
         for label, (table, parent, numerator, denominator) in ordered_series.items():

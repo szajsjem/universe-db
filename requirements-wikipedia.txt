@@ -1,0 +1,2 @@
+# Optional dependency for reading the upstream Kiwix .zim release directly.
+libzim==3.12.0

@@ -16,6 +16,19 @@ The repository does not accept values copied from an unattributed aggregation,
 AI-generated scientific measurements, or data whose redistribution terms are
 unknown.
 
+Model-assisted web research may populate only the `unverified_*` staging
+tables. A model response is a discovery aid, never a source or a provenance
+class. Promotion requires a reviewer to inspect the cited upstream source,
+license, identity, value, units, uncertainty, conditions, and transformation.
+Wikipedia may be used to discover primary sources but is not the accepted
+source of record.
+
+Revision-pinned Wikipedia page text may be vendored under CC BY-SA 4.0 as a
+separate source archive. Permanent revision URLs provide attribution and the
+archive must remain license-distinguishable from MIT project code. Parsed
+candidate rows remain unverified secondary-source leads; they require
+confirmation against a suitable primary or evaluated source before promotion.
+
 ## Meaning of provenance
 
 - `measured`: an observation reported by an experimental source.

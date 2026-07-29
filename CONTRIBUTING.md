@@ -32,6 +32,13 @@ non-empty NIST representative isotopic-composition field. Do not add isotopes
 to that designation based on familiarity, medical use, or an arbitrary
 abundance threshold; create a separately sourced designation instead.
 
+The Wikipedia chemistry ZIP is a bounded discovery snapshot, not a reviewed
+scientific dataset. Refresh it with
+`scripts/download_wikipedia_chemistry.py`, retain its permanent revision URLs
+and CC BY-SA attribution, and update the dated source identity and digest.
+Results from `scripts/parse_wikipedia_archive.py` may enter only the
+`unverified_*` candidate tables until independently reviewed.
+
 ## Stable IDs
 
 IDs use a lowercase namespace prefix:

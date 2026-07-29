@@ -108,6 +108,95 @@ make check
 A new upstream snapshot should receive a new dated source filename and dataset
 ID rather than overwriting a released source.
 
+### Optional unverified web-research overlay
+
+Bulk, licensed, reproducible source imports are preferred. For gap discovery,
+the repository also includes an opt-in web-research staging script. It plans
+one request per target and field, uses the Responses API web-search tool, and
+never writes model output into reviewed observations:
+
+```sh
+# Inspect request counts and example prompts without spending API credits.
+python3 scripts/research_missing_data.py --limit-targets 2
+
+# Trial run into .build/unverified.db. OPENAI_API_KEY must be set.
+python3 scripts/research_missing_data.py \
+  --limit-targets 2 \
+  --max-requests 5 \
+  --execute \
+  --accept-cost
+```
+
+The default model is `gpt-5.4-nano`. The script skips fields already covered by
+reviewed data, resumes around previously found staged values, stores source
+URLs and conditions, and can later include `molecules,reactions` with
+`--scopes`. An unrestricted all-nuclide run can make thousands of paid web
+searches; always review the dry-run count first. Staged facts remain
+unverified and are excluded from normal builds and exports.
+
+### Wikipedia chemistry releases and sequential parser
+
+The complete English Wikipedia article dump is tens of gigabytes compressed,
+so it is not appropriate for this repository. The official 24 MB Kiwix
+chemistry-only mini release is vendored as
+`sources/wikipedia_en_chemistry_mini_2026-07.zim`, together with its upstream
+SHA-256 file. Its verified digest is
+`0a7f1e35b1f0deee19c68014421754ce42310bcf6cd8e8d3f01fad25a5ab6144`.
+
+For model extraction, rendered offline pages are less precise than source
+wikitext with revision identities. Therefore,
+[`download_wikipedia_chemistry.py`](scripts/download_wikipedia_chemistry.py)
+walks bounded scientific categories through the MediaWiki API and records
+current wikitext, revision IDs, permanent revision URLs, discovery categories,
+and per-page hashes in a ZIP.
+
+The checked-in
+`sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip` contains 1,239
+revision-pinned pages, with up to 180 pages discovered from each of chemical
+elements, isotopes, chemical compounds, chemical reactions, nuclear physics,
+spectroscopy, and materials science. Its SHA-256 is
+`c1b4db37964c497f901343c706019324eac204af2973b9aaff71c24f781cdf29`.
+The archive is CC BY-SA 4.0 and retains a permanent revision link per page for
+attribution.
+
+Refresh it intentionally:
+
+```sh
+python3 scripts/download_wikipedia_chemistry.py
+```
+
+The v2 parser accepts either the revision-pinned ZIP or the official ZIM and
+processes every Wikipedia HTML/wikitext page one at a time. Direct ZIM reading
+uses the optional official `libzim` Python binding. The current ZIM contains
+9,255 canonical English Wikipedia HTML pages after redirects and non-page
+assets are excluded. The parser can propose entirely new nuclides, molecules,
+ions, materials, mixtures, and chemical/nuclear reactions. It also stages
+aliases, compositions, scalar/text facts, conditions, and typed participant
+relationships:
+
+```sh
+# Cost-free plan.
+make wikipedia-plan
+
+# Plan all HTML pages in the official release (requires optional libzim).
+python3 -m pip install -r requirements-wikipedia.txt
+python3 scripts/parse_wikipedia_archive.py \
+  sources/wikipedia_en_chemistry_mini_2026-07.zim
+
+# Small paid trial; OPENAI_API_KEY must be set.
+python3 scripts/parse_wikipedia_archive.py \
+  sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
+  --max-pages 5 \
+  --execute \
+  --accept-cost
+```
+
+The default output is `.build/wikipedia-unverified.db`. Existing entity and
+reaction IDs are linked only when they resolve against the reviewed database;
+otherwise they remain candidates. Wikipedia text and model extraction never
+enter the reviewed `entity`, `nuclide`, `chemical_species`, `reaction`, or
+`observation` tables automatically.
+
 The build writes:
 
 - `universe.db` — release-ready SQLite artifact;
@@ -161,7 +250,8 @@ python3 scripts/export_inorganicengineering.py \
 - Nuclear channels use typed parents, daughters, incident/emitted particles,
   branch probabilities, and energy-dependent cross sections.
 - Missing source data stays missing. There are no generated “reasonable”
-  measurements or Wikipedia prose scrapes.
+  measurements, and Wikipedia-derived candidates are never promoted
+  automatically.
 
 See [the schema guide](docs/schema.md), [data policy](DATA_POLICY.md), and
 [contribution workflow](CONTRIBUTING.md). Planned data-source expansion is
@@ -169,17 +259,18 @@ tracked in the [roadmap](ROADMAP.md).
 
 ## Relationship to Inorganic Engineering
 
-This is a standalone repository and release artifact. The Minecraft mod may
-later consume deterministic exports, but game servers should not query SQLite
-on the tick thread. Database releases and mod releases can therefore evolve
-independently.
+This is a standalone repository and release artifact. The Minecraft mod build
+statically imports a pinned `universe.db` release or its deterministic datapack
+export and packages the generated resources. Game runtime must not query
+SQLite, call a model, or access the network. Database releases and mod releases
+can therefore evolve independently.
 
 ## Licensing
 
 The schema, scripts, documentation, and original chemistry bootstrap data are
 MIT licensed. Particle identity data is attributed to the Particle Data Group
-under CC BY 4.0. Periodic-table data is attributed to PubChem/NLM, and natural
-isotope data to NIST, under their published reuse terms. Each external source
-has its own row in `license` and `source`.
+under CC BY 4.0. Periodic-table data is attributed to PubChem/NLM, natural
+isotope data to NIST, and the revision-pinned Wikipedia source archive is CC
+BY-SA 4.0. Each external source has its own row in `license` and `source`.
 Future imports must be redistributable before their data can enter the checked-
 in artifact. Citation does not override an upstream license.
