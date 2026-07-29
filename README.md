@@ -183,13 +183,59 @@ python3 -m pip install -r requirements-wikipedia.txt
 python3 scripts/parse_wikipedia_archive.py \
   sources/wikipedia_en_chemistry_mini_2026-07.zim
 
-# Small paid trial; OPENAI_API_KEY must be set.
+# Small local trial. Start LM Studio's server on port 12355 first.
 python3 scripts/parse_wikipedia_archive.py \
   sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
   --max-pages 5 \
-  --execute \
-  --accept-cost
+  --execute
 ```
+
+The parser defaults to LM Studio at `http://localhost:12355/v1` and uses its
+OpenAI-compatible Chat Completions endpoint with grammar-constrained JSON
+Schema output. No API key is required with LM Studio's default authentication
+settings. If server authentication is enabled, put its token in
+`LM_STUDIO_API_KEY`. Both the endpoint and model are configurable:
+
+```sh
+python3 scripts/parse_wikipedia_archive.py \
+  sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
+  --base-url http://localhost:12355/v1 \
+  --model qwen/qwen3.5-9b \
+  --max-pages 5 \
+  --execute
+```
+
+Process all 1,239 pages in the revision-pinned ZIP with two-pass extraction,
+HTTP retries, and full-page retries:
+
+```sh
+python3 scripts/parse_wikipedia_archive.py \
+  sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
+  --base-url http://localhost:12355/v1 \
+  --model qwen/qwen3.5-9b \
+  --verify \
+  --retries 2 \
+  --page-retries 2 \
+  --requests-per-minute 0 \
+  --timeout 900 \
+  --execute
+```
+
+`--verify` makes a second independent call with the source document and the
+first extraction. The reviewer removes unsupported claims and corrects
+transcription, units, conditions, types, and evidence before the final result
+is staged. `--retries` covers transient HTTP failures for each individual
+call; `--page-retries` restarts the complete extraction-and-verification
+sequence after malformed, truncated, or otherwise invalid model output.
+Successful pages are committed one at a time, and rerunning the same command
+skips them while retrying pages previously left in `error`.
+
+For high-volume extraction, disable **Enable Thinking** in the loaded model's
+LM Studio configuration. Reasoning tokens add substantial latency here because
+the source already contains the facts and the JSON Schema constrains the
+answer. Keep the context length near 16K unless a larger page requires more;
+the parser submits at most one page per request and can cap unusually large
+pages with `--max-page-chars`.
 
 The default output is `.build/wikipedia-unverified.db`. Existing entity and
 reaction IDs are linked only when they resolve against the reviewed database;

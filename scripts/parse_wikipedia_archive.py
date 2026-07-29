@@ -21,6 +21,7 @@ import shutil
 import sqlite3
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import uuid
 import zipfile
@@ -29,8 +30,8 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / "universe.db"
 DEFAULT_OUTPUT = ROOT / ".build" / "wikipedia-unverified.db"
-DEFAULT_MODEL = "gpt-5.4-nano"
-API_URL = "https://api.openai.com/v1/responses"
+DEFAULT_MODEL = "qwen/qwen3.5-9b"
+DEFAULT_BASE_URL = "http://localhost:12355/v1"
 ZIP_ARCHIVE_FORMAT = "universe-db-wikipedia-category-snapshot-v1"
 ZIM_ARCHIVE_FORMAT = "openzim-wikipedia-chemistry"
 MAX_SQLITE_INTEGER = 2**63 - 1
@@ -214,6 +215,21 @@ page excerpt supporting that candidate, fact, composition, or relation. Return
 no_data when the page contains nothing suitable for the database. Never label
 these candidates reviewed or measured by the database project."""
 
+VERIFICATION_INSTRUCTIONS = """Act as a conservative second-pass scientific
+reviewer. Compare the proposed structured extraction with the supplied English
+Wikipedia source document and return a complete corrected extraction using the
+same schema.
+
+Keep only candidates, aliases, compositions, facts, conditions, and relations
+that are explicitly supported by the source. Correct transcription mistakes,
+units, conditions, entity kinds, and evidence excerpts. Remove unsupported or
+inferred content. You may restore an important omission only when the source
+states it explicitly. Do not browse, calculate, balance reactions, invent IDs,
+or rely on outside knowledge. evidence_text must be a short excerpt from the
+source. Return no_data when no suitable supported content remains. This is
+verification of unverified Wikipedia candidates, not promotion to reviewed
+database data."""
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -386,6 +402,20 @@ def load_zim_archive(archive_path: Path) -> tuple[dict, list[dict]]:
 
 
 def response_text(payload: dict) -> str:
+    choices = payload.get("choices")
+    if choices:
+        choice = choices[0]
+        message = choice.get("message", {})
+        refusal = message.get("refusal")
+        if refusal:
+            raise ValueError(f"model refusal: {refusal}")
+        content = message.get("content")
+        if content:
+            return content
+        raise ValueError(
+            "Chat Completions response has no message content "
+            f"(finish_reason={choice.get('finish_reason')!r})"
+        )
     if payload.get("status") != "completed":
         raise ValueError(
             "API response was not completed: "
@@ -402,13 +432,8 @@ def response_text(payload: dict) -> str:
     raise ValueError("API response has no output_text")
 
 
-def request_payload(
-    model: str,
-    page: dict,
-    submitted_wikitext: str,
-    max_output_tokens: int,
-) -> dict:
-    page_input = {
+def source_page_input(page: dict, submitted_wikitext: str) -> dict:
+    return {
         "source_entry_key": page["_source_entry_key"],
         "source_path": page["_source_path"],
         "source_url": page["_source_url"],
@@ -420,55 +445,128 @@ def request_payload(
         "title": page["title"],
         "source_document": submitted_wikitext,
     }
+
+
+def structured_chat_payload(
+    model: str,
+    system_instructions: str,
+    user_input: dict,
+    max_output_tokens: int,
+    schema_name: str,
+) -> dict:
     return {
         "model": model,
-        "reasoning": {"effort": "low"},
-        "input": [
-            {"role": "system", "content": SYSTEM_INSTRUCTIONS},
+        "messages": [
+            {"role": "system", "content": system_instructions},
             {
                 "role": "user",
-                "content": json.dumps(page_input, ensure_ascii=False),
+                "content": json.dumps(user_input, ensure_ascii=False),
             },
         ],
-        "text": {
-            "format": {
-                "type": "json_schema",
-                "name": "wikipedia_scientific_candidates",
+        "response_format": {
+            "type": "json_schema",
+            "json_schema": {
+                "name": schema_name,
                 "strict": True,
                 "schema": RESPONSE_SCHEMA,
-            },
-            "verbosity": "low",
+            }
         },
-        "max_output_tokens": max_output_tokens,
-        "store": False,
+        "temperature": 0,
+        "max_tokens": max_output_tokens,
+        "stream": False,
     }
 
 
-def call_openai(
-    api_key: str,
+def chat_request_payload(
+    model: str,
+    page: dict,
+    submitted_wikitext: str,
+    max_output_tokens: int,
+) -> dict:
+    return structured_chat_payload(
+        model,
+        SYSTEM_INSTRUCTIONS,
+        source_page_input(page, submitted_wikitext),
+        max_output_tokens,
+        "wikipedia_scientific_candidates",
+    )
+
+
+def verification_request_payload(
+    model: str,
+    page: dict,
+    submitted_wikitext: str,
+    proposed_result: dict,
+    max_output_tokens: int,
+) -> dict:
+    user_input = source_page_input(page, submitted_wikitext)
+    user_input["proposed_extraction"] = proposed_result
+    return structured_chat_payload(
+        model,
+        VERIFICATION_INSTRUCTIONS,
+        user_input,
+        max_output_tokens,
+        "verified_wikipedia_scientific_candidates",
+    )
+
+
+def chat_completions_url(base_url: str) -> str:
+    normalized = base_url.rstrip("/")
+    if normalized.endswith("/chat/completions"):
+        return normalized
+    return normalized + "/chat/completions"
+
+
+def is_local_base_url(base_url: str) -> bool:
+    try:
+        parsed = urllib.parse.urlsplit(base_url)
+    except ValueError:
+        return False
+    return (
+        parsed.scheme in {"http", "https"}
+        and parsed.hostname in {"localhost", "127.0.0.1", "::1"}
+    )
+
+
+def call_model(
+    base_url: str,
+    api_key: str | None,
     model: str,
     page: dict,
     submitted_wikitext: str,
     *,
+    proposed_result: dict | None = None,
     max_output_tokens: int,
     retries: int,
     timeout: int,
 ) -> dict:
-    body = json.dumps(
-        request_payload(model, page, submitted_wikitext, max_output_tokens)
-    ).encode("utf-8")
+    if proposed_result is None:
+        request_payload = chat_request_payload(
+            model, page, submitted_wikitext, max_output_tokens
+        )
+    else:
+        request_payload = verification_request_payload(
+            model,
+            page,
+            submitted_wikitext,
+            proposed_result,
+            max_output_tokens,
+        )
+    body = json.dumps(request_payload).encode("utf-8")
     request_id = str(uuid.uuid4())
     for attempt in range(retries + 1):
+        headers = {
+            "Content-Type": "application/json",
+            "User-Agent": "universe-db-wikipedia-parser/3",
+            "X-Client-Request-Id": request_id,
+        }
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
         request = urllib.request.Request(
-            API_URL,
+            chat_completions_url(base_url),
             data=body,
             method="POST",
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json",
-                "User-Agent": "universe-db-wikipedia-parser/2",
-                "X-Client-Request-Id": request_id,
-            },
+            headers=headers,
         )
         try:
             with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -477,10 +575,10 @@ def call_openai(
             retryable = error.code == 429 or 500 <= error.code < 600
             detail = error.read().decode("utf-8", errors="replace")
             if not retryable or attempt == retries:
-                raise RuntimeError(f"OpenAI API HTTP {error.code}: {detail}") from error
+                raise RuntimeError(f"model API HTTP {error.code}: {detail}") from error
         except urllib.error.URLError as error:
             if attempt == retries:
-                raise RuntimeError(f"OpenAI API request failed: {error}") from error
+                raise RuntimeError(f"model API request failed: {error}") from error
         time.sleep(min(2**attempt, 30))
     raise AssertionError("unreachable")
 
@@ -501,6 +599,59 @@ def normalize_result(payload: dict) -> dict:
             if count is not None and count <= 0:
                 raise ValueError("composition atom_count must be positive")
     return result
+
+
+def extract_page_with_retries(
+    base_url: str,
+    api_key: str | None,
+    model: str,
+    page: dict,
+    submitted_wikitext: str,
+    *,
+    verify: bool,
+    page_retries: int,
+    max_output_tokens: int,
+    retries: int,
+    timeout: int,
+) -> tuple[dict, dict]:
+    for page_attempt in range(page_retries + 1):
+        try:
+            extraction_payload = call_model(
+                base_url,
+                api_key,
+                model,
+                page,
+                submitted_wikitext,
+                max_output_tokens=max_output_tokens,
+                retries=retries,
+                timeout=timeout,
+            )
+            result = normalize_result(extraction_payload)
+            if not verify:
+                return extraction_payload, result
+            verification_payload = call_model(
+                base_url,
+                api_key,
+                model,
+                page,
+                submitted_wikitext,
+                proposed_result=result,
+                max_output_tokens=max_output_tokens,
+                retries=retries,
+                timeout=timeout,
+            )
+            return verification_payload, normalize_result(verification_payload)
+        except (RuntimeError, ValueError, json.JSONDecodeError) as error:
+            if page_attempt >= page_retries:
+                raise
+            delay = min(2**page_attempt, 30)
+            print(
+                f"  page attempt {page_attempt + 1} failed: {error}; "
+                f"retrying in {delay}s",
+                flush=True,
+            )
+            time.sleep(delay)
+    raise AssertionError("unreachable")
 
 
 def resolve_authoritative_match(
@@ -735,7 +886,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--model", default=DEFAULT_MODEL)
-    parser.add_argument("--api-key-env", default="OPENAI_API_KEY")
+    parser.add_argument(
+        "--base-url",
+        default=DEFAULT_BASE_URL,
+        help="OpenAI-compatible API base URL (default: local LM Studio)",
+    )
+    parser.add_argument(
+        "--api-key-env",
+        default="LM_STUDIO_API_KEY",
+        help="optional environment variable containing an API token",
+    )
     parser.add_argument("--start-page", type=int, default=0)
     parser.add_argument(
         "--max-pages",
@@ -747,10 +907,30 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-output-tokens", type=int, default=10_000)
     parser.add_argument("--requests-per-minute", type=int, default=30)
     parser.add_argument("--timeout", type=int, default=180)
-    parser.add_argument("--retries", type=int, default=2)
+    parser.add_argument(
+        "--retries",
+        type=int,
+        default=2,
+        help="HTTP retries for each model call",
+    )
+    parser.add_argument(
+        "--page-retries",
+        type=int,
+        default=2,
+        help="retry the full extraction/verification sequence after model errors",
+    )
+    parser.add_argument(
+        "--verify",
+        action="store_true",
+        help="make a second model call that corrects claims against the source",
+    )
     parser.add_argument("--refresh", action="store_true")
     parser.add_argument("--execute", action="store_true")
-    parser.add_argument("--accept-cost", action="store_true")
+    parser.add_argument(
+        "--accept-cost",
+        action="store_true",
+        help="required only when --base-url is not localhost",
+    )
     return parser.parse_args()
 
 
@@ -761,6 +941,8 @@ def main() -> int:
         or args.max_pages < 0
         or args.max_page_chars <= 0
         or args.max_output_tokens <= 0
+        or args.retries < 0
+        or args.page_retries < 0
     ):
         raise SystemExit("page and token limits are invalid")
     manifest, pages = load_archive(args.archive)
@@ -777,13 +959,11 @@ def main() -> int:
             f"({page['_input_format']}, {len(page['wikitext'])} chars)"
         )
     if not args.execute:
-        print("dry-run only; add --execute --accept-cost to call the API")
+        print("dry-run only; add --execute to call the local model API")
         return 0
-    if not args.accept_cost:
-        raise SystemExit("--execute requires --accept-cost")
+    if not is_local_base_url(args.base_url) and not args.accept_cost:
+        raise SystemExit("non-local --base-url requires --accept-cost")
     api_key = os.environ.get(args.api_key_env)
-    if not api_key:
-        raise SystemExit(f"{args.api_key_env} is not set")
 
     prepare_output(args.database, args.output)
     run_id = str(uuid.uuid4())
@@ -866,16 +1046,18 @@ def main() -> int:
                 )
                 started = time.monotonic()
                 try:
-                    payload = call_openai(
+                    payload, result = extract_page_with_retries(
+                        args.base_url,
                         api_key,
                         args.model,
                         page,
                         submitted,
+                        verify=args.verify,
+                        page_retries=args.page_retries,
                         max_output_tokens=args.max_output_tokens,
                         retries=args.retries,
                         timeout=args.timeout,
                     )
-                    result = normalize_result(payload)
                     if result["page_relevance"] == "no_data":
                         status = "no_data"
                     elif len(submitted) < len(wikitext):
@@ -940,6 +1122,9 @@ def main() -> int:
                         status,
                         utc_now(),
                         (
+                            f"endpoint {chat_completions_url(args.base_url)}; "
+                            f"verification {'enabled' if args.verify else 'disabled'}; "
+                            f"page retries {args.page_retries}; "
                             f"{completed} pages completed; {skipped} skipped; "
                             f"{failed} failed"
                         ),
