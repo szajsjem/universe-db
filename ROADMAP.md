@@ -14,7 +14,11 @@ not permission to synthesize missing values.
 - [x] NIST representative natural isotope compositions for 288 nuclides.
 - [x] Inorganic Engineering element/species/material/reaction bootstrap.
 - [x] Integrity, exact reaction-balance, ordering, and reproducibility checks.
-- [ ] Deterministic SQLite-to-datapack exporter for Inorganic Engineering.
+- [x] Publication/export validation for exact mass, charge, atoms,
+  probabilities, units, aliases, references, and graph integrity, with
+  malformed-database regression fixtures.
+- [x] Deterministic SQLite-to-datapack exporter for Inorganic Engineering,
+  including an authenticated manifest and byte-for-byte reproducibility test.
 
 ## 0.2 — elements, nuclides, and spectra
 

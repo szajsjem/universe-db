@@ -49,3 +49,7 @@ Schema support does not imply data coverage. A table with zero rows is an
 honest coverage result. Imports for nuclides, spectra, crystal structures,
 dissociation equilibria, or nuclear channels require a source-specific review
 before merging.
+
+The dependency-free [validation gates](docs/validation.md) are the minimum
+publication boundary. Passing them proves structural and authored invariants;
+it does not turn curated or modeled data into measured evidence.

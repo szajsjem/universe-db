@@ -1,4 +1,4 @@
-.PHONY: all build check report clean
+.PHONY: all build check export report clean
 
 all: check
 
@@ -10,6 +10,9 @@ check: build
 	python3 scripts/import_nist_isotopes.py --check
 	python3 scripts/validate_db.py universe.db
 	python3 -m unittest discover -s tests -v
+
+export: build
+	python3 scripts/export_inorganicengineering.py
 
 report: build
 	python3 scripts/report.py universe.db

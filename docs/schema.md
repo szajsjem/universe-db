@@ -88,3 +88,19 @@ units and uncertainty.
 `schema_migration` records every applied migration and its SHA-256 digest.
 The build is atomic: a failed migration, seed, or integrity check never
 replaces the last accepted artifact.
+
+## Datapack export boundary
+
+The SQLite schema remains target-neutral. The
+`profiles/inorganicengineering-0.1.json` export profile supplies only
+Minecraft-specific presentation values, compatibility tags, public resource
+paths, and machine-family assignments. The exporter reads scientific
+quantities, compositions, phases, material fractions, reaction participants,
+and operating ranges from the database.
+
+Every rational value crossing into an integer-only datapack field must divide
+exactly. Unspecified ore fractions are eligible for mineral/gangue identity
+export but not material-composition export. Unsupported participant roles,
+missing condition bounds, incomplete presentation metadata, and profile/data
+coverage drift stop the export rather than selecting a fallback scientific
+value.

@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "profile_id": "inorganicengineering-0.1",
+  "description": "Universe DB copper-bootstrap data for Inorganic Engineering 0.1",
+  "minecraft_version": "1.21.1",
+  "pack_format": 48,
+  "namespace": "inorganicengineering",
+  "species_dataset": "dataset:inorganic-engineering-bootstrap",
+  "default_species_metadata": {
+    "emissive_color": 0,
+    "hazards": {
+      "corrosivity": 0,
+      "environmental_severity": 0,
+      "flammability": 0,
+      "oxidizing_strength": 0,
+      "toxicity": 0
+    }
+  },
+  "species": {
+    "chem:calcite": {
+      "display_color": -1514538,
+      "compatibility_tags": ["c:stones/limestone"]
+    },
+    "chem:chalcopyrite": {
+      "display_color": -5206748,
+      "compatibility_tags": ["c:ores/chalcopyrite"],
+      "hazards": {"environmental_severity": 2500, "toxicity": 1500}
+    },
+    "chem:copper": {
+      "display_color": -4689101,
+      "compatibility_tags": ["c:ingots/copper"]
+    },
+    "chem:copper_oxide": {
+      "display_color": -13817305,
+      "hazards": {"environmental_severity": 2000, "toxicity": 4000}
+    },
+    "chem:copper_sulfate": {
+      "display_color": -13010487,
+      "hazards": {"environmental_severity": 5000, "toxicity": 5000}
+    },
+    "chem:coulsonite": {
+      "display_color": -13353672,
+      "compatibility_tags": ["c:ores/vanadiferous_magnetite"],
+      "hazards": {"environmental_severity": 4000, "toxicity": 5000}
+    },
+    "chem:fluorite": {
+      "display_color": -6785338,
+      "compatibility_tags": ["c:ores/fluorite"],
+      "hazards": {"environmental_severity": 1500, "toxicity": 1000}
+    },
+    "chem:galena": {
+      "display_color": -9736072,
+      "compatibility_tags": ["c:ores/galena"],
+      "hazards": {"environmental_severity": 7500, "toxicity": 8500}
+    },
+    "chem:gibbsite": {
+      "display_color": -2707062,
+      "compatibility_tags": ["c:ores/bauxite"]
+    },
+    "chem:halite": {
+      "display_color": -858402,
+      "compatibility_tags": ["c:ores/halite"]
+    },
+    "chem:hematite": {
+      "display_color": -7655906,
+      "compatibility_tags": ["c:ores/hematite"]
+    },
+    "chem:hydrogen": {
+      "display_color": -1509889
+    },
+    "chem:hydrogen_ion": {
+      "display_color": -34953,
+      "hazards": {"corrosivity": 8000}
+    },
+    "chem:hydroxide": {
+      "display_color": -8947713,
+      "hazards": {"corrosivity": 8000}
+    },
+    "chem:iron": {
+      "display_color": -4937056,
+      "compatibility_tags": ["c:ingots/iron"]
+    },
+    "chem:magnetite": {
+      "display_color": -14079188,
+      "compatibility_tags": ["c:ores/magnetite"]
+    },
+    "chem:oxygen": {
+      "display_color": -4663041,
+      "hazards": {"oxidizing_strength": 7500}
+    },
+    "chem:pentlandite": {
+      "display_color": -6649247,
+      "compatibility_tags": ["c:ores/pentlandite"],
+      "hazards": {"environmental_severity": 5000, "toxicity": 6000}
+    },
+    "chem:pyrite": {
+      "display_color": -2971588,
+      "compatibility_tags": ["c:ores/pyrite"],
+      "hazards": {"environmental_severity": 2500, "toxicity": 1000}
+    },
+    "chem:quartz": {
+      "display_color": -1580324,
+      "compatibility_tags": ["c:gems/quartz"]
+    },
+    "chem:sphalerite": {
+      "display_color": -9479622,
+      "compatibility_tags": ["c:ores/sphalerite"],
+      "hazards": {"environmental_severity": 3000, "toxicity": 2000}
+    },
+    "chem:sulfur_dioxide": {
+      "display_color": -2567270,
+      "hazards": {
+        "corrosivity": 5000,
+        "environmental_severity": 6000,
+        "toxicity": 7000
+      }
+    },
+    "chem:sulfuric_acid": {
+      "display_color": -1515067,
+      "hazards": {"corrosivity": 10000, "environmental_severity": 4000}
+    },
+    "chem:unresolved_trace": {
+      "display_color": -8947849,
+      "supported_phases": ["aqueous", "liquid", "gas", "molten", "slurry", "solid"]
+    },
+    "chem:water": {
+      "display_color": -12607489,
+      "compatibility_tags": ["c:water"]
+    }
+  },
+  "minerals": {
+    "material:bauxite": {"id": "bauxite", "translation_key": "mineral.inorganicengineering.bauxite"},
+    "material:calcite_ore": {"id": "calcite"},
+    "material:chalcopyrite_ore": {"id": "chalcopyrite"},
+    "material:fluorite_ore": {"id": "fluorite"},
+    "material:galena_ore": {"id": "galena"},
+    "material:halite_ore": {"id": "halite"},
+    "material:hematite_ore": {"id": "hematite"},
+    "material:magnetite_ore": {"id": "magnetite"},
+    "material:pentlandite_ore": {"id": "pentlandite"},
+    "material:pyrite_ore": {"id": "pyrite"},
+    "material:sphalerite_ore": {"id": "sphalerite"},
+    "material:vanadiferous_magnetite": {
+      "id": "vanadiferous_magnetite",
+      "translation_key": "mineral.inorganicengineering.vanadiferous_magnetite"
+    }
+  },
+  "materials": {
+    "material:cathode_copper": {
+      "id": "cathode_copper",
+      "compatibility_tags": ["c:ingots/copper"]
+    }
+  },
+  "reactions": {
+    "reaction:chalcopyrite_roasting": {
+      "id": "thermal_processing/chalcopyrite_roasting",
+      "machine": "thermal_processing",
+      "throughput": 10000
+    },
+    "reaction:copper_leachate_filtration": {
+      "id": "filtration/copper_leachate",
+      "machine": "filtration",
+      "throughput": 10000
+    },
+    "reaction:copper_oxide_leaching": {
+      "id": "leaching/copper_oxide",
+      "machine": "leaching",
+      "throughput": 10000
+    }
+  }
+}
