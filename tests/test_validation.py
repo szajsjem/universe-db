@@ -119,6 +119,53 @@ class ValidatorRegressionTest(unittest.TestCase):
         )
         self.assert_rejected("uses a unit of the wrong quantity kind")
 
+    def test_rejects_invalid_partial_half_life_reference(self) -> None:
+        self.mutate(
+            """
+            INSERT INTO nuclear_channel(
+                channel_id, channel_type, parent_nuclide_id,
+                probability_numerator, probability_denominator,
+                dataset_id, source_id, schema_version,
+                partial_half_life_observation_id
+            ) VALUES (
+                'channel:test-half-life', 'gamma', 'nuclide:hydrogen-1',
+                1, 1, 'dataset:inorganic-engineering-bootstrap',
+                'inorganic-engineering-af5a553', 1,
+                'observation:molar_mass:water'
+            )
+            """
+        )
+        self.assert_rejected(
+            "partial half-life observation for the wrong subject or property"
+        )
+
+    def test_rejects_wrong_velocity_cross_section_axis_unit(self) -> None:
+        self.mutate(
+            """
+            INSERT INTO nuclear_channel(
+                channel_id, channel_type, parent_nuclide_id,
+                dataset_id, source_id, schema_version
+            ) VALUES (
+                'channel:test-velocity', 'other', 'nuclide:hydrogen-1',
+                'dataset:inorganic-engineering-bootstrap',
+                'inorganic-engineering-af5a553', 1
+            )
+            """
+        )
+        self.mutate(
+            """
+            INSERT INTO nuclear_cross_section_velocity_point(
+                channel_id, point_index, speed_numerator, speed_denominator,
+                speed_unit_id, cross_section_numerator,
+                cross_section_denominator, cross_section_unit_id
+            ) VALUES (
+                'channel:test-velocity', 0, 1, 1, 'unit:kelvin',
+                1, 1, 'unit:barn'
+            )
+            """
+        )
+        self.assert_rejected("cross-section velocity axis")
+
     def test_rejects_unresolvable_deprecated_alias(self) -> None:
         self.mutate(
             """

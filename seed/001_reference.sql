@@ -1,6 +1,6 @@
 INSERT INTO database_metadata(key, value) VALUES
     ('title', 'Universe Database'),
-    ('schema_version', '3'),
+    ('schema_version', '5'),
     ('data_policy', 'No invented values; missing data remains absent'),
     ('artifact', 'universe.db');
 
@@ -22,6 +22,14 @@ INSERT INTO license(
         'https://creativecommons.org/licenses/by/4.0/',
         1,
         'Attribution is required.'
+    ),
+    (
+        'cc-by-sa-4.0',
+        'Creative Commons Attribution-ShareAlike 4.0 International',
+        'CC-BY-SA-4.0',
+        'https://creativecommons.org/licenses/by-sa/4.0/',
+        1,
+        'Attribution and ShareAlike are required. Wikipedia page snapshots retain permanent revision URLs for contributor attribution.'
     ),
     (
         'pubchem-no-restriction',
@@ -74,6 +82,22 @@ INSERT INTO source(
         'https://physics.nist.gov/PhysRefData/Compositions/index.html',
         'nist-public-information',
         '2026-07-28'
+    ),
+    (
+        'wikipedia-chemistry-category-snapshot-2026-07-29',
+        'English Wikipedia chemistry category snapshot',
+        'English Wikipedia revision-pinned category snapshot, 1,239 pages retrieved 2026-07-29; archive SHA-256 c1b4db37964c497f901343c706019324eac204af2973b9aaff71c24f781cdf29.',
+        'https://en.wikipedia.org/',
+        'cc-by-sa-4.0',
+        '2026-07-29'
+    ),
+    (
+        'kiwix-wikipedia-en-chemistry-mini-2026-07',
+        'Kiwix English Wikipedia chemistry mini release',
+        'Official Kiwix English Wikipedia chemistry mini ZIM, July 2026; SHA-256 0a7f1e35b1f0deee19c68014421754ce42310bcf6cd8e8d3f01fad25a5ab6144.',
+        'https://download.kiwix.org/zim/wikipedia/wikipedia_en_chemistry_mini_2026-07.zim',
+        'cc-by-sa-4.0',
+        '2026-07-29'
     );
 
 INSERT INTO dataset(
@@ -128,6 +152,8 @@ INSERT INTO unit(
     ('unit:millikelvin', 'mK', 'temperature', 1, 1000, 0, 0, 1),
     ('unit:kelvin', 'K', 'temperature', 1, 1, 0, 0, 1),
     ('unit:pascal', 'Pa', 'pressure', 1, 1, 0, 0, 1),
+    ('unit:metre_per_second', 'm/s', 'speed', 1, 1, 0, 0, 1),
+    ('unit:second', 's', 'time', 1, 1, 0, 0, 1),
     ('unit:joule', 'J', 'energy', 1, 1, 0, 0, 1),
     ('unit:electronvolt', 'eV', 'energy', 1602176634, 1, -28, 0, 1),
     ('unit:nanometre', 'nm', 'length', 1, 1000000000, 0, 0, 1),
@@ -187,7 +213,33 @@ INSERT INTO property_definition(
         'unit:microjoule_per_gram_kelvin'
     ),
     ('property:melting_point', 'melting point', 'temperature', 'unit:millikelvin'),
-    ('property:boiling_point', 'boiling point', 'temperature', 'unit:millikelvin');
+    ('property:boiling_point', 'boiling point', 'temperature', 'unit:millikelvin'),
+    (
+        'property:electronegativity',
+        'electronegativity',
+        'dimensionless',
+        'unit:one'
+    ),
+    ('property:nuclear_spin', 'nuclear spin', 'dimensionless', 'unit:one'),
+    ('property:half_life', 'half-life', 'time', 'unit:second'),
+    (
+        'property:mass_excess_energy',
+        'mass excess energy',
+        'energy',
+        'unit:electronvolt'
+    ),
+    (
+        'property:nuclear_binding_energy',
+        'nuclear binding energy',
+        'energy',
+        'unit:electronvolt'
+    ),
+    (
+        'property:nuclear_binding_energy_per_nucleon',
+        'nuclear binding energy per nucleon',
+        'energy',
+        'unit:electronvolt'
+    );
 
 CREATE TEMP TABLE seed_particle(
     entity_id TEXT PRIMARY KEY,

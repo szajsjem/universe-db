@@ -79,8 +79,46 @@ points; `spectral_feature` stores reviewed peaks, edges, bands, and lines.
 `nuclear_channel` links typed decay/capture processes to parent and daughter
 nuclides with optional branch probability and conditions.
 `nuclear_channel_particle` stores incident and emitted particles.
-`nuclear_cross_section_point` stores energy-ordered cross-section curves with
-units and uncertainty.
+`nuclear_channel_nuclide` stores incident and emitted nuclides, allowing
+target/projectile fusion and other nuclide–nuclide channels without pretending
+that a nuclide is an elementary particle. A channel may reference a sourced
+partial-half-life observation.
+`nuclear_cross_section_point` and
+`nuclear_cross_section_velocity_point` store energy- or speed-ordered
+cross-section curves with units and uncertainty.
+
+## Unverified research staging
+
+`research_run` and `research_task` record opt-in model/web-search work.
+`unverified_fact`, `unverified_fact_condition`, and
+`unverified_fact_source` preserve the result, exact decimal-to-rational
+conversion when it fits SQLite, conditions, relation hints, and supporting
+URLs. These tables are a review queue, not scientific authority. Normal
+builds create them empty, validators do not promote them, and exporters do not
+read them.
+
+The second staging path is page-oriented. `wikipedia_parse_run` identifies the
+source archive and model; `wikipedia_page_parse` pins every parse to an archive
+entry, source path/URL, input format, and content digest. MediaWiki snapshots
+also retain the page ID, revision ID, permanent URL, and revision timestamp;
+Kiwix entries retain the release date and canonical page URL.
+`unverified_entity_candidate` may propose a new particle, element, nuclide,
+atom, molecule, ion, formula unit, complex, polymer, material, mixture, or
+reaction without first creating an authoritative entity. Candidate alias,
+composition, fact/condition, and relation tables preserve structured output.
+Reaction participants and nuclear incident/emitted entities are staged as
+relations until reviewed identities and conservation checks are available.
+
+Field placement for the current research target is:
+
+- melting/boiling temperatures, electronegativity, molar mass, abundance,
+  spin, half-life, mass excess, and binding energy are typed observations;
+- pressure and other applicable state belong in condition sets;
+- electron configuration is source-authored element metadata;
+- spectra use spectrum/point/feature relationships;
+- decay probabilities and daughters use nuclear channels;
+- fusion and induced-reaction probabilities versus energy or relative speed
+  use typed participants plus cross-section points.
 
 ## Migrations
 
