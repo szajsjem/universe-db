@@ -89,10 +89,12 @@ make check
 sha256sum --check universe.db.sha256
 ```
 
-`make check` performs SQLite integrity and foreign-key checks, exact reaction
-balance validation, complete periodic-table validation, generated-seed
-validation, a byte-for-byte reproducibility test, and an artifact freshness
-test. It does not invoke Gradle or build the Minecraft mod.
+`make check` performs the dependency-free
+[publication validation gates](docs/validation.md), complete periodic-table
+validation, generated-seed validation, a byte-for-byte reproducibility test,
+and an artifact freshness test. The datapack exporter runs those same gates
+before reading its profile. It does not invoke Gradle or build the Minecraft
+mod.
 
 Normal builds are network-independent. To intentionally capture a new PubChem
 snapshot and regenerate its SQL:
@@ -111,6 +113,37 @@ The build writes:
 - `universe.db` — release-ready SQLite artifact;
 - `universe.db.sha256` — SHA-256 checksum;
 - `manifest.json` — schema version, SQLite version, hash, and all table counts.
+
+## Export the Inorganic Engineering datapack
+
+The checked-in `inorganicengineering-0.1` export profile combines scientific
+rows from `universe.db` with target-specific presentation metadata and machine
+IDs. Keeping those target details in the profile prevents Minecraft fields
+from being mistaken for scientific observations.
+
+```sh
+make export
+```
+
+This writes `dist/inorganicengineering-0.1.zip`, a directly installable
+Minecraft 1.21.1 datapack. It contains the reviewed bootstrap's 16 referenced
+elements, 25 species, 12 mineral definitions, cathode-copper material, and
+three conserved process recipes.
+
+The ZIP uses sorted paths, fixed timestamps, stable permissions, and stored
+entries so repeated exports from the same database and profile are
+byte-for-byte identical. `universe-db-export.json` records the database and
+profile SHA-256 digests plus a digest for every payload file. The exporter
+fails instead of rounding rational values or filling absent scientific fields.
+
+Custom paths are available without third-party dependencies:
+
+```sh
+python3 scripts/export_inorganicengineering.py \
+  --database universe.db \
+  --profile profiles/inorganicengineering-0.1.json \
+  --output /path/to/inorganicengineering.zip
+```
 
 ## Design rules
 
