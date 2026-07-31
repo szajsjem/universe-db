@@ -6,6 +6,7 @@ from pathlib import Path
 import sqlite3
 import sys
 import tempfile
+import threading
 import types
 import unittest
 from unittest.mock import patch
@@ -20,7 +21,10 @@ from scripts.parse_wikipedia_archive import (
     is_local_base_url,
     load_archive,
     load_zim_archive,
+    lm_studio_models_url,
+    main,
     normalize_result,
+    parallel_slots_from_models,
     verification_request_payload,
 )
 
@@ -196,6 +200,10 @@ class WikipediaImportTest(unittest.TestCase):
         self.assertTrue(is_local_base_url("http://localhost:12355/v1"))
         self.assertTrue(is_local_base_url("http://[::1]:12355/v1"))
         self.assertFalse(is_local_base_url("http://localhost.example/v1"))
+        self.assertEqual(
+            "http://localhost:12355/api/v1/models",
+            lm_studio_models_url("http://localhost:12355/v1"),
+        )
 
         result = {
             "page_relevance": "relevant",
@@ -215,6 +223,112 @@ class WikipediaImportTest(unittest.TestCase):
             ],
         }
         self.assertEqual("iron", normalize_result(payload)["entities"][0]["name"])
+
+    def test_lm_studio_parallel_slots_are_read_from_loaded_instance(self) -> None:
+        payload = {
+            "models": [
+                {
+                    "key": "qwen/qwen3.5-9b",
+                    "loaded_instances": [
+                        {
+                            "id": "qwen/qwen3.5-9b",
+                            "config": {"parallel": 4},
+                        }
+                    ],
+                }
+            ]
+        }
+        self.assertEqual(
+            4,
+            parallel_slots_from_models(payload, "qwen/qwen3.5-9b"),
+        )
+        with self.assertRaises(ValueError):
+            parallel_slots_from_models(payload, "missing-model")
+
+    def test_main_uses_parallel_workers_and_serialized_database_writes(self) -> None:
+        def page(index: int) -> dict:
+            return {
+                "page_id": index + 1,
+                "revision_id": index + 10,
+                "revision_timestamp": "2026-07-29T00:00:00Z",
+                "revision_url": f"https://example.test/?oldid={index + 10}",
+                "title": f"Page {index}",
+                "wikitext": f"Source {index}",
+                "_sequence_index": index,
+                "_content_sha256": str(index) * 64,
+                "_source_entry_key": f"page:{index + 1}:revision:{index + 10}",
+                "_source_path": f"pages/{index}.json",
+                "_source_url": f"https://example.test/?oldid={index + 10}",
+                "_source_timestamp": "2026-07-29T00:00:00Z",
+                "_input_format": "wikitext",
+            }
+
+        barrier = threading.Barrier(2)
+
+        def fake_extract(*_args, **_kwargs):
+            barrier.wait(timeout=2)
+            return (
+                {"id": "chatcmpl-test"},
+                {"page_relevance": "no_data", "notes": None, "entities": []},
+            )
+
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory) / "base.db"
+            output = Path(directory) / "parallel.db"
+            archive = Path(directory) / "snapshot.zip"
+            build(base)
+            archive.write_bytes(b"test archive")
+            args = types.SimpleNamespace(
+                archive=archive,
+                database=base,
+                output=output,
+                model="qwen/qwen3.5-9b",
+                base_url="http://localhost:12355/v1",
+                api_key_env="UNSET_TEST_API_KEY",
+                start_page=0,
+                max_pages=0,
+                max_page_chars=500_000,
+                max_output_tokens=1000,
+                requests_per_minute=0,
+                parallel_requests=0,
+                timeout=30,
+                retries=0,
+                page_retries=0,
+                verify=False,
+                refresh=False,
+                execute=True,
+                accept_cost=False,
+            )
+            manifest = {
+                "archive_format": "universe-db-wikipedia-category-snapshot-v1",
+                "page_count": 2,
+                "license": {"spdx_id": "CC-BY-SA-4.0"},
+            }
+            with (
+                patch("scripts.parse_wikipedia_archive.parse_args", return_value=args),
+                patch(
+                    "scripts.parse_wikipedia_archive.load_archive",
+                    return_value=(manifest, [page(0), page(1)]),
+                ),
+                patch(
+                    "scripts.parse_wikipedia_archive.fetch_lm_studio_parallel_slots",
+                    return_value=2,
+                ),
+                patch(
+                    "scripts.parse_wikipedia_archive.extract_page_with_retries",
+                    side_effect=fake_extract,
+                ),
+            ):
+                self.assertEqual(0, main())
+            with closing(sqlite3.connect(output)) as connection:
+                statuses = connection.execute(
+                    "SELECT status FROM wikipedia_page_parse ORDER BY sequence_index"
+                ).fetchall()
+                notes = connection.execute(
+                    "SELECT notes FROM wikipedia_parse_run"
+                ).fetchone()[0]
+        self.assertEqual([("no_data",), ("no_data",)], statuses)
+        self.assertIn("parallel workers 2 (LM Studio)", notes)
 
     def test_verification_payload_includes_source_and_proposal(self) -> None:
         page = {

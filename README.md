@@ -216,6 +216,7 @@ python3 scripts/parse_wikipedia_archive.py \
   --verify \
   --retries 2 \
   --page-retries 2 \
+  --parallel-requests 0 \
   --requests-per-minute 0 \
   --timeout 900 \
   --execute
@@ -229,6 +230,15 @@ call; `--page-retries` restarts the complete extraction-and-verification
 sequence after malformed, truncated, or otherwise invalid model output.
 Successful pages are committed one at a time, and rerunning the same command
 skips them while retrying pages previously left in `error`.
+
+`--parallel-requests 0` is automatic: the parser reads the loaded model's
+`config.parallel` value from LM Studio's `/api/v1/models` response and uses
+that many concurrent page workers. If slot discovery fails, it safely falls
+back to one worker. Set an explicit positive value to override discovery, or
+use `--parallel-requests 1` for sequential operation. Model requests run in
+parallel, while all SQLite writes remain serialized and transactional.
+`--requests-per-minute` is a global start-rate limit across extraction,
+verification, and retry calls; zero disables pacing for the local server.
 
 For high-volume extraction, disable **Enable Thinking** in the loaded model's
 LM Studio configuration. Reasoning tokens add substantial latency here because

@@ -9,6 +9,8 @@ relations remain isolated from reviewed tables pending human source review.
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
+from contextlib import closing
 from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from fractions import Fraction
@@ -19,6 +21,7 @@ from pathlib import Path
 import re
 import shutil
 import sqlite3
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -528,6 +531,67 @@ def is_local_base_url(base_url: str) -> bool:
     )
 
 
+def lm_studio_models_url(base_url: str) -> str:
+    parsed = urllib.parse.urlsplit(base_url)
+    if not parsed.scheme or not parsed.netloc:
+        raise ValueError(f"invalid model API base URL: {base_url!r}")
+    return urllib.parse.urlunsplit(
+        (parsed.scheme, parsed.netloc, "/api/v1/models", "", "")
+    )
+
+
+def parallel_slots_from_models(payload: dict, model: str) -> int:
+    matching_instances: list[dict] = []
+    for model_record in payload.get("models", []):
+        instances = model_record.get("loaded_instances") or []
+        matching_instances.extend(
+            instance for instance in instances if instance.get("id") == model
+        )
+        if model_record.get("key") == model:
+            matching_instances.extend(instances)
+    for instance in matching_instances:
+        slots = instance.get("config", {}).get("parallel")
+        if isinstance(slots, int) and 1 <= slots <= 64:
+            return slots
+    raise ValueError(f"LM Studio has no loaded instance with parallel slots for {model}")
+
+
+def fetch_lm_studio_parallel_slots(
+    base_url: str,
+    api_key: str | None,
+    model: str,
+    timeout: int,
+) -> int:
+    headers = {"User-Agent": "universe-db-wikipedia-parser/3"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+    request = urllib.request.Request(
+        lm_studio_models_url(base_url),
+        headers=headers,
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            payload = json.loads(response.read())
+    except (urllib.error.HTTPError, urllib.error.URLError) as error:
+        raise RuntimeError(f"could not read LM Studio model slots: {error}") from error
+    return parallel_slots_from_models(payload, model)
+
+
+class RequestRateLimiter:
+    def __init__(self, requests_per_minute: int) -> None:
+        self.interval = 60 / requests_per_minute
+        self.next_request = 0.0
+        self.lock = threading.Lock()
+
+    def wait(self) -> None:
+        with self.lock:
+            now = time.monotonic()
+            delay = max(0.0, self.next_request - now)
+            self.next_request = max(now, self.next_request) + self.interval
+        if delay:
+            time.sleep(delay)
+
+
 def call_model(
     base_url: str,
     api_key: str | None,
@@ -536,6 +600,7 @@ def call_model(
     submitted_wikitext: str,
     *,
     proposed_result: dict | None = None,
+    rate_limiter: RequestRateLimiter | None = None,
     max_output_tokens: int,
     retries: int,
     timeout: int,
@@ -569,6 +634,8 @@ def call_model(
             headers=headers,
         )
         try:
+            if rate_limiter is not None:
+                rate_limiter.wait()
             with urllib.request.urlopen(request, timeout=timeout) as response:
                 return json.loads(response.read())
         except urllib.error.HTTPError as error:
@@ -610,6 +677,7 @@ def extract_page_with_retries(
     *,
     verify: bool,
     page_retries: int,
+    rate_limiter: RequestRateLimiter | None = None,
     max_output_tokens: int,
     retries: int,
     timeout: int,
@@ -622,6 +690,7 @@ def extract_page_with_retries(
                 model,
                 page,
                 submitted_wikitext,
+                rate_limiter=rate_limiter,
                 max_output_tokens=max_output_tokens,
                 retries=retries,
                 timeout=timeout,
@@ -636,6 +705,7 @@ def extract_page_with_retries(
                 page,
                 submitted_wikitext,
                 proposed_result=result,
+                rate_limiter=rate_limiter,
                 max_output_tokens=max_output_tokens,
                 retries=retries,
                 timeout=timeout,
@@ -906,6 +976,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-page-chars", type=int, default=500_000)
     parser.add_argument("--max-output-tokens", type=int, default=10_000)
     parser.add_argument("--requests-per-minute", type=int, default=30)
+    parser.add_argument(
+        "--parallel-requests",
+        type=int,
+        default=0,
+        help="concurrent page workers; zero reads the loaded LM Studio slots",
+    )
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument(
         "--retries",
@@ -941,10 +1017,12 @@ def main() -> int:
         or args.max_pages < 0
         or args.max_page_chars <= 0
         or args.max_output_tokens <= 0
+        or args.requests_per_minute < 0
+        or args.parallel_requests < 0
         or args.retries < 0
         or args.page_retries < 0
     ):
-        raise SystemExit("page and token limits are invalid")
+        raise SystemExit("numeric limits are invalid")
     manifest, pages = load_archive(args.archive)
     selected = pages[args.start_page :]
     if args.max_pages:
@@ -964,6 +1042,30 @@ def main() -> int:
     if not is_local_base_url(args.base_url) and not args.accept_cost:
         raise SystemExit("non-local --base-url requires --accept-cost")
     api_key = os.environ.get(args.api_key_env)
+    if args.parallel_requests:
+        parallel_requests = args.parallel_requests
+        slot_source = "command line"
+    else:
+        try:
+            parallel_requests = fetch_lm_studio_parallel_slots(
+                args.base_url,
+                api_key,
+                args.model,
+                min(args.timeout, 15),
+            )
+            slot_source = "LM Studio"
+        except (RuntimeError, ValueError, json.JSONDecodeError) as error:
+            parallel_requests = 1
+            slot_source = f"fallback ({error})"
+    print(
+        f"parallel page workers: {parallel_requests} [{slot_source}]",
+        flush=True,
+    )
+    rate_limiter = (
+        RequestRateLimiter(args.requests_per_minute)
+        if args.requests_per_minute
+        else None
+    )
 
     prepare_output(args.database, args.output)
     run_id = str(uuid.uuid4())
@@ -972,7 +1074,7 @@ def main() -> int:
     failed = 0
     interrupted = False
     base_digest = sha256(args.database)
-    with sqlite3.connect(args.output) as connection:
+    with closing(sqlite3.connect(args.output)) as connection:
         connection.execute("PRAGMA foreign_keys = ON")
         ensure_schema(connection)
         bind_overlay_to_base(
@@ -997,8 +1099,12 @@ def main() -> int:
             ),
         )
         connection.commit()
-        try:
-            for selected_index, page in enumerate(selected, start=1):
+        page_iterator = iter(enumerate(selected, start=1))
+        futures: dict[Future, tuple[str, dict, int, int]] = {}
+
+        def submit_next(executor: ThreadPoolExecutor) -> bool:
+            nonlocal skipped
+            for selected_index, page in page_iterator:
                 if not args.refresh and already_parsed(
                     connection, archive_digest, page
                 ):
@@ -1040,75 +1146,108 @@ def main() -> int:
                         ),
                     )
                 print(
-                    f"[{selected_index}/{len(selected)}] "
+                    f"[{selected_index}/{len(selected)}] queued "
                     f"{page['title']} ({len(submitted)} chars)",
                     flush=True,
                 )
-                started = time.monotonic()
-                try:
-                    payload, result = extract_page_with_retries(
-                        args.base_url,
-                        api_key,
-                        args.model,
-                        page,
-                        submitted,
-                        verify=args.verify,
-                        page_retries=args.page_retries,
-                        max_output_tokens=args.max_output_tokens,
-                        retries=args.retries,
-                        timeout=args.timeout,
+                future = executor.submit(
+                    extract_page_with_retries,
+                    args.base_url,
+                    api_key,
+                    args.model,
+                    page,
+                    submitted,
+                    verify=args.verify,
+                    page_retries=args.page_retries,
+                    rate_limiter=rate_limiter,
+                    max_output_tokens=args.max_output_tokens,
+                    retries=args.retries,
+                    timeout=args.timeout,
+                )
+                futures[future] = (
+                    page_parse_id,
+                    page,
+                    len(wikitext),
+                    len(submitted),
+                )
+                return True
+            return False
+
+        def persist_future(future: Future) -> None:
+            nonlocal completed, failed
+            page_parse_id, page, content_chars, submitted_chars = futures.pop(
+                future
+            )
+            try:
+                payload, result = future.result()
+                if result["page_relevance"] == "no_data":
+                    page_status = "no_data"
+                elif submitted_chars < content_chars:
+                    page_status = "parsed_partial"
+                else:
+                    page_status = "parsed"
+                with connection:
+                    for candidate_index, candidate in enumerate(result["entities"]):
+                        insert_candidate(
+                            connection,
+                            page_parse_id,
+                            candidate_index,
+                            candidate,
+                        )
+                    connection.execute(
+                        """
+                        UPDATE wikipedia_page_parse
+                        SET status = ?, response_id = ?, completed_at = ?
+                        WHERE page_parse_id = ?
+                        """,
+                        (
+                            page_status,
+                            payload.get("id"),
+                            utc_now(),
+                            page_parse_id,
+                        ),
                     )
-                    if result["page_relevance"] == "no_data":
-                        status = "no_data"
-                    elif len(submitted) < len(wikitext):
-                        status = "parsed_partial"
-                    else:
-                        status = "parsed"
-                    with connection:
-                        for candidate_index, candidate in enumerate(
-                            result["entities"]
-                        ):
-                            insert_candidate(
-                                connection,
-                                page_parse_id,
-                                candidate_index,
-                                candidate,
-                            )
-                        connection.execute(
-                            """
-                            UPDATE wikipedia_page_parse
-                            SET status = ?, response_id = ?, completed_at = ?
-                            WHERE page_parse_id = ?
-                            """,
-                            (
-                                status,
-                                payload.get("id"),
-                                utc_now(),
-                                page_parse_id,
-                            ),
-                        )
-                    completed += 1
-                except (RuntimeError, ValueError, json.JSONDecodeError) as error:
-                    with connection:
-                        connection.execute(
-                            """
-                            UPDATE wikipedia_page_parse
-                            SET status = 'error', error_text = ?,
-                                completed_at = ?
-                            WHERE page_parse_id = ?
-                            """,
-                            (str(error), utc_now(), page_parse_id),
-                        )
-                    failed += 1
-                    print(f"  error: {error}", flush=True)
-                if args.requests_per_minute:
-                    interval = 60 / args.requests_per_minute
-                    remaining = interval - (time.monotonic() - started)
-                    if remaining > 0:
-                        time.sleep(remaining)
+                completed += 1
+                print(
+                    f"  completed [{page['_sequence_index']}] "
+                    f"{page['title']} ({page_status})",
+                    flush=True,
+                )
+            except (RuntimeError, ValueError, json.JSONDecodeError) as error:
+                with connection:
+                    connection.execute(
+                        """
+                        UPDATE wikipedia_page_parse
+                        SET status = 'error', error_text = ?, completed_at = ?
+                        WHERE page_parse_id = ?
+                        """,
+                        (str(error), utc_now(), page_parse_id),
+                    )
+                failed += 1
+                print(f"  error [{page['_sequence_index']}]: {error}", flush=True)
+
+        try:
+            with ThreadPoolExecutor(max_workers=parallel_requests) as executor:
+                for _ in range(parallel_requests):
+                    if not submit_next(executor):
+                        break
+                while futures:
+                    finished, _ = wait(futures, return_when=FIRST_COMPLETED)
+                    for future in sorted(
+                        finished,
+                        key=lambda item: futures[item][1]["_sequence_index"],
+                    ):
+                        persist_future(future)
+                        submit_next(executor)
         except KeyboardInterrupt:
             interrupted = True
-            print("stopping after current committed page", flush=True)
+            for future in futures:
+                future.cancel()
+            print(
+                "stopping; completed pages are committed and active pages may "
+                "remain pending",
+                flush=True,
+            )
         finally:
             status = "stopped" if interrupted else "completed"
             with connection:
@@ -1123,6 +1262,7 @@ def main() -> int:
                         utc_now(),
                         (
                             f"endpoint {chat_completions_url(args.base_url)}; "
+                            f"parallel workers {parallel_requests} ({slot_source}); "
                             f"verification {'enabled' if args.verify else 'disabled'}; "
                             f"page retries {args.page_retries}; "
                             f"{completed} pages completed; {skipped} skipped; "
