@@ -16,13 +16,13 @@ today. The schema is broad; the reviewed data will grow source by source.
 | Quarks and leptons | 12 identities | yes |
 | Elements / atoms | 118 elements | yes |
 | Nuclides and isomers | 288 naturally representative isotopes | yes |
-| Chemical species | 25 | yes |
+| Chemical species | 49 | yes |
 | Molecular atom/bond graphs | 0 | yes |
-| Materials and ores | 13 | yes |
+| Materials and ores | 15 | yes |
 | Mixtures | 0 | yes |
 | Crystal structures and lattice sites | 0 | yes |
-| Chemical/process reactions | 3 | yes |
-| Ion dissociation | 0 | yes |
+| Chemical/process reactions | 38 | yes |
+| Ion dissociation | 14 | yes |
 | IR / visible / UV / X-ray spectra | 0 | yes |
 | Nuclear decay and capture channels | 0 | yes |
 | Energy-dependent cross sections | 0 | yes |
@@ -51,6 +51,13 @@ comes from the authored Inorganic Engineering catalog
 at commit `af5a553`: 16 elements, 25 species, 12 ore/mineral mappings, cathode
 copper, and three balanced process definitions. Those values are labeled
 `curated`; they are not silently upgraded to `measured`.
+
+An additional hand-authored industrial chemistry slice adds 24 species, coal
+and copper-anode material identities, and 35 balanced reactions. It covers
+carbon combustion and producer-gas chemistry, iron-ore reduction and slag
+formation, copper reduction, cementation, electrorefining and electrowinning,
+plus acid ionization, neutralization, and common salt dissociation. It asserts
+no measured property values or numeric operating envelopes.
 
 ## Use the artifact
 
@@ -191,8 +198,13 @@ python3 scripts/parse_wikipedia_archive.py \
 ```
 
 The parser defaults to LM Studio at `http://localhost:12355/v1` and uses its
-OpenAI-compatible Chat Completions endpoint with grammar-constrained JSON
-Schema output. No API key is required with LM Studio's default authentication
+OpenAI-compatible streaming Chat Completions endpoint with grammar-constrained
+JSON Schema output. It parses JSON incrementally, returns as soon as the root
+object closes, and retries a call immediately when a malformed prefix,
+mismatched delimiter, truncated finish, or invalid structured result is
+detected. If LM Studio reports an SSE engine error, the next call-level attempt
+automatically falls back to a non-streaming response. No API key is required
+with LM Studio's default authentication
 settings. If server authentication is enabled, put its token in
 `LM_STUDIO_API_KEY`. Both the endpoint and model are configurable:
 
@@ -225,9 +237,10 @@ python3 scripts/parse_wikipedia_archive.py \
 `--verify` makes a second independent call with the source document and the
 first extraction. The reviewer removes unsupported claims and corrects
 transcription, units, conditions, types, and evidence before the final result
-is staged. `--retries` covers transient HTTP failures for each individual
-call; `--page-retries` restarts the complete extraction-and-verification
-sequence after malformed, truncated, or otherwise invalid model output.
+is staged. `--retries` covers transient HTTP failures and early streamed-output
+failures for each individual call; `--page-retries` restarts the complete
+extraction-and-verification sequence after all call-level attempts return
+malformed, truncated, or otherwise invalid model output.
 Successful pages are committed one at a time, and rerunning the same command
 skips them while retrying pages previously left in `error`.
 
@@ -239,6 +252,11 @@ use `--parallel-requests 1` for sequential operation. Model requests run in
 parallel, while all SQLite writes remain serialized and transactional.
 `--requests-per-minute` is a global start-rate limit across extraction,
 verification, and retry calls; zero disables pacing for the local server.
+Use `--no-stream` when a loaded model/runtime combination cannot stream a
+grammar-constrained JSON Schema. In particular, the locally tested
+`nuextract-2.0-8b` build fails inside LM Studio's grammar engine when streaming,
+so it should be scanned with `--no-stream`; Qwen structured-output models can
+use the default streaming path.
 
 For high-volume extraction, disable **Enable Thinking** in the loaded model's
 LM Studio configuration. Reasoning tokens add substantial latency here because

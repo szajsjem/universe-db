@@ -476,7 +476,7 @@ def structured_chat_payload(
         },
         "temperature": 0,
         "max_tokens": max_output_tokens,
-        "stream": False,
+        "stream": True,
     }
 
 
@@ -592,6 +592,167 @@ class RequestRateLimiter:
             time.sleep(delay)
 
 
+class StreamResponseError(ValueError):
+    """A streamed model response cannot become a valid JSON object."""
+
+
+class StreamServerError(StreamResponseError):
+    """The server reported an internal error while producing an SSE stream."""
+
+
+class IncrementalJsonObject:
+    """Recognize one JSON object without waiting for the end of an SSE stream."""
+
+    def __init__(self) -> None:
+        self.parts: list[str] = []
+        self.stack: list[str] = []
+        self.started = False
+        self.in_string = False
+        self.escaped = False
+        self.complete = False
+
+    def feed(self, fragment: str) -> str | None:
+        if self.complete:
+            if fragment.strip():
+                raise StreamResponseError("model streamed text after its JSON object")
+            return "".join(self.parts)
+        for offset, character in enumerate(fragment):
+            if not self.started:
+                if character.isspace():
+                    self.parts.append(character)
+                    continue
+                if character != "{":
+                    raise StreamResponseError(
+                        "model output does not begin with a JSON object"
+                    )
+                self.started = True
+                self.stack.append("}")
+                self.parts.append(character)
+                continue
+
+            self.parts.append(character)
+            if self.in_string:
+                if self.escaped:
+                    self.escaped = False
+                elif character == "\\":
+                    self.escaped = True
+                elif character == '"':
+                    self.in_string = False
+                continue
+            if character == '"':
+                self.in_string = True
+            elif character == "{":
+                self.stack.append("}")
+            elif character == "[":
+                self.stack.append("]")
+            elif character in "}]":
+                if not self.stack or character != self.stack.pop():
+                    raise StreamResponseError(
+                        "model output has mismatched JSON delimiters"
+                    )
+                if not self.stack:
+                    trailing = fragment[offset + 1 :]
+                    if trailing.strip():
+                        raise StreamResponseError(
+                            "model streamed text after its JSON object"
+                        )
+                    self.complete = True
+                    text = "".join(self.parts)
+                    try:
+                        json.loads(text)
+                    except json.JSONDecodeError as error:
+                        raise StreamResponseError(
+                            f"model completed malformed JSON: {error}"
+                        ) from error
+                    return text
+        return None
+
+
+def iter_sse_data(response):
+    data_lines: list[str] = []
+    for raw_line in response:
+        try:
+            line = raw_line.decode("utf-8").rstrip("\r\n")
+        except UnicodeDecodeError as error:
+            raise StreamResponseError("model stream is not UTF-8") from error
+        if not line:
+            if data_lines:
+                yield "\n".join(data_lines)
+                data_lines.clear()
+            continue
+        if line.startswith(":"):
+            continue
+        if line.startswith("data:"):
+            value = line[5:]
+            if value.startswith(" "):
+                value = value[1:]
+            data_lines.append(value)
+    if data_lines:
+        yield "\n".join(data_lines)
+
+
+def streamed_chat_completion(response) -> dict:
+    parser = IncrementalJsonObject()
+    response_id: str | None = None
+    finish_reason: str | None = None
+    for event_text in iter_sse_data(response):
+        if event_text == "[DONE]":
+            break
+        try:
+            event = json.loads(event_text)
+        except json.JSONDecodeError as error:
+            raise StreamResponseError(f"malformed SSE data event: {error}") from error
+        if event.get("error"):
+            raise StreamServerError(
+                "model stream returned an error: "
+                + json.dumps(event["error"], ensure_ascii=False)
+            )
+        response_id = event.get("id") or response_id
+        choices = event.get("choices") or []
+        if not choices:
+            continue
+        choice = choices[0]
+        delta = choice.get("delta") or {}
+        if delta.get("refusal"):
+            raise StreamResponseError(f"model refusal: {delta['refusal']}")
+        content = delta.get("content")
+        if content is not None and not isinstance(content, str):
+            raise StreamResponseError("model streamed non-text message content")
+        if content:
+            complete_text = parser.feed(content)
+            if complete_text is not None:
+                return {
+                    "id": response_id,
+                    "choices": [
+                        {
+                            "finish_reason": choice.get("finish_reason") or "stop",
+                            "message": {
+                                "role": "assistant",
+                                "content": complete_text,
+                            },
+                        }
+                    ],
+                }
+        finish_reason = choice.get("finish_reason") or finish_reason
+        if finish_reason is not None:
+            raise StreamResponseError(
+                "model stream finished before a complete JSON object "
+                f"(finish_reason={finish_reason!r})"
+            )
+    raise StreamResponseError("model stream ended before a complete JSON object")
+
+
+def read_chat_completion(response) -> dict:
+    headers = getattr(response, "headers", {})
+    content_type = headers.get("Content-Type", "") if headers else ""
+    if "text/event-stream" in content_type.casefold():
+        return streamed_chat_completion(response)
+    try:
+        return json.loads(response.read())
+    except json.JSONDecodeError as error:
+        raise StreamResponseError(f"malformed model API response: {error}") from error
+
+
 def call_model(
     base_url: str,
     api_key: str | None,
@@ -601,6 +762,7 @@ def call_model(
     *,
     proposed_result: dict | None = None,
     rate_limiter: RequestRateLimiter | None = None,
+    stream: bool = True,
     max_output_tokens: int,
     retries: int,
     timeout: int,
@@ -617,9 +779,11 @@ def call_model(
             proposed_result,
             max_output_tokens,
         )
-    body = json.dumps(request_payload).encode("utf-8")
     request_id = str(uuid.uuid4())
+    stream_supported = stream
     for attempt in range(retries + 1):
+        request_payload["stream"] = stream_supported
+        body = json.dumps(request_payload).encode("utf-8")
         headers = {
             "Content-Type": "application/json",
             "User-Agent": "universe-db-wikipedia-parser/3",
@@ -637,15 +801,48 @@ def call_model(
             if rate_limiter is not None:
                 rate_limiter.wait()
             with urllib.request.urlopen(request, timeout=timeout) as response:
-                return json.loads(response.read())
+                payload = read_chat_completion(response)
+                try:
+                    normalize_result(payload)
+                except (ValueError, json.JSONDecodeError) as error:
+                    raise StreamResponseError(
+                        f"invalid structured model output: {error}"
+                    ) from error
+                return payload
         except urllib.error.HTTPError as error:
-            retryable = error.code == 429 or 500 <= error.code < 600
             detail = error.read().decode("utf-8", errors="replace")
+            internal_server_error = error.code == 400 and (
+                "Engine protocol predict stream returned an error" in detail
+                or '"type":"server_error"' in detail
+            )
+            retryable = (
+                error.code == 429
+                or 500 <= error.code < 600
+                or internal_server_error
+            )
+            if internal_server_error:
+                stream_supported = False
             if not retryable or attempt == retries:
                 raise RuntimeError(f"model API HTTP {error.code}: {detail}") from error
         except urllib.error.URLError as error:
             if attempt == retries:
                 raise RuntimeError(f"model API request failed: {error}") from error
+        except StreamResponseError as error:
+            if attempt == retries:
+                raise
+            if isinstance(error, StreamServerError):
+                stream_supported = False
+            delay = min(2**attempt, 30)
+            retry_mode = (
+                " without streaming" if not stream_supported else " as a stream"
+            )
+            print(
+                f"  model attempt {attempt + 1} failed early: {error}; "
+                f"retrying{retry_mode} in {delay}s",
+                flush=True,
+            )
+            time.sleep(delay)
+            continue
         time.sleep(min(2**attempt, 30))
     raise AssertionError("unreachable")
 
@@ -707,6 +904,7 @@ def extract_page_with_retries(
     verify: bool,
     page_retries: int,
     rate_limiter: RequestRateLimiter | None = None,
+    stream: bool = True,
     max_output_tokens: int,
     retries: int,
     timeout: int,
@@ -720,6 +918,7 @@ def extract_page_with_retries(
                 page,
                 submitted_wikitext,
                 rate_limiter=rate_limiter,
+                stream=stream,
                 max_output_tokens=max_output_tokens,
                 retries=retries,
                 timeout=timeout,
@@ -735,6 +934,7 @@ def extract_page_with_retries(
                 submitted_wikitext,
                 proposed_result=result,
                 rate_limiter=rate_limiter,
+                stream=stream,
                 max_output_tokens=max_output_tokens,
                 retries=retries,
                 timeout=timeout,
@@ -1013,6 +1213,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--timeout", type=int, default=180)
     parser.add_argument(
+        "--no-stream",
+        action="store_true",
+        help="disable SSE streaming for incompatible model runtimes",
+    )
+    parser.add_argument(
         "--retries",
         type=int,
         default=2,
@@ -1088,6 +1293,11 @@ def main() -> int:
             slot_source = f"fallback ({error})"
     print(
         f"parallel page workers: {parallel_requests} [{slot_source}]",
+        flush=True,
+    )
+    print(
+        "structured response mode: "
+        + ("non-streaming" if args.no_stream else "streaming with fallback"),
         flush=True,
     )
     rate_limiter = (
@@ -1189,6 +1399,7 @@ def main() -> int:
                     verify=args.verify,
                     page_retries=args.page_retries,
                     rate_limiter=rate_limiter,
+                    stream=not args.no_stream,
                     max_output_tokens=args.max_output_tokens,
                     retries=args.retries,
                     timeout=args.timeout,
@@ -1302,6 +1513,7 @@ def main() -> int:
                             f"endpoint {chat_completions_url(args.base_url)}; "
                             f"parallel workers {parallel_requests} ({slot_source}); "
                             f"verification {'enabled' if args.verify else 'disabled'}; "
+                            f"streaming {'disabled' if args.no_stream else 'enabled'}; "
                             f"page retries {args.page_retries}; "
                             f"{completed} pages completed; {skipped} skipped; "
                             f"{failed} failed"

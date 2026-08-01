@@ -14,6 +14,7 @@ from unittest.mock import patch
 from scripts.build_db import build
 from scripts.download_wikipedia_chemistry import render_archive
 from scripts.parse_wikipedia_archive import (
+    call_model,
     chat_completions_url,
     chat_request_payload,
     extract_page_with_retries,
@@ -25,6 +26,7 @@ from scripts.parse_wikipedia_archive import (
     main,
     normalize_result,
     parallel_slots_from_models,
+    streamed_chat_completion,
     verification_request_payload,
 )
 
@@ -256,6 +258,7 @@ class WikipediaImportTest(unittest.TestCase):
             request["response_format"]["json_schema"]["name"],
         )
         self.assertEqual(1000, request["max_tokens"])
+        self.assertTrue(request["stream"])
         self.assertEqual(
             "http://localhost:12355/v1/chat/completions",
             chat_completions_url("http://localhost:12355/v1/"),
@@ -286,6 +289,171 @@ class WikipediaImportTest(unittest.TestCase):
             ],
         }
         self.assertEqual("iron", normalize_result(payload)["entities"][0]["name"])
+
+    def test_stream_parser_assembles_fragmented_json_and_returns_early(self) -> None:
+        result_text = json.dumps(
+            {"page_relevance": "no_data", "notes": None, "entities": []}
+        )
+
+        class Stream:
+            def __iter__(self):
+                for fragment in (result_text[:17], result_text[17:]):
+                    event = {
+                        "id": "chatcmpl-stream",
+                        "choices": [
+                            {
+                                "delta": {"content": fragment},
+                                "finish_reason": None,
+                            }
+                        ],
+                    }
+                    yield f"data: {json.dumps(event)}\n".encode()
+                    yield b"\n"
+                raise AssertionError("parser waited after the complete JSON object")
+
+        payload = streamed_chat_completion(Stream())
+        self.assertEqual("chatcmpl-stream", payload["id"])
+        self.assertEqual("no_data", normalize_result(payload)["page_relevance"])
+
+    def test_model_call_retries_immediately_after_invalid_stream_prefix(self) -> None:
+        class Stream:
+            headers = {"Content-Type": "text/event-stream; charset=utf-8"}
+
+            def __init__(self, fragments: list[str]) -> None:
+                self.fragments = fragments
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args) -> None:
+                return None
+
+            def __iter__(self):
+                for fragment in self.fragments:
+                    event = {
+                        "id": "chatcmpl-retry",
+                        "choices": [
+                            {
+                                "delta": {"content": fragment},
+                                "finish_reason": None,
+                            }
+                        ],
+                    }
+                    yield f"data: {json.dumps(event)}\n".encode()
+                    yield b"\n"
+
+        page = {
+            "_source_entry_key": "page:1:revision:2",
+            "_source_path": "pages/1.json",
+            "_source_url": "https://example.test/?oldid=2",
+            "_input_format": "wikitext",
+            "page_id": 1,
+            "revision_id": 2,
+            "revision_timestamp": "2026-07-29T00:00:00Z",
+            "revision_url": "https://example.test/?oldid=2",
+            "title": "Test",
+        }
+        valid = json.dumps(
+            {"page_relevance": "no_data", "notes": None, "entities": []}
+        )
+        with (
+            patch(
+                "scripts.parse_wikipedia_archive.urllib.request.urlopen",
+                side_effect=[Stream(["not JSON"]), Stream([valid])],
+            ) as urlopen,
+            patch("scripts.parse_wikipedia_archive.time.sleep") as sleep,
+        ):
+            payload = call_model(
+                "http://localhost:12355/v1",
+                None,
+                "nuextract-2.0-8b",
+                page,
+                "Source",
+                max_output_tokens=1000,
+                retries=1,
+                timeout=30,
+            )
+        self.assertEqual("no_data", normalize_result(payload)["page_relevance"])
+        self.assertEqual(2, urlopen.call_count)
+        sleep.assert_called_once_with(1)
+
+    def test_stream_server_error_falls_back_to_non_streaming_attempt(self) -> None:
+        class ErrorStream:
+            headers = {"Content-Type": "text/event-stream"}
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args) -> None:
+                return None
+
+            def __iter__(self):
+                event = {"error": {"message": "grammar engine failure"}}
+                yield b"event: error\n"
+                yield f"data: {json.dumps(event)}\n".encode()
+                yield b"\n"
+
+        class JsonResponse:
+            headers = {"Content-Type": "application/json"}
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args) -> None:
+                return None
+
+            @staticmethod
+            def read() -> bytes:
+                result = {
+                    "page_relevance": "no_data",
+                    "notes": None,
+                    "entities": [],
+                }
+                payload = {
+                    "id": "chatcmpl-fallback",
+                    "choices": [
+                        {
+                            "finish_reason": "stop",
+                            "message": {"content": json.dumps(result)},
+                        }
+                    ],
+                }
+                return json.dumps(payload).encode()
+
+        page = {
+            "_source_entry_key": "page:1:revision:2",
+            "_source_path": "pages/1.json",
+            "_source_url": "https://example.test/?oldid=2",
+            "_input_format": "wikitext",
+            "page_id": 1,
+            "revision_id": 2,
+            "revision_timestamp": "2026-07-29T00:00:00Z",
+            "revision_url": "https://example.test/?oldid=2",
+            "title": "Test",
+        }
+        with (
+            patch(
+                "scripts.parse_wikipedia_archive.urllib.request.urlopen",
+                side_effect=[ErrorStream(), JsonResponse()],
+            ) as urlopen,
+            patch("scripts.parse_wikipedia_archive.time.sleep"),
+        ):
+            payload = call_model(
+                "http://localhost:12355/v1",
+                None,
+                "nuextract-2.0-8b",
+                page,
+                "Source",
+                max_output_tokens=1000,
+                retries=1,
+                timeout=30,
+            )
+        request_payloads = [
+            json.loads(call.args[0].data) for call in urlopen.call_args_list
+        ]
+        self.assertTrue(request_payloads[0]["stream"])
+        self.assertFalse(request_payloads[1]["stream"])
+        self.assertEqual("chatcmpl-fallback", payload["id"])
 
     def test_lm_studio_parallel_slots_are_read_from_loaded_instance(self) -> None:
         payload = {
@@ -355,6 +523,7 @@ class WikipediaImportTest(unittest.TestCase):
                 requests_per_minute=0,
                 parallel_requests=0,
                 timeout=30,
+                no_stream=False,
                 retries=0,
                 page_retries=0,
                 verify=False,
@@ -443,6 +612,7 @@ class WikipediaImportTest(unittest.TestCase):
                 requests_per_minute=0,
                 parallel_requests=2,
                 timeout=30,
+                no_stream=False,
                 retries=0,
                 page_retries=0,
                 verify=False,
