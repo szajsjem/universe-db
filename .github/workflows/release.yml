@@ -1,0 +1,53 @@
+name: release
+
+on:
+  push:
+    tags: ["*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to build and publish
+        required: true
+        default: recent
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+    steps:
+      - name: Check out release tag
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12.13"
+      - name: Build and validate release assets
+        run: |
+          make check
+          sha256sum --check universe.db.sha256
+      - name: Publish release assets
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" \
+              universe.db universe.db.sha256 manifest.json \
+              --clobber
+          else
+            gh release create "$RELEASE_TAG" \
+              universe.db universe.db.sha256 manifest.json \
+              --verify-tag \
+              --generate-notes \
+              --title "$RELEASE_TAG"
+          fi
