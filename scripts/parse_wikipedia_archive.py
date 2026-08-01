@@ -85,7 +85,7 @@ COMPOSITION_SCHEMA = {
         },
         "component_name": {"type": "string"},
         "component_proposed_id": {"type": ["string", "null"]},
-        "atom_count": {"type": ["integer", "null"]},
+        "atom_count": {"type": ["integer", "null"], "minimum": 1},
         "evidence_text": {"type": "string"},
     },
     "required": [
@@ -148,10 +148,10 @@ ENTITY_SCHEMA = {
         "existing_id": {"type": ["string", "null"]},
         "formula": {"type": ["string", "null"]},
         "electric_charge": {"type": ["integer", "null"]},
-        "atomic_number": {"type": ["integer", "null"]},
-        "proton_count": {"type": ["integer", "null"]},
-        "neutron_count": {"type": ["integer", "null"]},
-        "isomer_index": {"type": ["integer", "null"]},
+        "atomic_number": {"type": ["integer", "null"], "minimum": 1},
+        "proton_count": {"type": ["integer", "null"], "minimum": 1},
+        "neutron_count": {"type": ["integer", "null"], "minimum": 0},
+        "isomer_index": {"type": ["integer", "null"], "minimum": 0},
         "observed": {"type": ["boolean", "null"]},
         "confidence": {
             "type": "string",
@@ -655,16 +655,45 @@ def normalize_result(payload: dict) -> dict:
     if result["page_relevance"] == "relevant" and not result["entities"]:
         result["page_relevance"] = "no_data"
         result["notes"] = "Model returned no candidates."
-    for entity in result["entities"]:
+    for entity_index, entity in enumerate(result["entities"]):
         if not entity["name"].strip() or not entity["evidence_text"].strip():
             raise ValueError("candidate lacks name or evidence")
+        candidate_label = f"candidate {entity_index} ({entity['name']!r})"
+        for field, minimum in (
+            ("atomic_number", 1),
+            ("proton_count", 1),
+            ("neutron_count", 0),
+            ("isomer_index", 0),
+        ):
+            value = entity[field]
+            if value is not None and not minimum <= value <= MAX_SQLITE_INTEGER:
+                raise ValueError(
+                    f"{candidate_label} has invalid {field}: {value}; "
+                    f"expected {minimum}..{MAX_SQLITE_INTEGER} or null"
+                )
+        electric_charge = entity["electric_charge"]
+        if electric_charge is not None and not (
+            -MAX_SQLITE_INTEGER <= electric_charge <= MAX_SQLITE_INTEGER
+        ):
+            raise ValueError(
+                f"{candidate_label} has invalid electric_charge: "
+                f"{electric_charge}"
+            )
         for fact in entity["facts"]:
             if fact["value_decimal"] is None and fact["value_text"] is None:
                 raise ValueError("candidate fact has no value")
+            fact["conditions"] = [
+                condition
+                for condition in fact["conditions"]
+                if condition["value_decimal"] is not None
+                or condition["value_text"] is not None
+            ]
         for composition in entity["composition"]:
             count = composition["atom_count"]
-            if count is not None and count <= 0:
-                raise ValueError("composition atom_count must be positive")
+            if count is not None and not 1 <= count <= MAX_SQLITE_INTEGER:
+                raise ValueError(
+                    "composition atom_count must fit a positive SQLite integer"
+                )
     return result
 
 
@@ -1213,7 +1242,16 @@ def main() -> int:
                     f"{page['title']} ({page_status})",
                     flush=True,
                 )
-            except (RuntimeError, ValueError, json.JSONDecodeError) as error:
+            except (
+                RuntimeError,
+                ValueError,
+                json.JSONDecodeError,
+                sqlite3.IntegrityError,
+            ) as error:
+                if isinstance(error, sqlite3.IntegrityError):
+                    error = RuntimeError(
+                        f"database rejected staged model output: {error}"
+                    )
                 with connection:
                     connection.execute(
                         """

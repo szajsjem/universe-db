@@ -169,6 +169,69 @@ class WikipediaImportTest(unittest.TestCase):
         }
         self.assertEqual("water", normalize_result(payload)["entities"][0]["name"])
 
+    def test_normalization_rejects_candidate_values_outside_database_checks(
+        self,
+    ) -> None:
+        invalid = candidate("molecule", "invalid", "candidate:invalid")
+        invalid["proton_count"] = 0
+        payload = {
+            "choices": [
+                {
+                    "message": {
+                        "content": json.dumps(
+                            {
+                                "page_relevance": "relevant",
+                                "notes": None,
+                                "entities": [invalid],
+                            }
+                        )
+                    }
+                }
+            ]
+        }
+        with self.assertRaisesRegex(
+            ValueError, "candidate 0 .* invalid proton_count: 0"
+        ):
+            normalize_result(payload)
+
+    def test_normalization_discards_valueless_condition_placeholders(self) -> None:
+        value = candidate("molecule", "water", "chem:water")
+        value["facts"] = [
+            {
+                "field_key": "melting_point",
+                "value_decimal": "0",
+                "value_text": None,
+                "unit": "degC",
+                "uncertainty_decimal": None,
+                "conditions": [
+                    {
+                        "quantity_kind": "pressure",
+                        "value_decimal": None,
+                        "value_text": None,
+                        "unit": None,
+                    }
+                ],
+                "evidence_text": "The melting point is 0 degrees Celsius.",
+            }
+        ]
+        payload = {
+            "choices": [
+                {
+                    "message": {
+                        "content": json.dumps(
+                            {
+                                "page_relevance": "relevant",
+                                "notes": None,
+                                "entities": [value],
+                            }
+                        )
+                    }
+                }
+            ]
+        }
+        normalized = normalize_result(payload)
+        self.assertEqual([], normalized["entities"][0]["facts"][0]["conditions"])
+
     def test_lm_studio_chat_payload_and_response(self) -> None:
         page = {
             "_source_entry_key": "page:14533:revision:101",
@@ -329,6 +392,93 @@ class WikipediaImportTest(unittest.TestCase):
                 ).fetchone()[0]
         self.assertEqual([("no_data",), ("no_data",)], statuses)
         self.assertIn("parallel workers 2 (LM Studio)", notes)
+
+    def test_database_rejection_marks_one_page_error_and_scan_continues(self) -> None:
+        def page(index: int) -> dict:
+            return {
+                "page_id": index + 1,
+                "revision_id": index + 10,
+                "revision_timestamp": "2026-07-29T00:00:00Z",
+                "revision_url": f"https://example.test/?oldid={index + 10}",
+                "title": f"Page {index}",
+                "wikitext": f"Source {index}",
+                "_sequence_index": index,
+                "_content_sha256": str(index) * 64,
+                "_source_entry_key": f"page:{index + 1}:revision:{index + 10}",
+                "_source_path": f"pages/{index}.json",
+                "_source_url": f"https://example.test/?oldid={index + 10}",
+                "_source_timestamp": "2026-07-29T00:00:00Z",
+                "_input_format": "wikitext",
+            }
+
+        invalid = candidate("molecule", "invalid", "candidate:invalid")
+        invalid["proton_count"] = 0
+
+        def fake_extract(*args, **_kwargs):
+            source_page = args[3]
+            entities = [invalid] if source_page["_sequence_index"] == 0 else []
+            relevance = "relevant" if entities else "no_data"
+            return (
+                {"id": f"chatcmpl-{source_page['_sequence_index']}"},
+                {"page_relevance": relevance, "notes": None, "entities": entities},
+            )
+
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory) / "base.db"
+            output = Path(directory) / "rejection.db"
+            archive = Path(directory) / "snapshot.zip"
+            build(base)
+            archive.write_bytes(b"test archive")
+            args = types.SimpleNamespace(
+                archive=archive,
+                database=base,
+                output=output,
+                model="qwen/qwen3.5-9b",
+                base_url="http://localhost:12355/v1",
+                api_key_env="UNSET_TEST_API_KEY",
+                start_page=0,
+                max_pages=0,
+                max_page_chars=500_000,
+                max_output_tokens=1000,
+                requests_per_minute=0,
+                parallel_requests=2,
+                timeout=30,
+                retries=0,
+                page_retries=0,
+                verify=False,
+                refresh=False,
+                execute=True,
+                accept_cost=False,
+            )
+            manifest = {
+                "archive_format": "universe-db-wikipedia-category-snapshot-v1",
+                "page_count": 2,
+                "license": {"spdx_id": "CC-BY-SA-4.0"},
+            }
+            with (
+                patch("scripts.parse_wikipedia_archive.parse_args", return_value=args),
+                patch(
+                    "scripts.parse_wikipedia_archive.load_archive",
+                    return_value=(manifest, [page(0), page(1)]),
+                ),
+                patch(
+                    "scripts.parse_wikipedia_archive.extract_page_with_retries",
+                    side_effect=fake_extract,
+                ),
+            ):
+                self.assertEqual(0, main())
+            with closing(sqlite3.connect(output)) as connection:
+                rows = connection.execute(
+                    "SELECT status, error_text FROM wikipedia_page_parse "
+                    "ORDER BY sequence_index"
+                ).fetchall()
+                candidate_count = connection.execute(
+                    "SELECT count(*) FROM unverified_entity_candidate"
+                ).fetchone()[0]
+        self.assertEqual("error", rows[0][0])
+        self.assertIn("database rejected staged model output", rows[0][1])
+        self.assertEqual(("no_data", None), rows[1])
+        self.assertEqual(0, candidate_count)
 
     def test_verification_payload_includes_source_and_proposal(self) -> None:
         page = {
