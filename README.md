@@ -277,6 +277,39 @@ The build writes:
 - `universe.db.sha256` — SHA-256 checksum;
 - `manifest.json` — schema version, SQLite version, hash, and all table counts.
 
+## Describe an unreviewed material
+
+The dependency-free material descriptor fits a deterministic, composition-based
+k-nearest-neighbour model directly from the reviewed `material`,
+`material_component`, `chemical_species`, and `species_element` rows. It can
+describe a material identity that is not in the database without inserting it
+or inventing physical properties:
+
+```sh
+python3 scripts/describe_material.py \
+  --name "siliceous iron oxide concentrate" \
+  --component Fe2O3=0.85 \
+  --component SiO2=0.15 \
+  --basis mass_fraction
+```
+
+The JSON result reports resolved and formula-only components, a normalized
+element embedding, nearest reviewed analogues, material-kind inference,
+applicability/abstention, model version, and the exact database SHA-256 used for
+training. It is explicitly a model output, not a reviewed observation.
+
+Run its leakage-controlled leave-one-material-out benchmark with:
+
+```sh
+make material-benchmark
+```
+
+The current corpus contains only 15 materials and is dominated by ores. The
+benchmark therefore exposes both accuracy and macro recall plus a majority
+baseline; it does not claim that singleton kinds are validated. See
+[`docs/material-descriptor.md`](docs/material-descriptor.md) for the input
+contract, algorithm, validation method, and limitations.
+
 ## Export the Inorganic Engineering datapack
 
 The checked-in `inorganicengineering-0.1` export profile combines scientific

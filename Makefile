@@ -1,4 +1,4 @@
-.PHONY: all build check export report research-plan wikipedia-plan clean
+.PHONY: all build check export report material-benchmark research-plan wikipedia-plan clean
 
 all: check
 
@@ -17,6 +17,9 @@ export: build
 
 report: build
 	python3 scripts/report.py universe.db
+
+material-benchmark: build
+	python3 scripts/describe_material.py --evaluate
 
 research-plan: build
 	python3 scripts/research_missing_data.py
