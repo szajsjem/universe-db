@@ -263,6 +263,10 @@ class WikipediaImportTest(unittest.TestCase):
             "http://localhost:12355/v1/chat/completions",
             chat_completions_url("http://localhost:12355/v1/"),
         )
+        self.assertEqual(
+            "http://127.0.0.1:8080/v1/chat/completions",
+            chat_completions_url("http://127.0.0.1:8080/v1"),
+        )
         self.assertTrue(is_local_base_url("http://localhost:12355/v1"))
         self.assertTrue(is_local_base_url("http://[::1]:12355/v1"))
         self.assertFalse(is_local_base_url("http://localhost.example/v1"))

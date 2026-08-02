@@ -21,6 +21,7 @@ import shutil
 import sqlite3
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import uuid
 
@@ -29,7 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / "universe.db"
 DEFAULT_OUTPUT = ROOT / ".build" / "unverified.db"
 DEFAULT_MODEL = "gpt-5.4-nano"
-API_URL = "https://api.openai.com/v1/responses"
+DEFAULT_BASE_URL = "https://api.openai.com/v1"
 SCHEMA_VERSION = 1
 MAX_SQLITE_INTEGER = 2**63 - 1
 
@@ -547,8 +548,32 @@ def request_payload(model: str, task: Task) -> dict:
     }
 
 
+def responses_url(base_url: str) -> str:
+    normalized = base_url.rstrip("/")
+    parsed = urllib.parse.urlsplit(normalized)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        raise ValueError(f"invalid Responses API base URL: {base_url!r}")
+    if parsed.query or parsed.fragment:
+        raise ValueError("Responses API base URL cannot contain a query or fragment")
+    if parsed.path.rstrip("/").endswith("/responses"):
+        return normalized
+    return f"{normalized}/responses"
+
+
+def is_local_base_url(base_url: str) -> bool:
+    try:
+        parsed = urllib.parse.urlsplit(base_url)
+    except ValueError:
+        return False
+    return (
+        parsed.scheme in {"http", "https"}
+        and parsed.hostname in {"localhost", "127.0.0.1", "::1"}
+    )
+
+
 def call_openai(
-    api_key: str,
+    api_key: str | None,
+    base_url: str,
     model: str,
     task: Task,
     retries: int,
@@ -556,17 +581,19 @@ def call_openai(
 ) -> dict:
     body = json.dumps(request_payload(model, task)).encode("utf-8")
     request_id = str(uuid.uuid4())
+    headers = {
+        "Content-Type": "application/json",
+        "User-Agent": "universe-db-unverified-research/1",
+        "X-Client-Request-Id": request_id,
+    }
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
     for attempt in range(retries + 1):
         request = urllib.request.Request(
-            API_URL,
+            responses_url(base_url),
             data=body,
             method="POST",
-            headers={
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json",
-                "User-Agent": "universe-db-unverified-research/1",
-                "X-Client-Request-Id": request_id,
-            },
+            headers=headers,
         )
         try:
             with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -848,6 +875,11 @@ def parse_args() -> argparse.Namespace:
         help="cap requests after planning; zero means all",
     )
     parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument(
+        "--base-url",
+        default=DEFAULT_BASE_URL,
+        help="OpenAI-compatible Responses API base URL",
+    )
     parser.add_argument("--api-key-env", default="OPENAI_API_KEY")
     parser.add_argument("--timeout", type=int, default=90)
     parser.add_argument("--retries", type=int, default=2)
@@ -878,6 +910,10 @@ def main() -> int:
         raise SystemExit(f"invalid scopes: {sorted(scopes - allowed_scopes)}")
     if args.limit_targets < 0 or args.max_requests < 0:
         raise SystemExit("limits cannot be negative")
+    try:
+        responses_url(args.base_url)
+    except ValueError as error:
+        raise SystemExit(str(error)) from error
 
     planning_database = args.output if args.output.exists() else args.database
     with sqlite3.connect(planning_database) as connection:
@@ -899,7 +935,7 @@ def main() -> int:
     if not args.accept_cost:
         raise SystemExit("--execute requires --accept-cost")
     api_key = os.environ.get(args.api_key_env)
-    if not api_key:
+    if not api_key and not is_local_base_url(args.base_url):
         raise SystemExit(f"{args.api_key_env} is not set")
     if not tasks:
         return 0
@@ -949,6 +985,7 @@ def main() -> int:
                 try:
                     payload = call_openai(
                         api_key,
+                        args.base_url,
                         args.model,
                         task,
                         args.retries,

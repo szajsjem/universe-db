@@ -5,16 +5,20 @@ from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from unittest.mock import MagicMock, patch
 
 from scripts.build_db import build
 from scripts.research_missing_data import (
     FIELDS,
     Target,
     Task,
+    call_openai,
     insert_result,
     insert_task,
+    is_local_base_url,
     normalize_result,
     plan_tasks,
+    responses_url,
 )
 
 
@@ -71,6 +75,46 @@ def fake_payload() -> dict:
 
 
 class ResearchMissingDataTest(unittest.TestCase):
+    def test_custom_responses_api_base_url(self) -> None:
+        self.assertEqual(
+            "http://127.0.0.1:8080/v1/responses",
+            responses_url("http://127.0.0.1:8080/v1"),
+        )
+        self.assertEqual(
+            "http://127.0.0.1:8080/v1/responses",
+            responses_url("http://127.0.0.1:8080/v1/responses"),
+        )
+        self.assertTrue(is_local_base_url("http://127.0.0.1:8080/v1"))
+
+    def test_local_responses_api_does_not_require_authorization(self) -> None:
+        target = Target("element", "element:iron", "iron (Fe)", "element:iron")
+        field = next(field for field in FIELDS if field.key == "melting_point")
+        task = Task(target, field, "Find melting temperature of iron.")
+        response = MagicMock()
+        response.__enter__.return_value.read.return_value = json.dumps(
+            fake_payload()
+        ).encode("utf-8")
+        with patch(
+            "scripts.research_missing_data.urllib.request.urlopen",
+            return_value=response,
+        ) as urlopen:
+            self.assertEqual(
+                fake_payload(),
+                call_openai(
+                    None,
+                    "http://127.0.0.1:8080/v1",
+                    "test-model",
+                    task,
+                    retries=0,
+                    timeout=10,
+                ),
+            )
+        request = urlopen.call_args.args[0]
+        self.assertEqual(
+            "http://127.0.0.1:8080/v1/responses", request.full_url
+        )
+        self.assertNotIn("Authorization", request.headers)
+
     def test_planner_skips_existing_reviewed_values(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             database = Path(directory) / "test.db"

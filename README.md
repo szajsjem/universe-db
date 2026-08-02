@@ -134,6 +134,23 @@ python3 scripts/research_missing_data.py \
   --accept-cost
 ```
 
+The Responses API base URL and model are configurable. A loopback server does
+not require an API key unless its own authentication is enabled:
+
+```sh
+python3 scripts/research_missing_data.py \
+  --base-url http://127.0.0.1:8080/v1 \
+  --model local-model \
+  --limit-targets 2 \
+  --max-requests 5 \
+  --execute \
+  --accept-cost
+```
+
+The server must implement the OpenAI-compatible `/responses` endpoint and the
+web-search tool used by this research command. `--base-url` may point either to
+the API root (such as `/v1`) or directly to `/v1/responses`.
+
 The default model is `gpt-5.4-nano`. The script skips fields already covered by
 reviewed data, resumes around previously found staged values, stores source
 URLs and conditions, and can later include `molecules,reactions` with
@@ -213,6 +230,19 @@ python3 scripts/parse_wikipedia_archive.py \
   sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
   --base-url http://localhost:12355/v1 \
   --model qwen/qwen3.5-9b \
+  --max-pages 5 \
+  --execute
+```
+
+For another OpenAI-compatible server, pass its API root explicitly. Set a
+positive worker count to skip LM Studio-specific slot discovery:
+
+```sh
+python3 scripts/parse_wikipedia_archive.py \
+  sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
+  --base-url http://127.0.0.1:8080/v1 \
+  --model qwen3.6-35b-a3b-mtp \
+  --parallel-requests 1 \
   --max-pages 5 \
   --execute
 ```
