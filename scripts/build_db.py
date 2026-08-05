@@ -14,6 +14,7 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "universe.db"
+UNVERIFIED_OUTPUT = ROOT / "universe-unverified.db"
 APPLICATION_ID = 0x554E4956  # "UNIV"
 
 
@@ -73,14 +74,8 @@ def build(output: Path) -> None:
         os.replace(staged, output)
 
 
-def write_release_files(output: Path) -> None:
-    if output.resolve() != DEFAULT_OUTPUT.resolve():
-        return
-    digest = sha256(output)
-    (ROOT / "universe.db.sha256").write_text(
-        f"{digest}  universe.db\n", encoding="utf-8"
-    )
-    with sqlite3.connect(output) as connection:
+def database_metadata(path: Path) -> dict:
+    with sqlite3.connect(path) as connection:
         tables = [
             row[0]
             for row in connection.execute(
@@ -99,14 +94,79 @@ def write_release_files(output: Path) -> None:
             for table in tables
         }
         schema_version = connection.execute("PRAGMA user_version").fetchone()[0]
-    manifest = {
-        "artifact": "universe.db",
+    return {
         "application_id": f"0x{APPLICATION_ID:08X}",
-        "schema_version": schema_version,
-        "sha256": digest,
-        "sqlite_version": sqlite3.sqlite_version,
         "row_counts": row_counts,
+        "schema_version": schema_version,
+        "sha256": sha256(path),
     }
+
+
+def unverified_metadata(path: Path, base_digest: str) -> dict:
+    with sqlite3.connect(path) as connection:
+        stored_base_digest = connection.execute(
+            """
+            SELECT value
+            FROM database_metadata
+            WHERE key = 'unverified_base_sha256'
+            """
+        ).fetchone()
+        if stored_base_digest is None or stored_base_digest[0] != base_digest:
+            raise RuntimeError(
+                "universe-unverified.db is not based on the current universe.db"
+            )
+        articles_reached, articles_total = connection.execute(
+            """
+            SELECT
+                COALESCE(MAX(page.sequence_index) + 1, 0),
+                COALESCE(MAX(run.archive_page_count), 0)
+            FROM wikipedia_parse_run AS run
+            LEFT JOIN wikipedia_page_parse AS page USING (run_id)
+            """
+        ).fetchone()
+        status_counts = dict(
+            connection.execute(
+                """
+                SELECT status, count(*)
+                FROM wikipedia_page_parse
+                GROUP BY status
+                ORDER BY status
+                """
+            )
+        )
+    metadata = database_metadata(path)
+    metadata.update(
+        {
+            "artifact": path.name,
+            "base_artifact_sha256": base_digest,
+            "data_status": "unverified",
+            "wikipedia_parsing": {
+                "articles_reached": articles_reached,
+                "articles_total": articles_total,
+                "page_attempt_status_counts": status_counts,
+                "status": f"{articles_reached}/{articles_total}",
+            },
+        }
+    )
+    return metadata
+
+
+def write_release_files(output: Path) -> None:
+    if output.resolve() != DEFAULT_OUTPUT.resolve():
+        return
+    manifest = database_metadata(output)
+    manifest["artifact"] = output.name
+    digest = manifest["sha256"]
+    (ROOT / "universe.db.sha256").write_text(
+        f"{digest}  universe.db\n", encoding="utf-8"
+    )
+    if UNVERIFIED_OUTPUT.exists():
+        companion = unverified_metadata(UNVERIFIED_OUTPUT, digest)
+        unverified_digest = companion["sha256"]
+        (ROOT / "universe-unverified.db.sha256").write_text(
+            f"{unverified_digest}  universe-unverified.db\n", encoding="utf-8"
+        )
+        manifest["companion_artifacts"] = [companion]
     (ROOT / "manifest.json").write_text(
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )

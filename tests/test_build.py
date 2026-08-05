@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 import sqlite3
 import tempfile
@@ -21,10 +22,25 @@ from scripts.validate_db import validate
 
 
 ROOT = Path(__file__).resolve().parents[1]
+UNVERIFIED_DATABASE = ROOT / "universe-unverified.db"
 
 
 def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def logical_digest(path: Path) -> str:
+    with sqlite3.connect(path) as connection:
+        dump = "\n".join(connection.iterdump()).encode("utf-8")
+        metadata = (
+            connection.execute("PRAGMA application_id").fetchone()[0],
+            connection.execute("PRAGMA user_version").fetchone()[0],
+        )
+    value = hashlib.sha256()
+    value.update(repr(metadata).encode("ascii"))
+    value.update(b"\n")
+    value.update(dump)
+    return value.hexdigest()
 
 
 class BuildTest(unittest.TestCase):
@@ -40,12 +56,42 @@ class BuildTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             rebuilt = Path(directory) / "rebuilt.db"
             build(rebuilt)
-            self.assertEqual(digest(ROOT / "universe.db"), digest(rebuilt))
+            self.assertEqual(
+                logical_digest(ROOT / "universe.db"), logical_digest(rebuilt)
+            )
             self.assertEqual([], validate(ROOT / "universe.db"))
 
     def test_foreign_keys_are_clean(self) -> None:
         with sqlite3.connect(ROOT / "universe.db") as connection:
             self.assertEqual([], connection.execute("PRAGMA foreign_key_check").fetchall())
+
+    def test_unverified_release_contains_current_wikipedia_parse(self) -> None:
+        self.assertEqual([], validate(UNVERIFIED_DATABASE))
+        manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
+        companion = manifest["companion_artifacts"][0]
+        self.assertEqual(digest(ROOT / "universe.db"), manifest["sha256"])
+        self.assertEqual("universe-unverified.db", companion["artifact"])
+        self.assertEqual("unverified", companion["data_status"])
+        self.assertEqual(digest(UNVERIFIED_DATABASE), companion["sha256"])
+        self.assertEqual(manifest["sha256"], companion["base_artifact_sha256"])
+        self.assertEqual(
+            f"{companion['sha256']}  universe-unverified.db\n",
+            (ROOT / "universe-unverified.db.sha256").read_text(encoding="utf-8"),
+        )
+        self.assertEqual(
+            {
+                "articles_reached": 217,
+                "articles_total": 1239,
+                "page_attempt_status_counts": {
+                    "error": 27,
+                    "no_data": 104,
+                    "parsed": 101,
+                    "pending": 10,
+                },
+                "status": "217/1239",
+            },
+            companion["wikipedia_parsing"],
+        )
 
     def test_periodic_table_has_all_118_elements(self) -> None:
         with sqlite3.connect(ROOT / "universe.db") as connection:

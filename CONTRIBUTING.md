@@ -14,7 +14,10 @@ unsourced dump.
 5. Add validation for new dimensional, conservation, ordering, or probability
    invariants.
 6. Run `make check` and include the regenerated `universe.db`,
-   `universe.db.sha256`, and `manifest.json`.
+   `universe.db.sha256`, `universe-unverified.db.sha256`, and `manifest.json`.
+   If the reviewed database hash changes, rebase or regenerate the companion
+   `universe-unverified.db` as well; its manifest records the exact reviewed
+   artifact from which it was created.
 
 SQL files execute in lexical order. Use stable text IDs and explicit `ORDER BY`
 clauses for inserts derived from temporary staging tables. Do not use current
@@ -38,6 +41,8 @@ scientific dataset. Refresh it with
 and CC BY-SA attribution, and update the dated source identity and digest.
 Results from `scripts/parse_wikipedia_archive.py` may enter only the
 `unverified_*` candidate tables until independently reviewed.
+Release snapshots retain all parsing attempts for provenance, but publishing
+`universe-unverified.db` does not constitute review or promotion.
 
 ## Stable IDs
 

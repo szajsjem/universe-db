@@ -16,9 +16,15 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Rebuild and validate
+      - name: Validate release assets and reproducibility
         run: make check
-      - name: Verify checked-in artifact is current
-        run: git diff --exit-code -- universe.db universe.db.sha256 manifest.json
-      - name: Verify checksum
-        run: sha256sum --check universe.db.sha256
+      - name: Verify validation did not modify release assets
+        run: |
+          git diff --exit-code -- \
+            universe.db universe.db.sha256 \
+            universe-unverified.db universe-unverified.db.sha256 \
+            manifest.json
+      - name: Verify checksums
+        run: |
+          sha256sum --check universe.db.sha256
+          sha256sum --check universe-unverified.db.sha256

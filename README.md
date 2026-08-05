@@ -1,9 +1,11 @@
 # Universe Database
 
 `universe.db` is a public, reproducible SQLite database for structured physics,
-chemistry, materials, spectra, and nuclear data. The goal is one queryable
-source without flattening scientific context into prose or pretending that
-missing values are zero.
+chemistry, materials, spectra, and nuclear data. `universe-unverified.db` is a
+separate companion release containing the collected candidate data that has
+not completed scientific review. The goal is one queryable source without
+flattening scientific context into prose or pretending that missing values are
+zero.
 
 The checked-in artifact is built entirely from the versioned SQL in
 [`migrations/`](migrations) and [`seed/`](seed). It is intentionally small
@@ -65,6 +67,13 @@ no measured property values or numeric operating envelopes.
 sqlite3 universe.db
 ```
 
+Use `universe-unverified.db` only when unreviewed Wikipedia/model-extracted
+candidates and their parsing provenance are intentionally required:
+
+```sh
+sqlite3 universe-unverified.db
+```
+
 Example queries:
 
 ```sql
@@ -94,14 +103,16 @@ no third-party runtime or build dependencies.
 make build
 make check
 sha256sum --check universe.db.sha256
+sha256sum --check universe-unverified.db.sha256
 ```
 
 `make check` performs the dependency-free
 [publication validation gates](docs/validation.md), complete periodic-table
-validation, generated-seed validation, a byte-for-byte reproducibility test,
-and an artifact freshness test. The datapack exporter runs those same gates
-before reading its profile. It does not invoke Gradle or build the Minecraft
-mod.
+validation, a byte-for-byte same-runtime reproducibility test, and a logical
+artifact freshness test that is stable across SQLite library versions. Release
+checksums authenticate the exact published files. The datapack exporter runs
+those same gates before reading its profile. It does not invoke Gradle or build
+the Minecraft mod.
 
 Normal builds are network-independent. To intentionally capture a new PubChem
 snapshot and regenerate its SQL:
@@ -182,6 +193,12 @@ spectroscopy, and materials science. Its SHA-256 is
 `c1b4db37964c497f901343c706019324eac204af2973b9aaff71c24f781cdf29`.
 The archive is CC BY-SA 4.0 and retains a permanent revision link per page for
 attribution.
+
+The current parser has reached **217/1,239** articles. The checked-in
+`universe-unverified.db` companion snapshot includes all candidate rows and
+page/run provenance collected so far, including retained error, no-data, and
+interrupted-attempt records. Nothing in that artifact is promoted into the
+reviewed data merely because it is published.
 
 Refresh it intentionally:
 
@@ -301,11 +318,14 @@ otherwise they remain candidates. Wikipedia text and model extraction never
 enter the reviewed `entity`, `nuclide`, `chemical_species`, `reaction`, or
 `observation` tables automatically.
 
-The build writes:
+The release contains:
 
 - `universe.db` — release-ready SQLite artifact;
 - `universe.db.sha256` — SHA-256 checksum;
-- `manifest.json` — schema version, SQLite version, hash, and all table counts.
+- `universe-unverified.db` — all currently collected, unreviewed candidate data;
+- `universe-unverified.db.sha256` — companion artifact SHA-256 checksum;
+- `manifest.json` — schema versions, hashes, table counts, data status, and
+  Wikipedia parsing progress for both artifacts.
 
 ## Describe an unreviewed material
 

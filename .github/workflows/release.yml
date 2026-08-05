@@ -34,19 +34,24 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12.13"
-      - name: Build and validate release assets
+      - name: Validate release assets
         run: |
           make check
           sha256sum --check universe.db.sha256
+          sha256sum --check universe-unverified.db.sha256
       - name: Publish release assets
         run: |
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" \
-              universe.db universe.db.sha256 manifest.json \
+              universe.db universe.db.sha256 \
+              universe-unverified.db universe-unverified.db.sha256 \
+              manifest.json \
               --clobber
           else
             gh release create "$RELEASE_TAG" \
-              universe.db universe.db.sha256 manifest.json \
+              universe.db universe.db.sha256 \
+              universe-unverified.db universe-unverified.db.sha256 \
+              manifest.json \
               --verify-tag \
               --generate-notes \
               --title "$RELEASE_TAG"

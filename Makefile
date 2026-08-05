@@ -5,11 +5,12 @@ all: check
 build:
 	python3 scripts/build_db.py
 
-check: build
+check:
 	python3 scripts/import_pubchem_periodic_table.py --check
 	python3 scripts/import_nist_isotopes.py --check
 	python3 scripts/check_wikipedia_snapshot.py
 	python3 scripts/validate_db.py universe.db
+	python3 scripts/validate_db.py universe-unverified.db
 	python3 -m unittest discover -s tests -v
 
 export: build
