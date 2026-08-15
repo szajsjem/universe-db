@@ -264,6 +264,41 @@ python3 scripts/parse_wikipedia_archive.py \
   --execute
 ```
 
+### Consolidating Wikipedia candidates
+
+The importer intentionally stores one unverified candidate per page mention,
+so repeated species are expected while parsing. After (or even during) a long
+import, plan a conservative cleanup pass without touching the source database:
+
+```sh
+python3 scripts/clean_wikipedia_candidates.py \
+  .build/wikipedia-unverified.db
+```
+
+Add `--execute` to create a consistent SQLite snapshot and clean the copy:
+
+```sh
+python3 scripts/clean_wikipedia_candidates.py \
+  .build/wikipedia-unverified.db \
+  --output .build/wikipedia-cleaned.db \
+  --execute
+```
+
+The pass consolidates compatible molecule/ion/formula-unit/complex mentions
+and element mentions, treats `water vapor`/`water vapour` as phase wording for
+the same molecular identity, applies a 3:1 consensus rule to isolated `0`/`O`
+formula transcription errors, and reclassifies charged molecule candidates as
+ions. Formula equality alone never merges candidates because structural
+isomers can share a formula.
+
+Original candidate wording, page identity, and evidence remain in
+`wikipedia_candidate_mention`. Derived element phase at normal conditions is
+kept separately in `unverified_candidate_derived_fact`; it is inferred only
+when source-extracted melting/boiling temperatures unambiguously place the
+element at 293.15 K and compatible pressure. Override those reference values
+with `--normal-temperature-k` and `--normal-pressure-pa` when needed.
+
+
 Process all 1,239 pages in the revision-pinned ZIP with two-pass extraction,
 HTTP retries, and full-page retries:
 

@@ -55,30 +55,33 @@
         "spectrum": 0,
         "spectrum_point": 0,
         "unit": 15,
-        "unverified_candidate_alias": 1921,
-        "unverified_candidate_composition": 4232,
-        "unverified_candidate_fact": 4244,
-        "unverified_candidate_fact_condition": 800,
-        "unverified_candidate_relation": 2967,
-        "unverified_entity_candidate": 5669,
+        "unverified_candidate_alias": 2235,
+        "unverified_candidate_composition": 4581,
+        "unverified_candidate_derived_fact": 4,
+        "unverified_candidate_fact": 4540,
+        "unverified_candidate_fact_condition": 877,
+        "unverified_candidate_relation": 3207,
+        "unverified_entity_candidate": 5611,
         "unverified_fact": 0,
         "unverified_fact_condition": 0,
         "unverified_fact_source": 0,
-        "wikipedia_page_parse": 1096,
+        "wikipedia_candidate_cleanup_run": 1,
+        "wikipedia_candidate_mention": 698,
+        "wikipedia_page_parse": 1153,
         "wikipedia_parse_run": 13
       },
       "schema_version": 5,
-      "sha256": "a97319d862d3ea2f49683f97bdb950af9fa8fb25f45a04da8c476217280189d4",
+      "sha256": "e997bffe11e427bbc8f100ad3ca80dd3b63fa1c9666ebf59236d22a48d1238c4",
       "wikipedia_parsing": {
-        "articles_reached": 756,
+        "articles_reached": 813,
         "articles_total": 1239,
         "page_attempt_status_counts": {
-          "error": 415,
-          "no_data": 256,
-          "parsed": 411,
+          "error": 422,
+          "no_data": 276,
+          "parsed": 441,
           "pending": 14
         },
-        "status": "756/1239"
+        "status": "813/1239"
       }
     }
   ],

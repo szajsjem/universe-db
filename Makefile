@@ -1,4 +1,4 @@
-.PHONY: all build check export report material-benchmark research-plan wikipedia-plan clean
+.PHONY: all build check export report material-benchmark research-plan wikipedia-plan wikipedia-clean-plan clean
 
 all: check
 
@@ -28,6 +28,9 @@ research-plan: build
 wikipedia-plan: build
 	python3 scripts/parse_wikipedia_archive.py \
 		sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip
+
+wikipedia-clean-plan:
+	python3 scripts/clean_wikipedia_candidates.py
 
 clean:
 	rm -rf .build

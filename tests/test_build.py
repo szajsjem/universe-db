@@ -80,15 +80,15 @@ class BuildTest(unittest.TestCase):
         )
         self.assertEqual(
             {
-                "articles_reached": 217,
+                "articles_reached": 813,
                 "articles_total": 1239,
                 "page_attempt_status_counts": {
-                    "error": 27,
-                    "no_data": 104,
-                    "parsed": 101,
-                    "pending": 10,
+                    "error": 422,
+                    "no_data": 276,
+                    "parsed": 441,
+                    "pending": 14,
                 },
-                "status": "217/1239",
+                "status": "813/1239",
             },
             companion["wikipedia_parsing"],
         )
