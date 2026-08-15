@@ -327,6 +327,25 @@ The release contains:
 - `manifest.json` — schema versions, hashes, table counts, data status, and
   Wikipedia parsing progress for both artifacts.
 
+## Calculate deterministic atomic and composition properties
+
+The dependency-free property calculator evaluates exact composition invariants,
+reviewed-source mass aggregates, optional ideal-gas density, and an explicitly
+labeled semi-empirical nuclear model. It has no fitting step, learned weights,
+randomness, or network access:
+
+```sh
+python3 scripts/calculate_properties.py --formula H2O
+python3 scripts/calculate_properties.py --species chem:carbonate
+python3 scripts/calculate_properties.py \
+  --atomic-number 26 --neutrons 30 --charge 2
+```
+
+It reports why structure-, phase-, state-, and evidence-dependent properties
+cannot be identified from an atomic number or elemental composition. See
+[`docs/deterministic-properties.md`](docs/deterministic-properties.md) for the
+equations, method classes, validity limits, and references.
+
 ## Describe an unreviewed material
 
 The dependency-free material descriptor fits a deterministic, composition-based
