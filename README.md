@@ -284,19 +284,22 @@ python3 scripts/clean_wikipedia_candidates.py \
   --execute
 ```
 
-The pass consolidates compatible molecule/ion/formula-unit/complex mentions
-and element mentions, treats `water vapor`/`water vapour` as phase wording for
-the same molecular identity, applies a 3:1 consensus rule to isolated `0`/`O`
-formula transcription errors, and reclassifies charged molecule candidates as
-ions. Formula equality alone never merges candidates because structural
-isomers can share a formula.
+The pass consolidates compatible atom, element, nuclide, particle, molecule,
+ion, formula-unit, and complex mentions. It treats `water vapor`/`water vapour`
+as phase wording for the same molecular identity, joins safe elemental
+diatomic synonyms such as oxygen/dioxygen/O2, applies a 3:1 consensus rule to
+isolated `0`/`O` formula transcription errors, and reclassifies charged
+molecule candidates as ions. Nuclide mappings are checked against their
+element and nuclear signature before use. Formula equality alone never merges
+candidates because structural isomers and excited states can share a formula.
 
 Original candidate wording, page identity, and evidence remain in
-`wikipedia_candidate_mention`. Derived element phase at normal conditions is
-kept separately in `unverified_candidate_derived_fact`; it is inferred only
-when source-extracted melting/boiling temperatures unambiguously place the
-element at 293.15 K and compatible pressure. Override those reference values
-with `--normal-temperature-k` and `--normal-pressure-pa` when needed.
+`wikipedia_candidate_mention`. Derived element and molecular phase at normal
+conditions is kept separately in `unverified_candidate_derived_fact`; it is
+inferred only when source-extracted melting/boiling temperatures (including
+unambiguous ranges) place the candidate at 293.15 K and compatible pressure.
+Override those reference values with `--normal-temperature-k` and
+`--normal-pressure-pa` when needed.
 
 
 Process all 1,239 pages in the revision-pinned ZIP with two-pass extraction,

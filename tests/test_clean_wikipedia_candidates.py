@@ -71,6 +71,10 @@ def add_candidate(
     formula: str | None,
     charge: int | None,
     atomic_number: int | None = None,
+    proton_count: int | None = None,
+    neutron_count: int | None = None,
+    isomer_index: int | None = None,
+    existing_entity_id: str | None = None,
 ) -> None:
     connection.execute(
         """
@@ -79,8 +83,8 @@ def add_candidate(
             name, proposed_id, existing_entity_id, existing_reaction_id,
             formula, electric_charge, atomic_number, proton_count,
             neutron_count, isomer_index, observed, confidence, evidence_text
-        ) VALUES (?, ?, ?, ?, ?, NULL, NULL, NULL, ?, ?, ?, NULL, NULL,
-                  NULL, NULL, 'high', ?)
+        ) VALUES (?, ?, ?, ?, ?, NULL, ?, NULL, ?, ?, ?, ?, ?,
+                  ?, NULL, 'high', ?)
         """,
         (
             candidate_id,
@@ -88,9 +92,13 @@ def add_candidate(
             index,
             kind,
             name,
+            existing_entity_id,
             formula,
             charge,
             atomic_number,
+            proton_count,
+            neutron_count,
+            isomer_index,
             f"Evidence for {name}.",
         ),
     )
@@ -113,6 +121,28 @@ def add_temperature_fact(
             value_text, unit_text, uncertainty_decimal_text,
             uncertainty_numerator, uncertainty_denominator, evidence_text
         ) VALUES (?, ?, ?, ?, ?, NULL, NULL, NULL, ?, NULL, NULL, NULL, ?)
+        """,
+        (fact_id, candidate_id, index, field, value, unit, f"{field}: {value} {unit}"),
+    )
+
+
+def add_text_temperature_fact(
+    connection: sqlite3.Connection,
+    candidate_id: str,
+    index: int,
+    fact_id: str,
+    field: str,
+    value: str,
+    unit: str,
+) -> None:
+    connection.execute(
+        """
+        INSERT INTO unverified_candidate_fact(
+            candidate_fact_id, candidate_id, fact_index, field_key,
+            value_decimal_text, value_numerator, value_denominator,
+            value_text, unit_text, uncertainty_decimal_text,
+            uncertainty_numerator, uncertainty_denominator, evidence_text
+        ) VALUES (?, ?, ?, ?, NULL, NULL, NULL, ?, ?, NULL, NULL, NULL, ?)
         """,
         (fact_id, candidate_id, index, field, value, unit, f"{field}: {value} {unit}"),
     )
@@ -164,7 +194,9 @@ class CleanWikipediaCandidatesTest(unittest.TestCase):
 
         plan = build_plan(self.connection)
         with self.connection:
-            merged, corrected, inferred = apply_cleanup(self.connection, plan)
+            merged, corrected, _mapping_corrections, inferred = apply_cleanup(
+                self.connection, plan
+            )
 
         self.assertEqual(4, merged)
         self.assertEqual(0, corrected)
@@ -223,13 +255,176 @@ class CleanWikipediaCandidatesTest(unittest.TestCase):
 
         plan = build_plan(self.connection)
         with self.connection:
-            merged, _corrected, _inferred = apply_cleanup(self.connection, plan)
+            merged, _corrected, _mapping_corrections, _inferred = apply_cleanup(
+                self.connection, plan
+            )
 
         self.assertEqual(1, merged)
         row = self.connection.execute(
             "SELECT candidate_kind, electric_charge FROM unverified_entity_candidate"
         ).fetchone()
         self.assertEqual(("ion", 1), row)
+
+    def test_merges_nuclides_but_rejects_incredible_existing_mapping(self) -> None:
+        values = [
+            ("helium-4-a", "Helium-4", "4He", 0),
+            ("helium-4-b", "helium-4", "He-4", 0),
+            ("helium-4-c", "Helium", "He", 0),
+            ("helium-4-alpha", "alpha particle", "α", 2),
+            ("bad-dineutron", "Dineutron", "2n", 0),
+        ]
+        for index, (candidate_id, name, formula, charge) in enumerate(values):
+            add_candidate(
+                self.connection,
+                self.page_id,
+                index,
+                candidate_id,
+                "nuclide",
+                name,
+                formula,
+                charge,
+                2,
+                2,
+                2,
+                0,
+                "nuclide:helium-4",
+            )
+        self.connection.commit()
+
+        plan = build_plan(self.connection)
+        with self.connection:
+            merged, _corrected, mapping_corrections, _inferred = apply_cleanup(
+                self.connection, plan
+            )
+
+        self.assertEqual(3, merged)
+        self.assertEqual(1, mapping_corrections)
+        rows = self.connection.execute(
+            "SELECT name FROM unverified_entity_candidate ORDER BY name"
+        ).fetchall()
+        self.assertEqual(2, len(rows))
+        self.assertIn(("Dineutron",), rows)
+
+    def test_merges_safe_elemental_diatomic_synonyms(self) -> None:
+        names = [
+            "oxygen",
+            "dioxygen",
+            "molecular oxygen",
+            "oxygen molecule",
+            "diatomic oxygen",
+        ]
+        for index, name in enumerate(names):
+            add_candidate(
+                self.connection,
+                self.page_id,
+                index,
+                f"oxygen-{index}",
+                "molecule",
+                name,
+                "O2",
+                0,
+            )
+        add_candidate(
+            self.connection,
+            self.page_id,
+            len(names),
+            "singlet-oxygen",
+            "molecule",
+            "singlet oxygen",
+            "O2",
+            0,
+        )
+        add_candidate(
+            self.connection,
+            self.page_id,
+            len(names) + 1,
+            "atomic-oxygen-misplaced",
+            "molecule",
+            "oxygen",
+            "O",
+            0,
+        )
+        add_candidate(
+            self.connection,
+            self.page_id,
+            len(names) + 2,
+            "unknown-oxygen",
+            "molecule",
+            "oxygen",
+            None,
+            None,
+        )
+        self.connection.commit()
+
+        plan = build_plan(self.connection)
+        with self.connection:
+            merged, _corrected, _mapping_corrections, _inferred = apply_cleanup(
+                self.connection, plan
+            )
+
+        self.assertEqual(4, merged)
+        rows = self.connection.execute(
+            "SELECT name FROM unverified_entity_candidate ORDER BY name"
+        ).fetchall()
+        self.assertEqual(4, len(rows))
+        self.assertIn(("singlet oxygen",), rows)
+
+    def test_derives_solid_liquid_and_gas_phases_for_molecules(self) -> None:
+        molecules = [
+            ("solid", "Solid sample", "X", "melting_point", "140 to 142"),
+            ("liquid", "Liquid sample", "Y", "melting_point", "-48"),
+            ("gas", "Gas sample", "Z", "boiling_point", "-161.5"),
+        ]
+        for index, (candidate_id, name, formula, field, value) in enumerate(molecules):
+            add_candidate(
+                self.connection,
+                self.page_id,
+                index,
+                candidate_id,
+                "molecule",
+                name,
+                formula,
+                0,
+            )
+            add_text_temperature_fact(
+                self.connection,
+                candidate_id,
+                0,
+                f"fact:{candidate_id}:first",
+                field,
+                value,
+                "°C",
+            )
+        add_text_temperature_fact(
+            self.connection,
+            "liquid",
+            1,
+            "fact:liquid:boiling",
+            "boiling_point",
+            "50.8",
+            "°C",
+        )
+        self.connection.commit()
+
+        plan = build_plan(self.connection)
+        with self.connection:
+            _merged, _corrected, _mapping_corrections, inferred = apply_cleanup(
+                self.connection, plan
+            )
+
+        self.assertEqual(3, inferred)
+        phases = dict(
+            self.connection.execute(
+                """
+                SELECT entity.name, fact.value_text
+                FROM unverified_candidate_derived_fact AS fact
+                JOIN unverified_entity_candidate AS entity USING(candidate_id)
+                """
+            )
+        )
+        self.assertEqual("solid", phases["Solid sample"])
+        self.assertEqual("liquid", phases["Liquid sample"])
+        self.assertEqual("gas", phases["Gas sample"])
 
     def test_derives_element_phase_after_element_mentions_are_merged(self) -> None:
         add_candidate(
@@ -276,7 +471,9 @@ class CleanWikipediaCandidatesTest(unittest.TestCase):
 
         plan = build_plan(self.connection)
         with self.connection:
-            merged, _corrected, inferred = apply_cleanup(self.connection, plan)
+            merged, _corrected, _mapping_corrections, inferred = apply_cleanup(
+                self.connection, plan
+            )
 
         self.assertEqual(1, merged)
         self.assertEqual(1, inferred)

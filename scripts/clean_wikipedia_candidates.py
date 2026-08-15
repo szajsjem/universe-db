@@ -50,7 +50,7 @@ PAREN_PHASE_RE = re.compile(
     r"\s*\((?:g|l|s|aq|gas|vapou?r|liquid|solid|aqueous)\)\s*$",
     re.IGNORECASE,
 )
-NUMBER_RE = re.compile(r"[-+]?(?:\d+(?:\.\d*)?|\.\d+)")
+NUMBER_RE = re.compile(r"(?<![\d.])[-+]?(?:\d+(?:\.\d*)?|\.\d+)")
 
 
 @dataclass(frozen=True)
@@ -61,6 +61,9 @@ class Candidate:
     formula: str | None
     electric_charge: int | None
     atomic_number: int | None
+    proton_count: int | None
+    neutron_count: int | None
+    isomer_index: int | None
     existing_entity_id: str | None
     proposed_id: str | None
     confidence: str
@@ -71,6 +74,7 @@ class Candidate:
 class CleanupPlan:
     groups: tuple[tuple[str, ...], ...]
     kind_corrections: dict[str, tuple[str, int | None, str]]
+    mapping_corrections: dict[str, str]
 
     @property
     def merged_candidates(self) -> int:
@@ -120,6 +124,7 @@ def normalize_formula(value: str | None) -> str | None:
         return None
     value = unicodedata.normalize("NFKC", value).translate(SUBSCRIPT_TRANSLATION)
     value = value.translate(SUPERSCRIPT_TRANSLATION)
+    value = re.sub(r"_\{?(\d+)\}?", r"\1", value)
     value = re.sub(r"\s+", "", value)
     return value or None
 
@@ -189,10 +194,12 @@ def load_candidates(connection: sqlite3.Connection) -> list[Candidate]:
     rows = connection.execute(
         """
         SELECT candidate_id, candidate_kind, name, formula, electric_charge,
-               atomic_number, existing_entity_id, proposed_id, confidence
+               atomic_number, proton_count, neutron_count, isomer_index,
+               existing_entity_id, proposed_id, confidence
         FROM unverified_entity_candidate
         WHERE candidate_kind IN (
-            'element', 'molecule', 'ion', 'formula_unit', 'complex'
+            'atom', 'element', 'nuclide', 'particle', 'molecule', 'ion',
+            'formula_unit', 'complex'
         )
         ORDER BY candidate_id
         """
@@ -223,6 +230,102 @@ def candidate_names(candidate: Candidate) -> set[str]:
 def name_is_formula(candidate: Candidate) -> bool:
     formula = normalize_formula(candidate.formula)
     return bool(formula and identity_name(candidate.name) == normalize_text(formula))
+
+
+def nuclear_signature(candidate: Candidate) -> tuple[int, int, int] | None:
+    if candidate.proton_count is None or candidate.neutron_count is None:
+        return None
+    return (
+        candidate.proton_count,
+        candidate.neutron_count,
+        candidate.isomer_index or 0,
+    )
+
+
+def credible_existing_mapping(
+    connection: sqlite3.Connection, candidate: Candidate
+) -> bool:
+    if not candidate.existing_entity_id:
+        return False
+    if candidate.candidate_kind != "nuclide":
+        return True
+    row = connection.execute(
+        """
+        SELECT nuclide.proton_count, nuclide.neutron_count,
+               nuclide.isomer_index, element.symbol, element_entity.name
+        FROM nuclide
+        JOIN element ON element.entity_id = nuclide.element_id
+        JOIN entity AS element_entity
+          ON element_entity.entity_id = element.entity_id
+        WHERE nuclide.entity_id = ?
+        """,
+        (candidate.existing_entity_id,),
+    ).fetchone()
+    if row is None:
+        return False
+    authoritative_signature = (row[0], row[1], row[2])
+    if (
+        nuclear_signature(candidate) is not None
+        and nuclear_signature(candidate) != authoritative_signature
+    ):
+        return False
+    name = identity_name(candidate.name)
+    element_name = identity_name(row[4])
+    name_words = set(name.split())
+    if name_words & {"excited", "hypernucleus", "isomer", "metastable", "muonic"}:
+        return False
+    mass_number = authoritative_signature[0] + authoritative_signature[1]
+    named_masses = {
+        int(value)
+        for value in re.findall(
+            rf"\b{re.escape(element_name)}\s+(\d+)\b",
+            name,
+        )
+    }
+    if named_masses and named_masses != {mass_number}:
+        return False
+    formula = re.sub(
+        r"[^a-z0-9]", "", (normalize_formula(candidate.formula) or "").casefold()
+    )
+    symbol = row[3].casefold()
+    formula_names_element = bool(
+        re.fullmatch(rf"(?:\d+)?{re.escape(symbol)}(?:\d+)?", formula)
+    )
+    nuclear_aliases = {
+        (1, 0, 0): {"proton", "protium"},
+        (1, 1, 0): {"deuterium", "deuteron"},
+        (1, 2, 0): {"tritium", "triton"},
+        (2, 2, 0): {"alpha particle"},
+    }
+    known_alias = name in nuclear_aliases.get(authoritative_signature, set())
+    return element_name in name_words or formula_names_element or known_alias
+
+
+def elemental_diatomic_key(
+    candidate: Candidate,
+    element_names: dict[str, str],
+) -> str | None:
+    kind, charge, _ = corrected_identity(candidate)
+    if kind != "molecule" or charge not in (None, 0):
+        return None
+    formula = normalize_formula(candidate.formula)
+    match = re.fullmatch(r"([A-Z][a-z]?)2", formula or "")
+    if not match:
+        return None
+    symbol = match.group(1).casefold()
+    element_name = element_names.get(symbol)
+    if not element_name:
+        return None
+    name = identity_name(candidate.name)
+    allowed_names = {
+        element_name,
+        f"molecular {element_name}",
+        f"{element_name} molecule",
+        f"diatomic {element_name}",
+        f"di{element_name}",
+        normalize_text(formula or ""),
+    }
+    return symbol if name in allowed_names else None
 
 
 def dominant_formula_outliers(candidates: list[Candidate]) -> set[tuple[str, str]]:
@@ -267,15 +370,30 @@ def dominant_formula_outliers(candidates: list[Candidate]) -> set[tuple[str, str
 def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
     candidates = load_candidates(connection)
     by_id = {candidate.candidate_id: candidate for candidate in candidates}
+    element_names = {
+        symbol.casefold(): identity_name(name)
+        for symbol, name in connection.execute(
+            """
+            SELECT element.symbol, entity.name
+            FROM element JOIN entity USING(entity_id)
+            """
+        )
+    }
     union = UnionFind(list(by_id))
     corrections: dict[str, tuple[str, int | None, str]] = {}
+    mapping_corrections: dict[str, str] = {}
     identities: dict[str, tuple[str, int | None]] = {}
     for candidate in candidates:
         kind, charge, reason = corrected_identity(candidate)
         # A neutral molecule is frequently emitted with NULL rather than 0.
         # They are equivalent for identity matching; standalone rows retain
         # NULL unless another correction is actually required.
-        identity_charge = 0 if kind == "molecule" and charge is None else charge
+        if kind == "nuclide":
+            # Charge state does not change nuclide identity; the reviewed
+            # nuclide table is keyed by proton/neutron/isomer counts.
+            identity_charge = None
+        else:
+            identity_charge = 0 if kind == "molecule" and charge is None else charge
         identities[candidate.candidate_id] = (kind, identity_charge)
         if reason or charge != candidate.electric_charge:
             corrections[candidate.candidate_id] = (
@@ -283,13 +401,20 @@ def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
                 charge,
                 reason or "charge parsed from formula",
             )
+        if (
+            candidate.existing_entity_id
+            and not credible_existing_mapping(connection, candidate)
+        ):
+            mapping_corrections[candidate.candidate_id] = (
+                f"removed incredible existing mapping {candidate.existing_entity_id}"
+            )
 
     # Existing authoritative mappings are the strongest possible identity key.
     indexes: list[dict[tuple[object, ...], list[str]]] = [defaultdict(list) for _ in range(3)]
     outliers = dominant_formula_outliers(candidates)
     for candidate in candidates:
         kind, charge = identities[candidate.candidate_id]
-        if candidate.existing_entity_id:
+        if credible_existing_mapping(connection, candidate):
             indexes[0][("existing", candidate.existing_entity_id)].append(candidate.candidate_id)
         if candidate.candidate_kind == "element" and candidate.atomic_number:
             indexes[1][("element", candidate.atomic_number)].append(candidate.candidate_id)
@@ -299,6 +424,11 @@ def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
         for values in index.values():
             if len(values) < 2:
                 continue
+            group_formulas = {
+                (normalize_formula(by_id[candidate_id].formula) or "").casefold()
+                for candidate_id in values
+                if normalize_formula(by_id[candidate_id].formula)
+            }
             for left_id in values:
                 for right_id in values:
                     if left_id >= right_id:
@@ -309,6 +439,21 @@ def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
                     right_kind, right_charge = identities[right_id]
                     if left_kind != right_kind or left_charge != right_charge:
                         continue
+                    if index_number == 2 and left_kind == "nuclide":
+                        if (
+                            nuclear_signature(left) is None
+                            or nuclear_signature(left) != nuclear_signature(right)
+                        ):
+                            continue
+                    if (
+                        index_number == 2
+                        and len(group_formulas) > 1
+                        and (
+                            normalize_formula(left.formula) is None
+                            or normalize_formula(right.formula) is None
+                        )
+                    ):
+                        continue
                     compatible = compatible_formulas(left, right)
                     if not compatible and index_number == 2:
                         left_formula = normalize_formula(left.formula)
@@ -317,8 +462,25 @@ def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
                             (left_id, (right_formula or "").casefold()) in outliers
                             or (right_id, (left_formula or "").casefold()) in outliers
                         )
+                    if (
+                        not compatible
+                        and index_number == 2
+                        and left_kind in {"nuclide", "particle"}
+                        and nuclear_signature(left) is not None
+                        and nuclear_signature(left) == nuclear_signature(right)
+                    ):
+                        compatible = True
                     if compatible or index_number in (0, 1):
                         union.union(left_id, right_id)
+
+    elemental_diatomics: dict[str, list[str]] = defaultdict(list)
+    for candidate in candidates:
+        key = elemental_diatomic_key(candidate, element_names)
+        if key:
+            elemental_diatomics[key].append(candidate.candidate_id)
+    for values in elemental_diatomics.values():
+        for candidate_id in values[1:]:
+            union.union(values[0], candidate_id)
 
     # Formula-only labels such as "H2O" (and consensus-backed H20) may join a
     # well-established named cluster. This bridge is enabled only when at
@@ -374,7 +536,7 @@ def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
         for values in grouped.values()
         if len(values) > 1
     )
-    return CleanupPlan(tuple(sorted(groups)), corrections)
+    return CleanupPlan(tuple(sorted(groups)), corrections, mapping_corrections)
 
 
 def ensure_cleanup_schema(connection: sqlite3.Connection) -> None:
@@ -387,6 +549,7 @@ def ensure_cleanup_schema(connection: sqlite3.Connection) -> None:
             normal_pressure_pa TEXT NOT NULL,
             merged_candidates INTEGER NOT NULL CHECK (merged_candidates >= 0),
             corrected_kinds INTEGER NOT NULL CHECK (corrected_kinds >= 0),
+            corrected_mappings INTEGER NOT NULL CHECK (corrected_mappings >= 0),
             inferred_phases INTEGER NOT NULL CHECK (inferred_phases >= 0)
         ) STRICT;
 
@@ -441,7 +604,7 @@ def survivor_score(connection: sqlite3.Connection, candidate: Candidate) -> tupl
         )
     )
     return (
-        candidate.existing_entity_id is not None,
+        credible_existing_mapping(connection, candidate),
         candidate.proposed_id is not None,
         {"low": 0, "medium": 1, "high": 2}[candidate.confidence],
         candidate.formula is not None,
@@ -523,13 +686,15 @@ def merge_group(
     connection: sqlite3.Connection,
     candidate_ids: tuple[str, ...],
     corrections: dict[str, tuple[str, int | None, str]],
+    mapping_corrections: dict[str, str],
     cleanup_run_id: str,
 ) -> str:
     placeholders = ",".join("?" for _ in candidate_ids)
     rows = connection.execute(
         f"""
         SELECT candidate_id, candidate_kind, name, formula, electric_charge,
-               atomic_number, existing_entity_id, proposed_id, confidence
+               atomic_number, proton_count, neutron_count, isomer_index,
+               existing_entity_id, proposed_id, confidence
         FROM unverified_entity_candidate
         WHERE candidate_id IN ({placeholders})
         """,
@@ -612,6 +777,11 @@ def merge_group(
                         if candidate.candidate_id in corrections
                         else ""
                     )
+                    + (
+                        f"; {mapping_corrections[candidate.candidate_id]}"
+                        if candidate.candidate_id in mapping_corrections
+                        else ""
+                    )
                 ),
                 cleanup_run_id,
             ),
@@ -660,32 +830,50 @@ def merge_group(
     return survivor.candidate_id
 
 
-def decimal_temperature(
+def temperature_interval(
     value_text: str | None,
     fallback_text: str | None,
     unit: str | None,
-) -> Decimal | None:
-    raw = value_text
-    if raw is None:
-        raw = fallback_text
-        if raw is None:
+) -> tuple[Decimal, Decimal] | None:
+    values: list[Decimal]
+    if value_text is not None:
+        try:
+            values = [Decimal(value_text)]
+        except (InvalidOperation, ValueError):
             return None
-        numbers = NUMBER_RE.findall(raw)
-        if len(numbers) != 1:
+    else:
+        if fallback_text is None:
             return None
-        raw = numbers[0]
-    try:
-        value = Decimal(raw)
-    except (InvalidOperation, ValueError):
+        number_texts = NUMBER_RE.findall(fallback_text)
+        try:
+            numbers = [Decimal(value) for value in number_texts]
+        except InvalidOperation:
+            return None
+        if len(numbers) == 1:
+            values = numbers
+        elif len(numbers) == 2 and re.search(r"±|\+/-", fallback_text):
+            values = [numbers[0] - abs(numbers[1]), numbers[0] + abs(numbers[1])]
+        elif len(numbers) == 2 and re.search(
+            r"\bto\b|\d\s*[-–—]\s*\d", fallback_text, re.IGNORECASE
+        ):
+            values = numbers
+        else:
+            return None
+    if not values:
         return None
     normalized_unit = unicodedata.normalize("NFKC", unit or "").casefold().replace(" ", "")
     if normalized_unit in {"k", "kelvin", "kelvins"}:
-        return value
-    if normalized_unit in {"c", "°c", "degc", "celsius"}:
-        return value + Decimal("273.15")
-    if normalized_unit in {"f", "°f", "degf", "fahrenheit"}:
-        return (value - Decimal(32)) * Decimal(5) / Decimal(9) + Decimal("273.15")
-    return None
+        converted = values
+    elif normalized_unit in {"c", "°c", "degc", "celsius"}:
+        converted = [value + Decimal("273.15") for value in values]
+    elif normalized_unit in {"f", "°f", "degf", "fahrenheit"}:
+        converted = [
+            (value - Decimal(32)) * Decimal(5) / Decimal(9) + Decimal("273.15")
+            for value in values
+        ]
+    else:
+        return None
+    return min(converted), max(converted)
 
 
 def pressure_is_normal(
@@ -730,6 +918,15 @@ def pressure_is_normal(
 
 
 def has_explicit_phase(connection: sqlite3.Connection, candidate_id: str) -> bool:
+    derived = connection.execute(
+        """
+        SELECT 1 FROM unverified_candidate_derived_fact
+        WHERE candidate_id = ? AND field_key = 'phase_at_normal_conditions'
+        """,
+        (candidate_id,),
+    ).fetchone()
+    if derived:
+        return True
     rows = connection.execute(
         """
         SELECT field_key, value_text
@@ -755,8 +952,8 @@ def infer_phase(
 ) -> tuple[str, list[str]] | None:
     if has_explicit_phase(connection, candidate_id):
         return None
-    melting: list[tuple[Decimal, str]] = []
-    boiling: list[tuple[Decimal, str]] = []
+    melting: list[tuple[Decimal, Decimal, str]] = []
+    boiling: list[tuple[Decimal, Decimal, str]] = []
     rows = connection.execute(
         """
         SELECT candidate_fact_id, field_key, value_decimal_text,
@@ -771,26 +968,29 @@ def infer_phase(
         target = melting if key in MELTING_FIELDS else boiling if key in BOILING_FIELDS else None
         if target is None or not pressure_is_normal(connection, fact_id, pressure):
             continue
-        value = decimal_temperature(decimal_text, text_value, unit)
-        if value is not None:
-            target.append((value, fact_id))
-    melting_values = [value for value, _ in melting]
-    boiling_values = [value for value, _ in boiling]
-    if melting_values and min(melting_values) > temperature:
-        if boiling_values and min(boiling_values) <= temperature:
+        interval = temperature_interval(decimal_text, text_value, unit)
+        if interval is not None:
+            target.append((interval[0], interval[1], fact_id))
+    melting_lows = [low for low, _high, _fact_id in melting]
+    melting_highs = [high for _low, high, _fact_id in melting]
+    boiling_lows = [low for low, _high, _fact_id in boiling]
+    boiling_highs = [high for _low, high, _fact_id in boiling]
+    fact_ids = [fact_id for _low, _high, fact_id in melting + boiling]
+    if melting_lows and min(melting_lows) > temperature:
+        if boiling_lows and min(boiling_lows) <= temperature:
             return None
-        return "solid", [fact_id for _, fact_id in melting + boiling]
-    if boiling_values and max(boiling_values) < temperature:
-        if melting_values and max(melting_values) >= temperature:
+        return "solid", fact_ids
+    if boiling_highs and max(boiling_highs) < temperature:
+        if melting_highs and max(melting_highs) >= temperature:
             return None
-        return "gas", [fact_id for _, fact_id in melting + boiling]
+        return "gas", fact_ids
     if (
-        melting_values
-        and boiling_values
-        and max(melting_values) < temperature
-        and min(boiling_values) > temperature
+        melting_highs
+        and boiling_lows
+        and max(melting_highs) < temperature
+        and min(boiling_lows) > temperature
     ):
-        return "liquid", [fact_id for _, fact_id in melting + boiling]
+        return "liquid", fact_ids
     return None
 
 
@@ -804,8 +1004,11 @@ def add_phase_inferences(
     candidate_ids = [
         row[0]
         for row in connection.execute(
-            "SELECT candidate_id FROM unverified_entity_candidate "
-            "WHERE candidate_kind = 'element' ORDER BY candidate_id"
+            """
+            SELECT candidate_id FROM unverified_entity_candidate
+            WHERE candidate_kind IN ('element', 'molecule', 'formula_unit', 'complex')
+            ORDER BY candidate_id
+            """
         )
     ]
     for candidate_id in candidate_ids:
@@ -843,7 +1046,7 @@ def apply_cleanup(
     plan: CleanupPlan,
     temperature: Decimal = NORMAL_TEMPERATURE_K,
     pressure: Decimal = NORMAL_PRESSURE_PA,
-) -> tuple[int, int, int]:
+) -> tuple[int, int, int, int]:
     ensure_cleanup_schema(connection)
     cleanup_run_id = str(uuid.uuid4())
     connection.execute(
@@ -851,8 +1054,8 @@ def apply_cleanup(
         INSERT INTO wikipedia_candidate_cleanup_run(
             cleanup_run_id, created_at, normal_temperature_k,
             normal_pressure_pa, merged_candidates, corrected_kinds,
-            inferred_phases
-        ) VALUES (?, ?, ?, ?, 0, 0, 0)
+            corrected_mappings, inferred_phases
+        ) VALUES (?, ?, ?, ?, 0, 0, 0, 0)
         """,
         (cleanup_run_id, utc_now(), str(temperature), str(pressure)),
     )
@@ -869,7 +1072,11 @@ def apply_cleanup(
         )
         if len(surviving_group) > 1:
             survivor = merge_group(
-                connection, surviving_group, plan.kind_corrections, cleanup_run_id
+                connection,
+                surviving_group,
+                plan.kind_corrections,
+                plan.mapping_corrections,
+                cleanup_run_id,
             )
             merged += len(surviving_group) - 1
             merged_ids.update(surviving_group)
@@ -920,16 +1127,72 @@ def apply_cleanup(
         )
     # Count corrected input mentions, including those absorbed by a merge.
     corrected = len(plan.kind_corrections)
+    corrected_mappings = len(plan.mapping_corrections)
+    for candidate_id, reason in plan.mapping_corrections.items():
+        if candidate_id in merged_ids:
+            continue
+        row = connection.execute(
+            """
+            SELECT page_parse_id, candidate_kind, name, formula,
+                   electric_charge, evidence_text, existing_entity_id
+            FROM unverified_entity_candidate WHERE candidate_id = ?
+            """,
+            (candidate_id,),
+        ).fetchone()
+        if row is None or row[6] is None:
+            continue
+        connection.execute(
+            """
+            UPDATE unverified_entity_candidate
+            SET existing_entity_id = NULL
+            WHERE candidate_id = ?
+            """,
+            (candidate_id,),
+        )
+        connection.execute(
+            """
+            INSERT OR IGNORE INTO wikipedia_candidate_mention(
+                original_candidate_id, canonical_candidate_id, page_parse_id,
+                original_kind, original_name, original_formula,
+                original_electric_charge, original_evidence_text,
+                merge_reason, cleanup_run_id
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                candidate_id,
+                candidate_id,
+                row[0],
+                row[1],
+                row[2],
+                row[3],
+                row[4],
+                row[5],
+                reason,
+                cleanup_run_id,
+            ),
+        )
+        connection.execute(
+            """
+            UPDATE wikipedia_candidate_mention
+            SET merge_reason = CASE
+                WHEN instr(merge_reason, ?) > 0 THEN merge_reason
+                ELSE merge_reason || '; ' || ?
+            END
+            WHERE original_candidate_id = ?
+            """,
+            (reason, reason, candidate_id),
+        )
     inferred = add_phase_inferences(connection, cleanup_run_id, temperature, pressure)
     connection.execute(
         """
         UPDATE wikipedia_candidate_cleanup_run
-        SET merged_candidates = ?, corrected_kinds = ?, inferred_phases = ?
+        SET merged_candidates = ?, corrected_kinds = ?,
+            corrected_mappings = ?, inferred_phases = ?
         WHERE cleanup_run_id = ?
         """,
-        (merged, corrected, inferred, cleanup_run_id),
+        (merged, corrected, corrected_mappings, inferred, cleanup_run_id),
     )
-    return merged, corrected, inferred
+    return merged, corrected, corrected_mappings, inferred
 
 
 def validate_input(connection: sqlite3.Connection) -> None:
@@ -1020,6 +1283,10 @@ def print_plan(plan: CleanupPlan) -> None:
         "candidate rows needing kind/charge correction: "
         f"{len(plan.kind_corrections)}"
     )
+    print(
+        "candidate rows with incredible existing mappings: "
+        f"{len(plan.mapping_corrections)}"
+    )
     if kind_counts:
         print(
             "corrected target kinds: "
@@ -1070,7 +1337,10 @@ def main() -> None:
                 f"integrity={integrity}, foreign_keys={foreign_keys[:5]}"
             )
     print(f"wrote {output}")
-    print(f"merged={result[0]} corrected={result[1]} inferred_phases={result[2]}")
+    print(
+        f"merged={result[0]} corrected={result[1]} "
+        f"corrected_mappings={result[2]} inferred_phases={result[3]}"
+    )
 
 
 if __name__ == "__main__":
