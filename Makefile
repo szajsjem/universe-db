@@ -1,4 +1,4 @@
-.PHONY: all build check export report material-benchmark research-plan wikipedia-plan wikipedia-clean-plan clean
+.PHONY: all build check export report material-benchmark research-plan wikipedia-plan wikipedia-clean-plan wikipedia-agent-plan clean
 
 all: check
 
@@ -31,6 +31,9 @@ wikipedia-plan: build
 
 wikipedia-clean-plan:
 	python3 scripts/clean_wikipedia_candidates.py
+
+wikipedia-agent-plan:
+	python3 scripts/review_wikipedia_candidates.py universe-unverified.db
 
 clean:
 	rm -rf .build

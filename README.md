@@ -301,6 +301,51 @@ unambiguous ranges) place the candidate at 293.15 K and compatible pressure.
 Override those reference values with `--normal-temperature-k` and
 `--normal-pressure-pa` when needed.
 
+### Agent review of merged atoms and molecules
+
+After deterministic cleanup, the bounded review agent can inspect every
+surviving unverified atom and molecule. Its three model-visible tools provide
+read-only parameterized SQL, search over the local revision-pinned Wikipedia
+scrape, and one transactional staging write. The write can keep, completely
+rewrite, conservatively merge, or reject a candidate; it cannot write to the
+reviewed scientific tables.
+
+Plan the complete queue without loading the model or changing a database:
+
+```sh
+python3 scripts/review_wikipedia_candidates.py universe-unverified.db
+```
+
+Run a small trial against the requested local OpenAI-compatible server. The
+default output is `.build/wikipedia-agent-reviewed.db`, copied from the input
+on its first run:
+
+```sh
+python3 scripts/review_wikipedia_candidates.py universe-unverified.db \
+  --base-url http://127.0.0.1:8080/v1 \
+  --model qwen3.6-35b-a3b-mtp \
+  --max-candidates 5 \
+  --execute
+```
+
+Remove `--max-candidates` to process the full atom/molecule queue. Successful
+reviews are resumable: later invocations skip candidates already recorded as
+`keep`, `rewrite`, `duplicate`, or `reject`, while retrying errors. Use
+`--start-after CANDIDATE_ID` to divide a run manually. The agent must read the
+database and search at least one source article attached to the candidate
+before its write is accepted. Rewrites require verbatim evidence present in an
+attached archived revision. Duplicate writes are additionally guarded in code:
+atoms need a matching identity signature, while molecules need both a matching
+formula and a shared normalized name or alias. Formula alone is never enough.
+
+The operational `wikipedia_candidate_agent_run` and
+`wikipedia_candidate_agent_review` tables retain decisions, before/after JSON,
+source keys, and tool traces. These are audit records in the output overlay,
+not evidence of human review or promotion under the data policy. In-place
+writes require the explicit `--in-place --execute` combination. Qwen thinking
+is disabled by default for faster bounded tool selection; use
+`--enable-thinking` only when its added latency is intentional.
+
 
 Process all 1,239 pages in the revision-pinned ZIP with two-pass extraction,
 HTTP retries, and full-page retries:
