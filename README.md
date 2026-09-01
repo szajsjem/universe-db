@@ -231,6 +231,19 @@ python3 scripts/parse_wikipedia_archive.py \
   --execute
 ```
 
+To begin at the final archive page and work backward, add `--reverse`. The
+original archive sequence indexes are retained in logs and the staging
+database. `--start-page` remains the lowest original index eligible for
+selection, while `--max-pages` limits pages after reversing:
+
+```sh
+python3 scripts/parse_wikipedia_archive.py \
+  sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
+  --reverse \
+  --max-pages 5 \
+  --execute
+```
+
 The parser defaults to LM Studio at `http://localhost:12355/v1` and uses its
 OpenAI-compatible streaming Chat Completions endpoint with grammar-constrained
 JSON Schema output. It parses JSON incrementally, returns as soon as the root

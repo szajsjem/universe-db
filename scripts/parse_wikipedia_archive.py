@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Sequentially parse a Wikipedia chemistry snapshot into unverified candidates.
 
-Each page is submitted in archive order as one independent structured-output
-request. Candidate nuclides, molecules, reactions, compositions, facts, and
-relations remain isolated from reviewed tables pending human source review.
+Each page is submitted in the selected forward or reverse order as one
+independent structured-output request. Candidate nuclides, molecules,
+reactions, compositions, facts, and relations remain isolated from reviewed
+tables pending human source review.
 """
 
 from __future__ import annotations
@@ -21,6 +22,7 @@ from pathlib import Path
 import re
 import shutil
 import sqlite3
+import sys
 import threading
 import time
 import urllib.error
@@ -1197,6 +1199,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--start-page", type=int, default=0)
     parser.add_argument(
+        "--reverse",
+        action="store_true",
+        help="process selected pages from the end of the archive backward",
+    )
+    parser.add_argument(
         "--max-pages",
         type=int,
         default=0,
@@ -1244,7 +1251,25 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def select_pages(
+    pages: list[dict],
+    start_page: int,
+    max_pages: int,
+    reverse: bool,
+) -> list[dict]:
+    selected = pages[start_page:]
+    if reverse:
+        selected = list(reversed(selected))
+    if max_pages:
+        selected = selected[:max_pages]
+    return selected
+
+
 def main() -> int:
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is not None:
+            reconfigure(errors="backslashreplace")
     args = parse_args()
     if (
         args.start_page < 0
@@ -1258,12 +1283,16 @@ def main() -> int:
     ):
         raise SystemExit("numeric limits are invalid")
     manifest, pages = load_archive(args.archive)
-    selected = pages[args.start_page :]
-    if args.max_pages:
-        selected = selected[: args.max_pages]
+    selected = select_pages(
+        pages,
+        args.start_page,
+        args.max_pages,
+        args.reverse,
+    )
     archive_digest = sha256(args.archive)
+    order = "reverse" if args.reverse else "forward"
     print(
-        f"archive pages: {len(pages)}; selected sequential pages: {len(selected)}"
+        f"archive pages: {len(pages)}; selected {order} pages: {len(selected)}"
     )
     for page in selected[:5]:
         print(

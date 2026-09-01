@@ -26,6 +26,7 @@ from scripts.parse_wikipedia_archive import (
     main,
     normalize_result,
     parallel_slots_from_models,
+    select_pages,
     streamed_chat_completion,
     verification_request_payload,
 )
@@ -54,6 +55,20 @@ def candidate(kind: str, name: str, proposed_id: str) -> dict:
 
 
 class WikipediaImportTest(unittest.TestCase):
+    def test_select_pages_can_start_from_archive_end(self) -> None:
+        pages = [{"_sequence_index": index} for index in range(6)]
+        selected = select_pages(
+            pages,
+            start_page=1,
+            max_pages=3,
+            reverse=True,
+        )
+        self.assertEqual([5, 4, 3], [page["_sequence_index"] for page in selected])
+        self.assertEqual(
+            list(range(6)),
+            [page["_sequence_index"] for page in pages],
+        )
+
     def test_zim_loader_selects_canonical_html_pages_sequentially(self) -> None:
         class Item:
             def __init__(self, mimetype: str, content: bytes) -> None:
@@ -521,6 +536,7 @@ class WikipediaImportTest(unittest.TestCase):
                 base_url="http://localhost:12355/v1",
                 api_key_env="UNSET_TEST_API_KEY",
                 start_page=0,
+                reverse=False,
                 max_pages=0,
                 max_page_chars=500_000,
                 max_output_tokens=1000,
@@ -610,6 +626,7 @@ class WikipediaImportTest(unittest.TestCase):
                 base_url="http://localhost:12355/v1",
                 api_key_env="UNSET_TEST_API_KEY",
                 start_page=0,
+                reverse=False,
                 max_pages=0,
                 max_page_chars=500_000,
                 max_output_tokens=1000,
