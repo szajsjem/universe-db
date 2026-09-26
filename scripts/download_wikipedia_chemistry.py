@@ -10,17 +10,16 @@ API, and writes a self-describing ZIP suitable for sequential parsing.
 from __future__ import annotations
 
 import argparse
-from collections import deque
-from datetime import date, datetime, timezone
 import hashlib
 import json
-from pathlib import Path
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
 import zipfile
-
+from collections import deque
+from datetime import date, datetime, timezone
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 API_URL = "https://en.wikipedia.org/w/api.php"

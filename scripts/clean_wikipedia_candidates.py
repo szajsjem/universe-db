@@ -10,19 +10,18 @@ the input database, which makes it safe to run while an importer is writing.
 from __future__ import annotations
 
 import argparse
-from collections import Counter, defaultdict
-from dataclasses import dataclass
-from datetime import datetime, timezone
-from decimal import Decimal, InvalidOperation
 import json
 import os
-from pathlib import Path
 import re
 import sqlite3
 import tempfile
 import unicodedata
 import uuid
-
+from collections import Counter, defaultdict
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / ".build" / "wikipedia-unverified.db"
@@ -204,10 +203,7 @@ def load_candidates(connection: sqlite3.Connection) -> list[Candidate]:
         ORDER BY candidate_id
         """
     )
-    return [
-        Candidate(*row, tuple(aliases[row[0]]))
-        for row in rows
-    ]
+    return [Candidate(*row, tuple(aliases[row[0]])) for row in rows]
 
 
 def compatible_formulas(left: Candidate, right: Candidate) -> bool:
@@ -359,9 +355,7 @@ def dominant_formula_outliers(candidates: list[Candidate]) -> set[tuple[str, str
             if not formula:
                 continue
             outlier = formula.casefold()
-            zero_o_equivalent = outlier.replace("0", "o") == dominant.replace(
-                "0", "o"
-            )
+            zero_o_equivalent = outlier.replace("0", "o") == dominant.replace("0", "o")
             if outlier != dominant and counts[outlier] == 1 and zero_o_equivalent:
                 allowed.add((value.candidate_id, dominant))
     return allowed
@@ -401,23 +395,28 @@ def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
                 charge,
                 reason or "charge parsed from formula",
             )
-        if (
-            candidate.existing_entity_id
-            and not credible_existing_mapping(connection, candidate)
+        if candidate.existing_entity_id and not credible_existing_mapping(
+            connection, candidate
         ):
             mapping_corrections[candidate.candidate_id] = (
                 f"removed incredible existing mapping {candidate.existing_entity_id}"
             )
 
     # Existing authoritative mappings are the strongest possible identity key.
-    indexes: list[dict[tuple[object, ...], list[str]]] = [defaultdict(list) for _ in range(3)]
+    indexes: list[dict[tuple[object, ...], list[str]]] = [
+        defaultdict(list) for _ in range(3)
+    ]
     outliers = dominant_formula_outliers(candidates)
     for candidate in candidates:
         kind, charge = identities[candidate.candidate_id]
         if credible_existing_mapping(connection, candidate):
-            indexes[0][("existing", candidate.existing_entity_id)].append(candidate.candidate_id)
+            indexes[0][("existing", candidate.existing_entity_id)].append(
+                candidate.candidate_id
+            )
         if candidate.candidate_kind == "element" and candidate.atomic_number:
-            indexes[1][("element", candidate.atomic_number)].append(candidate.candidate_id)
+            indexes[1][("element", candidate.atomic_number)].append(
+                candidate.candidate_id
+            )
         for name in candidate_names(candidate):
             indexes[2][("name", kind, charge, name)].append(candidate.candidate_id)
     for index_number, index in enumerate(indexes):
@@ -440,10 +439,9 @@ def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
                     if left_kind != right_kind or left_charge != right_charge:
                         continue
                     if index_number == 2 and left_kind == "nuclide":
-                        if (
-                            nuclear_signature(left) is None
-                            or nuclear_signature(left) != nuclear_signature(right)
-                        ):
+                        if nuclear_signature(left) is None or nuclear_signature(
+                            left
+                        ) != nuclear_signature(right):
                             continue
                     if (
                         index_number == 2
@@ -486,7 +484,9 @@ def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
     # well-established named cluster. This bridge is enabled only when at
     # least three candidates agree on one formula and all non-formula primary
     # names in the bucket resolve to one identity, so it cannot join isomers.
-    formula_buckets: dict[tuple[str, int | None, str], list[Candidate]] = defaultdict(list)
+    formula_buckets: dict[tuple[str, int | None, str], list[Candidate]] = defaultdict(
+        list
+    )
     for candidate in candidates:
         formula = normalize_formula(candidate.formula)
         if not formula:
@@ -532,9 +532,7 @@ def build_plan(connection: sqlite3.Connection) -> CleanupPlan:
     for candidate_id in by_id:
         grouped[union.find(candidate_id)].append(candidate_id)
     groups = tuple(
-        tuple(sorted(values))
-        for values in grouped.values()
-        if len(values) > 1
+        tuple(sorted(values)) for values in grouped.values() if len(values) > 1
     )
     return CleanupPlan(tuple(sorted(groups)), corrections, mapping_corrections)
 
@@ -590,7 +588,9 @@ def ensure_cleanup_schema(connection: sqlite3.Connection) -> None:
     )
 
 
-def survivor_score(connection: sqlite3.Connection, candidate: Candidate) -> tuple[object, ...]:
+def survivor_score(
+    connection: sqlite3.Connection, candidate: Candidate
+) -> tuple[object, ...]:
     child_count = sum(
         connection.execute(
             f"SELECT count(*) FROM {table} WHERE candidate_id = ?",
@@ -617,7 +617,9 @@ def choose_canonical_text(values: list[str], *, phase_sensitive: bool = False) -
     normalized = identity_name if phase_sensitive else normalize_text
     counts = Counter(normalized(value) for value in values if normalized(value))
     best_key = max(counts, key=lambda key: (counts[key], -len(key), key))
-    spellings = Counter(value.strip() for value in values if normalized(value) == best_key)
+    spellings = Counter(
+        value.strip() for value in values if normalized(value) == best_key
+    )
     return max(
         spellings,
         key=lambda value: (
@@ -629,7 +631,9 @@ def choose_canonical_text(values: list[str], *, phase_sensitive: bool = False) -
     )
 
 
-def next_index(connection: sqlite3.Connection, table: str, column: str, candidate_id: str) -> int:
+def next_index(
+    connection: sqlite3.Connection, table: str, column: str, candidate_id: str
+) -> int:
     return connection.execute(
         f"SELECT COALESCE(MAX({column}) + 1, 0) FROM {table} WHERE candidate_id = ?",
         (candidate_id,),
@@ -657,7 +661,9 @@ def move_indexed_children(
         index += 1
 
 
-def add_alias(connection: sqlite3.Connection, candidate_id: str, value: str | None) -> None:
+def add_alias(
+    connection: sqlite3.Connection, candidate_id: str, value: str | None
+) -> None:
     if not value or not value.strip():
         return
     normalized = normalize_text(value)
@@ -708,9 +714,13 @@ def merge_group(
     ):
         aliases[candidate_id].append(value)
     candidates = [Candidate(*row, tuple(aliases[row[0]])) for row in rows]
-    survivor = max(candidates, key=lambda candidate: survivor_score(connection, candidate))
+    survivor = max(
+        candidates, key=lambda candidate: survivor_score(connection, candidate)
+    )
     kinds_and_charges = [corrected_identity(candidate)[:2] for candidate in candidates]
-    canonical_kind = Counter(value[0] for value in kinds_and_charges).most_common(1)[0][0]
+    canonical_kind = Counter(value[0] for value in kinds_and_charges).most_common(1)[0][
+        0
+    ]
     charges = [value[1] for value in kinds_and_charges if value[1] is not None]
     canonical_charge = Counter(charges).most_common(1)[0][0] if charges else None
     canonical_name = choose_canonical_text(
@@ -789,11 +799,9 @@ def merge_group(
         if candidate.candidate_id == survivor.candidate_id:
             continue
         add_alias(connection, survivor.candidate_id, candidate.name)
-        if (
+        if candidate.formula and normalize_formula(
             candidate.formula
-            and normalize_formula(candidate.formula)
-            != normalize_formula(canonical_formula)
-        ):
+        ) != normalize_formula(canonical_formula):
             add_alias(connection, survivor.candidate_id, candidate.formula)
         move_indexed_children(
             connection,
@@ -861,7 +869,9 @@ def temperature_interval(
             return None
     if not values:
         return None
-    normalized_unit = unicodedata.normalize("NFKC", unit or "").casefold().replace(" ", "")
+    normalized_unit = (
+        unicodedata.normalize("NFKC", unit or "").casefold().replace(" ", "")
+    )
     if normalized_unit in {"k", "kelvin", "kelvins"}:
         converted = values
     elif normalized_unit in {"c", "°c", "degc", "celsius"}:
@@ -939,7 +949,9 @@ def has_explicit_phase(connection: sqlite3.Connection, candidate_id: str) -> boo
         if normalize_text(field_key).replace(" ", "_") not in PHASE_FIELDS:
             continue
         value = normalize_text(value_text or "")
-        if any(phase in value.split() for phase in ("solid", "liquid", "gas", "gaseous")):
+        if any(
+            phase in value.split() for phase in ("solid", "liquid", "gas", "gaseous")
+        ):
             return True
     return False
 
@@ -965,7 +977,13 @@ def infer_phase(
     )
     for fact_id, field_key, decimal_text, text_value, unit in rows:
         key = normalize_text(field_key).replace(" ", "_")
-        target = melting if key in MELTING_FIELDS else boiling if key in BOILING_FIELDS else None
+        target = (
+            melting
+            if key in MELTING_FIELDS
+            else boiling
+            if key in BOILING_FIELDS
+            else None
+        )
         if target is None or not pressure_is_normal(connection, fact_id, pressure):
             continue
         interval = temperature_interval(decimal_text, text_value, unit)
@@ -1213,7 +1231,9 @@ def validate_input(connection: sqlite3.Connection) -> None:
     }
     missing = sorted(required - present)
     if missing:
-        raise RuntimeError(f"not a Wikipedia candidate database; missing: {', '.join(missing)}")
+        raise RuntimeError(
+            f"not a Wikipedia candidate database; missing: {', '.join(missing)}"
+        )
 
 
 def snapshot_database(source: Path, destination: Path) -> None:
@@ -1280,8 +1300,7 @@ def print_plan(plan: CleanupPlan) -> None:
     print(f"candidate groups to consolidate: {len(plan.groups)}")
     print(f"candidate rows to merge: {plan.merged_candidates}")
     print(
-        "candidate rows needing kind/charge correction: "
-        f"{len(plan.kind_corrections)}"
+        f"candidate rows needing kind/charge correction: {len(plan.kind_corrections)}"
     )
     print(
         "candidate rows with incredible existing mappings: "
@@ -1290,9 +1309,7 @@ def print_plan(plan: CleanupPlan) -> None:
     if kind_counts:
         print(
             "corrected target kinds: "
-            + ", ".join(
-                f"{key}={value}" for key, value in sorted(kind_counts.items())
-            )
+            + ", ".join(f"{key}={value}" for key, value in sorted(kind_counts.items()))
         )
 
 

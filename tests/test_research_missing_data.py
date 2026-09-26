@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from scripts.build_db import build
@@ -20,7 +20,6 @@ from scripts.research_missing_data import (
     plan_tasks,
     responses_url,
 )
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -66,9 +65,7 @@ def fake_payload() -> dict:
             },
             {
                 "type": "message",
-                "content": [
-                    {"type": "output_text", "text": json.dumps(result)}
-                ],
+                "content": [{"type": "output_text", "text": json.dumps(result)}],
             },
         ],
     }
@@ -110,9 +107,7 @@ class ResearchMissingDataTest(unittest.TestCase):
                 ),
             )
         request = urlopen.call_args.args[0]
-        self.assertEqual(
-            "http://127.0.0.1:8080/v1/responses", request.full_url
-        )
+        self.assertEqual("http://127.0.0.1:8080/v1/responses", request.full_url)
         self.assertNotIn("Authorization", request.headers)
 
     def test_planner_skips_existing_reviewed_values(self) -> None:

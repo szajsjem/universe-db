@@ -7,10 +7,9 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
 import sqlite3
 import tempfile
-
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "universe.db"
@@ -88,9 +87,7 @@ def database_metadata(path: Path) -> dict:
             )
         ]
         row_counts = {
-            table: connection.execute(
-                f'SELECT count(*) FROM "{table}"'
-            ).fetchone()[0]
+            table: connection.execute(f'SELECT count(*) FROM "{table}"').fetchone()[0]
             for table in tables
         }
         schema_version = connection.execute("PRAGMA user_version").fetchone()[0]

@@ -10,15 +10,9 @@ tables pending human source review.
 from __future__ import annotations
 
 import argparse
-from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
-from contextlib import closing
-from datetime import datetime, timezone
-from decimal import Decimal, InvalidOperation
-from fractions import Fraction
 import hashlib
 import json
 import os
-from pathlib import Path
 import re
 import shutil
 import sqlite3
@@ -30,7 +24,12 @@ import urllib.parse
 import urllib.request
 import uuid
 import zipfile
-
+from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
+from contextlib import closing
+from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation
+from fractions import Fraction
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / "universe.db"
@@ -474,7 +473,7 @@ def structured_chat_payload(
                 "name": schema_name,
                 "strict": True,
                 "schema": RESPONSE_SCHEMA,
-            }
+            },
         },
         "temperature": 0,
         "max_tokens": max_output_tokens,
@@ -527,10 +526,11 @@ def is_local_base_url(base_url: str) -> bool:
         parsed = urllib.parse.urlsplit(base_url)
     except ValueError:
         return False
-    return (
-        parsed.scheme in {"http", "https"}
-        and parsed.hostname in {"localhost", "127.0.0.1", "::1"}
-    )
+    return parsed.scheme in {"http", "https"} and parsed.hostname in {
+        "localhost",
+        "127.0.0.1",
+        "::1",
+    }
 
 
 def lm_studio_models_url(base_url: str) -> str:
@@ -555,7 +555,9 @@ def parallel_slots_from_models(payload: dict, model: str) -> int:
         slots = instance.get("config", {}).get("parallel")
         if isinstance(slots, int) and 1 <= slots <= 64:
             return slots
-    raise ValueError(f"LM Studio has no loaded instance with parallel slots for {model}")
+    raise ValueError(
+        f"LM Studio has no loaded instance with parallel slots for {model}"
+    )
 
 
 def fetch_lm_studio_parallel_slots(
@@ -818,9 +820,7 @@ def call_model(
                 or '"type":"server_error"' in detail
             )
             retryable = (
-                error.code == 429
-                or 500 <= error.code < 600
-                or internal_server_error
+                error.code == 429 or 500 <= error.code < 600 or internal_server_error
             )
             if internal_server_error:
                 stream_supported = False
@@ -875,8 +875,7 @@ def normalize_result(payload: dict) -> dict:
             -MAX_SQLITE_INTEGER <= electric_charge <= MAX_SQLITE_INTEGER
         ):
             raise ValueError(
-                f"{candidate_label} has invalid electric_charge: "
-                f"{electric_charge}"
+                f"{candidate_label} has invalid electric_charge: {electric_charge}"
             )
         for fact in entity["facts"]:
             if fact["value_decimal"] is None and fact["value_text"] is None:
@@ -1076,9 +1075,7 @@ def insert_candidate(
     for index, fact in enumerate(candidate["facts"]):
         fact_id = str(uuid.uuid4())
         value_num, value_den = exact_ratio(fact["value_decimal"])
-        uncertainty_num, uncertainty_den = exact_ratio(
-            fact["uncertainty_decimal"]
-        )
+        uncertainty_num, uncertainty_den = exact_ratio(fact["uncertainty_decimal"])
         connection.execute(
             """
             INSERT INTO unverified_candidate_fact(
@@ -1105,9 +1102,7 @@ def insert_candidate(
             ),
         )
         for condition_index, condition in enumerate(fact["conditions"]):
-            condition_num, condition_den = exact_ratio(
-                condition["value_decimal"]
-            )
+            condition_num, condition_den = exact_ratio(condition["value_decimal"])
             connection.execute(
                 """
                 INSERT INTO unverified_candidate_fact_condition(
@@ -1128,9 +1123,7 @@ def insert_candidate(
                 ),
             )
     for index, relation in enumerate(candidate["relations"]):
-        coefficient_num, coefficient_den = exact_ratio(
-            relation["coefficient_decimal"]
-        )
+        coefficient_num, coefficient_den = exact_ratio(relation["coefficient_decimal"])
         connection.execute(
             """
             INSERT INTO unverified_candidate_relation(
@@ -1291,9 +1284,7 @@ def main() -> int:
     )
     archive_digest = sha256(args.archive)
     order = "reverse" if args.reverse else "forward"
-    print(
-        f"archive pages: {len(pages)}; selected {order} pages: {len(selected)}"
-    )
+    print(f"archive pages: {len(pages)}; selected {order} pages: {len(selected)}")
     for page in selected[:5]:
         print(
             f"  [{page['_sequence_index']}] {page['title']} "
@@ -1345,9 +1336,7 @@ def main() -> int:
     with closing(sqlite3.connect(args.output)) as connection:
         connection.execute("PRAGMA foreign_keys = ON")
         ensure_schema(connection)
-        bind_overlay_to_base(
-            connection, args.database, args.output, base_digest
-        )
+        bind_overlay_to_base(connection, args.database, args.output, base_digest)
         connection.execute(
             """
             INSERT INTO wikipedia_parse_run(
@@ -1444,9 +1433,7 @@ def main() -> int:
 
         def persist_future(future: Future) -> None:
             nonlocal completed, failed
-            page_parse_id, page, content_chars, submitted_chars = futures.pop(
-                future
-            )
+            page_parse_id, page, content_chars, submitted_chars = futures.pop(future)
             try:
                 payload, result = future.result()
                 if result["page_relevance"] == "no_data":

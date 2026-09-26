@@ -2,24 +2,31 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from pathlib import Path
 
 from scripts.build_db import build
-from scripts.import_pubchem_periodic_table import (
-    DEFAULT_OUTPUT as PERIODIC_SEED,
-    DEFAULT_SOURCE as PERIODIC_SOURCE,
-    render_seed,
-)
 from scripts.import_nist_isotopes import (
     DEFAULT_OUTPUT as ISOTOPE_SEED,
+)
+from scripts.import_nist_isotopes import (
     DEFAULT_SOURCE as ISOTOPE_SOURCE,
+)
+from scripts.import_nist_isotopes import (
     render_seed as render_isotope_seed,
 )
+from scripts.import_pubchem_periodic_table import (
+    DEFAULT_OUTPUT as PERIODIC_SEED,
+)
+from scripts.import_pubchem_periodic_table import (
+    DEFAULT_SOURCE as PERIODIC_SOURCE,
+)
+from scripts.import_pubchem_periodic_table import (
+    render_seed,
+)
 from scripts.validate_db import validate
-
 
 ROOT = Path(__file__).resolve().parents[1]
 UNVERIFIED_DATABASE = ROOT / "universe-unverified.db"
@@ -63,7 +70,9 @@ class BuildTest(unittest.TestCase):
 
     def test_foreign_keys_are_clean(self) -> None:
         with sqlite3.connect(ROOT / "universe.db") as connection:
-            self.assertEqual([], connection.execute("PRAGMA foreign_key_check").fetchall())
+            self.assertEqual(
+                [], connection.execute("PRAGMA foreign_key_check").fetchall()
+            )
 
     def test_unverified_release_contains_current_wikipedia_parse(self) -> None:
         self.assertEqual([], validate(UNVERIFIED_DATABASE))

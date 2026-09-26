@@ -9,14 +9,9 @@ the source, license, identity mapping, units, conditions, and transformation.
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
-from datetime import datetime, timezone
-from decimal import Decimal, InvalidOperation
-from fractions import Fraction
 import hashlib
 import json
 import os
-from pathlib import Path
 import shutil
 import sqlite3
 import time
@@ -24,7 +19,11 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import uuid
-
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation
+from fractions import Fraction
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / "universe.db"
@@ -565,10 +564,11 @@ def is_local_base_url(base_url: str) -> bool:
         parsed = urllib.parse.urlsplit(base_url)
     except ValueError:
         return False
-    return (
-        parsed.scheme in {"http", "https"}
-        and parsed.hostname in {"localhost", "127.0.0.1", "::1"}
-    )
+    return parsed.scheme in {"http", "https"} and parsed.hostname in {
+        "localhost",
+        "127.0.0.1",
+        "::1",
+    }
 
 
 def call_openai(
@@ -677,9 +677,7 @@ def insert_result(
     for fact in result["facts"]:
         fact_id = str(uuid.uuid4())
         value_num, value_den = exact_ratio(fact["value_decimal"])
-        uncertainty_num, uncertainty_den = exact_ratio(
-            fact["uncertainty_decimal"]
-        )
+        uncertainty_num, uncertainty_den = exact_ratio(fact["uncertainty_decimal"])
         connection.execute(
             """
             INSERT INTO unverified_fact(
@@ -713,9 +711,7 @@ def insert_result(
             ),
         )
         for index, condition in enumerate(fact["conditions"]):
-            condition_num, condition_den = exact_ratio(
-                condition["value_decimal"]
-            )
+            condition_num, condition_den = exact_ratio(condition["value_decimal"])
             connection.execute(
                 """
                 INSERT INTO unverified_fact_condition(
@@ -977,8 +973,7 @@ def main() -> int:
                 with connection:
                     insert_task(connection, run_id, task_id, task)
                 print(
-                    f"[{index}/{len(tasks)}] "
-                    f"{task.target.label}: {task.field.key}",
+                    f"[{index}/{len(tasks)}] {task.target.label}: {task.field.key}",
                     flush=True,
                 )
                 started = time.monotonic()
@@ -1032,10 +1027,7 @@ def main() -> int:
                         run_id,
                     ),
                 )
-    print(
-        f"wrote {args.output}: {completed} completed, {failed} failed, "
-        f"run {run_id}"
-    )
+    print(f"wrote {args.output}: {completed} completed, {failed} failed, run {run_id}")
     return 130 if interrupted else 0
 
 

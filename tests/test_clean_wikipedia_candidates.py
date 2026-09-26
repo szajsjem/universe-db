@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from pathlib import Path
 
 from scripts.build_db import build
 from scripts.clean_wikipedia_candidates import apply_cleanup, build_plan, formula_charge
@@ -222,9 +222,7 @@ class CleanWikipediaCandidatesTest(unittest.TestCase):
             ).fetchone()[0],
         )
         remaining = set(
-            self.connection.execute(
-                "SELECT name FROM unverified_entity_candidate"
-            )
+            self.connection.execute("SELECT name FROM unverified_entity_candidate")
         )
         self.assertIn(("heavy water",), remaining)
         self.assertIn(("m-xylene",), remaining)

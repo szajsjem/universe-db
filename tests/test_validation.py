@@ -1,18 +1,17 @@
 from __future__ import annotations
 
-from pathlib import Path
 import shutil
 import sqlite3
 import tempfile
 import unittest
+from pathlib import Path
 
-from scripts.validate_db import validate
 from scripts.export_inorganicengineering import (
     DEFAULT_PROFILE,
     ExportError,
     build_files,
 )
-
+from scripts.validate_db import validate
 
 ROOT = Path(__file__).resolve().parents[1]
 

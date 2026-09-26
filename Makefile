@@ -1,17 +1,21 @@
-.PHONY: all build check export report material-benchmark research-plan wikipedia-plan wikipedia-clean-plan wikipedia-agent-plan clean
+.PHONY: all build check lint export report material-benchmark research-plan wikipedia-plan wikipedia-clean-plan wikipedia-agent-plan clean
 
 all: check
 
 build:
 	python3 scripts/build_db.py
 
-check:
+check: lint
 	python3 scripts/import_pubchem_periodic_table.py --check
 	python3 scripts/import_nist_isotopes.py --check
 	python3 scripts/check_wikipedia_snapshot.py
 	python3 scripts/validate_db.py universe.db
 	python3 scripts/validate_db.py universe-unverified.db
 	python3 -m unittest discover -s tests -v
+
+lint:
+	ruff check scripts tests
+	ruff format --check scripts tests
 
 export: build
 	python3 scripts/export_inorganicengineering.py

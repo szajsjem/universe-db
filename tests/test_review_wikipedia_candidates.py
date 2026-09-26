@@ -1,18 +1,18 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 from scripts.build_db import build
 from scripts.clean_wikipedia_candidates import ensure_cleanup_schema
 from scripts.review_wikipedia_candidates import (
-    AgentTools,
     DEFAULT_BASE_URL,
     DEFAULT_MODEL,
+    AgentTools,
     WikipediaIndex,
     candidate_json,
     ensure_agent_schema,
@@ -20,7 +20,6 @@ from scripts.review_wikipedia_candidates import (
     safe_duplicate,
     select_db,
 )
-
 
 SOURCE_KEY = "page:1:revision:2"
 SOURCE_TEXT = "Water is an inorganic compound with the chemical formula H2O."
@@ -327,9 +326,7 @@ class CandidateAgentTest(unittest.TestCase):
             "INSERT INTO unverified_candidate_alias VALUES (?, 0, ?)",
             ("candidate:other", "water?"),
         )
-        safe, _ = safe_duplicate(
-            self.connection, "candidate:water", "candidate:other"
-        )
+        safe, _ = safe_duplicate(self.connection, "candidate:water", "candidate:other")
         self.assertTrue(safe)
 
     def test_duplicate_insert_merges_staging_rows_and_keeps_provenance(self) -> None:
