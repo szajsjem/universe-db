@@ -19,6 +19,18 @@ unsourced dump.
    `universe-unverified.db` as well; its manifest records the exact reviewed
    artifact from which it was created.
 
+Commit messages use a concise, capitalized sentence-style subject of at most
+72 characters with no terminal punctuation. Separate an optional body from the
+subject with one blank line. Keep Git trailers in a final, separate paragraph.
+Whitespace and line endings must be normalized.
+
+Normalize a draft message with
+`python3 scripts/normalize_commit_message.py path/to/message`, or pipe a
+message through the command. The normalized message is written to standard
+output. Validate without changing anything with
+`python3 scripts/normalize_commit_message.py --check path/to/message`. To check
+a commit range consistently with CI, run `make check-commits RANGE=main..HEAD`.
+
 SQL files execute in lexical order. Use stable text IDs and explicit `ORDER BY`
 clauses for inserts derived from temporary staging tables. Do not use current
 timestamps, random IDs, locale-dependent sorting, or floating-point literals.
