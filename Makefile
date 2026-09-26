@@ -1,4 +1,4 @@
-.PHONY: all build check export report material-benchmark research-plan wikipedia-plan wikipedia-clean-plan wikipedia-agent-plan clean
+.PHONY: all build check check-commits export report material-benchmark research-plan wikipedia-plan wikipedia-clean-plan wikipedia-agent-plan clean
 
 all: check
 
@@ -12,6 +12,9 @@ check:
 	python3 scripts/validate_db.py universe.db
 	python3 scripts/validate_db.py universe-unverified.db
 	python3 -m unittest discover -s tests -v
+
+check-commits:
+	python3 scripts/normalize_commit_message.py --check --rev-range "$(RANGE)"
 
 export: build
 	python3 scripts/export_inorganicengineering.py
