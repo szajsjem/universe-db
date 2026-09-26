@@ -171,248 +171,52 @@ unverified and are excluded from normal builds and exports.
 
 ### Wikipedia chemistry releases and sequential parser
 
-The complete English Wikipedia article dump is tens of gigabytes compressed,
-so it is not appropriate for this repository. The official 24 MB Kiwix
-chemistry-only mini release is vendored as
-`sources/wikipedia_en_chemistry_mini_2026-07.zim`, together with its upstream
-SHA-256 file. Its verified digest is
-`0a7f1e35b1f0deee19c68014421754ce42310bcf6cd8e8d3f01fad25a5ab6144`.
-
-For model extraction, rendered offline pages are less precise than source
-wikitext with revision identities. Therefore,
-[`download_wikipedia_chemistry.py`](scripts/download_wikipedia_chemistry.py)
-walks bounded scientific categories through the MediaWiki API and records
-current wikitext, revision IDs, permanent revision URLs, discovery categories,
-and per-page hashes in a ZIP.
-
-The checked-in
-`sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip` contains 1,239
-revision-pinned pages, with up to 180 pages discovered from each of chemical
-elements, isotopes, chemical compounds, chemical reactions, nuclear physics,
-spectroscopy, and materials science. Its SHA-256 is
-`c1b4db37964c497f901343c706019324eac204af2973b9aaff71c24f781cdf29`.
-The archive is CC BY-SA 4.0 and retains a permanent revision link per page for
-attribution.
-
-The current parser has reached **217/1,239** articles. The checked-in
-`universe-unverified.db` companion snapshot includes all candidate rows and
-page/run provenance collected so far, including retained error, no-data, and
-interrupted-attempt records. Nothing in that artifact is promoted into the
-reviewed data merely because it is published.
-
-Refresh it intentionally:
+The repository vendors both a bounded, revision-pinned wikitext ZIP and the
+official Kiwix chemistry mini ZIM. The parser processes pages independently and
+stages candidate identities, facts, compositions, relationships, evidence, and
+complete run provenance. Plan without contacting a model:
 
 ```sh
-python3 scripts/download_wikipedia_chemistry.py
-```
-
-The v2 parser accepts either the revision-pinned ZIP or the official ZIM and
-processes every Wikipedia HTML/wikitext page one at a time. Direct ZIM reading
-uses the optional official `libzim` Python binding. The current ZIM contains
-9,255 canonical English Wikipedia HTML pages after redirects and non-page
-assets are excluded. The parser can propose entirely new nuclides, molecules,
-ions, materials, mixtures, and chemical/nuclear reactions. It also stages
-aliases, compositions, scalar/text facts, conditions, and typed participant
-relationships:
-
-```sh
-# Cost-free plan.
 make wikipedia-plan
-
-# Plan all HTML pages in the official release (requires optional libzim).
-python3 -m pip install -r requirements-wikipedia.txt
-python3 scripts/parse_wikipedia_archive.py \
-  sources/wikipedia_en_chemistry_mini_2026-07.zim
-
-# Small local trial. Start LM Studio's server on port 12355 first.
-python3 scripts/parse_wikipedia_archive.py \
-  sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
-  --max-pages 5 \
-  --execute
 ```
 
-To begin at the final archive page and work backward, add `--reverse`. The
-original archive sequence indexes are retained in logs and the staging
-database. `--start-page` remains the lowest original index eligible for
-selection, while `--max-pages` limits pages after reversing:
+Then start with a small local trial:
 
 ```sh
 python3 scripts/parse_wikipedia_archive.py \
   sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
-  --reverse \
-  --max-pages 5 \
-  --execute
+  --max-pages 5 --execute
 ```
 
-The parser defaults to LM Studio at `http://localhost:12355/v1` and uses its
-OpenAI-compatible streaming Chat Completions endpoint with grammar-constrained
-JSON Schema output. It parses JSON incrementally, returns as soon as the root
-object closes, and retries a call immediately when a malformed prefix,
-mismatched delimiter, truncated finish, or invalid structured result is
-detected. If LM Studio reports an SSE engine error, the next call-level attempt
-automatically falls back to a non-streaming response. No API key is required
-with LM Studio's default authentication
-settings. If server authentication is enabled, put its token in
-`LM_STUDIO_API_KEY`. Both the endpoint and model are configurable:
+Successful pages are committed individually and skipped on reruns; errors are
+retried. Report pages still missing a successful parse with:
 
 ```sh
-python3 scripts/parse_wikipedia_archive.py \
+python3 scripts/list_missing_wikipedia_pages.py \
   sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
-  --base-url http://localhost:12355/v1 \
-  --model qwen/qwen3.5-9b \
-  --max-pages 5 \
-  --execute
+  .build/wikipedia-unverified.db \
+  .build/wikipedia-missing-pages.csv
 ```
 
-For another OpenAI-compatible server, pass its API root explicitly. Set a
-positive worker count to skip LM Studio-specific slot discovery:
-
-```sh
-python3 scripts/parse_wikipedia_archive.py \
-  sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
-  --base-url http://127.0.0.1:8080/v1 \
-  --model qwen3.6-35b-a3b-mtp \
-  --parallel-requests 1 \
-  --max-pages 5 \
-  --execute
-```
-
-### Consolidating Wikipedia candidates
-
-The importer intentionally stores one unverified candidate per page mention,
-so repeated species are expected while parsing. After (or even during) a long
-import, plan a conservative cleanup pass without touching the source database:
-
-```sh
-python3 scripts/clean_wikipedia_candidates.py \
-  .build/wikipedia-unverified.db
-```
-
-Add `--execute` to create a consistent SQLite snapshot and clean the copy:
+Repeated page mentions can then be consolidated into a copied snapshot:
 
 ```sh
 python3 scripts/clean_wikipedia_candidates.py \
   .build/wikipedia-unverified.db \
-  --output .build/wikipedia-cleaned.db \
-  --execute
+  --output .build/wikipedia-cleaned.db --execute
 ```
 
-The pass consolidates compatible atom, element, nuclide, particle, molecule,
-ion, formula-unit, and complex mentions. It treats `water vapor`/`water vapour`
-as phase wording for the same molecular identity, joins safe elemental
-diatomic synonyms such as oxygen/dioxygen/O2, applies a 3:1 consensus rule to
-isolated `0`/`O` formula transcription errors, and reclassifies charged
-molecule candidates as ions. Nuclide mappings are checked against their
-element and nuclear signature before use. Formula equality alone never merges
-candidates because structural isomers and excited states can share a formula.
-
-Original candidate wording, page identity, and evidence remain in
-`wikipedia_candidate_mention`. Derived element and molecular phase at normal
-conditions is kept separately in `unverified_candidate_derived_fact`; it is
-inferred only when source-extracted melting/boiling temperatures (including
-unambiguous ranges) place the candidate at 293.15 K and compatible pressure.
-Override those reference values with `--normal-temperature-k` and
-`--normal-pressure-pa` when needed.
-
-### Agent review of merged atoms and molecules
-
-After deterministic cleanup, the bounded review agent can inspect every
-surviving unverified atom and molecule. Its three model-visible tools provide
-read-only parameterized SQL, search over the local revision-pinned Wikipedia
-scrape, and one transactional staging write. The write can keep, completely
-rewrite, conservatively merge, or reject a candidate; it cannot write to the
-reviewed scientific tables.
-
-Plan the complete queue without loading the model or changing a database:
+Plan bounded atom/molecule review without contacting a model:
 
 ```sh
-python3 scripts/review_wikipedia_candidates.py universe-unverified.db
+python3 scripts/review_wikipedia_candidates.py .build/wikipedia-cleaned.db
 ```
 
-Run a small trial against the requested local OpenAI-compatible server. The
-default output is `.build/wikipedia-agent-reviewed.db`, copied from the input
-on its first run:
-
-```sh
-python3 scripts/review_wikipedia_candidates.py universe-unverified.db \
-  --base-url http://127.0.0.1:8080/v1 \
-  --model qwen3.6-35b-a3b-mtp \
-  --max-candidates 5 \
-  --execute
-```
-
-Remove `--max-candidates` to process the full atom/molecule queue. Successful
-reviews are resumable: later invocations skip candidates already recorded as
-`keep`, `rewrite`, `duplicate`, or `reject`, while retrying errors. Use
-`--start-after CANDIDATE_ID` to divide a run manually. The agent must read the
-database and search at least one source article attached to the candidate
-before its write is accepted. Rewrites require verbatim evidence present in an
-attached archived revision. Duplicate writes are additionally guarded in code:
-atoms need a matching identity signature, while molecules need both a matching
-formula and a shared normalized name or alias. Formula alone is never enough.
-
-The operational `wikipedia_candidate_agent_run` and
-`wikipedia_candidate_agent_review` tables retain decisions, before/after JSON,
-source keys, and tool traces. These are audit records in the output overlay,
-not evidence of human review or promotion under the data policy. In-place
-writes require the explicit `--in-place --execute` combination. Qwen thinking
-is disabled by default for faster bounded tool selection; use
-`--enable-thinking` only when its added latency is intentional.
-
-
-Process all 1,239 pages in the revision-pinned ZIP with two-pass extraction,
-HTTP retries, and full-page retries:
-
-```sh
-python3 scripts/parse_wikipedia_archive.py \
-  sources/wikipedia-chemistry-category-snapshot-2026-07-29.zip \
-  --base-url http://localhost:12355/v1 \
-  --model qwen/qwen3.5-9b \
-  --verify \
-  --retries 2 \
-  --page-retries 2 \
-  --parallel-requests 0 \
-  --requests-per-minute 0 \
-  --timeout 900 \
-  --execute
-```
-
-`--verify` makes a second independent call with the source document and the
-first extraction. The reviewer removes unsupported claims and corrects
-transcription, units, conditions, types, and evidence before the final result
-is staged. `--retries` covers transient HTTP failures and early streamed-output
-failures for each individual call; `--page-retries` restarts the complete
-extraction-and-verification sequence after all call-level attempts return
-malformed, truncated, or otherwise invalid model output.
-Successful pages are committed one at a time, and rerunning the same command
-skips them while retrying pages previously left in `error`.
-
-`--parallel-requests 0` is automatic: the parser reads the loaded model's
-`config.parallel` value from LM Studio's `/api/v1/models` response and uses
-that many concurrent page workers. If slot discovery fails, it safely falls
-back to one worker. Set an explicit positive value to override discovery, or
-use `--parallel-requests 1` for sequential operation. Model requests run in
-parallel, while all SQLite writes remain serialized and transactional.
-`--requests-per-minute` is a global start-rate limit across extraction,
-verification, and retry calls; zero disables pacing for the local server.
-Use `--no-stream` when a loaded model/runtime combination cannot stream a
-grammar-constrained JSON Schema. In particular, the locally tested
-`nuextract-2.0-8b` build fails inside LM Studio's grammar engine when streaming,
-so it should be scanned with `--no-stream`; Qwen structured-output models can
-use the default streaming path.
-
-For high-volume extraction, disable **Enable Thinking** in the loaded model's
-LM Studio configuration. Reasoning tokens add substantial latency here because
-the source already contains the facts and the JSON Schema constrains the
-answer. Keep the context length near 16K unless a larger page requires more;
-the parser submits at most one page per request and can cap unusually large
-pages with `--max-page-chars`.
-
-The default output is `.build/wikipedia-unverified.db`. Existing entity and
-reaction IDs are linked only when they resolve against the reviewed database;
-otherwise they remain candidates. Wikipedia text and model extraction never
-enter the reviewed `entity`, `nuclide`, `chemical_species`, `reaction`, or
-`observation` tables automatically.
+The complete source-verification, extraction, resume, cleanup, review, and
+recovery instructions are in the
+[Wikipedia candidate workflow](docs/wikipedia-workflow.md). Wikipedia and
+model output remain unverified even after cleanup or agent review; none of
+these commands promotes candidates into reviewed scientific tables.
 
 The release contains:
 
