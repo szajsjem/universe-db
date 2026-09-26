@@ -13,9 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+      - name: Validate pull request commit messages
+        if: github.event_name == 'pull_request'
+        run: make check-commits RANGE="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
       - name: Validate release assets and reproducibility
         run: make check
       - name: Verify validation did not modify release assets
