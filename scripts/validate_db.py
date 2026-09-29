@@ -276,7 +276,7 @@ def validate(path: Path) -> list[str]:
             row["nuclide_id"]
             for row in connection.execute(
                 """
-                SELECT nuclide_id
+                SELECT DISTINCT nuclide_id
                 FROM nuclide_designation
                 WHERE designation = 'natural_isotopic_composition'
                 ORDER BY nuclide_id
@@ -285,9 +285,8 @@ def validate(path: Path) -> list[str]:
         ]
         abundance_totals: dict[str, Fraction] = defaultdict(Fraction)
         for nuclide_id in natural_nuclides:
-            properties = {
-                row["property_id"]: row
-                for row in connection.execute(
+            properties = list(
+                connection.execute(
                     """
                     SELECT property_id, value_numerator, value_denominator
                     FROM observation
@@ -296,20 +295,28 @@ def validate(path: Path) -> list[str]:
                           'property:relative_atomic_mass',
                           'property:isotopic_composition'
                       )
+                    ORDER BY observation_id
                     """,
                     (nuclide_id,),
                 )
-            }
+            )
             required = {
                 "property:relative_atomic_mass",
                 "property:isotopic_composition",
             }
-            if properties.keys() != required:
+            if (
+                len(properties) != 2
+                or {row["property_id"] for row in properties} != required
+            ):
                 errors.append(
                     f"{nuclide_id} lacks exactly one mass and abundance observation"
                 )
                 continue
-            abundance_row = properties["property:isotopic_composition"]
+            abundance_row = next(
+                row
+                for row in properties
+                if row["property_id"] == "property:isotopic_composition"
+            )
             abundance = Fraction(
                 abundance_row["value_numerator"],
                 abundance_row["value_denominator"],

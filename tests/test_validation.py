@@ -52,6 +52,33 @@ class ValidatorRegressionTest(unittest.TestCase):
         )
         self.assert_rejected("formula-mass mismatch")
 
+    def test_rejects_duplicate_natural_isotope_observations(self) -> None:
+        for property_id in (
+            "property:relative_atomic_mass",
+            "property:isotopic_composition",
+        ):
+            with self.subTest(property_id=property_id):
+                self.mutate(
+                    """
+                    INSERT INTO observation
+                    SELECT 'observation:test-duplicate', subject_entity_id,
+                           property_id, value_numerator, value_denominator,
+                           unit_id, uncertainty_numerator, uncertainty_denominator,
+                           provenance_class, dataset_id, source_id,
+                           condition_set_id, method, schema_version
+                    FROM observation
+                    WHERE subject_entity_id = 'nuclide:hydrogen-1'
+                      AND property_id = ?
+                    """,
+                    (property_id,),
+                )
+                self.assert_rejected(
+                    "nuclide:hydrogen-1 lacks exactly one mass and abundance observation"
+                )
+                self.mutate(
+                    "DELETE FROM observation WHERE observation_id = 'observation:test-duplicate'"
+                )
+
     def test_export_cannot_bypass_validation(self) -> None:
         self.mutate(
             """
