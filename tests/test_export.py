@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 import tempfile
 import unittest
 import zipfile
+from pathlib import Path
 
 from scripts.export_inorganicengineering import (
     DEFAULT_DATABASE,

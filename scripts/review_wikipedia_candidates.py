@@ -10,13 +10,9 @@ tables.
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
-from decimal import Decimal, InvalidOperation
-from fractions import Fraction
 import hashlib
 import json
 import os
-from pathlib import Path
 import re
 import sqlite3
 import tempfile
@@ -26,6 +22,10 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import uuid
+from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation
+from fractions import Fraction
+from pathlib import Path
 
 try:
     from scripts.parse_wikipedia_archive import (

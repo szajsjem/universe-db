@@ -7,11 +7,11 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
 import sqlite3
 import tempfile
-from typing import Any
 import zipfile
+from pathlib import Path
+from typing import Any
 
 if __package__:
     from .validate_db import validate

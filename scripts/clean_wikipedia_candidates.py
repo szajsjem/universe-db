@@ -10,19 +10,18 @@ the input database, which makes it safe to run while an importer is writing.
 from __future__ import annotations
 
 import argparse
-from collections import Counter, defaultdict
-from dataclasses import dataclass
-from datetime import datetime, timezone
-from decimal import Decimal, InvalidOperation
 import json
 import os
-from pathlib import Path
 import re
 import sqlite3
 import tempfile
 import unicodedata
 import uuid
-
+from collections import Counter, defaultdict
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / ".build" / "wikipedia-unverified.db"
