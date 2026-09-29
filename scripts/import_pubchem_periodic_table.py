@@ -78,8 +78,7 @@ def load_rows(source: Path) -> list[dict[str, str]]:
     if missing:
         raise ValueError(f"source is missing columns: {sorted(missing)}")
     rows = [
-        dict(zip(columns, row["Cell"], strict=True))
-        for row in payload["Table"]["Row"]
+        dict(zip(columns, row["Cell"], strict=True)) for row in payload["Table"]["Row"]
     ]
     atomic_numbers = [int(row["AtomicNumber"]) for row in rows]
     if atomic_numbers != list(range(1, 119)):
@@ -145,7 +144,9 @@ def render_seed(source: Path) -> str:
             "("
             + ", ".join(
                 (
-                    sql_text(f"observation:pubchem:relative_atomic_mass:{element_slug}"),
+                    sql_text(
+                        f"observation:pubchem:relative_atomic_mass:{element_slug}"
+                    ),
                     sql_text(entity_id),
                     "'property:relative_atomic_mass'",
                     str(numerator),
@@ -218,9 +219,10 @@ if __name__ == "__main__":
         download_snapshot(arguments.source)
     rendered = render_seed(arguments.source)
     if arguments.check:
-        if not arguments.output.exists() or arguments.output.read_text(
-            encoding="utf-8"
-        ) != rendered:
+        if (
+            not arguments.output.exists()
+            or arguments.output.read_text(encoding="utf-8") != rendered
+        ):
             raise SystemExit(f"{arguments.output} is not current")
         print(f"verified {arguments.output}")
     else:

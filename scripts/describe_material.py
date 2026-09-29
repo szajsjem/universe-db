@@ -318,15 +318,13 @@ class MaterialModel:
     ) -> float:
         keys = set(left) | set(right)
         denominator = sum(
-            max(left.get(key, 0.0), right.get(key, 0.0))
-            * idf.get(key, default_idf)
+            max(left.get(key, 0.0), right.get(key, 0.0)) * idf.get(key, default_idf)
             for key in keys
         )
         if denominator == 0:
             return 0.0
         numerator = sum(
-            min(left.get(key, 0.0), right.get(key, 0.0))
-            * idf.get(key, default_idf)
+            min(left.get(key, 0.0), right.get(key, 0.0)) * idf.get(key, default_idf)
             for key in keys
         )
         return numerator / denominator
@@ -349,9 +347,9 @@ class MaterialModel:
         right_norm = math.sqrt(sum(value * value for value in weighted_right.values()))
         if left_norm == 0 or right_norm == 0:
             return 0.0
-        return sum(
-            weighted_left[key] * weighted_right[key] for key in keys
-        ) / (left_norm * right_norm)
+        return sum(weighted_left[key] * weighted_right[key] for key in keys) / (
+            left_norm * right_norm
+        )
 
     def similarity(self, left: Features, right: Features) -> tuple[float, float, float]:
         default_idf = math.log((len(self.examples) + 1) / 1) + 1
@@ -536,9 +534,7 @@ class MaterialModel:
                 "neighbors": neighbor_count,
                 "reviewed_component_weight": COMPONENT_WEIGHT,
                 "elemental_composition_weight": ELEMENT_WEIGHT,
-                "in_domain_similarity_threshold": rounded(
-                    self.in_domain_threshold
-                ),
+                "in_domain_similarity_threshold": rounded(self.in_domain_threshold),
             },
             "random_seed": None,
             "deterministic": True,
@@ -597,9 +593,7 @@ class MaterialModel:
                     "predicted_kind": prediction,
                     "correct": correct,
                     "closest_similarity": rounded(closest_similarity),
-                    "in_domain_threshold": rounded(
-                        fold_model.in_domain_threshold
-                    ),
+                    "in_domain_threshold": rounded(fold_model.in_domain_threshold),
                     "closest_material_id": (
                         neighbors[0].example.material_id if neighbors else None
                     ),

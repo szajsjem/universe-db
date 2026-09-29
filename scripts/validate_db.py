@@ -32,19 +32,12 @@ def exact_si_value(
     if unit is None:
         raise ValueError(f"unknown unit {unit_id}")
     power = unit["si_scale_power10"]
-    power_factor = (
-        Fraction(10**power, 1)
-        if power >= 0
-        else Fraction(1, 10 ** (-power))
-    )
-    return (
-        Fraction(numerator, denominator)
-        * Fraction(unit["si_scale_numerator"], unit["si_scale_denominator"])
-        * power_factor
-        + Fraction(
-            unit["si_offset_numerator"],
-            unit["si_offset_denominator"],
-        )
+    power_factor = Fraction(10**power, 1) if power >= 0 else Fraction(1, 10 ** (-power))
+    return Fraction(numerator, denominator) * Fraction(
+        unit["si_scale_numerator"], unit["si_scale_denominator"]
+    ) * power_factor + Fraction(
+        unit["si_offset_numerator"],
+        unit["si_offset_denominator"],
     )
 
 
@@ -68,8 +61,7 @@ def directed_cycles(edges: dict[str, str]) -> list[tuple[str, ...]]:
             if current in positions:
                 cycle = path[positions[current] :]
                 rotations = [
-                    tuple(cycle[index:] + cycle[:index])
-                    for index in range(len(cycle))
+                    tuple(cycle[index:] + cycle[:index]) for index in range(len(cycle))
                 ]
                 cycles.add(min(rotations))
                 break
@@ -91,8 +83,7 @@ def graph_cycles(edges: dict[str, set[str]]) -> list[tuple[str, ...]]:
         if current in positions:
             cycle = path[positions[current] :]
             rotations = [
-                tuple(cycle[index:] + cycle[:index])
-                for index in range(len(cycle))
+                tuple(cycle[index:] + cycle[:index]) for index in range(len(cycle))
             ]
             cycles.add(min(rotations))
             return
@@ -117,9 +108,7 @@ def validate(path: Path) -> list[str]:
         if connection.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
             errors.append("SQLite integrity_check failed")
             structural_failure = True
-        foreign_key_failures = list(
-            connection.execute("PRAGMA foreign_key_check")
-        )
+        foreign_key_failures = list(connection.execute("PRAGMA foreign_key_check"))
         for row in foreign_key_failures:
             errors.append(f"foreign key violation: {tuple(row)}")
         if foreign_key_failures:
@@ -136,9 +125,7 @@ def validate(path: Path) -> list[str]:
             ORDER BY s.source_id
             """
         ):
-            errors.append(
-                f"{row['source_id']} is not licensed for redistribution"
-            )
+            errors.append(f"{row['source_id']} is not licensed for redistribution")
 
         sourced_tables = (
             ("observation", "observation_id"),
@@ -195,9 +182,7 @@ def validate(path: Path) -> list[str]:
                 """,
             )
             if missing:
-                errors.append(
-                    f"{missing} {entity_type} entities lack a {table} row"
-                )
+                errors.append(f"{missing} {entity_type} entities lack a {table} row")
 
         replacement_edges = {
             row["entity_id"]: row["replaced_by_entity_id"]
@@ -244,10 +229,7 @@ def validate(path: Path) -> list[str]:
             while target in replacement_edges and target not in visited:
                 visited.add(target)
                 target = replacement_edges[target]
-            if (
-                target not in visited
-                and entity_lifecycle.get(target) == "deprecated"
-            ):
+            if target not in visited and entity_lifecycle.get(target) == "deprecated":
                 errors.append(
                     f"{alias['alias_id']} resolves to deprecated {target} "
                     "without a replacement"
@@ -283,7 +265,7 @@ def validate(path: Path) -> list[str]:
             FROM nuclide AS n
             JOIN element AS e ON e.entity_id = n.element_id
             WHERE n.proton_count <> e.atomic_number
-            """
+            """,
         )
         if invalid_nuclide_coordinates:
             errors.append(
@@ -333,7 +315,9 @@ def validate(path: Path) -> list[str]:
                 abundance_row["value_denominator"],
             )
             if not 0 < abundance <= 1:
-                errors.append(f"{nuclide_id} has invalid isotopic composition {abundance}")
+                errors.append(
+                    f"{nuclide_id} has invalid isotopic composition {abundance}"
+                )
                 continue
             element_id = connection.execute(
                 "SELECT element_id FROM nuclide WHERE entity_id = ?",
@@ -451,9 +435,7 @@ def validate(path: Path) -> list[str]:
                     )
 
             unbalanced = {
-                element_id: amount
-                for element_id, amount in balances.items()
-                if amount
+                element_id: amount for element_id, amount in balances.items() if amount
             }
             if unbalanced:
                 errors.append(
@@ -464,7 +446,9 @@ def validate(path: Path) -> list[str]:
                     )
                 )
             if charge:
-                errors.append(f"{reaction['reaction_id']} has charge imbalance {charge}")
+                errors.append(
+                    f"{reaction['reaction_id']} has charge imbalance {charge}"
+                )
             if not {"reactant", "product"} <= roles:
                 errors.append(
                     f"{reaction['reaction_id']} must have reactants and products"
@@ -608,8 +592,7 @@ def validate(path: Path) -> list[str]:
             for row in connection.execute(query):
                 if row["quantity_kind"] != expected_kind:
                     errors.append(
-                        f"{label} {row['identity']} uses "
-                        f"{row['quantity_kind']} units"
+                        f"{label} {row['identity']} uses {row['quantity_kind']} units"
                     )
 
         for row in connection.execute(
@@ -620,11 +603,7 @@ def validate(path: Path) -> list[str]:
             ORDER BY clp.crystal_structure_id, clp.parameter
             """
         ):
-            expected_kind = (
-                "length"
-                if row["parameter"] in {"a", "b", "c"}
-                else "angle"
-            )
+            expected_kind = "length" if row["parameter"] in {"a", "b", "c"} else "angle"
             if row["quantity_kind"] != expected_kind:
                 errors.append(
                     f"{row['crystal_structure_id']} lattice parameter "
@@ -646,7 +625,13 @@ def validate(path: Path) -> list[str]:
                 "SELECT quantity_kind FROM unit WHERE unit_id = ?",
                 (row["intensity_unit_id"],),
             ).fetchone()[0]
-            if axis_kind not in {"frequency", "wavelength", "wavenumber", "energy", "length"}:
+            if axis_kind not in {
+                "frequency",
+                "wavelength",
+                "wavenumber",
+                "energy",
+                "length",
+            }:
                 errors.append(
                     f"spectrum {row['spectrum_id']} uses invalid axis units "
                     f"{row['axis_unit_id']}"
@@ -674,23 +659,17 @@ def validate(path: Path) -> list[str]:
         ):
             family = quantity_family(row["quantity_kind"])
             bound = row["quantity_kind"][-3:]
-            condition_bounds[(row["condition_set_id"], family)][bound] = (
-                exact_si_value(
-                    connection,
-                    row["value_numerator"],
-                    row["value_denominator"],
-                    row["unit_id"],
-                )
+            condition_bounds[(row["condition_set_id"], family)][bound] = exact_si_value(
+                connection,
+                row["value_numerator"],
+                row["value_denominator"],
+                row["unit_id"],
             )
         for (condition_set_id, family), bounds in sorted(condition_bounds.items()):
             if bounds.keys() != {"min", "max"}:
-                errors.append(
-                    f"{condition_set_id} has an incomplete {family} range"
-                )
+                errors.append(f"{condition_set_id} has an incomplete {family} range")
             elif bounds["min"] > bounds["max"]:
-                errors.append(
-                    f"{condition_set_id} has reversed {family} bounds"
-                )
+                errors.append(f"{condition_set_id} has reversed {family} bounds")
 
         for row in connection.execute(
             """
@@ -821,9 +800,7 @@ def validate(path: Path) -> list[str]:
             ORDER BY material_id
             """
         ):
-            errors.append(
-                f"{row['material_id']} mixes incompatible composition bases"
-            )
+            errors.append(f"{row['material_id']} mixes incompatible composition bases")
         material_totals: dict[tuple[str, str], Fraction] = defaultdict(Fraction)
         for row in connection.execute(
             """
@@ -839,9 +816,7 @@ def validate(path: Path) -> list[str]:
             )
         for (material_id, basis), total in sorted(material_totals.items()):
             if total != 1:
-                errors.append(
-                    f"{material_id} {basis} components sum to {total}"
-                )
+                errors.append(f"{material_id} {basis} components sum to {total}")
 
         mixture_edges: dict[str, set[str]] = defaultdict(set)
         for row in connection.execute(
@@ -868,15 +843,13 @@ def validate(path: Path) -> list[str]:
             ORDER BY crystal_structure_id, site_id
             """
         ):
-            lattice_occupancies[
-                (row["crystal_structure_id"], row["site_id"])
-            ] += Fraction(
-                row["occupancy_numerator"],
-                row["occupancy_denominator"],
+            lattice_occupancies[(row["crystal_structure_id"], row["site_id"])] += (
+                Fraction(
+                    row["occupancy_numerator"],
+                    row["occupancy_denominator"],
+                )
             )
-        for (structure_id, site_id), occupancy in sorted(
-            lattice_occupancies.items()
-        ):
+        for (structure_id, site_id), occupancy in sorted(lattice_occupancies.items()):
             if occupancy <= 1:
                 continue
             errors.append(
@@ -935,12 +908,14 @@ def validate(path: Path) -> list[str]:
                 parameters.append(group["condition_set_id"])
             total = sum(
                 (
-                    Fraction(row["probability_numerator"], row["probability_denominator"])
+                    Fraction(
+                        row["probability_numerator"], row["probability_denominator"]
+                    )
                     for row in connection.execute(
                         f"""
                         SELECT probability_numerator, probability_denominator
                         FROM nuclear_channel
-                        WHERE {' AND '.join(clauses)}
+                        WHERE {" AND ".join(clauses)}
                         """,
                         parameters,
                     )

@@ -326,9 +326,7 @@ class CandidateAgentTest(unittest.TestCase):
             "INSERT INTO unverified_candidate_alias VALUES (?, 0, ?)",
             ("candidate:other", "water?"),
         )
-        safe, _ = safe_duplicate(
-            self.connection, "candidate:water", "candidate:other"
-        )
+        safe, _ = safe_duplicate(self.connection, "candidate:water", "candidate:other")
         self.assertTrue(safe)
 
     def test_duplicate_insert_merges_staging_rows_and_keeps_provenance(self) -> None:

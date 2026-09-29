@@ -205,7 +205,10 @@ def exact_ratio(value: str | None) -> tuple[int | None, int | None]:
         ratio = Fraction(Decimal(value))
     except (InvalidOperation, ValueError, OverflowError) as error:
         raise ValueError(f"invalid exact decimal {value!r}") from error
-    if abs(ratio.numerator) > MAX_SQLITE_INTEGER or ratio.denominator > MAX_SQLITE_INTEGER:
+    if (
+        abs(ratio.numerator) > MAX_SQLITE_INTEGER
+        or ratio.denominator > MAX_SQLITE_INTEGER
+    ):
         raise ValueError(f"exact decimal is outside SQLite integer range: {value!r}")
     return ratio.numerator, ratio.denominator
 
@@ -233,9 +236,13 @@ def snapshot_database(source: Path, destination: Path) -> None:
     source = source.resolve()
     destination = destination.resolve()
     destination.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="candidate-agent-", dir=destination.parent) as tmp:
+    with tempfile.TemporaryDirectory(
+        prefix="candidate-agent-", dir=destination.parent
+    ) as tmp:
         staged = Path(tmp) / destination.name
-        source_connection = sqlite3.connect(f"file:{source.as_posix()}?mode=ro", uri=True)
+        source_connection = sqlite3.connect(
+            f"file:{source.as_posix()}?mode=ro", uri=True
+        )
         target_connection = sqlite3.connect(staged)
         try:
             source_connection.backup(target_connection)
@@ -300,13 +307,17 @@ class WikipediaIndex:
     def document(self, key: str) -> str | None:
         return self._documents.get(key)
 
-    def search(self, query: str, source_entry_key: str | None, limit: int) -> list[dict]:
+    def search(
+        self, query: str, source_entry_key: str | None, limit: int
+    ) -> list[dict]:
         terms = [term.casefold() for term in TOKEN_RE.findall(query) if len(term) > 1]
         if not terms:
             raise ValueError("Wikipedia search query has no searchable terms")
         if source_entry_key is not None:
             if source_entry_key not in self.pages:
-                raise ValueError(f"source entry is absent from archive: {source_entry_key}")
+                raise ValueError(
+                    f"source entry is absent from archive: {source_entry_key}"
+                )
             candidates = [(source_entry_key, self.pages[source_entry_key])]
         else:
             candidates = list(self.pages.items())
@@ -343,7 +354,9 @@ class WikipediaIndex:
         return results
 
 
-def candidate_source_keys(connection: sqlite3.Connection, candidate_id: str) -> list[str]:
+def candidate_source_keys(
+    connection: sqlite3.Connection, candidate_id: str
+) -> list[str]:
     rows = connection.execute(
         """
         SELECT page.source_entry_key
@@ -436,7 +449,9 @@ def validate_evidence(candidate: dict, documents: list[str]) -> None:
         if len(normalized) < 8:
             raise ValueError(f"evidence excerpt is too short: {excerpt!r}")
         if not any(normalized in document for document in normalized_documents):
-            raise ValueError(f"evidence is not verbatim in an attached source: {excerpt!r}")
+            raise ValueError(
+                f"evidence is not verbatim in an attached source: {excerpt!r}"
+            )
 
 
 def normalize_rewrite(candidate: dict) -> dict:
@@ -445,7 +460,11 @@ def normalize_rewrite(candidate: dict) -> dict:
             {
                 "message": {
                     "content": json.dumps(
-                        {"page_relevance": "relevant", "notes": None, "entities": [candidate]}
+                        {
+                            "page_relevance": "relevant",
+                            "notes": None,
+                            "entities": [candidate],
+                        }
                     )
                 }
             }
@@ -464,9 +483,12 @@ def replace_candidate(
 ) -> None:
     existing_id = candidate["existing_id"]
     if existing_id is not None:
-        if connection.execute(
-            "SELECT 1 FROM entity WHERE entity_id = ?", (existing_id,)
-        ).fetchone() is None:
+        if (
+            connection.execute(
+                "SELECT 1 FROM entity WHERE entity_id = ?", (existing_id,)
+            ).fetchone()
+            is None
+        ):
             raise ValueError(f"unknown reviewed existing_id {existing_id!r}")
     connection.execute(
         """
@@ -479,12 +501,20 @@ def replace_candidate(
         WHERE candidate_id = ?
         """,
         (
-            candidate["candidate_kind"], candidate["name"], candidate["proposed_id"],
-            existing_id, candidate["formula"], candidate["electric_charge"],
-            candidate["atomic_number"], candidate["proton_count"],
-            candidate["neutron_count"], candidate["isomer_index"],
+            candidate["candidate_kind"],
+            candidate["name"],
+            candidate["proposed_id"],
+            existing_id,
+            candidate["formula"],
+            candidate["electric_charge"],
+            candidate["atomic_number"],
+            candidate["proton_count"],
+            candidate["neutron_count"],
+            candidate["isomer_index"],
             None if candidate["observed"] is None else int(candidate["observed"]),
-            candidate["confidence"], candidate["evidence_text"], candidate_id,
+            candidate["confidence"],
+            candidate["evidence_text"],
+            candidate_id,
         ),
     )
     for table in (
@@ -493,7 +523,9 @@ def replace_candidate(
         "unverified_candidate_fact",
         "unverified_candidate_relation",
     ):
-        connection.execute(f"DELETE FROM {table} WHERE candidate_id = ?", (candidate_id,))
+        connection.execute(
+            f"DELETE FROM {table} WHERE candidate_id = ?", (candidate_id,)
+        )
     for index, value in enumerate(candidate["aliases"]):
         connection.execute(
             "INSERT INTO unverified_candidate_alias VALUES (?, ?, ?)",
@@ -508,8 +540,13 @@ def replace_candidate(
             ) VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
             (
-                candidate_id, index, item["component_kind"], item["component_name"],
-                item["component_proposed_id"], item["atom_count"], item["evidence_text"],
+                candidate_id,
+                index,
+                item["component_kind"],
+                item["component_name"],
+                item["component_proposed_id"],
+                item["atom_count"],
+                item["evidence_text"],
             ),
         )
     for index, item in enumerate(candidate["facts"]):
@@ -528,10 +565,19 @@ def replace_candidate(
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
-                fact_id, candidate_id, index, item["field_key"], item["value_decimal"],
-                numerator, denominator, item["value_text"], item["unit"],
-                item["uncertainty_decimal"], uncertainty_numerator,
-                uncertainty_denominator, item["evidence_text"],
+                fact_id,
+                candidate_id,
+                index,
+                item["field_key"],
+                item["value_decimal"],
+                numerator,
+                denominator,
+                item["value_text"],
+                item["unit"],
+                item["uncertainty_decimal"],
+                uncertainty_numerator,
+                uncertainty_denominator,
+                item["evidence_text"],
             ),
         )
         for condition_index, condition in enumerate(item["conditions"]):
@@ -545,9 +591,14 @@ def replace_candidate(
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
-                    fact_id, condition_index, condition["quantity_kind"],
-                    condition["value_decimal"], value_numerator, value_denominator,
-                    condition["value_text"], condition["unit"],
+                    fact_id,
+                    condition_index,
+                    condition["quantity_kind"],
+                    condition["value_decimal"],
+                    value_numerator,
+                    value_denominator,
+                    condition["value_text"],
+                    condition["unit"],
                 ),
             )
     for index, item in enumerate(candidate["relations"]):
@@ -562,10 +613,19 @@ def replace_candidate(
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
-                str(uuid.uuid4()), candidate_id, index, item["relation_kind"],
-                item["object_name"], item["object_proposed_id"], item["role"],
-                item["coefficient_decimal"], numerator, denominator, item["phase"],
-                item["details"], item["evidence_text"],
+                str(uuid.uuid4()),
+                candidate_id,
+                index,
+                item["relation_kind"],
+                item["object_name"],
+                item["object_proposed_id"],
+                item["role"],
+                item["coefficient_decimal"],
+                numerator,
+                denominator,
+                item["phase"],
+                item["details"],
+                item["evidence_text"],
             ),
         )
 
@@ -617,7 +677,9 @@ def safe_duplicate(
         return False, "atoms lack a matching identity signature"
     source_formula = identity_text(source["formula"])
     target_formula = identity_text(target["formula"])
-    shared_names = candidate_names(connection, source_id) & candidate_names(connection, target_id)
+    shared_names = candidate_names(connection, source_id) & candidate_names(
+        connection, target_id
+    )
     if source_formula and source_formula == target_formula and shared_names:
         return True, "same formula and shared normalized name/alias"
     return False, "molecules require both formula and name/alias agreement"
@@ -642,15 +704,21 @@ def merge_duplicate(
     ).fetchone()
     if source is None:
         raise ValueError(f"duplicate source no longer exists: {source_id}")
-    existing_aliases = {identity_text(row[0]) for row in connection.execute(
-        "SELECT value FROM unverified_candidate_alias WHERE candidate_id = ?", (target_id,)
-    )}
+    existing_aliases = {
+        identity_text(row[0])
+        for row in connection.execute(
+            "SELECT value FROM unverified_candidate_alias WHERE candidate_id = ?",
+            (target_id,),
+        )
+    }
     if identity_text(source[2]) not in existing_aliases:
         connection.execute(
             "INSERT INTO unverified_candidate_alias VALUES (?, ?, ?)",
             (
                 target_id,
-                next_index(connection, "unverified_candidate_alias", "alias_index", target_id),
+                next_index(
+                    connection, "unverified_candidate_alias", "alias_index", target_id
+                ),
                 source[2],
             ),
         )
@@ -713,8 +781,16 @@ def merge_duplicate(
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
-            source_id, target_id, source[0], source[1], source[2], source[3],
-            source[4], source[5], "agent-reviewed duplicate", cleanup_run_id,
+            source_id,
+            target_id,
+            source[0],
+            source[1],
+            source[2],
+            source[3],
+            source[4],
+            source[5],
+            "agent-reviewed duplicate",
+            cleanup_run_id,
         ),
     )
     connection.execute(
@@ -743,11 +819,17 @@ def insert_review_row(
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
-            str(uuid.uuid4()), run_id, candidate_id, canonical_id, action, reason,
+            str(uuid.uuid4()),
+            run_id,
+            candidate_id,
+            canonical_id,
+            action,
+            reason,
             json.dumps(source_keys, ensure_ascii=False),
             json.dumps(before, ensure_ascii=False, sort_keys=True) if before else None,
             json.dumps(after, ensure_ascii=False, sort_keys=True) if after else None,
-            json.dumps(trace, ensure_ascii=False), utc_now(),
+            json.dumps(trace, ensure_ascii=False),
+            utc_now(),
         ),
     )
 
@@ -776,7 +858,9 @@ class AgentTools:
             raise ValueError("insert_db was already called")
         if name == "select_db":
             result = select_db(
-                self.connection, arguments.get("sql", ""), arguments.get("parameters", [])
+                self.connection,
+                arguments.get("sql", ""),
+                arguments.get("parameters", []),
             )
             self.selected = True
         elif name == "search_wikipedia":
@@ -800,7 +884,9 @@ class AgentTools:
         if not self.selected:
             raise ValueError("select_db must be called before insert_db")
         if not (self.searched_keys & set(self.source_keys)):
-            raise ValueError("an attached source article must be searched before insert_db")
+            raise ValueError(
+                "an attached source article must be searched before insert_db"
+            )
         action = arguments.get("action")
         if action not in {"keep", "rewrite", "duplicate", "reject"}:
             raise ValueError(f"invalid review action {action!r}")
@@ -816,7 +902,9 @@ class AgentTools:
         with self.connection:
             if action == "rewrite":
                 if not isinstance(rewritten, dict) or duplicate_id is not None:
-                    raise ValueError("rewrite requires candidate and no duplicate target")
+                    raise ValueError(
+                        "rewrite requires candidate and no duplicate target"
+                    )
                 normalized = normalize_rewrite(rewritten)
                 documents = [
                     self.wikipedia.document(key) or "" for key in self.source_keys
@@ -825,7 +913,9 @@ class AgentTools:
                 replace_candidate(self.connection, self.candidate_id, normalized)
             elif action == "duplicate":
                 if rewritten is not None or not isinstance(duplicate_id, str):
-                    raise ValueError("duplicate requires only duplicate_of_candidate_id")
+                    raise ValueError(
+                        "duplicate requires only duplicate_of_candidate_id"
+                    )
                 safe, safety_reason = safe_duplicate(
                     self.connection, self.candidate_id, duplicate_id
                 )
@@ -835,13 +925,27 @@ class AgentTools:
                 canonical_id = duplicate_id
                 reason = f"{reason}; guard: {safety_reason}"
             elif rewritten is not None or duplicate_id is not None:
-                raise ValueError(f"{action} accepts neither candidate nor duplicate target")
+                raise ValueError(
+                    f"{action} accepts neither candidate nor duplicate target"
+                )
             after = candidate_json(self.connection, canonical_id)
             insert_review_row(
-                self.connection, self.run_id, self.candidate_id, canonical_id,
-                action, reason, self.source_keys, before, after, self.trace,
+                self.connection,
+                self.run_id,
+                self.candidate_id,
+                canonical_id,
+                action,
+                reason,
+                self.source_keys,
+                before,
+                after,
+                self.trace,
             )
-        return {"committed": True, "action": action, "canonical_candidate_id": canonical_id}
+        return {
+            "committed": True,
+            "action": action,
+            "canonical_candidate_id": canonical_id,
+        }
 
 
 def assistant_tool_calls(message: dict) -> list[dict]:
@@ -849,7 +953,13 @@ def assistant_tool_calls(message: dict) -> list[dict]:
     if calls:
         return calls
     if message.get("function_call"):
-        return [{"id": str(uuid.uuid4()), "type": "function", "function": message["function_call"]}]
+        return [
+            {
+                "id": str(uuid.uuid4()),
+                "type": "function",
+                "function": message["function_call"],
+            }
+        ]
     content = message.get("content")
     if isinstance(content, str) and content.strip():
         try:
@@ -913,9 +1023,16 @@ def call_model(
             if not choices or not isinstance(choices[0].get("message"), dict):
                 raise ValueError("model response has no assistant message")
             return choices[0]["message"]
-        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
+        except (
+            urllib.error.HTTPError,
+            urllib.error.URLError,
+            TimeoutError,
+            json.JSONDecodeError,
+        ) as error:
             if attempt >= retries:
-                raise RuntimeError(f"model request failed after {attempt + 1} attempts: {error}") from error
+                raise RuntimeError(
+                    f"model request failed after {attempt + 1} attempts: {error}"
+                ) from error
             time.sleep(min(2**attempt, 8))
     raise AssertionError("unreachable")
 
@@ -961,7 +1078,13 @@ def run_candidate_agent(
     ]
     for _step in range(max_steps):
         message = call_model(
-            base_url, api_key, model, messages, max_tokens, retries, timeout,
+            base_url,
+            api_key,
+            model,
+            messages,
+            max_tokens,
+            retries,
+            timeout,
             enable_thinking,
         )
         calls = assistant_tool_calls(message)
@@ -972,7 +1095,9 @@ def run_candidate_agent(
             function = call.get("function") or {}
             raw_arguments = function.get("arguments", "{}")
             arguments = (
-                raw_arguments if isinstance(raw_arguments, dict) else json.loads(raw_arguments)
+                raw_arguments
+                if isinstance(raw_arguments, dict)
+                else json.loads(raw_arguments)
             )
             try:
                 result = tools.call(function.get("name", ""), arguments)
@@ -1109,8 +1234,14 @@ def main() -> None:
             ) VALUES (?, ?, ?, ?, ?, ?, ?, 'running', ?)
             """,
             (
-                run_id, utc_now(), args.model, args.base_url, args.archive.name,
-                sha256(args.archive), json.dumps(sorted(kinds)), len(targets),
+                run_id,
+                utc_now(),
+                args.model,
+                args.base_url,
+                args.archive.name,
+                sha256(args.archive),
+                json.dumps(sorted(kinds)),
+                len(targets),
             ),
         )
         connection.commit()
@@ -1122,9 +1253,18 @@ def main() -> None:
                     continue
                 try:
                     result = run_candidate_agent(
-                        connection, wikipedia, run_id, candidate_id, args.base_url,
-                        api_key, args.model, args.max_steps, args.max_output_tokens,
-                        args.retries, args.timeout, args.enable_thinking,
+                        connection,
+                        wikipedia,
+                        run_id,
+                        candidate_id,
+                        args.base_url,
+                        api_key,
+                        args.model,
+                        args.max_steps,
+                        args.max_output_tokens,
+                        args.retries,
+                        args.timeout,
+                        args.enable_thinking,
                     )
                     if not result.get("committed"):
                         raise ValueError(result.get("error") or "agent did not commit")
@@ -1138,11 +1278,21 @@ def main() -> None:
                     errors += 1
                     with connection:
                         insert_review_row(
-                            connection, run_id, candidate_id, candidate_id, "error",
-                            str(error), candidate_source_keys(connection, candidate_id),
-                            candidate_json(connection, candidate_id), None, [],
+                            connection,
+                            run_id,
+                            candidate_id,
+                            candidate_id,
+                            "error",
+                            str(error),
+                            candidate_source_keys(connection, candidate_id),
+                            candidate_json(connection, candidate_id),
+                            None,
+                            [],
                         )
-                    print(f"[{index}/{len(targets)}] {candidate_id}: ERROR {error}", flush=True)
+                    print(
+                        f"[{index}/{len(targets)}] {candidate_id}: ERROR {error}",
+                        flush=True,
+                    )
                 with connection:
                     connection.execute(
                         "UPDATE wikipedia_candidate_agent_run "

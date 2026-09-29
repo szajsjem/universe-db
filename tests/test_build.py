@@ -70,7 +70,9 @@ class BuildTest(unittest.TestCase):
 
     def test_foreign_keys_are_clean(self) -> None:
         with sqlite3.connect(ROOT / "universe.db") as connection:
-            self.assertEqual([], connection.execute("PRAGMA foreign_key_check").fetchall())
+            self.assertEqual(
+                [], connection.execute("PRAGMA foreign_key_check").fetchall()
+            )
 
     def test_unverified_release_contains_current_wikipedia_parse(self) -> None:
         self.assertEqual([], validate(UNVERIFIED_DATABASE))

@@ -65,9 +65,7 @@ def fake_payload() -> dict:
             },
             {
                 "type": "message",
-                "content": [
-                    {"type": "output_text", "text": json.dumps(result)}
-                ],
+                "content": [{"type": "output_text", "text": json.dumps(result)}],
             },
         ],
     }
@@ -109,9 +107,7 @@ class ResearchMissingDataTest(unittest.TestCase):
                 ),
             )
         request = urlopen.call_args.args[0]
-        self.assertEqual(
-            "http://127.0.0.1:8080/v1/responses", request.full_url
-        )
+        self.assertEqual("http://127.0.0.1:8080/v1/responses", request.full_url)
         self.assertNotIn("Authorization", request.headers)
 
     def test_planner_skips_existing_reviewed_values(self) -> None:

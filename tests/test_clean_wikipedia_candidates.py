@@ -222,9 +222,7 @@ class CleanWikipediaCandidatesTest(unittest.TestCase):
             ).fetchone()[0],
         )
         remaining = set(
-            self.connection.execute(
-                "SELECT name FROM unverified_entity_candidate"
-            )
+            self.connection.execute("SELECT name FROM unverified_entity_candidate")
         )
         self.assertIn(("heavy water",), remaining)
         self.assertIn(("m-xylene",), remaining)

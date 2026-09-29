@@ -44,8 +44,12 @@ class DeterministicPropertyCalculatorTest(unittest.TestCase):
         )
         hydrogen = result["normalized"]["composition"][0]
         self.assertEqual(
-            {"numerator": 2, "denominator": 3, "decimal": "0.666666666666667",
-             "method_class": "exact_from_input"},
+            {
+                "numerator": 2,
+                "denominator": 3,
+                "decimal": "0.666666666666667",
+                "method_class": "exact_from_input",
+            },
             hydrogen["atomic_fraction"],
         )
         self.assertNotIn("degree_of_unsaturation", result["properties"])
@@ -69,9 +73,7 @@ class DeterministicPropertyCalculatorTest(unittest.TestCase):
         self.assertGreater(density, Decimal("1.42"))
         self.assertLess(density, Decimal("1.44"))
         with self.assertRaisesRegex(CalculationError, "requires both"):
-            self.calculator.calculate_formula(
-                "O2", temperature_k=Decimal("273.15")
-            )
+            self.calculator.calculate_formula("O2", temperature_k=Decimal("273.15"))
 
     def test_atomic_number_without_isotope_abstains_from_nuclear_model(self) -> None:
         result = self.calculator.calculate_atom(26, charge=2)

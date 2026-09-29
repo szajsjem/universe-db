@@ -60,10 +60,21 @@ def main() -> None:
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w", encoding="utf-8", newline="") as output:
-        writer = csv.DictWriter(output, fieldnames=rows[0].keys() if rows else [
-            "sequence_index", "missing_status", "title", "source_url",
-            "source_entry_key", "attempt_count", "latest_error", "latest_attempt_at",
-        ])
+        writer = csv.DictWriter(
+            output,
+            fieldnames=rows[0].keys()
+            if rows
+            else [
+                "sequence_index",
+                "missing_status",
+                "title",
+                "source_url",
+                "source_entry_key",
+                "attempt_count",
+                "latest_error",
+                "latest_attempt_at",
+            ],
+        )
         writer.writeheader()
         writer.writerows(rows)
 

@@ -97,7 +97,8 @@ ORDER BY r.reaction_id, rp.role DESC, cs.formula;
 ## Rebuild and verify
 
 Requirements are Python 3.11+ and its standard-library SQLite module. There are
-no third-party runtime or build dependencies.
+no third-party runtime or build dependencies. Running the development checks
+also requires Ruff 0.12.12.
 
 ```sh
 make build

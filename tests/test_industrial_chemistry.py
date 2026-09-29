@@ -16,13 +16,10 @@ class IndustrialChemistrySeedTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.connection.close()
 
-    def equation(
-        self, reaction_id: str
-    ) -> set[tuple[str, str, str, Fraction]]:
+    def equation(self, reaction_id: str) -> set[tuple[str, str, str, Fraction]]:
         return {
             (role, species_id, phase_id, Fraction(numerator, denominator))
-            for role, species_id, phase_id, numerator, denominator
-            in self.connection.execute(
+            for role, species_id, phase_id, numerator, denominator in self.connection.execute(
                 """
                 SELECT role, species_id, phase_id,
                        coefficient_numerator, coefficient_denominator

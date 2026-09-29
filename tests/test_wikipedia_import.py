@@ -122,9 +122,7 @@ class WikipediaImportTest(unittest.TestCase):
         package = types.ModuleType("libzim")
         reader = types.ModuleType("libzim.reader")
         reader.Archive = Archive
-        with patch.dict(
-            sys.modules, {"libzim": package, "libzim.reader": reader}
-        ):
+        with patch.dict(sys.modules, {"libzim": package, "libzim.reader": reader}):
             manifest, pages = load_zim_archive(Path("fixture.zim"))
 
         self.assertEqual("openzim-wikipedia-chemistry", manifest["archive_format"])
@@ -178,9 +176,7 @@ class WikipediaImportTest(unittest.TestCase):
             "output": [
                 {
                     "type": "message",
-                    "content": [
-                        {"type": "output_text", "text": json.dumps(result)}
-                    ],
+                    "content": [{"type": "output_text", "text": json.dumps(result)}],
                 }
             ],
         }
@@ -372,9 +368,7 @@ class WikipediaImportTest(unittest.TestCase):
             "revision_url": "https://example.test/?oldid=2",
             "title": "Test",
         }
-        valid = json.dumps(
-            {"page_relevance": "no_data", "notes": None, "entities": []}
-        )
+        valid = json.dumps({"page_relevance": "no_data", "notes": None, "entities": []})
         with (
             patch(
                 "scripts.parse_wikipedia_archive.urllib.request.urlopen",
@@ -771,9 +765,7 @@ class WikipediaImportTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             database = Path(directory) / "test.db"
             build(database)
-            nuclide = candidate(
-                "nuclide", "iron-99", "candidate:nuclide:iron-99"
-            )
+            nuclide = candidate("nuclide", "iron-99", "candidate:nuclide:iron-99")
             nuclide.update(
                 {
                     "proton_count": 26,
@@ -887,7 +879,11 @@ class WikipediaImportTest(unittest.TestCase):
                         "SELECT count(*) FROM unverified_candidate_relation"
                     ).fetchone()[0]
         self.assertEqual(
-            [("nuclide", None, None), ("molecule", None, None), ("reaction", None, None)],
+            [
+                ("nuclide", None, None),
+                ("molecule", None, None),
+                ("reaction", None, None),
+            ],
             kinds,
         )
         self.assertEqual([(3, 2000)], facts)
