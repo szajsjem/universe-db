@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from pathlib import Path
 
 from scripts.build_db import build
 from scripts.clean_wikipedia_candidates import apply_cleanup, build_plan, formula_charge

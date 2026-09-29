@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from scripts.build_db import build
@@ -20,7 +20,6 @@ from scripts.research_missing_data import (
     plan_tasks,
     responses_url,
 )
-
 
 ROOT = Path(__file__).resolve().parents[1]
 

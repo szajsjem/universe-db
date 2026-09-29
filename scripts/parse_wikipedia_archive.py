@@ -10,15 +10,9 @@ tables pending human source review.
 from __future__ import annotations
 
 import argparse
-from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
-from contextlib import closing
-from datetime import datetime, timezone
-from decimal import Decimal, InvalidOperation
-from fractions import Fraction
 import hashlib
 import json
 import os
-from pathlib import Path
 import re
 import shutil
 import sqlite3
@@ -30,7 +24,12 @@ import urllib.parse
 import urllib.request
 import uuid
 import zipfile
-
+from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
+from contextlib import closing
+from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation
+from fractions import Fraction
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / "universe.db"

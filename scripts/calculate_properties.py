@@ -10,14 +10,14 @@ also require structure, phase, conditions, or experimental evidence.
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
-from decimal import Decimal, localcontext
-from fractions import Fraction
 import hashlib
 import json
 import math
-from pathlib import Path
 import sqlite3
+from dataclasses import dataclass
+from decimal import Decimal, localcontext
+from fractions import Fraction
+from pathlib import Path
 from typing import Iterable
 
 try:

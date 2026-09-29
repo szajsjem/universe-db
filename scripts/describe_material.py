@@ -10,17 +10,16 @@ domain.  Its output is model evidence, never a reviewed database observation.
 from __future__ import annotations
 
 import argparse
-from collections import Counter, defaultdict
-from dataclasses import dataclass
-from fractions import Fraction
 import hashlib
 import json
 import math
-from pathlib import Path
 import re
 import sqlite3
+from collections import Counter, defaultdict
+from dataclasses import dataclass
+from fractions import Fraction
+from pathlib import Path
 from typing import Iterable
-
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / "universe.db"

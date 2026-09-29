@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 from scripts.build_db import build
 from scripts.describe_material import FormulaParser, MaterialModel, load_query

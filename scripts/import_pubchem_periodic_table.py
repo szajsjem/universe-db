@@ -4,14 +4,13 @@
 from __future__ import annotations
 
 import argparse
-from decimal import Decimal
-from fractions import Fraction
 import hashlib
 import json
-from pathlib import Path
 import re
 import urllib.request
-
+from decimal import Decimal
+from fractions import Fraction
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_URL = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/periodictable/JSON"

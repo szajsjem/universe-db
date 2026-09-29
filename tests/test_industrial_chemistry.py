@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from fractions import Fraction
-from pathlib import Path
 import sqlite3
 import unittest
-
+from fractions import Fraction
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET_ID = "dataset:industrial-chemistry-2026-08-01"

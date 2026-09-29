@@ -10,7 +10,6 @@ from pathlib import Path
 
 from parse_wikipedia_archive import load_archive, sha256
 
-
 SUCCESS = {"parsed", "parsed_partial", "no_data"}
 
 

@@ -7,10 +7,9 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
 import sqlite3
 import tempfile
-
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "universe.db"

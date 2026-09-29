@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-from contextlib import closing
 import json
-from pathlib import Path
 import sqlite3
 import sys
 import tempfile
 import threading
 import types
 import unittest
+from contextlib import closing
+from pathlib import Path
 from unittest.mock import patch
 
 from scripts.build_db import build
@@ -20,9 +20,9 @@ from scripts.parse_wikipedia_archive import (
     extract_page_with_retries,
     insert_candidate,
     is_local_base_url,
+    lm_studio_models_url,
     load_archive,
     load_zim_archive,
-    lm_studio_models_url,
     main,
     normalize_result,
     parallel_slots_from_models,

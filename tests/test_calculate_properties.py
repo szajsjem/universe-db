@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from decimal import Decimal
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from decimal import Decimal
+from pathlib import Path
 
 from scripts.build_db import build
 from scripts.calculate_properties import (

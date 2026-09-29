@@ -4,10 +4,10 @@
 from __future__ import annotations
 
 import argparse
+import sqlite3
 from collections import defaultdict
 from fractions import Fraction
 from pathlib import Path
-import sqlite3
 
 
 def scalar(connection: sqlite3.Connection, sql: str) -> int:

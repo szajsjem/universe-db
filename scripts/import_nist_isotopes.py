@@ -4,26 +4,34 @@
 from __future__ import annotations
 
 import argparse
-from decimal import Decimal
-from fractions import Fraction
 import hashlib
 import html
 import json
-from pathlib import Path
 import re
 import urllib.request
+from decimal import Decimal
+from fractions import Fraction
+from pathlib import Path
 
 try:
     from .import_pubchem_periodic_table import (
         DEFAULT_SOURCE as PERIODIC_TABLE_SOURCE,
+    )
+    from .import_pubchem_periodic_table import (
         load_rows as load_element_rows,
+    )
+    from .import_pubchem_periodic_table import (
         slug,
         sql_text,
     )
 except ImportError:
     from import_pubchem_periodic_table import (
         DEFAULT_SOURCE as PERIODIC_TABLE_SOURCE,
+    )
+    from import_pubchem_periodic_table import (
         load_rows as load_element_rows,
+    )
+    from import_pubchem_periodic_table import (
         slug,
         sql_text,
     )
