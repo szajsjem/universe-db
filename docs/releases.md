@@ -1,5 +1,20 @@
 # Export a Universe database release
 
+## Publish through GitHub Actions
+
+The `release` workflow runs on tag pushes or manual dispatch. A manual run
+requires an existing tag and checks out that tag's contents, even when the
+workflow is launched from `main`. The historical `recent` tag predates the
+companion and alloy databases; rerunning it publishes its original assets.
+Use a new tag pointing to the desired current commit to publish newer data.
+
+Tags that include `scripts/export_release.py` publish the combined release
+bundle, individual databases, manifest, and checksums described below.
+Older tags publish only their available database assets. A missing checksum
+for a present companion database still fails validation.
+
+## Export locally
+
 ```sh
 python scripts/export_release.py
 ```

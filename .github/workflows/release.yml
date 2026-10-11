@@ -6,9 +6,8 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Existing tag to build and publish
+        description: Existing tag to build and publish (tag contents, not current main)
         required: true
-        default: recent
         type: string
 
 permissions:
@@ -40,20 +39,50 @@ jobs:
         run: |
           make check
           sha256sum --check universe.db.sha256
-          sha256sum --check universe-unverified.db.sha256
+          if [[ -f universe-unverified.db ]]; then
+            sha256sum --check universe-unverified.db.sha256
+          elif [[ -f universe-unverified.db.sha256 ]]; then
+            echo "Companion checksum exists but its database is missing" >&2
+            exit 1
+          else
+            echo "This tag predates the unverified companion database."
+          fi
+      - name: Build combined release bundle when supported by tag
+        run: |
+          if [[ -f scripts/export_release.py ]]; then
+            python scripts/export_release.py --version "$RELEASE_TAG"
+            (
+              cd "dist/releases/$RELEASE_TAG"
+              sha256sum --check ./*.db.sha256
+            )
+            (
+              cd dist/releases
+              sha256sum --check "universe-$RELEASE_TAG.zip.sha256"
+            )
+          fi
       - name: Publish release assets
         run: |
-          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
-            gh release upload "$RELEASE_TAG" \
-              universe.db universe.db.sha256 \
-              universe-unverified.db universe-unverified.db.sha256 \
-              manifest.json \
-              --clobber
+          if [[ -f scripts/export_release.py ]]; then
+            bundle="dist/releases/$RELEASE_TAG"
+            assets=(
+              "$bundle/universe.db" "$bundle/universe.db.sha256"
+              "$bundle/universe-reviewed.db" "$bundle/universe-reviewed.db.sha256"
+              "$bundle/universe-unverified.db" "$bundle/universe-unverified.db.sha256"
+              "$bundle/alloys.db" "$bundle/alloys.db.sha256"
+              "$bundle/manifest.json"
+              "dist/releases/universe-$RELEASE_TAG.zip"
+              "dist/releases/universe-$RELEASE_TAG.zip.sha256"
+            )
           else
-            gh release create "$RELEASE_TAG" \
-              universe.db universe.db.sha256 \
-              universe-unverified.db universe-unverified.db.sha256 \
-              manifest.json \
+            assets=(universe.db universe.db.sha256 manifest.json)
+            if [[ -f universe-unverified.db ]]; then
+              assets+=(universe-unverified.db universe-unverified.db.sha256)
+            fi
+          fi
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "${assets[@]}" --clobber
+          else
+            gh release create "$RELEASE_TAG" "${assets[@]}" \
               --verify-tag \
               --generate-notes \
               --title "$RELEASE_TAG"
