@@ -26,6 +26,12 @@ Rebuild with `python scripts/build_element_evidence.py`; run
 `python scripts/fit_alloy_properties.py` for the evidence audit. These entries
 remain pending human review.
 
+The [isotope research reference and fitted approximation](docs/isotope-approximation.md)
+add full NIST/AME/NUBASE evidence and a validated ground-state mass model.
+Rebuild with `python scripts/build_isotope_evidence.py` and fit with
+`python scripts/fit_isotope_properties.py`. Imported evidence and model
+predictions retain separate provenance and review status.
+
 | Family | Seeded now | Schema ready |
 |---|---:|:---:|
 | Quarks and leptons | 12 identities | yes |
@@ -110,7 +116,7 @@ ORDER BY r.reaction_id, rp.role DESC, cs.formula;
 ## Rebuild and verify
 
 Export a versioned release containing the combined database and the current
-reviewed, Wikipedia research, alloy, and elemental evidence databases:
+reviewed, Wikipedia research, alloy, elemental, and isotope evidence databases:
 
 ```sh
 python scripts/export_release.py

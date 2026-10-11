@@ -18,11 +18,13 @@ if __package__:
     from .build_alloy_db import build as build_alloys
     from .build_db import build, sha256
     from .build_element_evidence import build as build_elements
+    from .build_isotope_evidence import build as build_isotopes
     from .validate_db import validate
 else:
     from build_alloy_db import build as build_alloys
     from build_db import build, sha256
     from build_element_evidence import build as build_elements
+    from build_isotope_evidence import build as build_isotopes
     from validate_db import validate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -119,13 +121,21 @@ def prefixed_schema(sql: str, names: dict[str, str]):
         name = match[2].strip('"')
         return match[1] + " " + quote(names.get(name, name))
 
-    return re.sub(pattern, replace, sql, flags=re.IGNORECASE)
+    result = re.sub(pattern, replace, sql, flags=re.IGNORECASE)
+    if re.match(r"CREATE\s+(?:UNIQUE\s+)?INDEX\b", sql, re.IGNORECASE):
+        result = re.sub(
+            r'\b(CREATE\s+(?:UNIQUE\s+)?INDEX|ON)\s+("?[A-Za-z_][A-Za-z_0-9]*"?)',
+            replace,
+            result,
+            flags=re.IGNORECASE,
+        )
+    return result
 
 
 def import_alloys(destination: Path, source: Path, prefix="unverified_alloy_"):
     with closing(sqlite3.connect(source)) as src:
         schemas = src.execute(
-            "SELECT type,name,sql FROM sqlite_schema WHERE type IN ('table','view') AND name NOT LIKE 'sqlite_%' ORDER BY CASE type WHEN 'table' THEN 0 ELSE 1 END,rowid"
+            "SELECT type,name,sql FROM sqlite_schema WHERE type IN ('table','view','index') AND name NOT LIKE 'sqlite_%' ORDER BY CASE type WHEN 'table' THEN 0 WHEN 'view' THEN 1 ELSE 2 END,rowid"
         ).fetchall()
     names = {name: prefix + name for _, name, _ in schemas}
     with closing(sqlite3.connect(destination)) as dst:
@@ -178,11 +188,14 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
         build_alloys(alloys)
         elements = stage / "elements.db"
         build_elements(elements)
+        isotopes = stage / "isotopes.db"
+        build_isotopes(isotopes)
         combined = stage / "universe.db"
         snapshot(reviewed, combined)
         import_research(combined, research, base_digest)
         import_alloys(combined, alloys)
         import_alloys(combined, elements, prefix="")
+        import_alloys(combined, isotopes, prefix="")
         with closing(sqlite3.connect(combined)) as db:
             with db:
                 db.executemany(
@@ -197,6 +210,7 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
                         ("unverified_base_sha256", base_digest),
                         ("alloy_review_status", "pending_human_review"),
                         ("element_evidence_review_status", "pending_human_review"),
+                        ("isotope_evidence_review_status", "pending_human_review"),
                     ],
                 )
         failures = validate(combined)
@@ -210,6 +224,7 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "universe-unverified.db": "unverified",
             "alloys.db": "pending_human_review",
             "elements.db": "pending_human_review",
+            "isotopes.db": "pending_human_review",
             "universe.db": "reviewed_core_with_unverified_research",
         }
         for name, status in statuses.items():
@@ -225,7 +240,7 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "reviewed_base_sha256": base_digest,
             "research_source": str(wikipedia.resolve()),
             "artifacts": artifacts,
-            "review_boundary": "AI-reviewed Wikipedia and model-assisted alloy/element evidence remain unverified; no automatic promotion.",
+            "review_boundary": "AI-reviewed Wikipedia and imported alloy/element/isotope evidence remain unverified; no automatic promotion.",
             "full_wikipedia_dump_included": False,
         }
         (stage / "manifest.json").write_text(
@@ -239,6 +254,8 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "alloys.db: sourced alloy reference, pending human review.\n"
             "elements.db: sourced elemental properties, pending human review.\n"
             "Elemental research tables begin unverified_element_.\n"
+            "isotopes.db: full evaluated NIST/AME/NUBASE isotope reference, pending human review.\n"
+            "Isotope research tables begin unverified_isotope_. Source estimates stay flagged.\n"
             "In universe.db, alloy tables/views begin unverified_alloy_. Wikipedia candidates\n"
             "remain in unverified_* tables; wikipedia_* tables retain provenance and audit.\n"
             "Model decisions do not constitute scientific verification. NULL means unknown.\n"

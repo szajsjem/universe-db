@@ -21,7 +21,8 @@ python scripts/export_release.py
 
 The command writes `dist/releases/<UTC timestamp>/` and a ZIP beside it.
 It rebuilds the reviewed scientific core from current migrations and seeds,
-rebuilds the alloy and elemental references from authored JSON, and takes a consistent SQLite
+rebuilds the alloy and elemental references from authored JSON, imports the
+pinned isotope evaluations, and takes a consistent SQLite
 backup of the current Wikipedia review database. The background reviewer can
 continue working during export; the release contains one committed snapshot.
 
@@ -48,6 +49,7 @@ Each release contains:
 | `universe-unverified.db` | Snapshot of the selected research database, including its review audit |
 | `alloys.db` | Rebuilt alloy reference |
 | `elements.db` | Rebuilt elemental physical-property evidence, pending review |
+| `isotopes.db` | Full evaluated isotope evidence, pending review; source estimates flagged |
 | `manifest.json` | Version, export time, base identity, file sizes, row counts, review progress, and SHA-256 digests |
 | `*.sha256` | Individual database checksums |
 | `README.txt` | Artifact and review-status guide |
@@ -62,6 +64,10 @@ names. Wikipedia candidates remain in `unverified_*` staging tables, with
 
 Elemental research uses the `unverified_element_` prefix and retains complete
 source-record JSON, composition basis, and supplied uncertainty metadata.
+Isotope research uses `unverified_isotope_`, preserving evaluation vintages,
+source-systematic estimates, nuclear states, and original uncertainty/qualifier
+text. Fitted isotope model JSON is generated separately; see
+[isotope approximation](isotope-approximation.md).
 
 For example:
 

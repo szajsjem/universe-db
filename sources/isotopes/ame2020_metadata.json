@@ -1,0 +1,14 @@
+{
+  "id": "amdc-ame2020",
+  "title": "The AME2020 atomic mass evaluation (I) and (II)",
+  "url": "https://www-nds.iaea.org/amdc/ame2020/mass_1.mas20.txt",
+  "version": "AME2020; native table dated 3 March 2021 22:41",
+  "retrieved_at": "2026-10-11",
+  "sha256": "e8599c6d7f724fac91934e59f1b9de8fb8f63e820f4b39456b790665ed2a3307",
+  "license_note": "Imported identities and numeric evaluated values are factual data. The native ASCII file does not state a standalone license; no license is inferred for its prose. The evaluation articles are CC BY 3.0; preserve author, title, journal and DOI attribution. Native file is retained as a separately attributed source archive, not MIT project code.",
+  "authors": "W.J. Huang, M. Wang, F.G. Kondev, G. Audi and S. Naimi",
+  "references": ["https://doi.org/10.1088/1674-1137/abddb0", "https://doi.org/10.1088/1674-1137/abddaf"],
+  "release_checks": ["https://www-nds.iaea.org/amdc/", "https://amdc.impcas.ac.cn/web/masseval.html"],
+  "release_note": "Both official release pages listed AME2020 as the current evaluation when checked on retrieval date.",
+  "format_reference": "Native ASCII header lines 21-27: Fortran widths, micro-u atomic mass, keV energy, # estimated and * unavailable."
+}

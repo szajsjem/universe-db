@@ -1,0 +1,12 @@
+{
+  "source_url": "https://www-nds.iaea.org/amdc/ame2020/nubase_4.mas20.txt",
+  "landing_page": "https://www-nds.iaea.org/amdc/",
+  "publication_url": "https://cpc.ihep.ac.cn/article/doi/10.1088/1674-1137/abddae",
+  "version": "NUBASE2020",
+  "publication_year": 2021,
+  "retrieved_at": "2026-10-11T18:26:01.803734+00:00",
+  "sha256": "1585a5eea86c5e17e90307c7e6e786d060049c4039e392a261ff6db977df9859",
+  "license_note": "Publicly distributed evaluated numerical facts; citation requested by AMDC. No blanket license inferred.",
+  "format": "Original fixed-width ASCII with header documenting all columns",
+  "time_conversion": "Year rendered as exact Julian year (365.25 days). Original unit and all qualifiers preserved."
+}
