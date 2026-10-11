@@ -133,7 +133,7 @@
       "publisher": "Cooksongold",
       "retrieved_at": "2026-10-11",
       "version": "Undated source; web edition retrieved 2026-10-11",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "cookson-18ct-rp",
@@ -142,7 +142,7 @@
       "publisher": "Cooksongold",
       "retrieved_at": "2026-10-11",
       "version": "Undated source; web edition retrieved 2026-10-11",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "cookson-18ct-sw",
@@ -151,7 +151,7 @@
       "publisher": "Cooksongold",
       "retrieved_at": "2026-10-11",
       "version": "Undated source; web edition retrieved 2026-10-11",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     }
   ],
   "alloys": [
@@ -1085,18 +1085,38 @@
           "element": "Ag",
           "min_wt_pct": null,
           "max_wt_pct": null,
-          "nominal_wt_pct": "94",
+          "nominal_wt_pct": "94.2",
           "role": "specified",
-          "source_id": "argentium-mill-guides",
-          "note": ""
+          "source_id": "argentium940-mill-technical-2025",
+          "note": "March 2025 supplier technical sheet states the commercial composition as 94.2 wt% silver."
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "argentium940-mill-technical-2025",
+          "note": "Named in the commercial-composition section, without an elemental percentage."
+        },
+        {
+          "element": "Ge",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "argentium940-mill-technical-2025",
+          "note": "Named in the commercial-composition section, without an elemental percentage."
         }
       ],
       "source_ids": [
-        "argentium-mill-guides"
+        "argentium-mill-guides",
+        "argentium940-mill-technical-2025"
       ],
       "notes": [
-        "The manufacturer states the silver purity but this cited page does not disclose the remaining elemental percentages.",
-        "No copper or germanium percentages have been guessed."
+        "The earlier manufacturer landing page describes 94% silver purity; the dated March 2025 technical sheet gives a commercial nominal composition of 94.2 wt% Ag. Both sources are retained.",
+        "Copper and germanium are named in the technical sheet but their percentages are undisclosed. No amounts have been inferred.",
+        "The dated technical-sheet source definition is stored in properties_precious.json."
       ]
     },
     {

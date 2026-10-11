@@ -16,7 +16,7 @@
       "publisher": "Hydro",
       "retrieved_at": "2026-10-11",
       "version": "October 2018; EN 573-3:2013",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "hydro-6061-2019",
@@ -25,7 +25,7 @@
       "publisher": "Hydro",
       "retrieved_at": "2026-10-11",
       "version": "Revision 2019/01 (February 2019)",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "hydro-6063-2026",
@@ -34,7 +34,7 @@
       "publisher": "Hydro",
       "retrieved_at": "2026-10-11",
       "version": "June 2026 filename",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "coastal-a356",
@@ -61,7 +61,7 @@
       "publisher": "Luxfer Magnesium Rolled Products",
       "retrieved_at": "2026-10-11",
       "version": "WRAZ31B 1001-2; copyright 2018; hosted January 2024",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "nadca-mg-2015",
@@ -88,7 +88,7 @@
       "publisher": "Luxfer MEL Technologies",
       "retrieved_at": "2026-10-11",
       "version": "May 2026 filename; datasheet 467",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "timet-grade1",
@@ -97,7 +97,7 @@
       "publisher": "Titanium Metals Corporation",
       "retrieved_at": "2026-10-11",
       "version": "2000; TMC-0158",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "timet-grade2",
@@ -106,7 +106,7 @@
       "publisher": "Titanium Metals Corporation",
       "retrieved_at": "2026-10-11",
       "version": "Undated web reference; accessed 2026-10-11",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "timet-grade5-23",
@@ -115,7 +115,7 @@
       "publisher": "Titanium Metals Corporation",
       "retrieved_at": "2026-10-11",
       "version": "Undated web reference; accessed 2026-10-11",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     },
     {
       "id": "timet-grade9",
@@ -124,7 +124,7 @@
       "publisher": "Titanium Metals Corporation",
       "retrieved_at": "2026-10-11",
       "version": "October 1997; HQ-10/97-BG 111-4 M",
-      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+      "license_note": "Uncopyrightable factual alloy identities, composition limits, and numerical property facts only; no source prose reproduced."
     }
   ],
   "alloys": [
@@ -1359,7 +1359,7 @@
         "luxfer-we43b-2026"
       ],
       "notes": [
-        "Rare earths combined 2.4\u20134.4 wt%; the source does not give an elemental breakdown, so noNd fraction is invented."
+        "Rare earths combined 2.4–4.4 wt%; the source does not give an elemental breakdown, so noNd fraction is invented."
       ]
     },
     {

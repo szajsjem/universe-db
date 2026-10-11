@@ -73,6 +73,9 @@ jobs:
               "dist/releases/universe-$RELEASE_TAG.zip"
               "dist/releases/universe-$RELEASE_TAG.zip.sha256"
             )
+            if [[ -f "$bundle/elements.db" ]]; then
+              assets+=("$bundle/elements.db" "$bundle/elements.db.sha256")
+            fi
           else
             assets=(universe.db universe.db.sha256 manifest.json)
             if [[ -f universe-unverified.db ]]; then

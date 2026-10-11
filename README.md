@@ -16,9 +16,15 @@ today. The schema is broad; the reviewed data will grow source by source.
 A separate hand-authored [metal alloy reference](docs/alloys.md) is available
 as `alloys.db`, covering ironâ€“carbon, copper, gold, silver, aluminum,
 magnesium, titanium, and nickel grades with sourced composition limits and
-nominal recipes. These research entries await human review and are separate
+nominal recipes and condition-specific physical/mechanical properties. These research entries await human review and are separate
 from the reviewed coverage below. Rebuild it with
 `python scripts/build_alloy_db.py`.
+
+The [elemental property research database](docs/element-evidence.md),
+`elements.db`, adds 187 sourced observations across the 33 alloy constituents.
+Rebuild with `python scripts/build_element_evidence.py`; run
+`python scripts/fit_alloy_properties.py` for the evidence audit. These entries
+remain pending human review.
 
 | Family | Seeded now | Schema ready |
 |---|---:|:---:|
@@ -104,7 +110,7 @@ ORDER BY r.reaction_id, rp.role DESC, cs.formula;
 ## Rebuild and verify
 
 Export a versioned release containing the combined database and the current
-reviewed, Wikipedia research, and alloy databases:
+reviewed, Wikipedia research, alloy, and elemental evidence databases:
 
 ```sh
 python scripts/export_release.py
@@ -251,6 +257,11 @@ The release contains:
   Wikipedia parsing progress for both artifacts.
 
 ## Calculate deterministic atomic and composition properties
+
+For integer atom/molecule mixtures, opt-in density/thermal/elastic models,
+and crystal or ceramic cell density, see the [mixture calculator](docs/mixtures.md).
+Use `calculate_mixture(components, counts, ...)` or
+`python scripts/mixture_properties.py examples/iron-carbon-mixture.json`.
 
 The dependency-free property calculator evaluates exact composition invariants,
 reviewed-source mass aggregates, optional ideal-gas density, and an explicitly

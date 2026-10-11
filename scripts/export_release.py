@@ -17,10 +17,12 @@ from pathlib import Path
 if __package__:
     from .build_alloy_db import build as build_alloys
     from .build_db import build, sha256
+    from .build_element_evidence import build as build_elements
     from .validate_db import validate
 else:
     from build_alloy_db import build as build_alloys
     from build_db import build, sha256
+    from build_element_evidence import build as build_elements
     from validate_db import validate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -120,12 +122,12 @@ def prefixed_schema(sql: str, names: dict[str, str]):
     return re.sub(pattern, replace, sql, flags=re.IGNORECASE)
 
 
-def import_alloys(destination: Path, source: Path):
+def import_alloys(destination: Path, source: Path, prefix="unverified_alloy_"):
     with closing(sqlite3.connect(source)) as src:
         schemas = src.execute(
             "SELECT type,name,sql FROM sqlite_schema WHERE type IN ('table','view') AND name NOT LIKE 'sqlite_%' ORDER BY CASE type WHEN 'table' THEN 0 ELSE 1 END,rowid"
         ).fetchall()
-    names = {name: "unverified_alloy_" + name for _, name, _ in schemas}
+    names = {name: prefix + name for _, name, _ in schemas}
     with closing(sqlite3.connect(destination)) as dst:
         dst.execute("PRAGMA foreign_keys=ON")
         dst.execute("ATTACH DATABASE ? AS incoming", (str(source),))
@@ -174,10 +176,13 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             )
         alloys = stage / "alloys.db"
         build_alloys(alloys)
+        elements = stage / "elements.db"
+        build_elements(elements)
         combined = stage / "universe.db"
         snapshot(reviewed, combined)
         import_research(combined, research, base_digest)
         import_alloys(combined, alloys)
+        import_alloys(combined, elements, prefix="")
         with closing(sqlite3.connect(combined)) as db:
             with db:
                 db.executemany(
@@ -191,6 +196,7 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
                         ("reviewed_base_sha256", base_digest),
                         ("unverified_base_sha256", base_digest),
                         ("alloy_review_status", "pending_human_review"),
+                        ("element_evidence_review_status", "pending_human_review"),
                     ],
                 )
         failures = validate(combined)
@@ -203,6 +209,7 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "universe-reviewed.db": "reviewed",
             "universe-unverified.db": "unverified",
             "alloys.db": "pending_human_review",
+            "elements.db": "pending_human_review",
             "universe.db": "reviewed_core_with_unverified_research",
         }
         for name, status in statuses.items():
@@ -218,7 +225,7 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "reviewed_base_sha256": base_digest,
             "research_source": str(wikipedia.resolve()),
             "artifacts": artifacts,
-            "review_boundary": "AI-reviewed Wikipedia and model-assisted alloy entries remain unverified; no automatic promotion.",
+            "review_boundary": "AI-reviewed Wikipedia and model-assisted alloy/element evidence remain unverified; no automatic promotion.",
             "full_wikipedia_dump_included": False,
         }
         (stage / "manifest.json").write_text(
@@ -230,6 +237,8 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "universe-reviewed.db: reviewed core only, rebuilt from migrations and seed.\n"
             "universe-unverified.db: consistent snapshot of current Wikipedia research and audit data.\n"
             "alloys.db: sourced alloy reference, pending human review.\n"
+            "elements.db: sourced elemental properties, pending human review.\n"
+            "Elemental research tables begin unverified_element_.\n"
             "In universe.db, alloy tables/views begin unverified_alloy_. Wikipedia candidates\n"
             "remain in unverified_* tables; wikipedia_* tables retain provenance and audit.\n"
             "Model decisions do not constitute scientific verification. NULL means unknown.\n"

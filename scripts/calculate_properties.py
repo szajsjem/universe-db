@@ -214,6 +214,14 @@ class DeterministicPropertyCalculator:
             connection.close()
         return cls(database, elements)
 
+    def calculate_mixture(self, components, counts, **options) -> dict:
+        """Calculate integer mixtures with explicit model and structure inputs."""
+        try:
+            from scripts.mixture_properties import calculate_mixture
+        except ModuleNotFoundError:
+            from mixture_properties import calculate_mixture
+        return calculate_mixture(components, counts, calculator=self, **options)
+
     def common_metadata(self) -> dict:
         return {
             "algorithm_id": ALGORITHM_ID,

@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "retrieved_at": "2026-10-11",
+  "provenance_class": "curated",
+  "license_note": "Authored ideal geometry and uncopyrightable crystallographic identities; no experimental lattice constants or source prose reproduced.",
+  "cell_convention": "Conventional cubic cell; coordinates are fractional; full occupancy",
+  "prototypes": {
+    "bcc": {
+      "space_group_number": 229,
+      "component_counts": [2],
+      "sites": [[0,"0","0","0"],[0,"0.5","0.5","0.5"]],
+      "source": "https://aflow.org/p/A_cI2_229_a-001/A_cI2_229_a-001.pdf"
+    },
+    "fcc": {
+      "space_group_number": 225,
+      "component_counts": [4],
+      "sites": [[0,"0","0","0"],[0,"0","0.5","0.5"],[0,"0.5","0","0.5"],[0,"0.5","0.5","0"]],
+      "source": "https://aflow.org/p/A_cF4_225_a-001"
+    },
+    "rocksalt": {
+      "space_group_number": 225,
+      "component_counts": [4,4],
+      "sites": [[0,"0","0","0"],[0,"0","0.5","0.5"],[0,"0.5","0","0.5"],[0,"0.5","0.5","0"],[1,"0.5","0.5","0.5"],[1,"0.5","0","0"],[1,"0","0.5","0"],[1,"0","0","0.5"]],
+      "source": "https://aflow.org/p/Tutorials/AFLOW_Prototype_Label/"
+    }
+  }
+}

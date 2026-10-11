@@ -27,10 +27,24 @@ FAMILIES = {
 ELEMENTS = set(
     "H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og".split()
 )
+PROPERTY_UNITS = {
+    "density": "g/cm3",
+    "melting_range": "degC",
+    "tensile_strength": "MPa",
+    "yield_strength_0_2": "MPa",
+    "elongation": "%",
+    "vickers_hardness": "HV",
+    "thermal_conductivity": "W/(m*K)",
+    "specific_heat_capacity": "J/(g*K)",
+    "electrical_resistivity": "microohm*m",
+    "youngs_modulus": "GPa",
+    "shear_modulus": "GPa",
+    "poisson_ratio": "1",
+}
 
 SCHEMA = """
 PRAGMA foreign_keys=ON;
-PRAGMA user_version=1;
+PRAGMA user_version=2;
 CREATE TABLE metadata(key TEXT PRIMARY KEY,value TEXT NOT NULL) STRICT;
 CREATE TABLE source(
  source_id TEXT PRIMARY KEY,title TEXT NOT NULL,url TEXT NOT NULL,
@@ -74,7 +88,92 @@ CREATE VIEW composition_wt_percent AS
 CREATE VIEW alloy_summary AS
  SELECT a.*,group_concat(DISTINCT c.element) AS elements
  FROM alloy a LEFT JOIN composition c USING(alloy_id) GROUP BY alloy_id;
+CREATE TABLE property_observation(
+ observation_id TEXT PRIMARY KEY,alloy_id TEXT NOT NULL REFERENCES alloy,
+ property TEXT NOT NULL,unit TEXT NOT NULL,
+ value_numerator INTEGER,value_denominator INTEGER,
+ min_numerator INTEGER,min_denominator INTEGER,
+ max_numerator INTEGER,max_denominator INTEGER,
+ uncertainty_numerator INTEGER,uncertainty_denominator INTEGER,
+ temperature_c_numerator INTEGER,temperature_c_denominator INTEGER,
+ condition TEXT NOT NULL,method TEXT NOT NULL,
+ source_id TEXT NOT NULL REFERENCES source,source_locator TEXT NOT NULL,
+ note TEXT NOT NULL,value_kind TEXT NOT NULL
+ CHECK(value_kind IN ('typical','minimum','maximum','range')),
+ provenance_class TEXT NOT NULL DEFAULT 'curated' CHECK(provenance_class='curated'),
+ review_status TEXT NOT NULL DEFAULT 'pending_human_review'
+ CHECK(review_status='pending_human_review'),
+ CHECK((value_numerator IS NULL)=(value_denominator IS NULL)),
+ CHECK((min_numerator IS NULL)=(min_denominator IS NULL)),
+ CHECK((max_numerator IS NULL)=(max_denominator IS NULL)),
+ CHECK((uncertainty_numerator IS NULL)=(uncertainty_denominator IS NULL)),
+ CHECK((temperature_c_numerator IS NULL)=(temperature_c_denominator IS NULL)),
+ CHECK(value_denominator IS NULL OR value_denominator>0),
+ CHECK(min_denominator IS NULL OR min_denominator>0),
+ CHECK(max_denominator IS NULL OR max_denominator>0),
+ CHECK(uncertainty_denominator IS NULL OR uncertainty_denominator>0),
+ CHECK(temperature_c_denominator IS NULL OR temperature_c_denominator>0)
+) STRICT;
+CREATE VIEW property_values AS
+ SELECT observation_id,alloy_id,property,unit,
+ 1.0*value_numerator/value_denominator AS value,
+ 1.0*min_numerator/min_denominator AS min,
+ 1.0*max_numerator/max_denominator AS max,
+ 1.0*uncertainty_numerator/uncertainty_denominator AS uncertainty,
+ 1.0*temperature_c_numerator/temperature_c_denominator AS temperature_c,
+ condition,method,source_id,source_locator,note,value_kind,
+ provenance_class,review_status FROM property_observation;
 """
+
+
+def exact_number(value):
+    if value is None:
+        return None
+    if not isinstance(value, str):
+        raise ValueError("property numbers must be exact decimal strings")
+    result = Fraction(value)
+    if not -(2**63) <= result.numerator < 2**63 or result.denominator >= 2**63:
+        raise ValueError("number exceeds SQLite integer representation")
+    return result
+
+
+def validate_property(row):
+    if PROPERTY_UNITS.get(row["property"]) != row["unit"]:
+        raise ValueError("property/unit dimension mismatch")
+    values = {
+        key: exact_number(row.get(key))
+        for key in ("value", "min", "max", "uncertainty", "temperature_c")
+    }
+    if not any(values[key] is not None for key in ("value", "min", "max")):
+        raise ValueError("property observation has no value or bounds")
+    lo, hi, value = (values[key] for key in ("min", "max", "value"))
+    if lo is not None and hi is not None and lo > hi:
+        raise ValueError("reversed property interval")
+    if value is not None and (
+        (lo is not None and value < lo) or (hi is not None and value > hi)
+    ):
+        raise ValueError("value outside property interval")
+    uncertainty = values["uncertainty"]
+    if uncertainty is not None and (uncertainty < 0 or value is None):
+        raise ValueError("uncertainty needs a central value and must be nonnegative")
+    if values["temperature_c"] is not None and values["temperature_c"] < Fraction(
+        "-273.15"
+    ):
+        raise ValueError("temperature below absolute zero")
+    for key in ("condition", "method", "source_locator", "source_id"):
+        if not row.get(key) or not row[key].strip():
+            raise ValueError(f"missing property context: {key}")
+    if row["value_kind"] == "range" and (lo is None or hi is None):
+        raise ValueError("range requires two bounds")
+    if row["value_kind"] == "minimum" and lo is None:
+        raise ValueError("minimum requires a lower bound")
+    if row["value_kind"] == "maximum" and hi is None:
+        raise ValueError("maximum requires an upper bound")
+    if row["property"] not in {"melting_range", "poisson_ratio"}:
+        for number in (lo, hi, value):
+            if number is not None and number < 0:
+                raise ValueError("negative material property")
+    return values
 
 
 def percentage(value):
@@ -149,7 +248,7 @@ def build(output: Path, source_dir: Path = ROOT / "sources/alloys"):
                     "title": "Sourced metal alloy research reference",
                     "data_status": "pending_human_review",
                     "composition_basis": "mass percent (wt%); integer ratios encode percentages",
-                    "scope": "Grade chemistry limits and nominal recipes; no measured properties",
+                    "scope": "Grade chemistry, nominal recipes and source-reported engineering properties",
                     "research_method": "Hand-authored entries with model-assisted primary-source research",
                     "missing_values": "NULL is unknown or unspecified; balance is not a fixed number",
                     "source_files_sha256": json.dumps(
@@ -179,7 +278,7 @@ def build(output: Path, source_dir: Path = ROOT / "sources/alloys"):
                             ),
                         )
                 for doc in documents:
-                    for alloy in doc["alloys"]:
+                    for alloy in doc.get("alloys", []):
                         validate_alloy(alloy)
                         db.execute(
                             "INSERT INTO alloy(alloy_id,name,family,base_element,designation,description) VALUES (?,?,?,?,?,?)",
@@ -230,6 +329,43 @@ def build(output: Path, source_dir: Path = ROOT / "sources/alloys"):
                                     row.get("note") or "",
                                 ),
                             )
+                for doc in documents:
+                    for row in doc.get("properties", []):
+                        values = validate_property(row)
+                        numbers = []
+                        for key in (
+                            "value",
+                            "min",
+                            "max",
+                            "uncertainty",
+                            "temperature_c",
+                        ):
+                            value = values[key]
+                            numbers.extend(
+                                (value.numerator, value.denominator)
+                                if value is not None
+                                else (None, None)
+                            )
+                        db.execute(
+                            "INSERT INTO property_observation(observation_id,alloy_id,property,unit,"
+                            "value_numerator,value_denominator,min_numerator,min_denominator,"
+                            "max_numerator,max_denominator,uncertainty_numerator,uncertainty_denominator,"
+                            "temperature_c_numerator,temperature_c_denominator,condition,method,"
+                            "source_id,source_locator,note,value_kind) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                            (
+                                row["id"],
+                                row["alloy_id"],
+                                row["property"],
+                                row["unit"],
+                                *numbers,
+                                row["condition"],
+                                row["method"],
+                                row["source_id"],
+                                row["source_locator"],
+                                row.get("note") or "",
+                                row["value_kind"],
+                            ),
+                        )
                 present = {
                     row[0] for row in db.execute("SELECT DISTINCT family FROM alloy")
                 }
@@ -242,6 +378,9 @@ def build(output: Path, source_dir: Path = ROOT / "sources/alloys"):
             counts = dict(
                 db.execute("SELECT family,count(*) FROM alloy GROUP BY family")
             )
+            property_count = db.execute(
+                "SELECT count(*) FROM property_observation"
+            ).fetchone()[0]
         os.replace(staged, output)
         checksum = hashlib.sha256(output.read_bytes()).hexdigest()
         output.with_suffix(output.suffix + ".sha256").write_text(
@@ -253,6 +392,7 @@ def build(output: Path, source_dir: Path = ROOT / "sources/alloys"):
                     "artifact": str(output),
                     "alloys": sum(counts.values()),
                     "families": counts,
+                    "property_observations": property_count,
                 },
                 indent=2,
             )

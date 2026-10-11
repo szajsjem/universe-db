@@ -1,0 +1,9 @@
+{
+  "components": [{"formula": "Mg"}, {"formula": "O"}],
+  "counts": [1, 1],
+  "structure": {
+    "lattice_angstrom": {"a": "5", "b": "5", "c": "5", "alpha": "90", "beta": "90", "gamma": "90"},
+    "cell_counts": [4, 4],
+    "phase_status": "Illustrative ideal rocksalt geometry; lattice constant is a test input"
+  }
+}

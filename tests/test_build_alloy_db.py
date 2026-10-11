@@ -2,7 +2,7 @@ import copy
 import unittest
 from fractions import Fraction
 
-from scripts.build_alloy_db import percentage, validate_alloy
+from scripts.build_alloy_db import percentage, validate_alloy, validate_property
 
 
 class AlloyValidationTests(unittest.TestCase):
@@ -54,6 +54,57 @@ class AlloyValidationTests(unittest.TestCase):
         self.alloy["composition"][1]["source_id"] = "other"
         with self.assertRaises(ValueError):
             validate_alloy(self.alloy)
+
+
+class PropertyValidationTests(unittest.TestCase):
+    def setUp(self):
+        self.row = {
+            "id": "density-test",
+            "alloy_id": "test",
+            "property": "density",
+            "unit": "g/cm3",
+            "value": "4.42",
+            "temperature_c": "22",
+            "condition": "Source-reported physical value; product form unspecified",
+            "method": "not specified by source",
+            "source_id": "source",
+            "source_locator": "Table 2, page 1",
+            "value_kind": "typical",
+        }
+
+    def test_units_and_exact_source_value(self):
+        self.assertEqual(validate_property(self.row)["value"], Fraction(221, 50))
+        self.row["unit"] = "MPa"
+        with self.assertRaisesRegex(ValueError, "dimension"):
+            validate_property(self.row)
+
+    def test_missing_temperature_is_not_room_temperature(self):
+        del self.row["temperature_c"]
+        self.assertIsNone(validate_property(self.row)["temperature_c"])
+
+    def test_invalid_uncertainty_and_temperature(self):
+        self.row["uncertainty"] = "-0.1"
+        with self.assertRaisesRegex(ValueError, "uncertainty"):
+            validate_property(self.row)
+        del self.row["uncertainty"]
+        self.row["temperature_c"] = "-273.16"
+        with self.assertRaisesRegex(ValueError, "absolute zero"):
+            validate_property(self.row)
+
+    def test_minimum_and_range_keep_their_semantics(self):
+        self.row.update(value_kind="minimum")
+        with self.assertRaisesRegex(ValueError, "lower bound"):
+            validate_property(self.row)
+        self.row.update(value=None, min="4.42")
+        validate_property(self.row)
+        self.row.update(value_kind="range", max="4.40")
+        with self.assertRaisesRegex(ValueError, "reversed"):
+            validate_property(self.row)
+
+    def test_context_and_locator_are_required(self):
+        self.row["source_locator"] = ""
+        with self.assertRaisesRegex(ValueError, "context"):
+            validate_property(self.row)
 
 
 if __name__ == "__main__":

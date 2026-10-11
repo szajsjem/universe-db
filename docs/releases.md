@@ -21,7 +21,7 @@ python scripts/export_release.py
 
 The command writes `dist/releases/<UTC timestamp>/` and a ZIP beside it.
 It rebuilds the reviewed scientific core from current migrations and seeds,
-rebuilds the alloy reference from authored JSON, and takes a consistent SQLite
+rebuilds the alloy and elemental references from authored JSON, and takes a consistent SQLite
 backup of the current Wikipedia review database. The background reviewer can
 continue working during export; the release contains one committed snapshot.
 
@@ -47,6 +47,7 @@ Each release contains:
 | `universe-reviewed.db` | Reviewed scientific core only |
 | `universe-unverified.db` | Snapshot of the selected research database, including its review audit |
 | `alloys.db` | Rebuilt alloy reference |
+| `elements.db` | Rebuilt elemental physical-property evidence, pending review |
 | `manifest.json` | Version, export time, base identity, file sizes, row counts, review progress, and SHA-256 digests |
 | `*.sha256` | Individual database checksums |
 | `README.txt` | Artifact and review-status guide |
@@ -57,7 +58,12 @@ credentials are not included.
 In the combined `universe.db`, reviewed core tables retain their existing
 names. Wikipedia candidates remain in `unverified_*` staging tables, with
 `wikipedia_*` provenance and audit tables. Alloy tables and views use the
-`unverified_alloy_` prefix to avoid collisions with core tables. For example:
+`unverified_alloy_` prefix to avoid collisions with core tables.
+
+Elemental research uses the `unverified_element_` prefix and retains complete
+source-record JSON, composition basis, and supplied uncertainty metadata.
+
+For example:
 
 ```sql
 SELECT family, count(*) FROM unverified_alloy_alloy GROUP BY family;

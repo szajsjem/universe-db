@@ -1,0 +1,431 @@
+{
+  "sources": [
+    {
+      "id": "nonmetals-lbnl-xdb-5-2",
+      "title": "LBNL X-Ray Data Booklet, section 5.2 Physical Properties of the Elements",
+      "url": "https://xdb.lbl.gov/Section5/Sec_5-2.html",
+      "version": "Table 5-2 online; primarily CRC Handbook 80th edition (1999); accessed 2026-10-11",
+      "retrieved_at": "2026-10-11",
+      "license_note": "Selected uncopyrightable numerical facts and identities only; no source prose, figures or table layout redistributed. Attribution to LBNL and its cited CRC compilation retained."
+    }
+  ],
+  "observations": [
+    {
+      "id": "nonmetals-h-density",
+      "element": "H",
+      "property": "density",
+      "unit": "kg/m3",
+      "value": "70.8",
+      "min": null,
+      "max": null,
+      "temperature_k": "20.28",
+      "phase": "liquid",
+      "state": "elemental liquid at its boiling point; molecular/spin composition and specimen purity unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, H row, density column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source assigns gaseous-element density to liquid at its boiling point. Exact g/cm3 to kg/m3 scale; temperature obtained from same row boiling point plus 273.15. This is not room-temperature gas density.",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-h-specific_heat_capacity",
+      "element": "H",
+      "property": "specific_heat_capacity",
+      "unit": "J/(kg*K)",
+      "value": "14304",
+      "min": null,
+      "max": null,
+      "temperature_k": "298.15",
+      "phase": null,
+      "state": "elemental reference; molecular/spin composition and specimen purity unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, H row, specific_heat_capacity column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source specifies 25 C and 100 kPa. Exact J/(g*K) to J/(kg*K) scaling by 1000. Gas phase not explicitly stated in table and left null.",
+      "pressure_pa": "100000",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-h-melting_point",
+      "element": "H",
+      "property": "melting_point",
+      "unit": "K",
+      "value": "13.81",
+      "min": null,
+      "max": null,
+      "temperature_k": null,
+      "phase": null,
+      "state": "elemental reference; molecular/spin composition and specimen purity unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, H row, melting_point column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Exact Celsius to kelvin conversion (+273.15). Allotrope, transition pressure and specimen details unspecified; not assigned ambient-pressure or particular allotrope.",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-n-density",
+      "element": "N",
+      "property": "density",
+      "unit": "kg/m3",
+      "value": "808",
+      "min": null,
+      "max": null,
+      "temperature_k": "77.36",
+      "phase": "liquid",
+      "state": "elemental liquid at its boiling point; molecular/spin composition and specimen purity unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, N row, density column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source assigns gaseous-element density to liquid at its boiling point. Exact g/cm3 to kg/m3 scale; temperature obtained from same row boiling point plus 273.15. This is not room-temperature gas density.",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-n-specific_heat_capacity",
+      "element": "N",
+      "property": "specific_heat_capacity",
+      "unit": "J/(kg*K)",
+      "value": "1040",
+      "min": null,
+      "max": null,
+      "temperature_k": "298.15",
+      "phase": null,
+      "state": "elemental reference; molecular/spin composition and specimen purity unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, N row, specific_heat_capacity column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source specifies 25 C and 100 kPa. Exact J/(g*K) to J/(kg*K) scaling by 1000. Gas phase not explicitly stated in table and left null.",
+      "pressure_pa": "100000",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-n-melting_point",
+      "element": "N",
+      "property": "melting_point",
+      "unit": "K",
+      "value": "63.15",
+      "min": null,
+      "max": null,
+      "temperature_k": null,
+      "phase": null,
+      "state": "elemental reference; molecular/spin composition and specimen purity unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, N row, melting_point column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Exact Celsius to kelvin conversion (+273.15). Allotrope, transition pressure and specimen details unspecified; not assigned ambient-pressure or particular allotrope.",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-o-density",
+      "element": "O",
+      "property": "density",
+      "unit": "kg/m3",
+      "value": "1140",
+      "min": null,
+      "max": null,
+      "temperature_k": "90.20",
+      "phase": "liquid",
+      "state": "elemental liquid at its boiling point; molecular/spin composition and specimen purity unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, O row, density column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source assigns gaseous-element density to liquid at its boiling point. Exact g/cm3 to kg/m3 scale; temperature obtained from same row boiling point plus 273.15. This is not room-temperature gas density.",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-o-specific_heat_capacity",
+      "element": "O",
+      "property": "specific_heat_capacity",
+      "unit": "J/(kg*K)",
+      "value": "918",
+      "min": null,
+      "max": null,
+      "temperature_k": "298.15",
+      "phase": null,
+      "state": "elemental reference; molecular/spin composition and specimen purity unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, O row, specific_heat_capacity column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source specifies 25 C and 100 kPa. Exact J/(g*K) to J/(kg*K) scaling by 1000. Gas phase not explicitly stated in table and left null.",
+      "pressure_pa": "100000",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-o-melting_point",
+      "element": "O",
+      "property": "melting_point",
+      "unit": "K",
+      "value": "54.36",
+      "min": null,
+      "max": null,
+      "temperature_k": null,
+      "phase": null,
+      "state": "elemental reference; molecular/spin composition and specimen purity unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, O row, melting_point column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Exact Celsius to kelvin conversion (+273.15). Allotrope, transition pressure and specimen details unspecified; not assigned ambient-pressure or particular allotrope.",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-p-density",
+      "element": "P",
+      "property": "density",
+      "unit": "kg/m3",
+      "value": "1820",
+      "min": null,
+      "max": null,
+      "temperature_k": "293.15",
+      "phase": "solid",
+      "state": "elemental reference; allotrope, specimen purity and processing unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, P row, density column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source solid density convention is 20 C. Exact numerical scaling by 1000; source describes densities as specific gravities. Allotrope unspecified, so unsuitable for allotrope-specific fit.",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-p-specific_heat_capacity",
+      "element": "P",
+      "property": "specific_heat_capacity",
+      "unit": "J/(kg*K)",
+      "value": "769",
+      "min": null,
+      "max": null,
+      "temperature_k": "298.15",
+      "phase": "solid",
+      "state": "elemental reference; allotrope, specimen purity and processing unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, P row, specific_heat_capacity column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source specifies 25 C and 100 kPa. Exact J/(g*K) to J/(kg*K) scaling by 1000. Gas phase not explicitly stated in table and left null.",
+      "pressure_pa": "100000",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-p-melting_point",
+      "element": "P",
+      "property": "melting_point",
+      "unit": "K",
+      "value": "317.30",
+      "min": null,
+      "max": null,
+      "temperature_k": null,
+      "phase": null,
+      "state": "elemental reference; allotrope, specimen purity and processing unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, P row, melting_point column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Exact Celsius to kelvin conversion (+273.15). Allotrope, transition pressure and specimen details unspecified; not assigned ambient-pressure or particular allotrope.",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-s-density",
+      "element": "S",
+      "property": "density",
+      "unit": "kg/m3",
+      "value": "2070",
+      "min": null,
+      "max": null,
+      "temperature_k": "293.15",
+      "phase": "solid",
+      "state": "elemental reference; allotrope, specimen purity and processing unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, S row, density column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source solid density convention is 20 C. Exact numerical scaling by 1000; source describes densities as specific gravities. Allotrope unspecified, so unsuitable for allotrope-specific fit.",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-s-specific_heat_capacity",
+      "element": "S",
+      "property": "specific_heat_capacity",
+      "unit": "J/(kg*K)",
+      "value": "710",
+      "min": null,
+      "max": null,
+      "temperature_k": "298.15",
+      "phase": "solid",
+      "state": "elemental reference; allotrope, specimen purity and processing unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, S row, specific_heat_capacity column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Source specifies 25 C and 100 kPa. Exact J/(g*K) to J/(kg*K) scaling by 1000. Gas phase not explicitly stated in table and left null.",
+      "pressure_pa": "100000",
+      "composition_basis": "elemental_reference"
+    },
+    {
+      "id": "nonmetals-s-melting_point",
+      "element": "S",
+      "property": "melting_point",
+      "unit": "K",
+      "value": "392.75",
+      "min": null,
+      "max": null,
+      "temperature_k": null,
+      "phase": null,
+      "state": "elemental reference; allotrope, specimen purity and processing unspecified",
+      "method": "compiled reference value; experimental method unspecified",
+      "source_id": "nonmetals-lbnl-xdb-5-2",
+      "source_locator": "Table 5-2, S row, melting_point column; section temperature conventions",
+      "provenance_class": "curated",
+      "review_status": "pending_human_review",
+      "note": "Exact Celsius to kelvin conversion (+273.15). Allotrope, transition pressure and specimen details unspecified; not assigned ambient-pressure or particular allotrope.",
+      "composition_basis": "elemental_reference"
+    }
+  ],
+  "gaps": [
+    {
+      "element": "H",
+      "property": "thermal_conductivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "H",
+      "property": "electrical_resistivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "H",
+      "property": "youngs_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "H",
+      "property": "shear_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "H",
+      "property": "poisson_ratio",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "N",
+      "property": "thermal_conductivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "N",
+      "property": "electrical_resistivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "N",
+      "property": "youngs_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "N",
+      "property": "shear_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "N",
+      "property": "poisson_ratio",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "O",
+      "property": "thermal_conductivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "O",
+      "property": "electrical_resistivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "O",
+      "property": "youngs_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "O",
+      "property": "shear_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "O",
+      "property": "poisson_ratio",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "P",
+      "property": "thermal_conductivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "P",
+      "property": "electrical_resistivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "P",
+      "property": "youngs_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "P",
+      "property": "shear_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "P",
+      "property": "poisson_ratio",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "S",
+      "property": "thermal_conductivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "S",
+      "property": "electrical_resistivity",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "S",
+      "property": "youngs_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "S",
+      "property": "shear_modulus",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    },
+    {
+      "element": "S",
+      "property": "poisson_ratio",
+      "reason": "No suitable state-specific source observation admitted in this research pass."
+    }
+  ]
+}
