@@ -1,0 +1,2021 @@
+{
+  "sources": [
+    {
+      "id": "ambhe-1018",
+      "title": "SAE 1018 steel composition",
+      "url": "https://1018steel.com/",
+      "publisher": "Ambhe Ferro Metal Processors",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web page accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "aerometals-1045",
+      "title": "1045 carbon steel castings composition",
+      "url": "https://www.aerometals.com/investment-castings/steel-castings/1045",
+      "publisher": "Aero Metals",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web page accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "interlloy-4140",
+      "title": "4140 high tensile steel datasheet",
+      "url": "https://www.interlloy.com.au/data_sheets/high_tensile_steels/high_pdf/Interlloy_4140_High_Tensile_Steel.pdf",
+      "publisher": "Interlloy",
+      "retrieved_at": "2026-10-11",
+      "version": "Legacy datasheet; references AS 1444-1996",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "ssina-stainless",
+      "title": "Stainless steel composition tables",
+      "url": "https://www.ssina.com/education/technical-resources/composition-properties/",
+      "publisher": "Specialty Steel Industry of North America",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web page accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "carpenter-440c",
+      "title": "CarTech 440C stainless datasheet",
+      "url": "https://www.carpentertechnology.com/hubfs/7407324/Material%20Saftey%20Data%20Sheets/440C.pdf?hsLang=en",
+      "publisher": "Carpenter Technology",
+      "retrieved_at": "2026-10-11",
+      "version": "Producer datasheet; type analysis",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "dura-g2",
+      "title": "Dura-Bar G2 gray iron",
+      "url": "https://dura-bar.com/products/gray-iron/g2",
+      "publisher": "Dura-Bar",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web page accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "dura-65-45-12",
+      "title": "Dura-Bar 65-45-12 ductile iron",
+      "url": "https://dura-bar.com/products/ductile-iron/65-45-12",
+      "publisher": "Dura-Bar",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web page accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "dura-80-55-06",
+      "title": "Dura-Bar 80-55-06 ductile iron",
+      "url": "https://dura-bar.com/products/ductile-iron/80-55-06",
+      "publisher": "Dura-Bar",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web page accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "sm-nickel-200-201",
+      "title": "Nickel 200 and 201 technical bulletin",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/nickel-200.pdf",
+      "publisher": "Special Metals",
+      "retrieved_at": "2026-10-11",
+      "version": "Producer technical bulletin, composition tables 1 and 28",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "sm-monel-400",
+      "title": "MONEL alloy 400 technical bulletin",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/monel-alloy-400.pdf",
+      "publisher": "Special Metals",
+      "retrieved_at": "2026-10-11",
+      "version": "February 2005 producer bulletin",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "sm-monel-k500",
+      "title": "MONEL alloy K-500 technical bulletin",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/monel-alloy-k-500.pdf",
+      "publisher": "Special Metals",
+      "retrieved_at": "2026-10-11",
+      "version": "SMC-062, September 2004",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "sm-inconel-600",
+      "title": "INCONEL alloy 600 technical bulletin",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-600.pdf",
+      "publisher": "Special Metals",
+      "retrieved_at": "2026-10-11",
+      "version": "SMC-027, September 2008",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "sm-inconel-601",
+      "title": "INCONEL alloy 601 technical bulletin",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-601.pdf",
+      "publisher": "Special Metals",
+      "retrieved_at": "2026-10-11",
+      "version": "SMC-028, web revision June 2008",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "sm-inconel-625",
+      "title": "INCONEL alloy 625 technical bulletin",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf",
+      "publisher": "Special Metals",
+      "retrieved_at": "2026-10-11",
+      "version": "Producer bulletin, limiting composition table 1",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "sm-inconel-718",
+      "title": "INCONEL alloy 718 technical bulletin",
+      "url": "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf",
+      "publisher": "Special Metals",
+      "retrieved_at": "2026-10-11",
+      "version": "SMC-045, September 2007",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "haynes-c276",
+      "title": "HASTELLOY C-276 nominal composition",
+      "url": "https://haynesintl.com/en/alloys/alloy-portfolio/corrosion-resistant-alloys/hastelloy-c-276/",
+      "publisher": "Haynes International",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web page accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    }
+  ],
+  "alloys": [
+    {
+      "id": "sae-1018",
+      "name": "SAE 1018 low-carbon steel",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "SAE 1018",
+      "description": "Low-carbon engineering steel for forming and general machined components.",
+      "applications": [
+        "pins",
+        "studs",
+        "brackets"
+      ],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": "0.15",
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ambhe-1018",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.60",
+          "max_wt_pct": "0.90",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ambhe-1018",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.30",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ambhe-1018",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.050",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ambhe-1018",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "P",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.040",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ambhe-1018",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "ambhe-1018",
+          "note": "Balance is qualitative; no numeric remainder is calculated."
+        }
+      ],
+      "source_ids": [
+        "ambhe-1018"
+      ],
+      "notes": [
+        "Producer describes these as typical chemistry; governing standards may differ.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "aero-1045",
+      "name": "1045 carbon steel (Aero Metals casting reference)",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "1045",
+      "description": "Medium-carbon steel offered for investment-cast machinery components.",
+      "applications": [
+        "machine brackets",
+        "linkages",
+        "drive components"
+      ],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": "0.43",
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "aerometals-1045",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.60",
+          "max_wt_pct": "0.90",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "aerometals-1045",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": "0.15",
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "aerometals-1045",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "P",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.040",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "aerometals-1045",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.050",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "aerometals-1045",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "aerometals-1045",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "aerometals-1045"
+      ],
+      "notes": [
+        "Typical producer chemistry for investment-casting reference; not a universal wrought-bar specification. Iron is the base; the source does not explicitly quantify its balance.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "interlloy-4140",
+      "name": "4140 chromium-molybdenum steel (Interlloy reference)",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "4140 / AS 1444-1996",
+      "description": "Chromium-molybdenum engineering steel for heat-treated components.",
+      "applications": [
+        "gears",
+        "shafts",
+        "bolts"
+      ],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": "0.36",
+          "max_wt_pct": "0.44",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "interlloy-4140",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": "0.10",
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "interlloy-4140",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.65",
+          "max_wt_pct": "1.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "interlloy-4140",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "0.75",
+          "max_wt_pct": "1.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "interlloy-4140",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mo",
+          "min_wt_pct": "0.15",
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "interlloy-4140",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "P",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.04",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "interlloy-4140",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.04",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "interlloy-4140",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "interlloy-4140",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "interlloy-4140"
+      ],
+      "notes": [
+        "Ranges follow this producer datasheet, not an asserted exact equivalence to every SAE 4140 specification. Source zero entries for P and S are represented as maximum-only limits.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "stainless-304",
+      "name": "Type 304 stainless steel",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "UNS S30400",
+      "description": "Austenitic chromium-nickel stainless steel.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "18.0",
+          "max_wt_pct": "20.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": "8.0",
+          "max_wt_pct": "10.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "N",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "2",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "ssina-stainless",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "ssina-stainless"
+      ],
+      "notes": [
+        "Selected composition fields from the SSINA table; omitted elements are unknown here, not zero. SSINA cites several product specifications; confirm the applicable form and revision before purchasing.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "stainless-304l",
+      "name": "Type 304L stainless steel",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "UNS S30403",
+      "description": "Low-carbon austenitic chromium-nickel stainless steel.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.03",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "18.0",
+          "max_wt_pct": "20.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": "8.0",
+          "max_wt_pct": "12.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "N",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "2",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "ssina-stainless",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "ssina-stainless"
+      ],
+      "notes": [
+        "Selected composition fields from the SSINA table; omitted elements are unknown here, not zero. SSINA cites several product specifications; confirm the applicable form and revision before purchasing.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "stainless-316",
+      "name": "Type 316 stainless steel",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "UNS S31600",
+      "description": "Molybdenum-bearing austenitic stainless steel.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "16.0",
+          "max_wt_pct": "18.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": "10.0",
+          "max_wt_pct": "14.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mo",
+          "min_wt_pct": "2.0",
+          "max_wt_pct": "3.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "N",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "2",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "ssina-stainless",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "ssina-stainless"
+      ],
+      "notes": [
+        "Selected composition fields from the SSINA table; omitted elements are unknown here, not zero. SSINA cites several product specifications; confirm the applicable form and revision before purchasing.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "stainless-316l",
+      "name": "Type 316L stainless steel",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "UNS S31603",
+      "description": "Low-carbon molybdenum-bearing austenitic stainless steel.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.03",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "16.0",
+          "max_wt_pct": "18.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": "10.0",
+          "max_wt_pct": "14.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mo",
+          "min_wt_pct": "2.0",
+          "max_wt_pct": "3.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "N",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "2",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "ssina-stainless",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "ssina-stainless"
+      ],
+      "notes": [
+        "Selected composition fields from the SSINA table; omitted elements are unknown here, not zero. SSINA cites several product specifications; confirm the applicable form and revision before purchasing.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "stainless-430",
+      "name": "Type 430 stainless steel",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "UNS S43000",
+      "description": "Ferritic chromium stainless steel.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.12",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "16.0",
+          "max_wt_pct": "18.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.75",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "ssina-stainless",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "ssina-stainless",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "ssina-stainless"
+      ],
+      "notes": [
+        "Selected composition fields from the SSINA table; omitted elements are unknown here, not zero. SSINA cites several product specifications; confirm the applicable form and revision before purchasing.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "stainless-440c",
+      "name": "CarTech 440C stainless steel",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "UNS S44004",
+      "description": "High-carbon chromium stainless steel used after hardening and tempering.",
+      "applications": [
+        "bearing balls",
+        "bearing races",
+        "valve seats"
+      ],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": "0.95",
+          "max_wt_pct": "1.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "carpenter-440c",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "16.00",
+          "max_wt_pct": "18.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "carpenter-440c",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "carpenter-440c",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "carpenter-440c",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "P",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.040",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "carpenter-440c",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.030",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "carpenter-440c",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mo",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.75",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "carpenter-440c",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "carpenter-440c",
+          "note": "Balance is qualitative; no numeric remainder is calculated."
+        }
+      ],
+      "source_ids": [
+        "carpenter-440c"
+      ],
+      "notes": [
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "cast-iron-g2",
+      "name": "Dura-Bar G2 gray iron",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "Dura-Bar G2",
+      "description": "Continuous-cast iron with graphite flakes in a pearlitic matrix.",
+      "applications": [
+        "hydraulic manifolds",
+        "machine components"
+      ],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": "2.60",
+          "max_wt_pct": "3.75",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-g2",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": "1.80",
+          "max_wt_pct": "3.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-g2",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.60",
+          "max_wt_pct": "0.95",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-g2",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.07",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-g2",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "P",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.12",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-g2",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "dura-g2",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "dura-g2"
+      ],
+      "notes": [
+        "Producer-specific chemistry; carbon and silicon targets depend on bar size. Multiphase material with separate graphite and metallic matrix; not a single homogeneous iron-carbon compound. Iron is the base, but no numeric balance is invented.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "cast-iron-65-45-12",
+      "name": "Dura-Bar 65-45-12 ductile iron",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "Dura-Bar / ASTM A536 65-45-12",
+      "description": "Continuous-cast iron with graphite nodules in a predominantly ferritic matrix.",
+      "applications": [
+        "gears",
+        "valves",
+        "pistons"
+      ],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": "3.50",
+          "max_wt_pct": "3.90",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-65-45-12",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": "2.25",
+          "max_wt_pct": "3.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-65-45-12",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.15",
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-65-45-12",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.025",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-65-45-12",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "P",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-65-45-12",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "dura-65-45-12",
+          "note": "Magnesium addition is identified; no concentration is published on this page."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "dura-65-45-12",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "dura-65-45-12"
+      ],
+      "notes": [
+        "Producer-specific chemistry; carbon and silicon targets depend on bar size. Multiphase material with separate graphite and metallic matrix; not a single homogeneous iron-carbon compound. Iron is the base, but no numeric balance is invented.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "cast-iron-80-55-06",
+      "name": "Dura-Bar 80-55-06 ductile iron",
+      "family": "iron-carbon",
+      "base_element": "Fe",
+      "designation": "Dura-Bar / ASTM A536 80-55-06",
+      "description": "Continuous-cast iron with graphite nodules in a partially pearlitic matrix.",
+      "applications": [
+        "gears",
+        "housings",
+        "rotors"
+      ],
+      "composition": [
+        {
+          "element": "C",
+          "min_wt_pct": "3.50",
+          "max_wt_pct": "3.90",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-80-55-06",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": "2.25",
+          "max_wt_pct": "3.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-80-55-06",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.15",
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-80-55-06",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.025",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-80-55-06",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "P",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "dura-80-55-06",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "dura-80-55-06",
+          "note": "Magnesium addition is identified; no concentration is published on this page."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "dura-80-55-06",
+          "note": "Material is identified as iron-based; source omits a quantitative iron limit or explicit balance."
+        }
+      ],
+      "source_ids": [
+        "dura-80-55-06"
+      ],
+      "notes": [
+        "Producer-specific chemistry; carbon and silicon targets depend on bar size. Multiphase material with separate graphite and metallic matrix; not a single homogeneous iron-carbon compound. Iron is the base, but no numeric balance is invented.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "nickel-200",
+      "name": "Nickel 200",
+      "family": "nickel",
+      "base_element": "Ni",
+      "designation": "UNS N02200",
+      "description": "Commercially pure wrought nickel grade.",
+      "applications": [
+        "chemical shipping drums",
+        "electronic parts"
+      ],
+      "composition": [
+        {
+          "element": "Ni+Co",
+          "min_wt_pct": "99.0",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Combined nickel plus cobalt minimum; not a pure nickel-only minimum."
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.01",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        }
+      ],
+      "source_ids": [
+        "sm-nickel-200-201"
+      ],
+      "notes": [
+        "Commercially pure nickel reference, included alongside nickel alloys.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "nickel-201",
+      "name": "Nickel 201",
+      "family": "nickel",
+      "base_element": "Ni",
+      "designation": "UNS N02201",
+      "description": "Commercially pure wrought nickel grade with reduced carbon.",
+      "applications": [
+        "caustic evaporators",
+        "electronic components"
+      ],
+      "composition": [
+        {
+          "element": "Ni+Co",
+          "min_wt_pct": "99.0",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Combined nickel plus cobalt minimum; not a pure nickel-only minimum."
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.02",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.01",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-nickel-200-201",
+          "note": "Published maximum, percent by mass."
+        }
+      ],
+      "source_ids": [
+        "sm-nickel-200-201"
+      ],
+      "notes": [
+        "Commercially pure nickel reference, included alongside nickel alloys.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "monel-400",
+      "name": "MONEL alloy 400",
+      "family": "nickel",
+      "base_element": "Ni",
+      "designation": "UNS N04400",
+      "description": "Nickel-copper alloy for marine and chemical equipment.",
+      "applications": [
+        "marine fittings",
+        "pumps",
+        "heat exchangers"
+      ],
+      "composition": [
+        {
+          "element": "Ni+Co",
+          "min_wt_pct": "63.0",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-400",
+          "note": "Combined nickel plus cobalt minimum."
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": "28.0",
+          "max_wt_pct": "34.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-400",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.3",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-400",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "2.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-400",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "2.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-400",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.024",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-400",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-400",
+          "note": "Published maximum, percent by mass."
+        }
+      ],
+      "source_ids": [
+        "sm-monel-400"
+      ],
+      "notes": [
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "monel-k500",
+      "name": "MONEL alloy K-500",
+      "family": "nickel",
+      "base_element": "Ni",
+      "designation": "UNS N05500",
+      "description": "Age-hardenable nickel-copper alloy containing aluminum and titanium.",
+      "applications": [
+        "marine fasteners",
+        "pump shafts",
+        "springs"
+      ],
+      "composition": [
+        {
+          "element": "Ni+Co",
+          "min_wt_pct": "63.0",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-k500",
+          "note": "Combined nickel plus cobalt minimum."
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": "27.0",
+          "max_wt_pct": "33.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-k500",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": "2.30",
+          "max_wt_pct": "3.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-k500",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": "0.35",
+          "max_wt_pct": "0.85",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-k500",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-k500",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-k500",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "2.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-k500",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.01",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-k500",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-monel-k500",
+          "note": "Published maximum, percent by mass."
+        }
+      ],
+      "source_ids": [
+        "sm-monel-k500"
+      ],
+      "notes": [
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "inconel-600",
+      "name": "INCONEL alloy 600",
+      "family": "nickel",
+      "base_element": "Ni",
+      "designation": "UNS N06600",
+      "description": "Nickel-chromium-iron alloy for corrosion and heat exposure.",
+      "applications": [
+        "chemical equipment",
+        "furnace components"
+      ],
+      "composition": [
+        {
+          "element": "Ni+Co",
+          "min_wt_pct": "72.0",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-600",
+          "note": "Combined nickel plus cobalt minimum."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "14.0",
+          "max_wt_pct": "17.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-600",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": "6.00",
+          "max_wt_pct": "10.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-600",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-600",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-600",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.015",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-600",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-600",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-600",
+          "note": "Published maximum, percent by mass."
+        }
+      ],
+      "source_ids": [
+        "sm-inconel-600"
+      ],
+      "notes": [
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "inconel-601",
+      "name": "INCONEL alloy 601",
+      "family": "nickel",
+      "base_element": "Ni",
+      "designation": "UNS N06601",
+      "description": "Aluminum-bearing nickel-chromium alloy for thermal-processing equipment.",
+      "applications": [
+        "furnace trays",
+        "radiant tubes",
+        "combustor components"
+      ],
+      "composition": [
+        {
+          "element": "Ni",
+          "min_wt_pct": "58.0",
+          "max_wt_pct": "63.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-601",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "21.0",
+          "max_wt_pct": "25.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-601",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "sm-inconel-601",
+          "note": "Balance is qualitative; no numeric remainder is calculated."
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": "1.0",
+          "max_wt_pct": "1.7",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-601",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-601",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-601",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.015",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-601",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-601",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-601",
+          "note": "Published maximum, percent by mass."
+        }
+      ],
+      "source_ids": [
+        "sm-inconel-601"
+      ],
+      "notes": [
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "inconel-625",
+      "name": "INCONEL alloy 625",
+      "family": "nickel",
+      "base_element": "Ni",
+      "designation": "UNS N06625",
+      "description": "Nickel-chromium-molybdenum alloy strengthened by molybdenum and niobium.",
+      "applications": [
+        "marine equipment",
+        "reaction vessels",
+        "heat exchangers"
+      ],
+      "composition": [
+        {
+          "element": "Ni",
+          "min_wt_pct": "58.0",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-625",
+          "note": "Published minimum, percent by mass."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "20.0",
+          "max_wt_pct": "23.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-625",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "5.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-625",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mo",
+          "min_wt_pct": "8.0",
+          "max_wt_pct": "10.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-625",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Nb+Ta",
+          "min_wt_pct": "3.15",
+          "max_wt_pct": "4.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-625",
+          "note": "Combined niobium plus tantalum range."
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-625",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-625",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-625",
+          "note": "Published maximum, percent by mass."
+        }
+      ],
+      "source_ids": [
+        "sm-inconel-625"
+      ],
+      "notes": [
+        "Selected fields from table 1; no assumption of zero for omitted minor elements.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "inconel-718",
+      "name": "INCONEL alloy 718",
+      "family": "nickel",
+      "base_element": "Ni",
+      "designation": "UNS N07718",
+      "description": "Precipitation-hardening nickel-chromium alloy containing niobium.",
+      "applications": [
+        "gas turbine parts",
+        "fasteners",
+        "cryogenic tanks"
+      ],
+      "composition": [
+        {
+          "element": "Ni+Co",
+          "min_wt_pct": "50.00",
+          "max_wt_pct": "55.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Combined nickel plus cobalt range."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "17.00",
+          "max_wt_pct": "21.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "sm-inconel-718",
+          "note": "Balance is qualitative; no numeric remainder is calculated."
+        },
+        {
+          "element": "Nb+Ta",
+          "min_wt_pct": "4.75",
+          "max_wt_pct": "5.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Combined niobium plus tantalum range."
+        },
+        {
+          "element": "Mo",
+          "min_wt_pct": "2.80",
+          "max_wt_pct": "3.30",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": "0.65",
+          "max_wt_pct": "1.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": "0.20",
+          "max_wt_pct": "0.80",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published composition range, percent by mass."
+        },
+        {
+          "element": "Co",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "P",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.015",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.015",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "B",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.006",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.30",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "sm-inconel-718",
+          "note": "Published maximum, percent by mass."
+        }
+      ],
+      "source_ids": [
+        "sm-inconel-718"
+      ],
+      "notes": [
+        "Co maximum is a sublimit of the combined Ni+Co range; do not sum it independently with that combined analyte.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    },
+    {
+      "id": "hastelloy-c276",
+      "name": "HASTELLOY C-276 alloy",
+      "family": "nickel",
+      "base_element": "Ni",
+      "designation": "UNS N10276",
+      "description": "Nickel-chromium-molybdenum alloy for corrosive chemical processing.",
+      "applications": [
+        "chemical process equipment"
+      ],
+      "composition": [
+        {
+          "element": "Ni",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "haynes-c276",
+          "note": "Balance is qualitative; no numeric remainder is calculated."
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "16",
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Producer nominal composition, not a specification limit."
+        },
+        {
+          "element": "Mo",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "16",
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Producer nominal composition, not a specification limit."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "5",
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Producer nominal composition, not a specification limit."
+        },
+        {
+          "element": "W",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "4",
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Producer nominal composition, not a specification limit."
+        },
+        {
+          "element": "Co",
+          "min_wt_pct": null,
+          "max_wt_pct": "2.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "V",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.01",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Published maximum, percent by mass."
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "haynes-c276",
+          "note": "Published maximum, percent by mass."
+        }
+      ],
+      "source_ids": [
+        "haynes-c276"
+      ],
+      "notes": [
+        "Nominal producer composition mixed with expressly marked maxima. Nickel balance is stored qualitatively rather than using the approximate nominal 57%.",
+        "Research reference; pending human review. No mechanical property guarantees are implied."
+      ]
+    }
+  ]
+}

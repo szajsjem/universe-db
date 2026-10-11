@@ -1,0 +1,9 @@
+{
+  "name": "universe-db-wikipedia-review",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@earendil-works/pi-agent-core": "1.0.4",
+    "@earendil-works/pi-ai": "1.0.4"
+  }
+}

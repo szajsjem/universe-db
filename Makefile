@@ -1,4 +1,4 @@
-.PHONY: all build check export report material-benchmark research-plan wikipedia-plan wikipedia-clean-plan wikipedia-agent-plan clean
+.PHONY: all build check export release report material-benchmark research-plan wikipedia-plan wikipedia-clean-plan wikipedia-agent-plan clean
 
 all: check
 
@@ -15,6 +15,9 @@ check:
 
 export: build
 	python3 scripts/export_inorganicengineering.py
+
+release:
+	python3 scripts/export_release.py
 
 report: build
 	python3 scripts/report.py universe.db

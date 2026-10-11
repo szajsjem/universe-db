@@ -1,4 +1,5 @@
 from __future__ import annotations
+from contextlib import closing
 
 import json
 from pathlib import Path
@@ -119,7 +120,7 @@ class ResearchMissingDataTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             database = Path(directory) / "test.db"
             build(database)
-            with sqlite3.connect(database) as connection:
+            with closing(sqlite3.connect(database)) as connection:
                 tasks = plan_tasks(
                     connection,
                     {"nuclides"},
@@ -129,6 +130,29 @@ class ResearchMissingDataTest(unittest.TestCase):
                     limit_targets=1,
                 )
             self.assertEqual(["nuclear_spin"], [task.field.key for task in tasks])
+
+    def test_openrouter_uses_glm_compatible_web_grounding(self) -> None:
+        target = Target("element", "element:iron", "iron (Fe)", "element:iron")
+        field = next(field for field in FIELDS if field.key == "melting_point")
+        task = Task(target, field, "Find melting temperature of iron.")
+        response = MagicMock()
+        response.__enter__.return_value.read.return_value = json.dumps(fake_payload()).encode()
+        with patch("scripts.research_missing_data.urllib.request.urlopen", return_value=response) as urlopen:
+            call_openai("test-key", "https://openrouter.ai/api/v1", "xiaomi/mimo-v2.6-pro", task, 0, 10)
+        body = json.loads(urlopen.call_args.args[0].data)
+        self.assertEqual([{"id": "web", "max_results": 3}], body["plugins"])
+        self.assertNotIn("tools", body)
+        self.assertEqual("xiaomi/mimo-v2.6-pro", body["model"])
+
+    def test_openrouter_citations_preserve_source_provenance(self) -> None:
+        payload = fake_payload()
+        payload["output"] = payload["output"][1:]
+        payload["output"][0]["content"][0]["annotations"] = [
+            {"type": "url_citation", "url": "https://example.test/source", "title": "Example source"}
+        ]
+        result, sources = normalize_result(payload)
+        self.assertEqual("https://example.test/source", sources[0]["url"])
+        self.assertEqual(sources, result["facts"][0]["sources"])
 
     def test_normalize_uses_web_search_sources_as_fallback(self) -> None:
         result, sources = normalize_result(fake_payload())
@@ -154,7 +178,7 @@ class ResearchMissingDataTest(unittest.TestCase):
             task = Task(target, field, "Find melting temperature of iron.")
             payload = fake_payload()
             result, _ = normalize_result(payload)
-            with sqlite3.connect(database) as connection:
+            with closing(sqlite3.connect(database)) as connection:
                 connection.execute(
                     """
                     INSERT INTO research_run(

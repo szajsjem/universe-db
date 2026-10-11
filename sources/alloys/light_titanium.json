@@ -1,0 +1,1791 @@
+{
+  "sources": [
+    {
+      "id": "tk-aluminum-2017",
+      "title": "Aluminum Stock Guide: chemical composition limits",
+      "url": "https://ucpcdn.thyssenkrupp.com/_legacy/UCPthyssenkruppBAMXNA/assets.files/tkmna_com/products/collateral/aluminum-stock-guide-(may-2017).pdf",
+      "publisher": "thyssenkrupp Materials NA",
+      "retrieved_at": "2026-10-11",
+      "version": "May 2017; printed page 7",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "hydro-1050a-2018",
+      "title": "EN AW-1050A technical datasheet",
+      "url": "https://www.hydro.com/globalassets/08-about-hydro/hydro-worldwide/germany/extrusion-germany/alloy-data-sheets/hydro-en-aw-1050a.pdf",
+      "publisher": "Hydro",
+      "retrieved_at": "2026-10-11",
+      "version": "October 2018; EN 573-3:2013",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "hydro-6061-2019",
+      "title": "Alloy 6061 datasheet",
+      "url": "https://www.hydro.com/Document/Index?id=560718&name=Alloy+6061.pdf",
+      "publisher": "Hydro",
+      "retrieved_at": "2026-10-11",
+      "version": "Revision 2019/01 (February 2019)",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "hydro-6063-2026",
+      "title": "Alloy 6063 datasheet",
+      "url": "https://www.hydro.com/globalassets/01-products--services/extruded-profiles/americas/ena-resources/alloy-data-sheets/hydro_2026_data_sheet_6063-rev-062026.pdf",
+      "publisher": "Hydro",
+      "retrieved_at": "2026-10-11",
+      "version": "June 2026 filename",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "coastal-a356",
+      "title": "Aluminum alloys chemistry and mechanical reference",
+      "url": "https://coastalfoundry.com/wp-content/uploads/2020/07/AlAlloysChemicalsMechanicals.pdf",
+      "publisher": "Coastal Foundry",
+      "retrieved_at": "2026-10-11",
+      "version": "References ASTM B26/B26M-09; A356 made from A356.2",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "stpaul-a356",
+      "title": "A356.0 Aluminum Silicon Magnesium technical data",
+      "url": "https://www.stpaulfoundry.com/AlloySpecs/alloy_specifications_data_page.aspx?id=A356.0",
+      "publisher": "St. Paul Foundry",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web reference; accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "luxfer-az31b",
+      "title": "AZ31B magnesium sheet plate and coil datasheet",
+      "url": "https://www.luxfermagnesium.com/wp-content/uploads/2024/01/Luxfer-Rolled-Products-AZ31B-DS-0124.pdf",
+      "publisher": "Luxfer Magnesium Rolled Products",
+      "retrieved_at": "2026-10-11",
+      "version": "WRAZ31B 1001-2; copyright 2018; hosted January 2024",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "nadca-mg-2015",
+      "title": "Product Specification Standards for Die Castings Section 3 alloy data",
+      "url": "https://www.abdiecasting.com/wp-content/uploads/2023/06/Section-03-Alloy-Data.pdf",
+      "publisher": "North American Die Casting Association; hosted by A&B Die Casting",
+      "retrieved_at": "2026-10-11",
+      "version": "2015; TableA-3-10; ASTM B94-03 casting composition",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "magnesiumusa-zk60a",
+      "title": "Magnesium USA alloy compositions",
+      "url": "https://magnesium-usa.com/",
+      "publisher": "Magnesium USA",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web reference; accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "luxfer-we43b-2026",
+      "title": "Elektron WE43B datasheet 467",
+      "url": "https://www.luxfermeltechnologies.com/wp-content/uploads/2026/05/DS-467-Elektron-WE43B-0526.pdf",
+      "publisher": "Luxfer MEL Technologies",
+      "retrieved_at": "2026-10-11",
+      "version": "May 2026 filename; datasheet 467",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "timet-grade1",
+      "title": "TIMETAL 35 A commercially pure titanium",
+      "url": "https://www.timet.com/documents/datasheets/cp-grades/timetal-35a.pdf",
+      "publisher": "Titanium Metals Corporation",
+      "retrieved_at": "2026-10-11",
+      "version": "2000; TMC-0158",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "timet-grade2",
+      "title": "TIMETAL 50 A commercially pure titanium",
+      "url": "https://www.timet.com/documents/datasheets/cp-grades/timetal-50a.pdf",
+      "publisher": "Titanium Metals Corporation",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web reference; accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "timet-grade5-23",
+      "title": "TIMETAL 6-4 6-4 ELI and 6-4-.1 Ru",
+      "url": "https://www.timet.com/documents/datasheets/alpha-and-beta-alloys/timetal-6-4.pdf",
+      "publisher": "Titanium Metals Corporation",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated web reference; accessed 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "timet-grade9",
+      "title": "TIMETAL 3-2.5 and 3-2.5.05 Pd",
+      "url": "https://www.timet.com/documents/datasheets/alpha-and-beta-alloys/timetal-3-2.5.pdf",
+      "publisher": "Titanium Metals Corporation",
+      "retrieved_at": "2026-10-11",
+      "version": "October 1997; HQ-10/97-BG 111-4 M",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    }
+  ],
+  "alloys": [
+    {
+      "id": "al-1050a",
+      "name": "Aluminum 1050A",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "EN AW-1050A",
+      "description": "Commercially pure aluminum grade.",
+      "applications": [
+        "Heat-exchanger tubes",
+        "Electrical conductors"
+      ],
+      "composition": [
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-1050a-2018",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-1050a-2018",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-1050a-2018",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-1050a-2018",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-1050a-2018",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.07",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-1050a-2018",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-1050a-2018",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": "99.50",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-1050a-2018",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "hydro-1050a-2018"
+      ],
+      "notes": [
+        "This record is 1050A, as explicitly designated in the source; not a claim that all 1050 variants have identical limits.",
+        "Other elements: each maximum 0.03 wt%; total unspecified in cited table."
+      ]
+    },
+    {
+      "id": "al-1100",
+      "name": "Aluminum 1100",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "AA 1100",
+      "description": "Commercially pure aluminum with a copper limit.",
+      "applications": [
+        "Heat-exchanger fins",
+        "Chemical equipment"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": "0.05",
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": "99.00",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "tk-aluminum-2017"
+      ],
+      "notes": [
+        "Silicon plus iron combined maximum 0.95 wt%; separate limits are not supplied.",
+        "Composition limits transcribed from the cited edition; temper and product form are not specified. Other elements: each maximum 0.05 wt%, total maximum 0.15 wt%, subject to source footnotes."
+      ]
+    },
+    {
+      "id": "al-2024",
+      "name": "Aluminum 2024",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "AA 2024",
+      "description": "Copper-magnesium wrought aluminum.",
+      "applications": [
+        "Aircraft parts"
+      ],
+      "composition": [
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": "3.8",
+          "max_wt_pct": "4.9",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.30",
+          "max_wt_pct": "0.9",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": "1.2",
+          "max_wt_pct": "1.8",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "tk-aluminum-2017"
+      ],
+      "notes": [
+        "Composition limits transcribed from the cited edition; temper and product form are not specified. Other elements: each maximum 0.05 wt%, total maximum 0.15 wt%, subject to source footnotes."
+      ]
+    },
+    {
+      "id": "al-3003",
+      "name": "Aluminum 3003",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "AA 3003",
+      "description": "Manganese-bearing wrought aluminum.",
+      "applications": [
+        "Heat exchangers"
+      ],
+      "composition": [
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.6",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.7",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": "0.05",
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "1.0",
+          "max_wt_pct": "1.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "tk-aluminum-2017"
+      ],
+      "notes": [
+        "Composition limits transcribed from the cited edition; temper and product form are not specified. Other elements: each maximum 0.05 wt%, total maximum 0.15 wt%, subject to source footnotes."
+      ]
+    },
+    {
+      "id": "al-5052",
+      "name": "Aluminum 5052",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "AA 5052",
+      "description": "Magnesium-chromium wrought aluminum.",
+      "applications": [
+        "Small boats"
+      ],
+      "composition": [
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": "2.2",
+          "max_wt_pct": "2.8",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "0.15",
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "tk-aluminum-2017"
+      ],
+      "notes": [
+        "Composition limits transcribed from the cited edition; temper and product form are not specified. Other elements: each maximum 0.05 wt%, total maximum 0.15 wt%, subject to source footnotes."
+      ]
+    },
+    {
+      "id": "al-5083",
+      "name": "Aluminum 5083",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "AA 5083",
+      "description": "Magnesium-manganese wrought aluminum.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.4",
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": "4.0",
+          "max_wt_pct": "4.9",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "0.05",
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "tk-aluminum-2017"
+      ],
+      "notes": [
+        "Composition limits transcribed from the cited edition; temper and product form are not specified. Other elements: each maximum 0.05 wt%, total maximum 0.15 wt%, subject to source footnotes."
+      ]
+    },
+    {
+      "id": "al-7075",
+      "name": "Aluminum 7075",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "AA 7075",
+      "description": "Zinc-magnesium-copper wrought aluminum.",
+      "applications": [
+        "Aircraft components"
+      ],
+      "composition": [
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": "1.2",
+          "max_wt_pct": "2.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.30",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": "2.1",
+          "max_wt_pct": "2.9",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "0.18",
+          "max_wt_pct": "0.28",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": "5.1",
+          "max_wt_pct": "6.1",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "tk-aluminum-2017",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "tk-aluminum-2017"
+      ],
+      "notes": [
+        "Composition limits transcribed from the cited edition; temper and product form are not specified. Other elements: each maximum 0.05 wt%, total maximum 0.15 wt%, subject to source footnotes."
+      ]
+    },
+    {
+      "id": "al-6061",
+      "name": "Aluminum 6061",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "AA 6061",
+      "description": "Magnesium-silicon wrought aluminum with copper.",
+      "applications": [
+        "Transport components",
+        "Machinery"
+      ],
+      "composition": [
+        {
+          "element": "Si",
+          "min_wt_pct": "0.40",
+          "max_wt_pct": "0.8",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6061-2019",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.7",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6061-2019",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": "0.15",
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6061-2019",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6061-2019",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": "0.8",
+          "max_wt_pct": "1.2",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6061-2019",
+          "note": null
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": "0.04",
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6061-2019",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6061-2019",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6061-2019",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "hydro-6061-2019",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "hydro-6061-2019"
+      ],
+      "notes": [
+        "Composition limits transcribed from the cited edition; temper and product form are not specified. Other elements: each maximum 0.05 wt%, total maximum 0.15 wt%, subject to source footnotes."
+      ]
+    },
+    {
+      "id": "al-6063",
+      "name": "Aluminum 6063",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "AA 6063",
+      "description": "Magnesium-silicon extrusion alloy.",
+      "applications": [
+        "Window frames",
+        "Heat sinks"
+      ],
+      "composition": [
+        {
+          "element": "Si",
+          "min_wt_pct": "0.20",
+          "max_wt_pct": "0.6",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6063-2026",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6063-2026",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6063-2026",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6063-2026",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": "0.45",
+          "max_wt_pct": "0.9",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6063-2026",
+          "note": null
+        },
+        {
+          "element": "Cr",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6063-2026",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6063-2026",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "hydro-6063-2026",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "hydro-6063-2026",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "hydro-6063-2026"
+      ],
+      "notes": [
+        "Composition limits transcribed from the cited edition; temper and product form are not specified. Other elements: each maximum 0.05 wt%, total maximum 0.15 wt%, subject to source footnotes."
+      ]
+    },
+    {
+      "id": "al-a356-casting",
+      "name": "Aluminum A356 casting",
+      "family": "aluminum",
+      "base_element": "Al",
+      "designation": "A356; UNS A13560",
+      "description": "Silicon-magnesium aluminum casting grade.",
+      "applications": [
+        "Automotive wheels",
+        "Aircraft castings"
+      ],
+      "composition": [
+        {
+          "element": "Si",
+          "min_wt_pct": "6.5",
+          "max_wt_pct": "7.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "coastal-a356",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "coastal-a356",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "coastal-a356",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "coastal-a356",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": "0.25",
+          "max_wt_pct": "0.45",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "coastal-a356",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "coastal-a356",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "coastal-a356",
+          "note": null
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "coastal-a356",
+          "note": "Base metal; balance not explicitly printed in cited composition table."
+        }
+      ],
+      "source_ids": [
+        "coastal-a356",
+        "stpaul-a356"
+      ],
+      "notes": [
+        "Source specifically describesA 356 made fromA 356.2; ingot and casting limits differ.",
+        "Other elements: each maximum 0.05 wt%, total maximum 0.15 wt%."
+      ]
+    },
+    {
+      "id": "mg-az31b",
+      "name": "Magnesium AZ31B",
+      "family": "magnesium",
+      "base_element": "Mg",
+      "designation": "AZ31B",
+      "description": "Wrought magnesium with aluminum zinc and manganese.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "Al",
+          "min_wt_pct": "2.5",
+          "max_wt_pct": "3.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "luxfer-az31b",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": "0.7",
+          "max_wt_pct": "1.3",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "luxfer-az31b",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.20",
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "luxfer-az31b",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "luxfer-az31b",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "luxfer-az31b"
+      ],
+      "notes": [
+        "Manufacturer sheet/plate composition; other product specifications may have different zinc limits."
+      ]
+    },
+    {
+      "id": "mg-az91d",
+      "name": "Magnesium AZ91D",
+      "family": "magnesium",
+      "base_element": "Mg",
+      "designation": "AZ91D",
+      "description": "AZ91D magnesium die-casting grade.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "Al",
+          "min_wt_pct": "8.3",
+          "max_wt_pct": "9.7",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": "0.35",
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.15",
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.005",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.030",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.002",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "nadca-mg-2015"
+      ],
+      "notes": [
+        "Die-cast part composition, not ingot chemistry.",
+        "If the manganese minimum or iron maximum is not met, the source allows conditional Fe/Mn ratio control: maximum 0.032.",
+        "Other elements: each maximum 0.02 wt% in TableA-3-10; source footnotes apply."
+      ]
+    },
+    {
+      "id": "mg-am60b",
+      "name": "Magnesium AM60B",
+      "family": "magnesium",
+      "base_element": "Mg",
+      "designation": "AM60B",
+      "description": "AM60B magnesium die-casting grade.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "Al",
+          "min_wt_pct": "5.5",
+          "max_wt_pct": "6.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.22",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.24",
+          "max_wt_pct": "0.6",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.005",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.010",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.002",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "nadca-mg-2015",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "nadca-mg-2015"
+      ],
+      "notes": [
+        "Die-cast part composition, not ingot chemistry.",
+        "If the manganese minimum or iron maximum is not met, the source allows conditional Fe/Mn ratio control: maximum 0.021.",
+        "Other elements: each maximum 0.02 wt% in TableA-3-10; source footnotes apply."
+      ]
+    },
+    {
+      "id": "mg-zk60a",
+      "name": "Magnesium ZK60A",
+      "family": "magnesium",
+      "base_element": "Mg",
+      "designation": "ZK60A",
+      "description": "Zinc-zirconium wrought magnesium.",
+      "applications": [],
+      "composition": [
+        {
+          "element": "Zn",
+          "min_wt_pct": "4.8",
+          "max_wt_pct": "6.2",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "magnesiumusa-zk60a",
+          "note": null
+        },
+        {
+          "element": "Zr",
+          "min_wt_pct": "0.45",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "magnesiumusa-zk60a",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "magnesiumusa-zk60a",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "magnesiumusa-zk60a"
+      ],
+      "notes": [
+        "Producer composition row is labeledZK 60 A-T 5; no mechanical properties are asserted."
+      ]
+    },
+    {
+      "id": "mg-we43b",
+      "name": "Magnesium WE43B",
+      "family": "magnesium",
+      "base_element": "Mg",
+      "designation": "WE43B; Elektron WE 43 B",
+      "description": "Yttrium and rare-earth magnesium casting alloy.",
+      "applications": [
+        "Aeroengine parts",
+        "Helicopter transmissions"
+      ],
+      "composition": [
+        {
+          "element": "Y",
+          "min_wt_pct": "3.7",
+          "max_wt_pct": "4.3",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "luxfer-we43b-2026",
+          "note": null
+        },
+        {
+          "element": "Zr",
+          "min_wt_pct": "0.4",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "luxfer-we43b-2026",
+          "note": null
+        },
+        {
+          "element": "Mg",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "luxfer-we43b-2026",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "luxfer-we43b-2026"
+      ],
+      "notes": [
+        "Rare earths combined 2.4\u20134.4 wt%; the source does not give an elemental breakdown, so noNd fraction is invented."
+      ]
+    },
+    {
+      "id": "ti-grade-1",
+      "name": "Titanium Grade 1",
+      "family": "titanium",
+      "base_element": "Ti",
+      "designation": "ASTM Grade 1",
+      "description": "Commercially pure titanium grade 1.",
+      "applications": [
+        "Plate heat exchangers"
+      ],
+      "composition": [
+        {
+          "element": "O",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.18",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade1",
+          "note": null
+        },
+        {
+          "element": "N",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.03",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade1",
+          "note": null
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade1",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade1",
+          "note": null
+        },
+        {
+          "element": "H",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.015",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade1",
+          "note": "Hydrogen limit depends on product form according to source."
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "timet-grade1",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "timet-grade1"
+      ],
+      "notes": [
+        "Residual elements: each maximum 0.10 wt%, total maximum 0.40 wt%."
+      ]
+    },
+    {
+      "id": "ti-grade-2",
+      "name": "Titanium Grade 2",
+      "family": "titanium",
+      "base_element": "Ti",
+      "designation": "ASTM Grade 2",
+      "description": "Commercially pure titanium grade 2.",
+      "applications": [
+        "Marine piping",
+        "Reactor vessels"
+      ],
+      "composition": [
+        {
+          "element": "O",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade2",
+          "note": null
+        },
+        {
+          "element": "N",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.03",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade2",
+          "note": null
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade2",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.30",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade2",
+          "note": null
+        },
+        {
+          "element": "H",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.015",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade2",
+          "note": "Hydrogen limit depends on product form according to source."
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "timet-grade2",
+          "note": null
+        }
+      ],
+      "source_ids": [
+        "timet-grade2"
+      ],
+      "notes": [
+        "Residual elements: each maximum 0.10 wt%, total maximum 0.40 wt%."
+      ]
+    },
+    {
+      "id": "ti-grade-5",
+      "name": "Titanium Grade 5",
+      "family": "titanium",
+      "base_element": "Ti",
+      "designation": "ASTM Grade 5; Ti-6Al-4V",
+      "description": "Aluminum-vanadium alpha-beta titanium.",
+      "applications": [
+        "Airframe parts",
+        "Fasteners"
+      ],
+      "composition": [
+        {
+          "element": "Al",
+          "min_wt_pct": "5.5",
+          "max_wt_pct": "6.75",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "V",
+          "min_wt_pct": "3.5",
+          "max_wt_pct": "4.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "N",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "O",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.40",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "H",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.015",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "timet-grade5-23",
+          "note": "Base metal; numeric remainder not explicitly printed in cited Table 1."
+        }
+      ],
+      "source_ids": [
+        "timet-grade5-23"
+      ],
+      "notes": [
+        "Residual elements: each maximum 0.1 wt%, total maximum 0.4 wt%.",
+        "These are the citedTIMET grade limits; they should not be substituted for a current product-specific procurement specification."
+      ]
+    },
+    {
+      "id": "ti-grade-23",
+      "name": "Titanium Grade 23",
+      "family": "titanium",
+      "base_element": "Ti",
+      "designation": "ASTM Grade 23; Ti-6Al-4V ELI",
+      "description": "Extra-low-interstitial aluminum-vanadium titanium.",
+      "applications": [
+        "Fracture-critical components"
+      ],
+      "composition": [
+        {
+          "element": "Al",
+          "min_wt_pct": "5.5",
+          "max_wt_pct": "6.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "V",
+          "min_wt_pct": "3.5",
+          "max_wt_pct": "4.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "N",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.03",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "O",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.13",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "H",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.0125",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade5-23",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "timet-grade5-23",
+          "note": "Base metal; numeric remainder not explicitly printed in cited Table 1."
+        }
+      ],
+      "source_ids": [
+        "timet-grade5-23"
+      ],
+      "notes": [
+        "Residual elements: each maximum 0.1 wt%, total maximum 0.4 wt%.",
+        "These are the citedTIMET grade limits; they should not be substituted for a current product-specific procurement specification."
+      ]
+    },
+    {
+      "id": "ti-grade-9",
+      "name": "Titanium Grade 9",
+      "family": "titanium",
+      "base_element": "Ti",
+      "designation": "ASTM Grade 9; Ti-3Al-2.5V",
+      "description": "Aluminum-vanadium titanium for formed products.",
+      "applications": [
+        "Hydraulic tubing",
+        "Bicycle tubes"
+      ],
+      "composition": [
+        {
+          "element": "Al",
+          "min_wt_pct": "2.5",
+          "max_wt_pct": "3.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade9",
+          "note": null
+        },
+        {
+          "element": "V",
+          "min_wt_pct": "2.0",
+          "max_wt_pct": "3.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade9",
+          "note": null
+        },
+        {
+          "element": "N",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.03",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade9",
+          "note": null
+        },
+        {
+          "element": "C",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade9",
+          "note": null
+        },
+        {
+          "element": "O",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade9",
+          "note": null
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade9",
+          "note": null
+        },
+        {
+          "element": "H",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.015",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "timet-grade9",
+          "note": null
+        },
+        {
+          "element": "Ti",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "timet-grade9",
+          "note": "Base metal; not given numerically in source Table 1."
+        }
+      ],
+      "source_ids": [
+        "timet-grade9"
+      ],
+      "notes": [
+        "Table 1 grade composition is used, not the separate welding-electrode Table 6.",
+        "Residual elements: each maximum 0.1 wt%, total maximum 0.4 wt%."
+      ]
+    }
+  ]
+}

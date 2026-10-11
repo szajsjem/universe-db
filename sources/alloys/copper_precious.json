@@ -1,0 +1,1281 @@
+{
+  "sources": [
+    {
+      "id": "cda-c26000",
+      "title": "CDA alloy C26000",
+      "url": "https://alloys.copper.org/alloy/C26000",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c36000",
+      "title": "CDA alloy C36000",
+      "url": "https://alloys.copper.org/alloy/C36000",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c11000",
+      "title": "CDA alloy C11000",
+      "url": "https://alloys.copper.org/alloy/C11000",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c51000",
+      "title": "CDA alloy C51000",
+      "url": "https://alloys.copper.org/alloy/C51000",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c52100",
+      "title": "CDA alloy C52100",
+      "url": "https://alloys.copper.org/alloy/C52100",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c95400",
+      "title": "CDA alloy C95400",
+      "url": "https://alloys.copper.org/alloy/C95400",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c70600",
+      "title": "CDA alloy C70600",
+      "url": "https://alloys.copper.org/alloy/C70600",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c71500",
+      "title": "CDA alloy C71500",
+      "url": "https://alloys.copper.org/alloy/C71500",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c17200",
+      "title": "CDA alloy C17200",
+      "url": "https://alloys.copper.org/alloy/C17200",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c65500",
+      "title": "CDA alloy C65500",
+      "url": "https://alloys.copper.org/alloy/C65500",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c75200",
+      "title": "CDA alloy C75200",
+      "url": "https://alloys.copper.org/alloy/C75200",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cda-c93200",
+      "title": "CDA alloy C93200",
+      "url": "https://alloys.copper.org/alloy/C93200",
+      "publisher": "Copper Development Association",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cookson-sterling-reference",
+      "title": "Bullion Technical Information (2008)",
+      "url": "https://www.cooksongold.com/downloads/cat/Bullion_Technical_info_2008.pdf",
+      "publisher": "Cooksongold",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "argentium-mill-guides",
+      "title": "Argentium technical information: millform grades",
+      "url": "https://www.argentiumsilver.com/user-guides-downloads",
+      "publisher": "Argentium International Limited",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cookson-18ct-hb",
+      "title": "18ct HB Alloy Properties and Process Data",
+      "url": "https://www.cooksongold.com/downloads/files/bullion/18ctHB_properties_sheet.pdf",
+      "publisher": "Cooksongold",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cookson-18ct-rp",
+      "title": "18ct RP Alloy Properties and Process Data",
+      "url": "https://www.cooksongold.com/downloads/files/bullion/18ctRP_properties_sheet.pdf",
+      "publisher": "Cooksongold",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    },
+    {
+      "id": "cookson-18ct-sw",
+      "title": "18ct SW Alloy Properties and Process Data",
+      "url": "https://www.cooksongold.com/downloads/files/bullion/18ctSW_properties_sheet.pdf",
+      "publisher": "Cooksongold",
+      "retrieved_at": "2026-10-11",
+      "version": "Undated source; web edition retrieved 2026-10-11",
+      "license_note": "Uncopyrightable factual alloy identities and composition limits; no source prose reproduced."
+    }
+  ],
+  "alloys": [
+    {
+      "id": "cu-c26000",
+      "name": "Cartridge brass",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C26000",
+      "description": "Wrought copper-zinc brass for formed parts.",
+      "applications": [
+        "cartridge cases",
+        "formed sheet parts"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": "68.5",
+          "max_wt_pct": "71.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c26000",
+          "note": ""
+        },
+        {
+          "element": "Pb",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.07",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c26000",
+          "note": ""
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "cda-c26000",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c26000",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c26000"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.7 wt%."
+      ]
+    },
+    {
+      "id": "cu-c36000",
+      "name": "Free-cutting brass",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C36000",
+      "description": "Leaded wrought brass intended for machining.",
+      "applications": [
+        "screw-machine components"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": "60.0",
+          "max_wt_pct": "63.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c36000",
+          "note": ""
+        },
+        {
+          "element": "Pb",
+          "min_wt_pct": "2.5",
+          "max_wt_pct": "3.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c36000",
+          "note": ""
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "cda-c36000",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c36000",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c36000"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.5 wt%."
+      ]
+    },
+    {
+      "id": "cu-c11000",
+      "name": "Electrolytic tough-pitch copper",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C11000",
+      "description": "Commercial ETP copper grade included as a copper-family reference material.",
+      "applications": [
+        "electrical wire",
+        "bus bars"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": "99.90",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c11000",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c11000"
+      ],
+      "notes": [
+        "Cu reporting includes Ag; oxygen and trace-element contents depend on the manufacturing process.",
+        "This is a commercial copper grade, not a deliberately multicomponent alloy recipe."
+      ]
+    },
+    {
+      "id": "cu-c51000",
+      "name": "Phosphor bronze A",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C51000",
+      "description": "Wrought tin-phosphorus bronze.",
+      "applications": [
+        "electrical connectors",
+        "bellows"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "cda-c51000",
+          "note": ""
+        },
+        {
+          "element": "Pb",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c51000",
+          "note": ""
+        },
+        {
+          "element": "Sn",
+          "min_wt_pct": "4.2",
+          "max_wt_pct": "5.8",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c51000",
+          "note": ""
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.30",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c51000",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c51000",
+          "note": ""
+        },
+        {
+          "element": "P",
+          "min_wt_pct": "0.03",
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c51000",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c51000"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.5 wt%."
+      ]
+    },
+    {
+      "id": "cu-c52100",
+      "name": "Phosphor bronze C",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C52100",
+      "description": "Wrought tin-phosphorus bronze with a higher tin range than C51000.",
+      "applications": [
+        "spring contacts",
+        "strip products"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "cda-c52100",
+          "note": ""
+        },
+        {
+          "element": "Pb",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c52100",
+          "note": ""
+        },
+        {
+          "element": "Sn",
+          "min_wt_pct": "7.0",
+          "max_wt_pct": "9.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c52100",
+          "note": ""
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c52100",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.10",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c52100",
+          "note": ""
+        },
+        {
+          "element": "P",
+          "min_wt_pct": "0.03",
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c52100",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c52100"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.5 wt%."
+      ]
+    },
+    {
+      "id": "cu-c95400",
+      "name": "Cast aluminum bronze",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C95400",
+      "description": "Copper-aluminum-iron casting alloy.",
+      "applications": [
+        "bearings",
+        "cast wear components"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": "83.0",
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c95400",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": "3.0",
+          "max_wt_pct": "5.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c95400",
+          "note": ""
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c95400",
+          "note": ""
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": "10.0",
+          "max_wt_pct": "11.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c95400",
+          "note": ""
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c95400",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c95400"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.5 wt%.",
+        "Ni reporting includes Co."
+      ]
+    },
+    {
+      "id": "cu-c70600",
+      "name": "Copper-nickel 90/10",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C70600",
+      "description": "Wrought copper-nickel alloy with controlled iron.",
+      "applications": [
+        "condenser tubes",
+        "heat-exchanger tubes"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "cda-c70600",
+          "note": ""
+        },
+        {
+          "element": "Pb",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c70600",
+          "note": ""
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c70600",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": "1.0",
+          "max_wt_pct": "1.8",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c70600",
+          "note": ""
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": "9.0",
+          "max_wt_pct": "11.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c70600",
+          "note": ""
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c70600",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c70600"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.5 wt%.",
+        "Cu reporting includes Ag; Ni reporting includes Co.",
+        "90/10 is a conventional name, not exact elemental composition."
+      ]
+    },
+    {
+      "id": "cu-c71500",
+      "name": "Copper-nickel 70/30",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C71500",
+      "description": "Wrought copper-nickel alloy with a higher nickel range than C70600.",
+      "applications": [
+        "condenser tubes",
+        "heat-exchanger tubes"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "cda-c71500",
+          "note": ""
+        },
+        {
+          "element": "Pb",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c71500",
+          "note": ""
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c71500",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": "0.40",
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c71500",
+          "note": ""
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": "29.0",
+          "max_wt_pct": "33.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c71500",
+          "note": ""
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c71500",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c71500"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.5 wt%.",
+        "Cu reporting includes Ag; Ni reporting includes Co.",
+        "70/30 is a conventional name, not exact elemental composition."
+      ]
+    },
+    {
+      "id": "cu-c17200",
+      "name": "Copper-beryllium",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C17200",
+      "description": "Wrought precipitation-hardening copper-beryllium alloy.",
+      "applications": [
+        "springs",
+        "electrical contacts"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "cda-c17200",
+          "note": ""
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c17200",
+          "note": ""
+        },
+        {
+          "element": "Be",
+          "min_wt_pct": "1.80",
+          "max_wt_pct": "2.00",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c17200",
+          "note": ""
+        },
+        {
+          "element": "Co",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "cda-c17200",
+          "note": "Only combined Ni+Co and Ni+Fe+Co constraints are stated; see alloy notes."
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "cda-c17200",
+          "note": "Only combined Ni+Co and Ni+Fe+Co constraints are stated; see alloy notes."
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "cda-c17200",
+          "note": "Only combined Ni+Co and Ni+Fe+Co constraints are stated; see alloy notes."
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c17200",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c17200"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.5 wt%.",
+        "Cu reporting includes Ag.",
+        "Ni + Co must be at least 0.20 wt%; Ni + Fe + Co must not exceed 0.6 wt%. The displayed Co minimum is a combined Ni+Co constraint, not a cobalt-only limit."
+      ]
+    },
+    {
+      "id": "cu-c65500",
+      "name": "High-silicon bronze A",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C65500",
+      "description": "Wrought copper-silicon-manganese bronze.",
+      "applications": [
+        "sculpture",
+        "fasteners"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "cda-c65500",
+          "note": ""
+        },
+        {
+          "element": "Pb",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c65500",
+          "note": ""
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c65500",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.8",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c65500",
+          "note": ""
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.6",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c65500",
+          "note": ""
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": "0.50",
+          "max_wt_pct": "1.3",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c65500",
+          "note": ""
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": "2.8",
+          "max_wt_pct": "3.8",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c65500",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c65500"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.5 wt%.",
+        "Cu reporting includes Ag; Ni reporting includes Co."
+      ]
+    },
+    {
+      "id": "cu-c75200",
+      "name": "Nickel silver 65-18",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C75200",
+      "description": "Wrought copper-nickel-zinc alloy; the name does not imply a silver addition.",
+      "applications": [
+        "costume jewelry",
+        "hollowware"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": "63.0",
+          "max_wt_pct": "66.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c75200",
+          "note": ""
+        },
+        {
+          "element": "Pb",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.05",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c75200",
+          "note": ""
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "balance",
+          "source_id": "cda-c75200",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.25",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c75200",
+          "note": ""
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": "16.5",
+          "max_wt_pct": "19.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c75200",
+          "note": ""
+        },
+        {
+          "element": "Mn",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.50",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c75200",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c75200"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.5 wt%.",
+        "Cu reporting includes Ag; Ni reporting includes Co."
+      ]
+    },
+    {
+      "id": "cu-c93200",
+      "name": "High-leaded tin bearing bronze",
+      "family": "copper",
+      "base_element": "Cu",
+      "designation": "UNS C93200",
+      "description": "Cast copper-tin-lead-zinc bearing bronze.",
+      "applications": [
+        "bearings",
+        "bushings"
+      ],
+      "composition": [
+        {
+          "element": "Cu",
+          "min_wt_pct": "81.0",
+          "max_wt_pct": "85.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        },
+        {
+          "element": "Pb",
+          "min_wt_pct": "6.0",
+          "max_wt_pct": "8.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        },
+        {
+          "element": "Sn",
+          "min_wt_pct": "6.3",
+          "max_wt_pct": "7.5",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        },
+        {
+          "element": "Zn",
+          "min_wt_pct": "1.0",
+          "max_wt_pct": "4.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        },
+        {
+          "element": "Fe",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.20",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        },
+        {
+          "element": "P",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.15",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": "0.15 wt% maximum is not for continuous castings; see conditional limit in alloy notes."
+        },
+        {
+          "element": "Ni",
+          "min_wt_pct": null,
+          "max_wt_pct": "1.0",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        },
+        {
+          "element": "Al",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.005",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        },
+        {
+          "element": "S",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.08",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        },
+        {
+          "element": "Sb",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.35",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        },
+        {
+          "element": "Si",
+          "min_wt_pct": null,
+          "max_wt_pct": "0.005",
+          "nominal_wt_pct": null,
+          "role": "specified",
+          "source_id": "cda-c93200",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cda-c93200"
+      ],
+      "notes": [
+        "Copper plus the listed elements must total at least 99.0 wt%.",
+        "For determining the copper minimum, the source permits Cu+Ni.",
+        "Ni reporting includes Co.",
+        "The P maximum shown here applies outside continuous casting; continuous castings permit P up to 1.5 wt%."
+      ]
+    },
+    {
+      "id": "ag-sterling-traditional",
+      "name": "Traditional copper sterling silver",
+      "family": "silver",
+      "base_element": "Ag",
+      "designation": "Traditional Ag-Cu sterling (925)",
+      "description": "Binary silver-copper sterling formulation used as a reference, rather than every commercial sterling recipe.",
+      "applications": [
+        "jewelry",
+        "silverware"
+      ],
+      "composition": [
+        {
+          "element": "Ag",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "92.5",
+          "role": "specified",
+          "source_id": "cookson-sterling-reference",
+          "note": ""
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "7.5",
+          "role": "specified",
+          "source_id": "cookson-sterling-reference",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cookson-sterling-reference"
+      ],
+      "notes": [
+        "The source describes standard silver alloyed with 7.5 wt% copper; the silver fraction is the complementary binary fraction.",
+        "Modern proprietary sterling grades may use additional elements; these values must not be generalized to all 925 silver."
+      ]
+    },
+    {
+      "id": "ag-argentium-940-mill",
+      "name": "Argentium 940 millform silver",
+      "family": "silver",
+      "base_element": "Ag",
+      "designation": "AG-A940-MILL",
+      "description": "Proprietary silver alloy supplied for mill products.",
+      "applications": [
+        "jewelry sheet",
+        "tube",
+        "strip",
+        "wire"
+      ],
+      "composition": [
+        {
+          "element": "Ag",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "94",
+          "role": "specified",
+          "source_id": "argentium-mill-guides",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "argentium-mill-guides"
+      ],
+      "notes": [
+        "The manufacturer states the silver purity but this cited page does not disclose the remaining elemental percentages.",
+        "No copper or germanium percentages have been guessed."
+      ]
+    },
+    {
+      "id": "ag-argentium-960-mill",
+      "name": "Argentium 960 millform silver",
+      "family": "silver",
+      "base_element": "Ag",
+      "designation": "AG-A960-MILL",
+      "description": "Proprietary silver alloy supplied for mill products.",
+      "applications": [
+        "jewelry sheet",
+        "tube",
+        "strip",
+        "wire"
+      ],
+      "composition": [
+        {
+          "element": "Ag",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "96",
+          "role": "specified",
+          "source_id": "argentium-mill-guides",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "argentium-mill-guides"
+      ],
+      "notes": [
+        "The manufacturer states the silver purity but this cited page does not disclose the remaining elemental percentages.",
+        "No copper or germanium percentages have been guessed."
+      ]
+    },
+    {
+      "id": "au-cookson-18ct-hb",
+      "name": "Cooksongold 18ct HB yellow gold",
+      "family": "gold",
+      "base_element": "Au",
+      "designation": "Cooksongold 18ct HB",
+      "description": "Supplier-specific yellow gold jewelry alloy.",
+      "applications": [
+        "formed jewelry",
+        "general goldsmithing"
+      ],
+      "composition": [
+        {
+          "element": "Au",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "75.10",
+          "role": "specified",
+          "source_id": "cookson-18ct-hb",
+          "note": ""
+        },
+        {
+          "element": "Ag",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "15.97",
+          "role": "specified",
+          "source_id": "cookson-18ct-hb",
+          "note": ""
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "cookson-18ct-hb",
+          "note": "Copper is named but its percentage is not explicitly printed in this source; no numerical balance has been inferred."
+        }
+      ],
+      "source_ids": [
+        "cookson-18ct-hb"
+      ],
+      "notes": [
+        "This is the supplier-specific HB grade, not a universal recipe for yellow 18-carat gold.",
+        "Percentages are supplier composition values, not independently measured sample results.",
+        "The sheet places a number before silver and then names copper without a separate amount; copper is retained as present with an undisclosed amount."
+      ]
+    },
+    {
+      "id": "au-cookson-18ct-rp",
+      "name": "Cooksongold 18ct RP rose pink gold",
+      "family": "gold",
+      "base_element": "Au",
+      "designation": "Cooksongold 18ct RP",
+      "description": "Supplier-specific rose pink gold jewelry alloy.",
+      "applications": [
+        "jewelry",
+        "chain"
+      ],
+      "composition": [
+        {
+          "element": "Au",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "75.10",
+          "role": "specified",
+          "source_id": "cookson-18ct-rp",
+          "note": ""
+        },
+        {
+          "element": "Ag",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "8.5",
+          "role": "specified",
+          "source_id": "cookson-18ct-rp",
+          "note": ""
+        },
+        {
+          "element": "Cu",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": null,
+          "role": "unspecified",
+          "source_id": "cookson-18ct-rp",
+          "note": "Copper is named but its percentage is not explicitly printed in this source; no numerical balance has been inferred."
+        }
+      ],
+      "source_ids": [
+        "cookson-18ct-rp"
+      ],
+      "notes": [
+        "This is the supplier-specific RP grade, not a universal recipe for rose pink 18-carat gold.",
+        "Percentages are supplier composition values, not independently measured sample results.",
+        "The sheet places a number before silver and then names copper without a separate amount; copper is retained as present with an undisclosed amount."
+      ]
+    },
+    {
+      "id": "au-cookson-18ct-sw",
+      "name": "Cooksongold 18ct SW white gold",
+      "family": "gold",
+      "base_element": "Au",
+      "designation": "Cooksongold 18ct SW",
+      "description": "Supplier-specific white gold jewelry alloy.",
+      "applications": [
+        "formed jewelry",
+        "stamping"
+      ],
+      "composition": [
+        {
+          "element": "Au",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "75.10",
+          "role": "specified",
+          "source_id": "cookson-18ct-sw",
+          "note": ""
+        },
+        {
+          "element": "Ag",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "7.90",
+          "role": "specified",
+          "source_id": "cookson-18ct-sw",
+          "note": ""
+        },
+        {
+          "element": "Pd",
+          "min_wt_pct": null,
+          "max_wt_pct": null,
+          "nominal_wt_pct": "17.00",
+          "role": "specified",
+          "source_id": "cookson-18ct-sw",
+          "note": ""
+        }
+      ],
+      "source_ids": [
+        "cookson-18ct-sw"
+      ],
+      "notes": [
+        "This is the supplier-specific SW grade, not a universal recipe for white 18-carat gold.",
+        "Percentages are supplier composition values, not independently measured sample results."
+      ]
+    }
+  ]
+}

@@ -29,8 +29,8 @@ import uuid
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / "universe.db"
 DEFAULT_OUTPUT = ROOT / ".build" / "unverified.db"
-DEFAULT_MODEL = "gpt-5.4-nano"
-DEFAULT_BASE_URL = "https://api.openai.com/v1"
+DEFAULT_MODEL = "xiaomi/mimo-v2.6-pro"
+DEFAULT_BASE_URL = "https://openrouter.ai/api/v1"
 SCHEMA_VERSION = 1
 MAX_SQLITE_INTEGER = 2**63 - 1
 
@@ -506,6 +506,15 @@ def response_sources(payload: dict) -> list[dict]:
     sources: list[dict] = []
     seen: set[str] = set()
     for item in payload.get("output", []):
+        if item.get("type") == "message":
+            for content in item.get("content", []):
+                for annotation in content.get("annotations", []):
+                    citation = annotation.get("url_citation", annotation)
+                    url = citation.get("url")
+                    if url and url not in seen:
+                        seen.add(url)
+                        sources.append({"url": url, "title": citation.get("title"),
+                                        "supporting_text": citation.get("content")})
         if item.get("type") != "web_search_call":
             continue
         for source in item.get("action", {}).get("sources", []):
@@ -579,7 +588,15 @@ def call_openai(
     retries: int,
     timeout: int,
 ) -> dict:
-    body = json.dumps(request_payload(model, task)).encode("utf-8")
+    payload = request_payload(model, task)
+    if urllib.parse.urlsplit(base_url).hostname == "openrouter.ai":
+        # OpenRouter's grounding plugin works with GLM; OpenAI's native search
+        # tool is provider-specific. Preserve annotations for source provenance.
+        for field in ("tools", "tool_choice", "include"):
+            payload.pop(field, None)
+        payload["plugins"] = [{"id": "web", "max_results": 3}]
+        payload["text"].pop("verbosity", None)
+    body = json.dumps(payload).encode("utf-8")
     request_id = str(uuid.uuid4())
     headers = {
         "Content-Type": "application/json",
@@ -880,7 +897,7 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_BASE_URL,
         help="OpenAI-compatible Responses API base URL",
     )
-    parser.add_argument("--api-key-env", default="OPENAI_API_KEY")
+    parser.add_argument("--api-key-env", default="OPENROUTER_API_KEY")
     parser.add_argument("--timeout", type=int, default=90)
     parser.add_argument("--retries", type=int, default=2)
     parser.add_argument(

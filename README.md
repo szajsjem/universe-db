@@ -13,6 +13,13 @@ today. The schema is broad; the reviewed data will grow source by source.
 
 ## Current coverage
 
+A separate hand-authored [metal alloy reference](docs/alloys.md) is available
+as `alloys.db`, covering iron–carbon, copper, gold, silver, aluminum,
+magnesium, titanium, and nickel grades with sourced composition limits and
+nominal recipes. These research entries await human review and are separate
+from the reviewed coverage below. Rebuild it with
+`python scripts/build_alloy_db.py`.
+
 | Family | Seeded now | Schema ready |
 |---|---:|:---:|
 | Quarks and leptons | 12 identities | yes |
@@ -95,6 +102,16 @@ ORDER BY r.reaction_id, rp.role DESC, cs.formula;
 ```
 
 ## Rebuild and verify
+
+Export a versioned release containing the combined database and the current
+reviewed, Wikipedia research, and alloy databases:
+
+```sh
+python scripts/export_release.py
+```
+
+See [release export instructions](docs/releases.md) for input selection,
+checksums, version labels, and the review boundary.
 
 Requirements are Python 3.11+ and its standard-library SQLite module. There are
 no third-party runtime or build dependencies.
@@ -316,10 +333,14 @@ Override those reference values with `--normal-temperature-k` and
 
 ### Agent review of merged atoms and molecules
 
+For the current MiMo-V2.6-Pro / Pi workflow and full English Wikipedia downloader,
+see [Wikipedia GLM review](docs/wikipedia-glm-review.md). The parser and reviewer
+now default to OpenRouter and read `OPENROUTER_API_KEY`; install Pi with `npm ci`.
+
 After deterministic cleanup, the bounded review agent can inspect every
-surviving unverified atom and molecule. Its three model-visible tools provide
+surviving unverified candidate. Its Pi tools provide
 read-only parameterized SQL, search over the local revision-pinned Wikipedia
-scrape, and one transactional staging write. The write can keep, completely
+scrape, supplementary web search, and one transactional staging write. The write can keep, completely
 rewrite, conservatively merge, or reject a candidate; it cannot write to the
 reviewed scientific tables.
 
@@ -329,19 +350,21 @@ Plan the complete queue without loading the model or changing a database:
 python3 scripts/review_wikipedia_candidates.py universe-unverified.db
 ```
 
-Run a small trial against the requested local OpenAI-compatible server. The
+Run a small trial against OpenRouter using MiMo-V2.6-Pro. The
 default output is `.build/wikipedia-agent-reviewed.db`, copied from the input
 on its first run:
 
 ```sh
 python3 scripts/review_wikipedia_candidates.py universe-unverified.db \
-  --base-url http://127.0.0.1:8080/v1 \
-  --model qwen3.6-35b-a3b-mtp \
+  --base-url https://openrouter.ai/api/v1 \
+  --model xiaomi/mimo-v2.6-pro \
   --max-candidates 5 \
-  --execute
+  --execute --accept-cost
 ```
 
-Remove `--max-candidates` to process the full atom/molecule queue. Successful
+Remove `--max-candidates` to process the full candidate queue. Atom/molecule
+rewrites and merges retain their existing validators; other kinds support only
+keep/reject decisions. Successful
 reviews are resumable: later invocations skip candidates already recorded as
 `keep`, `rewrite`, `duplicate`, or `reject`, while retrying errors. Use
 `--start-after CANDIDATE_ID` to divide a run manually. The agent must read the
@@ -355,8 +378,8 @@ The operational `wikipedia_candidate_agent_run` and
 `wikipedia_candidate_agent_review` tables retain decisions, before/after JSON,
 source keys, and tool traces. These are audit records in the output overlay,
 not evidence of human review or promotion under the data policy. In-place
-writes require the explicit `--in-place --execute` combination. Qwen thinking
-is disabled by default for faster bounded tool selection; use
+writes require the explicit `--in-place --execute` combination. Additional reasoning
+is disabled by default; use
 `--enable-thinking` only when its added latency is intentional.
 
 

@@ -35,8 +35,8 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATABASE = ROOT / "universe.db"
 DEFAULT_OUTPUT = ROOT / ".build" / "wikipedia-unverified.db"
-DEFAULT_MODEL = "qwen/qwen3.5-9b"
-DEFAULT_BASE_URL = "http://localhost:12355/v1"
+DEFAULT_MODEL = "xiaomi/mimo-v2.6-pro"
+DEFAULT_BASE_URL = "https://openrouter.ai/api/v1"
 ZIP_ARCHIVE_FORMAT = "universe-db-wikipedia-category-snapshot-v1"
 ZIM_ARCHIVE_FORMAT = "openzim-wikipedia-chemistry"
 MAX_SQLITE_INTEGER = 2**63 - 1
@@ -1190,11 +1190,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--base-url",
         default=DEFAULT_BASE_URL,
-        help="OpenAI-compatible API base URL (default: local LM Studio)",
+        help="OpenAI-compatible API base URL (default: OpenRouter)",
     )
     parser.add_argument(
         "--api-key-env",
-        default="LM_STUDIO_API_KEY",
+        default="OPENROUTER_API_KEY",
         help="optional environment variable containing an API token",
     )
     parser.add_argument("--start-page", type=int, default=0)
@@ -1308,6 +1308,9 @@ def main() -> int:
     if args.parallel_requests:
         parallel_requests = args.parallel_requests
         slot_source = "command line"
+    elif not is_local_base_url(args.base_url):
+        parallel_requests = 1
+        slot_source = "remote API default"
     else:
         try:
             parallel_requests = fetch_lm_studio_parallel_slots(
