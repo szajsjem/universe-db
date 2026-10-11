@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 import tempfile
 import unittest
 import zipfile
+from pathlib import Path
 
 from scripts.export_inorganicengineering import (
     DEFAULT_DATABASE,
@@ -69,10 +69,7 @@ class InorganicEngineeringExportTest(unittest.TestCase):
         self.assertEqual(48, pack["pack"]["pack_format"])
 
         copper = json.loads(
-            files[
-                "data/inorganicengineering/inorganicengineering/"
-                "elements/copper.json"
-            ]
+            files["data/inorganicengineering/inorganicengineering/elements/copper.json"]
         )
         self.assertEqual(63_546_000, copper["atomic_mass_micrograms_per_mole"])
 

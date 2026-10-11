@@ -13,7 +13,8 @@ Publication is rejected when any of these boundaries fail:
   balance;
 - observation, condition, energy, spectrum, lattice, or cross-section unit
   dimensions;
-- individual nuclear probability bounds, compatible branch-group totals, or
+- individual nuclear probability bounds, compatible branch-group totals,
+  exactly one mass and abundance observation per representative isotope, or
   representative isotope abundance totals;
 - alias resolution or acyclic, type-preserving entity replacement;
 - authored species composition, molecular graph composition/formal charge,

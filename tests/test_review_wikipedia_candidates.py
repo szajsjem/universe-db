@@ -1,29 +1,28 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import sqlite3
 import sys
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 from scripts.build_db import build
 from scripts.clean_wikipedia_candidates import ensure_cleanup_schema
 from scripts.review_wikipedia_candidates import (
-    AgentTools,
     DEFAULT_BASE_URL,
     DEFAULT_MODEL,
+    AgentTools,
     WikipediaIndex,
     candidate_json,
     ensure_agent_schema,
-    run_candidate_agent,
+    main,
     planned_candidates,
+    run_candidate_agent,
     safe_duplicate,
     select_db,
-    main,
 )
-
 
 SOURCE_KEY = "page:1:revision:2"
 SOURCE_TEXT = "Water is an inorganic compound with the chemical formula H2O."
@@ -136,70 +135,158 @@ class CandidateAgentTest(unittest.TestCase):
         self.assertEqual("xiaomi/mimo-v2.6-pro", DEFAULT_MODEL)
 
     def test_network_streak_saves_failed_run_and_requests_launcher_retry(self) -> None:
-        self._insert_candidate('candidate:second', 'water', 'H2O')
-        self._insert_candidate('candidate:third', 'water', 'H2O')
+        self._insert_candidate("candidate:second", "water", "H2O")
+        self._insert_candidate("candidate:third", "water", "H2O")
         self.connection.commit()
-        archive = Path(self.temporary.name) / 'archive.zip'
+        archive = Path(self.temporary.name) / "archive.zip"
         archive.touch()
-        arguments = ['review', str(self.database), '--archive', str(archive),
-                     '--execute', '--in-place', '--base-url', 'http://localhost:8080/v1',
-                     '--agent-runtime', 'compatible']
-        with patch.object(sys, 'argv', arguments), patch('scripts.review_wikipedia_candidates.WikipediaIndex', return_value=self.wikipedia), patch('scripts.review_wikipedia_candidates.run_candidate_agent', side_effect=RuntimeError('Connection error.')):
+        arguments = [
+            "review",
+            str(self.database),
+            "--archive",
+            str(archive),
+            "--execute",
+            "--in-place",
+            "--base-url",
+            "http://localhost:8080/v1",
+            "--agent-runtime",
+            "compatible",
+        ]
+        with (
+            patch.object(sys, "argv", arguments),
+            patch(
+                "scripts.review_wikipedia_candidates.WikipediaIndex",
+                return_value=self.wikipedia,
+            ),
+            patch(
+                "scripts.review_wikipedia_candidates.run_candidate_agent",
+                side_effect=RuntimeError("Connection error."),
+            ),
+        ):
             with self.assertRaises(SystemExit) as stopped:
                 main()
         self.assertEqual(75, stopped.exception.code)
-        self.assertEqual(('failed', 3), tuple(self.connection.execute(
-            'SELECT status,error_count FROM wikipedia_candidate_agent_run ORDER BY started_at DESC LIMIT 1').fetchone()))
-        self.assertEqual(3, self.connection.execute("SELECT count(*) FROM wikipedia_candidate_agent_review WHERE action='error'").fetchone()[0])
+        self.assertEqual(
+            ("failed", 3),
+            tuple(
+                self.connection.execute(
+                    "SELECT status,error_count FROM wikipedia_candidate_agent_run ORDER BY started_at DESC LIMIT 1"
+                ).fetchone()
+            ),
+        )
+        self.assertEqual(
+            3,
+            self.connection.execute(
+                "SELECT count(*) FROM wikipedia_candidate_agent_review WHERE action='error'"
+            ).fetchone()[0],
+        )
 
     def test_validation_streak_does_not_request_automatic_retry(self) -> None:
-        self._insert_candidate('candidate:second', 'water', 'H2O')
-        self._insert_candidate('candidate:third', 'water', 'H2O')
+        self._insert_candidate("candidate:second", "water", "H2O")
+        self._insert_candidate("candidate:third", "water", "H2O")
         self.connection.commit()
-        archive = Path(self.temporary.name) / 'archive.zip'
+        archive = Path(self.temporary.name) / "archive.zip"
         archive.touch()
-        arguments = ['review', str(self.database), '--archive', str(archive),
-                     '--execute', '--in-place', '--base-url', 'http://localhost:8080/v1',
-                     '--agent-runtime', 'compatible']
-        with patch.object(sys, 'argv', arguments), patch('scripts.review_wikipedia_candidates.WikipediaIndex', return_value=self.wikipedia), patch('scripts.review_wikipedia_candidates.run_candidate_agent', side_effect=ValueError('agent exceeded tool-call rounds')):
-            with self.assertRaisesRegex(RuntimeError, 'consecutive review errors'):
+        arguments = [
+            "review",
+            str(self.database),
+            "--archive",
+            str(archive),
+            "--execute",
+            "--in-place",
+            "--base-url",
+            "http://localhost:8080/v1",
+            "--agent-runtime",
+            "compatible",
+        ]
+        with (
+            patch.object(sys, "argv", arguments),
+            patch(
+                "scripts.review_wikipedia_candidates.WikipediaIndex",
+                return_value=self.wikipedia,
+            ),
+            patch(
+                "scripts.review_wikipedia_candidates.run_candidate_agent",
+                side_effect=ValueError("agent exceeded tool-call rounds"),
+            ),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "consecutive review errors"):
                 main()
 
-    def test_targeted_recheck_preserves_history_and_reselects_completed_row(self) -> None:
-        tools = AgentTools(self.connection, self.wikipedia, 'agent', 'candidate:water', [SOURCE_KEY])
+    def test_targeted_recheck_preserves_history_and_reselects_completed_row(
+        self,
+    ) -> None:
+        tools = AgentTools(
+            self.connection, self.wikipedia, "agent", "candidate:water", [SOURCE_KEY]
+        )
         tools.selected = True
         tools.searched_keys.add(SOURCE_KEY)
-        tools.call('insert_db', {'candidate_id': 'candidate:water', 'action': 'keep',
-                                'reason': 'Original archived evidence supports this row.'})
-        self.assertEqual([], planned_candidates(self.connection, {'molecule'}, None, None))
-        self.assertEqual(['candidate:water'], planned_candidates(self.connection, {'molecule'}, None, None, 'candidate:water'))
-        self.assertEqual(1, self.connection.execute('SELECT count(*) FROM wikipedia_candidate_agent_review').fetchone()[0])
+        tools.call(
+            "insert_db",
+            {
+                "candidate_id": "candidate:water",
+                "action": "keep",
+                "reason": "Original archived evidence supports this row.",
+            },
+        )
+        self.assertEqual(
+            [], planned_candidates(self.connection, {"molecule"}, None, None)
+        )
+        self.assertEqual(
+            ["candidate:water"],
+            planned_candidates(
+                self.connection, {"molecule"}, None, None, "candidate:water"
+            ),
+        )
+        self.assertEqual(
+            1,
+            self.connection.execute(
+                "SELECT count(*) FROM wikipedia_candidate_agent_review"
+            ).fetchone()[0],
+        )
 
     def test_full_dump_crosscheck_is_required_when_configured(self) -> None:
         self.wikipedia.current_dump = object()
-        tools = AgentTools(self.connection, self.wikipedia, 'agent', 'candidate:water', [SOURCE_KEY])
+        tools = AgentTools(
+            self.connection, self.wikipedia, "agent", "candidate:water", [SOURCE_KEY]
+        )
         tools.selected = True
         tools.searched_keys.add(SOURCE_KEY)
-        decision = {'candidate_id': 'candidate:water', 'action': 'keep',
-                    'reason': 'Original archived evidence supports this row.'}
-        with self.assertRaisesRegex(ValueError, 'search_current_wikipedia must check'):
-            tools.call('insert_db', decision)
+        decision = {
+            "candidate_id": "candidate:water",
+            "action": "keep",
+            "reason": "Original archived evidence supports this row.",
+        }
+        with self.assertRaisesRegex(ValueError, "search_current_wikipedia must check"):
+            tools.call("insert_db", decision)
         tools.current_source_checked = True
-        self.assertTrue(tools.call('insert_db', decision)['committed'])
+        self.assertTrue(tools.call("insert_db", decision)["committed"])
 
     def test_other_kinds_cannot_bypass_molecule_rewrite_guards(self) -> None:
-        self.connection.execute("UPDATE unverified_entity_candidate SET candidate_kind = 'material'")
+        self.connection.execute(
+            "UPDATE unverified_entity_candidate SET candidate_kind = 'material'"
+        )
         self.connection.commit()
-        tools = AgentTools(self.connection, self.wikipedia, 'agent', 'candidate:water', [SOURCE_KEY])
+        tools = AgentTools(
+            self.connection, self.wikipedia, "agent", "candidate:water", [SOURCE_KEY]
+        )
         tools.selected = True
         tools.searched_keys.add(SOURCE_KEY)
-        with self.assertRaisesRegex(ValueError, 'kind supports only keep/reject'):
-            tools.call('insert_db', {
-                'candidate_id': 'candidate:water', 'action': 'rewrite',
-                'candidate': rewritten_water(), 'duplicate_of_candidate_id': None,
-                'reason': 'Attempt to bypass molecule validation',
-            })
-        self.assertEqual('material', candidate_json(self.connection, 'candidate:water')['candidate_kind'])
+        with self.assertRaisesRegex(ValueError, "kind supports only keep/reject"):
+            tools.call(
+                "insert_db",
+                {
+                    "candidate_id": "candidate:water",
+                    "action": "rewrite",
+                    "candidate": rewritten_water(),
+                    "duplicate_of_candidate_id": None,
+                    "reason": "Attempt to bypass molecule validation",
+                },
+            )
+        self.assertEqual(
+            "material",
+            candidate_json(self.connection, "candidate:water")["candidate_kind"],
+        )
 
     def test_select_db_is_read_only(self) -> None:
         result = select_db(
@@ -396,9 +483,7 @@ class CandidateAgentTest(unittest.TestCase):
             "INSERT INTO unverified_candidate_alias VALUES (?, 0, ?)",
             ("candidate:other", "water?"),
         )
-        safe, _ = safe_duplicate(
-            self.connection, "candidate:water", "candidate:other"
-        )
+        safe, _ = safe_duplicate(self.connection, "candidate:water", "candidate:other")
         self.assertTrue(safe)
 
     def test_duplicate_insert_merges_staging_rows_and_keeps_provenance(self) -> None:

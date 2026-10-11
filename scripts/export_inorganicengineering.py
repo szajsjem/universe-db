@@ -7,11 +7,11 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
 import sqlite3
 import tempfile
-from typing import Any
 import zipfile
+from pathlib import Path
+from typing import Any
 
 if __package__:
     from .validate_db import validate
@@ -312,7 +312,11 @@ def export_species(
         phases.sort(key=lambda phase: phase_rank.get(phase, len(phase_rank)))
         if "supported_phases" in metadata:
             phases = metadata["supported_phases"]
-        if not isinstance(phases, list) or not phases or len(phases) != len(set(phases)):
+        if (
+            not isinstance(phases, list)
+            or not phases
+            or len(phases) != len(set(phases))
+        ):
             raise ExportError(f"{species_id}: supported phases must be a unique list")
         document: dict[str, Any] = {
             "density_milligrams_per_litre": observation(
@@ -368,7 +372,9 @@ def export_species(
             if (
                 not isinstance(tags, list)
                 or len(tags) != len(set(tags))
-                or not all(isinstance(tag, str) and tag.startswith("c:") for tag in tags)
+                or not all(
+                    isinstance(tag, str) and tag.startswith("c:") for tag in tags
+                )
             ):
                 raise ExportError(f"{species_id}: invalid compatibility_tags")
             document["compatibility_tags"] = tags
@@ -409,9 +415,7 @@ def export_minerals(
         output_id = f"{namespace}:{path}"
         mineral_id = resource_id(namespace, mineral[0]["species_id"], "chem")
         result[path] = {
-            "gangue_species": resource_id(
-                namespace, gangue[0]["species_id"], "chem"
-            ),
+            "gangue_species": resource_id(namespace, gangue[0]["species_id"], "chem"),
             "id": output_id,
             "mineral_species": mineral_id,
             "schema_version": 1,
@@ -444,7 +448,9 @@ def export_materials(
             )
             composition[resource_id(namespace, row["species_id"], "chem")] = parts
         if sum(composition.values()) != 1_000_000:
-            raise ExportError(f"{material_id}: composition does not total 1,000,000 ppm")
+            raise ExportError(
+                f"{material_id}: composition does not total 1,000,000 ppm"
+            )
         path = metadata["id"]
         result[path] = {
             "compatibility_tags": metadata.get("compatibility_tags", []),
@@ -514,7 +520,9 @@ def export_reactions(
             reaction_id,
         )
         if reaction["reaction_kind"] != "process" or reaction["reversible"]:
-            raise ExportError(f"{reaction_id}: only irreversible process reactions export")
+            raise ExportError(
+                f"{reaction_id}: only irreversible process reactions export"
+            )
         if reaction["energy_unit_id"] != "unit:joule":
             raise ExportError(f"{reaction_id}: energy must use joules")
         participants = connection.execute(
@@ -609,9 +617,7 @@ def build_files(
             ),
             (
                 f"data/{namespace}/{namespace}/species",
-                export_species(
-                    connection, namespace, selected_species, profile
-                ),
+                export_species(connection, namespace, selected_species, profile),
             ),
             (
                 f"data/{namespace}/{namespace}/minerals",

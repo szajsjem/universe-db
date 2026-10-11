@@ -4,9 +4,8 @@
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
 import sqlite3
-
+from pathlib import Path
 
 QUERIES = {
     "particles": "SELECT count(*) FROM particle",

@@ -1,18 +1,18 @@
 from __future__ import annotations
 
-from pathlib import Path
 import shutil
 import sqlite3
 import tempfile
 import unittest
+from contextlib import closing
+from pathlib import Path
 
-from scripts.validate_db import validate
 from scripts.export_inorganicengineering import (
     DEFAULT_PROFILE,
     ExportError,
     build_files,
 )
-
+from scripts.validate_db import validate
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -31,7 +31,7 @@ class ValidatorRegressionTest(unittest.TestCase):
         statement: str,
         parameters: tuple[object, ...] = (),
     ) -> None:
-        with sqlite3.connect(self.database) as connection:
+        with closing(sqlite3.connect(self.database)) as connection, connection:
             connection.execute("PRAGMA foreign_keys = OFF")
             connection.execute("PRAGMA ignore_check_constraints = ON")
             connection.execute(statement, parameters)
@@ -52,6 +52,33 @@ class ValidatorRegressionTest(unittest.TestCase):
             """
         )
         self.assert_rejected("formula-mass mismatch")
+
+    def test_rejects_duplicate_natural_isotope_observations(self) -> None:
+        for property_id in (
+            "property:relative_atomic_mass",
+            "property:isotopic_composition",
+        ):
+            with self.subTest(property_id=property_id):
+                self.mutate(
+                    """
+                    INSERT INTO observation
+                    SELECT 'observation:test-duplicate', subject_entity_id,
+                           property_id, value_numerator, value_denominator,
+                           unit_id, uncertainty_numerator, uncertainty_denominator,
+                           provenance_class, dataset_id, source_id,
+                           condition_set_id, method, schema_version
+                    FROM observation
+                    WHERE subject_entity_id = 'nuclide:hydrogen-1'
+                      AND property_id = ?
+                    """,
+                    (property_id,),
+                )
+                self.assert_rejected(
+                    "nuclide:hydrogen-1 lacks exactly one mass and abundance observation"
+                )
+                self.mutate(
+                    "DELETE FROM observation WHERE observation_id = 'observation:test-duplicate'"
+                )
 
     def test_export_cannot_bypass_validation(self) -> None:
         self.mutate(

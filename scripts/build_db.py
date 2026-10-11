@@ -7,10 +7,10 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
 import sqlite3
 import tempfile
-
+from contextlib import closing
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "universe.db"
@@ -75,7 +75,7 @@ def build(output: Path) -> None:
 
 
 def database_metadata(path: Path) -> dict:
-    with sqlite3.connect(path) as connection:
+    with closing(sqlite3.connect(path)) as connection:
         tables = [
             row[0]
             for row in connection.execute(
@@ -88,9 +88,7 @@ def database_metadata(path: Path) -> dict:
             )
         ]
         row_counts = {
-            table: connection.execute(
-                f'SELECT count(*) FROM "{table}"'
-            ).fetchone()[0]
+            table: connection.execute(f'SELECT count(*) FROM "{table}"').fetchone()[0]
             for table in tables
         }
         schema_version = connection.execute("PRAGMA user_version").fetchone()[0]
@@ -103,7 +101,7 @@ def database_metadata(path: Path) -> dict:
 
 
 def unverified_metadata(path: Path, base_digest: str) -> dict:
-    with sqlite3.connect(path) as connection:
+    with closing(sqlite3.connect(path)) as connection:
         stored_base_digest = connection.execute(
             """
             SELECT value

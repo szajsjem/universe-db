@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from fractions import Fraction
-from pathlib import Path
 import sqlite3
 import unittest
-
+from fractions import Fraction
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET_ID = "dataset:industrial-chemistry-2026-08-01"
@@ -17,13 +16,10 @@ class IndustrialChemistrySeedTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.connection.close()
 
-    def equation(
-        self, reaction_id: str
-    ) -> set[tuple[str, str, str, Fraction]]:
+    def equation(self, reaction_id: str) -> set[tuple[str, str, str, Fraction]]:
         return {
             (role, species_id, phase_id, Fraction(numerator, denominator))
-            for role, species_id, phase_id, numerator, denominator
-            in self.connection.execute(
+            for role, species_id, phase_id, numerator, denominator in self.connection.execute(
                 """
                 SELECT role, species_id, phase_id,
                        coefficient_numerator, coefficient_denominator

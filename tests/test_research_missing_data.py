@@ -1,11 +1,11 @@
 from __future__ import annotations
-from contextlib import closing
 
 import json
-from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from contextlib import closing
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from scripts.build_db import build
@@ -21,7 +21,6 @@ from scripts.research_missing_data import (
     plan_tasks,
     responses_url,
 )
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -67,9 +66,7 @@ def fake_payload() -> dict:
             },
             {
                 "type": "message",
-                "content": [
-                    {"type": "output_text", "text": json.dumps(result)}
-                ],
+                "content": [{"type": "output_text", "text": json.dumps(result)}],
             },
         ],
     }
@@ -111,9 +108,7 @@ class ResearchMissingDataTest(unittest.TestCase):
                 ),
             )
         request = urlopen.call_args.args[0]
-        self.assertEqual(
-            "http://127.0.0.1:8080/v1/responses", request.full_url
-        )
+        self.assertEqual("http://127.0.0.1:8080/v1/responses", request.full_url)
         self.assertNotIn("Authorization", request.headers)
 
     def test_planner_skips_existing_reviewed_values(self) -> None:
@@ -136,9 +131,21 @@ class ResearchMissingDataTest(unittest.TestCase):
         field = next(field for field in FIELDS if field.key == "melting_point")
         task = Task(target, field, "Find melting temperature of iron.")
         response = MagicMock()
-        response.__enter__.return_value.read.return_value = json.dumps(fake_payload()).encode()
-        with patch("scripts.research_missing_data.urllib.request.urlopen", return_value=response) as urlopen:
-            call_openai("test-key", "https://openrouter.ai/api/v1", "xiaomi/mimo-v2.6-pro", task, 0, 10)
+        response.__enter__.return_value.read.return_value = json.dumps(
+            fake_payload()
+        ).encode()
+        with patch(
+            "scripts.research_missing_data.urllib.request.urlopen",
+            return_value=response,
+        ) as urlopen:
+            call_openai(
+                "test-key",
+                "https://openrouter.ai/api/v1",
+                "xiaomi/mimo-v2.6-pro",
+                task,
+                0,
+                10,
+            )
         body = json.loads(urlopen.call_args.args[0].data)
         self.assertEqual([{"id": "web", "max_results": 3}], body["plugins"])
         self.assertNotIn("tools", body)
@@ -148,7 +155,11 @@ class ResearchMissingDataTest(unittest.TestCase):
         payload = fake_payload()
         payload["output"] = payload["output"][1:]
         payload["output"][0]["content"][0]["annotations"] = [
-            {"type": "url_citation", "url": "https://example.test/source", "title": "Example source"}
+            {
+                "type": "url_citation",
+                "url": "https://example.test/source",
+                "title": "Example source",
+            }
         ]
         result, sources = normalize_result(payload)
         self.assertEqual("https://example.test/source", sources[0]["url"])

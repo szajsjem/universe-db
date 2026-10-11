@@ -5,25 +5,16 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 import zipfile
-
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ARCHIVE = (
-    ROOT
-    / "sources"
-    / "wikipedia-chemistry-category-snapshot-2026-07-29.zip"
-)
-EXPECTED_SHA256 = (
-    "c1b4db37964c497f901343c706019324eac204af2973b9aaff71c24f781cdf29"
-)
+ARCHIVE = ROOT / "sources" / "wikipedia-chemistry-category-snapshot-2026-07-29.zip"
+EXPECTED_SHA256 = "c1b4db37964c497f901343c706019324eac204af2973b9aaff71c24f781cdf29"
 EXPECTED_PAGE_COUNT = 1239
 EXPECTED_FORMAT = "universe-db-wikipedia-category-snapshot-v1"
 KIWIX_ARCHIVE = ROOT / "sources" / "wikipedia_en_chemistry_mini_2026-07.zim"
-KIWIX_SHA256 = (
-    "0a7f1e35b1f0deee19c68014421754ce42310bcf6cd8e8d3f01fad25a5ab6144"
-)
+KIWIX_SHA256 = "0a7f1e35b1f0deee19c68014421754ce42310bcf6cd8e8d3f01fad25a5ab6144"
 
 
 def sha256(data: bytes) -> str:
@@ -34,16 +25,14 @@ def main() -> int:
     kiwix_digest = sha256(KIWIX_ARCHIVE.read_bytes())
     if kiwix_digest != KIWIX_SHA256:
         raise SystemExit(
-            f"{KIWIX_ARCHIVE.name}: expected sha256 {KIWIX_SHA256}, "
-            f"got {kiwix_digest}"
+            f"{KIWIX_ARCHIVE.name}: expected sha256 {KIWIX_SHA256}, got {kiwix_digest}"
         )
 
     archive_raw = ARCHIVE.read_bytes()
     actual_digest = sha256(archive_raw)
     if actual_digest != EXPECTED_SHA256:
         raise SystemExit(
-            f"{ARCHIVE.name}: expected sha256 {EXPECTED_SHA256}, "
-            f"got {actual_digest}"
+            f"{ARCHIVE.name}: expected sha256 {EXPECTED_SHA256}, got {actual_digest}"
         )
 
     with zipfile.ZipFile(ARCHIVE) as archive:

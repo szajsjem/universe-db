@@ -4,26 +4,34 @@
 from __future__ import annotations
 
 import argparse
-from decimal import Decimal
-from fractions import Fraction
 import hashlib
 import html
 import json
-from pathlib import Path
 import re
 import urllib.request
+from decimal import Decimal
+from fractions import Fraction
+from pathlib import Path
 
 try:
     from .import_pubchem_periodic_table import (
         DEFAULT_SOURCE as PERIODIC_TABLE_SOURCE,
+    )
+    from .import_pubchem_periodic_table import (
         load_rows as load_element_rows,
+    )
+    from .import_pubchem_periodic_table import (
         slug,
         sql_text,
     )
 except ImportError:
     from import_pubchem_periodic_table import (
         DEFAULT_SOURCE as PERIODIC_TABLE_SOURCE,
+    )
+    from import_pubchem_periodic_table import (
         load_rows as load_element_rows,
+    )
+    from import_pubchem_periodic_table import (
         slug,
         sql_text,
     )
@@ -85,8 +93,7 @@ def download_snapshot(destination: Path) -> None:
         SOURCE_URL,
         headers={
             "User-Agent": (
-                "universe-db isotope importer "
-                "(https://github.com/szajsjem/universe-db)"
+                "universe-db isotope importer (https://github.com/szajsjem/universe-db)"
             )
         },
     )
@@ -131,8 +138,7 @@ def load_natural_records(source: Path) -> list[dict[str, str]]:
             f"got {len(atomic_numbers)}"
         )
     identities = {
-        (int(record["Atomic Number"]), int(record["Mass Number"]))
-        for record in natural
+        (int(record["Atomic Number"]), int(record["Mass Number"])) for record in natural
     }
     if len(identities) != len(natural):
         raise ValueError("natural nuclide identities are not unique")
@@ -278,7 +284,11 @@ def render_seed(source: Path, periodic_source: Path = PERIODIC_TABLE_SOURCE) -> 
         abundance_method = (
             "NIST representative isotopic composition; "
             f"source notes: {notes}"
-            + ("; source marks the uncertainty as estimated" if abundance_estimated else "")
+            + (
+                "; source marks the uncertainty as estimated"
+                if abundance_estimated
+                else ""
+            )
             + "."
         )
         observations.append(
@@ -385,9 +395,10 @@ if __name__ == "__main__":
         download_snapshot(arguments.source)
     rendered = render_seed(arguments.source, arguments.periodic_source)
     if arguments.check:
-        if not arguments.output.exists() or arguments.output.read_text(
-            encoding="utf-8"
-        ) != rendered:
+        if (
+            not arguments.output.exists()
+            or arguments.output.read_text(encoding="utf-8") != rendered
+        ):
             raise SystemExit(f"{arguments.output} is not current")
         print(f"verified {arguments.output}")
     else:

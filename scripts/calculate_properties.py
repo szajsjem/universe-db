@@ -10,14 +10,14 @@ also require structure, phase, conditions, or experimental evidence.
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
-from decimal import Decimal, localcontext
-from fractions import Fraction
 import hashlib
 import json
 import math
-from pathlib import Path
 import sqlite3
+from dataclasses import dataclass
+from decimal import Decimal, localcontext
+from fractions import Fraction
+from pathlib import Path
 from typing import Iterable
 
 try:
@@ -156,9 +156,7 @@ def semi_empirical_binding_energy(protons: int, neutrons: int) -> float:
         - SEMF_SURFACE_MEV * a_third**2
         - SEMF_COULOMB_MEV * protons**2 / a_third
         - SEMF_ASYMMETRY_MEV * (mass_number - 2 * protons) ** 2 / mass_number
-        + pairing_sign(protons, neutrons)
-        * SEMF_PAIRING_MEV
-        / math.sqrt(mass_number)
+        + pairing_sign(protons, neutrons) * SEMF_PAIRING_MEV / math.sqrt(mass_number)
     )
 
 
@@ -509,9 +507,7 @@ class DeterministicPropertyCalculator:
 
         if temperature_k is not None and pressure_pa is not None:
             molar_mass_kg = molar_mass / Decimal(1000)
-            density = pressure_pa * molar_mass_kg / (
-                MOLAR_GAS_CONSTANT * temperature_k
-            )
+            density = pressure_pa * molar_mass_kg / (MOLAR_GAS_CONSTANT * temperature_k)
             properties["ideal_gas_density"] = {
                 "value": decimal_text(density),
                 "unit": "kg/m^3",

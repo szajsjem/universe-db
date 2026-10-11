@@ -43,6 +43,9 @@ Results from `scripts/parse_wikipedia_archive.py` may enter only the
 `unverified_*` candidate tables until independently reviewed.
 Release snapshots retain all parsing attempts for provenance, but publishing
 `universe-unverified.db` does not constitute review or promotion.
+See the [Wikipedia candidate workflow](docs/wikipedia-workflow.md) for source
+verification, parsing and resume operations, missing-page reports, deterministic
+cleanup, and bounded agent review.
 
 ## Stable IDs
 
