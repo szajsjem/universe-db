@@ -176,10 +176,10 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
                 "Reviewed database validation failed: " + "; ".join(failures[:5])
             )
         base_digest = sha256(reviewed)
-        research = stage / "universe-unverified.db"
-        snapshot(wikipedia, research)
-        inspect(research)
-        failures = validate(research)
+        wikipedia_snapshot = stage / "universe-wikipedia.db"
+        snapshot(wikipedia, wikipedia_snapshot)
+        inspect(wikipedia_snapshot)
+        failures = validate(wikipedia_snapshot)
         if failures:
             raise ValueError(
                 "Research database validation failed: " + "; ".join(failures[:5])
@@ -190,13 +190,13 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
         build_elements(elements)
         isotopes = stage / "isotopes.db"
         build_isotopes(isotopes)
-        combined = stage / "universe.db"
-        snapshot(reviewed, combined)
-        import_research(combined, research, base_digest)
-        import_alloys(combined, alloys)
-        import_alloys(combined, elements, prefix="")
-        import_alloys(combined, isotopes, prefix="")
-        with closing(sqlite3.connect(combined)) as db:
+        research = stage / "universe-unverified.db"
+        snapshot(reviewed, research)
+        import_research(research, wikipedia_snapshot, base_digest)
+        import_alloys(research, alloys)
+        import_alloys(research, elements, prefix="")
+        import_alloys(research, isotopes, prefix="")
+        with closing(sqlite3.connect(research)) as db:
             with db:
                 db.executemany(
                     "INSERT OR REPLACE INTO database_metadata(key,value) VALUES (?,?)",
@@ -204,7 +204,7 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
                         ("release_version", version),
                         (
                             "release_data_status",
-                            "reviewed_core_with_unverified_research",
+                            "unverified_research_with_reviewed_reference_core",
                         ),
                         ("reviewed_base_sha256", base_digest),
                         ("unverified_base_sha256", base_digest),
@@ -212,6 +212,18 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
                         ("element_evidence_review_status", "pending_human_review"),
                         ("isotope_evidence_review_status", "pending_human_review"),
                     ],
+                )
+        failures = validate(research)
+        if failures:
+            raise ValueError(
+                "Unverified database validation failed: " + "; ".join(failures[:5])
+            )
+        combined = stage / "universe.db"
+        snapshot(research, combined)
+        with closing(sqlite3.connect(combined)) as db:
+            with db:
+                db.execute(
+                    "UPDATE database_metadata SET value='reviewed_core_with_unverified_research' WHERE key='release_data_status'"
                 )
         failures = validate(combined)
         if failures:
@@ -222,6 +234,7 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
         statuses = {
             "universe-reviewed.db": "reviewed",
             "universe-unverified.db": "unverified",
+            "universe-wikipedia.db": "unverified_wikipedia_snapshot",
             "alloys.db": "pending_human_review",
             "elements.db": "pending_human_review",
             "isotopes.db": "pending_human_review",
@@ -250,7 +263,8 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "Universe release " + version + "\n\n"
             "universe.db: combined database; reviewed scientific core plus research tables.\n"
             "universe-reviewed.db: reviewed core only, rebuilt from migrations and seed.\n"
-            "universe-unverified.db: consistent snapshot of current Wikipedia research and audit data.\n"
+            "universe-wikipedia.db: consistent snapshot of current Wikipedia candidates and source audits, with their reference core.\n"
+            "universe-unverified.db: all pending Wikipedia/alloy/element/isotope research with its reviewed reference core.\n"
             "alloys.db: sourced alloy reference, pending human review.\n"
             "elements.db: sourced elemental properties, pending human review.\n"
             "Elemental research tables begin unverified_element_.\n"
@@ -287,7 +301,18 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
 
 
 if __name__ == "__main__":
-    latest_review = ROOT / ".build/wikipedia-glm-full-reviewed.db"
+    latest_review = next(
+        (
+            path
+            for path in (
+                ROOT / ".build/wikipedia-codex-source-audit.db",
+                ROOT / ".build/wikipedia-glm-full-reviewed.db",
+                ROOT / "universe-unverified.db",
+            )
+            if path.exists()
+        ),
+        ROOT / "universe-unverified.db",
+    )
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--version", default=datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")

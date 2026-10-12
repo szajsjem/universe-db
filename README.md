@@ -1,5 +1,9 @@
 # Universe Database
 
+The [local Wikipedia source review](docs/wikipedia-offline-review.md) records
+the stopped OpenRouter run and the replacement candidate, archive, and
+full-dump discovery audits.
+
 `universe.db` is a public, reproducible SQLite database for structured physics,
 chemistry, materials, spectra, and nuclear data. `universe-unverified.db` is a
 separate companion release containing the collected candidate data that has

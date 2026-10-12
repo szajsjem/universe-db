@@ -26,8 +26,9 @@ pinned isotope evaluations, and takes a consistent SQLite
 backup of the current Wikipedia review database. The background reviewer can
 continue working during export; the release contains one committed snapshot.
 
-The default research input is `.build/wikipedia-glm-full-reviewed.db` if it
-exists, otherwise `universe-unverified.db`. The legacy GLM filename may contain
+The default research input is `.build/wikipedia-codex-source-audit.db` when
+available, then `.build/wikipedia-glm-full-reviewed.db`, then the repository's
+`universe-unverified.db`. The legacy GLM filename may contain
 reviews from subsequent models; their actual model names remain in the audit
 tables. Override the input or choose a release label as follows:
 
@@ -46,7 +47,8 @@ Each release contains:
 |---|---|
 | `universe.db` | Combined database: reviewed core, current Wikipedia/research tables, and alloy research tables |
 | `universe-reviewed.db` | Reviewed scientific core only |
-| `universe-unverified.db` | Snapshot of the selected research database, including its review audit |
+| `universe-wikipedia.db` | Snapshot of selected Wikipedia candidates and source audits, including their reference core |
+| `universe-unverified.db` | All pending Wikipedia/alloy/element/isotope research with the reviewed reference core |
 | `alloys.db` | Rebuilt alloy reference |
 | `elements.db` | Rebuilt elemental physical-property evidence, pending review |
 | `isotopes.db` | Full evaluated isotope evidence, pending review; source estimates flagged |

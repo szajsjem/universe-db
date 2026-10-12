@@ -1,0 +1,30 @@
+# Wikipedia source follow-up
+
+Checked on 2026-10-12. This bounded review follows fourteen archive discovery leads and eleven filtered candidate inspections. All twenty-five excerpts match their recorded offsets in the local archive loaded by `scripts.parse_wikipedia_archive.load_archive`, which validates each page against its manifest digest. Archive SHA-256: `c1b4db37964c497f901343c706019324eac204af2973b9aaff71c24f781cdf29` (1,239 pages).
+
+The machine-readable report is `.build/wiki-subagents/primary-followup.json`. It distinguishes pinned Wikipedia evidence, publisher abstracts, full-paper inspection, and experimental-institution confirmation. No scientific measurements were imported and no candidate decisions were applied. Wikipedia excerpts retain revision attribution and CC-BY-SA-4.0 licensing; primary articles have their own rights.
+
+## Recent isotope discovery leads
+
+| Lead and pinned revision | Checked primary source | Finding and next action |
+| --- | --- | --- |
+| [Actinium-203](https://en.wikipedia.org/w/index.php?oldid=1358417628) | [Wang et al., Physics Letters B 850, 138503](https://scoap3-prod-backend.s3.cern.ch/media/files/83222/10.1016/j.physletb.2024.138503.pdf), available online 2024-02-02; DOI 10.1016/j.physletb.2024.138503 | Full paper confirms the reported discovery through a single correlated decay chain. Spin/parity and ground-state assignment are tentative; the authors call for independent confirmation. The lower half-life uncertainty differs between the abstract/text and Table 1. Resolve that discrepancy and preserve low-statistics/asymmetric uncertainty before staging measurements. |
+| [Aluminium-20](https://en.wikipedia.org/w/index.php?oldid=1346585823) | [Xu et al., Physical Review Letters 135, 022502](https://journals.aps.org/prl/abstract/10.1103/hkmy-yfdk), published 2025-07-10 | Publisher abstract confirms first observation and three-proton-unbound decay. Sequential parent one-proton then daughter two-proton decay must remain explicit. Spin/parity interpretation depends on theoretical frameworks. Full-paper and [NNDC XUNDL follow-up](https://www.nndc.bnl.gov/ensdf/dsbykn.jsp?db=xundl&kn=2025XU03&nav=off) are needed before numeric ingestion. |
+| [Aluminium-21](https://en.wikipedia.org/w/index.php?oldid=1346585823) | [Kostyleva et al., Physical Review C 110, L031301](https://journals.aps.org/prc/abstract/10.1103/PhysRevC.110.L031301), published 2024-09-03 | Publisher abstract confirms discovery and one-proton emission; it covers ground/low-lying excited-state energies, mass excess and proton separation energy. Publisher full text was restricted. Retrieve an institutional manuscript and preserve state assignments; discovery identity alone supplies no half-life. |
+
+These publications postdate NUBASE2020. Their existence identifies a follow-up need; this report does not establish their absence from every newer database.
+
+## Metals and crystal structures
+
+- [CrMnFeCoNi alloy revision](https://en.wikipedia.org/w/index.php?oldid=1363523479): [Cantor et al., July 2004 publisher abstract](https://www.sciencedirect.com/science/article/pii/S0921509303009936) and [author institution](https://research.birmingham.ac.uk/en/publications/microstructural-development-in-equiatomic-multicomponent-alloys/) confirm the equiatomic alloy and fcc solid-solution context. Composition is atomic, not mass based. Retrieve full sample/processing tables before transferring measured properties to the alloy fitter.
+- [Manganese heptoxide revision](https://en.wikipedia.org/w/index.php?oldid=1363268535): [Simon et al., February 1987 publisher record](https://onlinelibrary.wiley.com/doi/10.1002/anie.198701391) confirms a molecular solid and temperature-specific crystallographic investigation. An approximately fcc oxygen arrangement does not establish a cubic crystal. Keep crystal evidence separate from liquid properties. Another DOI on the page concerns rhenium oxide, not direct Mn2O7 evidence.
+- [Phosphorus pentoxide revision](https://en.wikipedia.org/w/index.php?oldid=1352851262): **citation mismatch found**. The page's Cruickshank P4O10 title/pages cite DOI `10.1107/S0365110X64001669`; the [IUCr publisher record](https://journals.iucr.org/paper?buy=yes&cnor=a04209) gives `10.1107/S0365110X64001670` for that article (June 1964). Propose a bibliography correction while preserving the original revision. Full text was restricted; no lattice parameters were authenticated. Distinguish molecular P4O10 from polymeric P2O5 forms.
+- [Iron pentahydride lead in Iron hydride](https://en.wikipedia.org/w/index.php?oldid=1365143121): the [ESRF experimental-institution report, 2017-07-27](https://www.esrf.fr/home/news/spotlight/content-news/spotlight/spotlight294.html) confirms high-pressure FeH5 synthesis and layered hydrogen structure and cites DOI `10.1126/science.aan0961`. Publisher retrieval failed; this is institutional confirmation, not full-paper review. Retrieve refinement/supplementary data, preserve pressure conditions, and do not infer measured superconductivity or transfer molecular FeH2 facts.
+
+The other seven discovery leads retain verified local excerpts but no primary confirmation from this follow-up. Matching formula or name coverage alone does not establish identical species.
+
+## Filtered proposal review
+
+All eleven inspected proposals have conservative, source-supported identity/type concerns. Three concern nonentities (a spectroscopy method and two extractions of an ASTM reference title); the other eight concern chemical kind, charge, group context or isotope assignment. Recommendations remain unapplied and subject to the schema's supported operations.
+
+Avoid overreach when repairing them: sodium tetrachloroaurate and calcium chloride are neutral salts in context, but hydrate/polymorph/bulk phase are not established. Bound methyl in pentamethylmolybdenum supplies no free radical or ion identity. O I identifies neutral oxygen's ionization stage, not a unique excited state. Neutral hydrogen context does not explicitly assign Hydrogen-1. A proposal to reconsider kind does not authorize an unsupported kind rewrite or an alias-based merge.

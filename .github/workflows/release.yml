@@ -79,6 +79,9 @@ jobs:
             if [[ -f "$bundle/isotopes.db" ]]; then
               assets+=("$bundle/isotopes.db" "$bundle/isotopes.db.sha256")
             fi
+            if [[ -f "$bundle/universe-wikipedia.db" ]]; then
+              assets+=("$bundle/universe-wikipedia.db" "$bundle/universe-wikipedia.db.sha256")
+            fi
           else
             assets=(universe.db universe.db.sha256 manifest.json)
             if [[ -f universe-unverified.db ]]; then
