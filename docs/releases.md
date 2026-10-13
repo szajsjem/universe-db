@@ -116,3 +116,10 @@ Export fails if the research database's recorded base digest differs from the
 rebuilt reviewed core, scientific validation fails, or SQLite integrity/foreign
 key checks fail. Reconcile a mismatched research base before exporting it;
 do not bypass the digest check.
+
+Different SQLite versions may serialize identical reviewed data differently.
+The exporter rebuilds and validates the core, then checks every schema object,
+metadata row and data row against the checksummed canonical `universe.db`.
+Only exact logical equivalence permits retaining canonical bytes for the
+release/reference digest. Changed scientific data, schemas or metadata abort
+export; research-base matching remains mandatory.

@@ -87,6 +87,35 @@ def inspect(path: Path):
         return result
 
 
+def verify_equivalent_core(rebuilt: Path, reference: Path):
+    """Verify all schema and row content before preserving canonical file bytes.
+
+    SQLite versions can write different headers/page layouts for identical data.
+    This check does not forgive any schema, metadata or scientific row change.
+    """
+    with (
+        closing(sqlite3.connect(rebuilt)) as left,
+        closing(sqlite3.connect(reference)) as right,
+    ):
+        for pragma in ("application_id", "user_version"):
+            if (
+                left.execute("PRAGMA " + pragma).fetchone()
+                != right.execute("PRAGMA " + pragma).fetchone()
+            ):
+                raise ValueError("Reviewed core differs: " + pragma)
+        query = "SELECT type,name,sql FROM sqlite_schema WHERE name NOT LIKE 'sqlite_%' ORDER BY type,name"
+        schema = left.execute(query).fetchall()
+        if schema != right.execute(query).fetchall():
+            raise ValueError("Reviewed core schema differs from canonical artifact")
+        for kind, name, _ in schema:
+            if kind == "table":
+                sql = "SELECT * FROM " + quote(name)
+                if sorted(left.execute(sql).fetchall(), key=repr) != sorted(
+                    right.execute(sql).fetchall(), key=repr
+                ):
+                    raise ValueError("Reviewed core rows differ: " + name)
+
+
 def import_research(destination: Path, source: Path, base_digest: str):
     with closing(sqlite3.connect(source)) as src:
         recorded = src.execute(
@@ -189,6 +218,14 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             raise ValueError(
                 "Reviewed database validation failed: " + "; ".join(failures[:5])
             )
+        reference = ROOT / "universe.db"
+        if sha256(reviewed) != sha256(reference):
+            expected = (ROOT / "universe.db.sha256").read_text().split()[0]
+            if sha256(reference) != expected:
+                raise ValueError("Canonical reviewed core checksum mismatch")
+            inspect(reference)
+            verify_equivalent_core(reviewed, reference)
+            snapshot(reference, reviewed)
         base_digest = sha256(reviewed)
         wikipedia_snapshot = stage / "universe-wikipedia.db"
         snapshot(wikipedia, wikipedia_snapshot)

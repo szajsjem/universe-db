@@ -9,10 +9,30 @@ from scripts.export_release import (
     import_research,
     prefixed_schema,
     snapshot,
+    verify_equivalent_core,
 )
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_core_equivalence_rejects_changed_rows_and_schema(self):
+        with tempfile.TemporaryDirectory() as folder:
+            a, b = Path(folder) / "a.db", Path(folder) / "b.db"
+            for path in (a, b):
+                with closing(sqlite3.connect(path)) as db:
+                    db.execute("CREATE TABLE observation(id TEXT,value INTEGER)")
+                    db.execute("INSERT INTO observation VALUES ('density',10)")
+                    db.commit()
+            verify_equivalent_core(a, b)
+            with closing(sqlite3.connect(b)) as db:
+                db.execute("UPDATE observation SET value=11")
+                db.commit()
+            with self.assertRaisesRegex(ValueError, "rows differ"):
+                verify_equivalent_core(a, b)
+            with closing(sqlite3.connect(b)) as db:
+                db.execute("CREATE TABLE extra(value INTEGER)")
+            with self.assertRaisesRegex(ValueError, "schema differs"):
+                verify_equivalent_core(a, b)
+
     def test_snapshot_includes_committed_wal_only(self):
         with tempfile.TemporaryDirectory() as folder:
             source, target = Path(folder) / "live.db", Path(folder) / "snapshot.db"
