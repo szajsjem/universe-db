@@ -112,3 +112,9 @@ spaced formulas and incorrect candidate classifications. They have **not been
 executed** on this server. Compilation and project tests remain for local
 validation, including read-only behavior, reproducibility, snapshot/source
 changes and the generated-report CLI.
+
+
+The [contributor data lifecycle](contributor-data-lifecycle.md) documents the
+next authoring steps and provides an explicitly unreviewed, snapshot-bound
+draft decision record. That record is separate from the generated queue and
+is not executable promotion input.

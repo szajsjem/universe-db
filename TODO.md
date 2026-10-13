@@ -21,8 +21,10 @@ SQLite artifact, and deterministic exports.
   references, ordering, and graph integrity before export.
 - [ ] Seed a deliberately small, fully reviewed dataset covering the current
   copper bootstrap as the end-to-end migration fixture.
-- [ ] Document contributor import, review, correction, deprecation, preferred
-  value selection, and license-acceptance workflows.
+- [x] Document contributor import, review, correction, deprecation, preferred
+  value selection, and license-acceptance workflows, including implemented
+  schema/export boundaries and an explicitly unreviewed snapshot-bound draft.
+  See `docs/contributor-data-lifecycle.md`.
 
 ## Fill element and nuclide coverage
 

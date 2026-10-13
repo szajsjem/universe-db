@@ -5,8 +5,8 @@ unsourced dump.
 
 ## Workflow
 
-1. Open an issue describing the source, upstream release, license, data
-   families, expected row counts, and transformation.
+1. Describe the source, upstream release, license, data families, expected
+   row counts, and transformation in the reviewable contribution or a linked issue.
 2. Add or update `license`, `source`, and `dataset` rows before scientific data.
 3. Put schema changes in a new numbered migration. Never rewrite a migration
    that has appeared in a release.
@@ -70,3 +70,13 @@ Do not edit a released observation in place merely to make it agree with
 another source. Add the new observation, retain the disagreement, and document
 any reviewed preference. Identity corrections use lifecycle state and
 replacement links.
+
+
+## Data lifecycle guide
+
+Follow the [contributor data lifecycle](docs/contributor-data-lifecycle.md) for
+source/license admission, identity and per-fact review, additive corrections,
+entity deprecation and consumer-specific preferred-value decisions. The guide
+distinguishes supported schema/export behavior from pending promotion and
+preference tools. Its snapshot-bound draft review record is unreviewed and
+does not authorize any automatic data promotion.

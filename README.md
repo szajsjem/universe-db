@@ -407,3 +407,9 @@ isotope data to NIST, and the revision-pinned Wikipedia source archive is CC
 BY-SA 4.0. Each external source has its own row in `license` and `source`.
 Future imports must be redistributable before their data can enter the checked-
 in artifact. Citation does not override an upstream license.
+
+
+Contributor [data lifecycle documentation](docs/contributor-data-lifecycle.md)
+now covers source/license admission, review, additive corrections, entity
+deprecation, preference decisions and release checks. A snapshot-bound draft
+record shows the review fields while making no approval or promotion claim.
