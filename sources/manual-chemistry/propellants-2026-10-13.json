@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-13",
+  "scope": "propellants",
+  "entries": [
+    {
+      "id": "chem:hydrazine",
+      "name": "Hydrazine",
+      "formula": "N2H4",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "N": 2,
+        "H": 4
+      },
+      "aliases": [
+        "Diamine",
+        "Hydrazine, anhydrous"
+      ],
+      "usefulness": "Design rationale: candidate for a catalytic single-fluid attitude-control engine requiring no oxidizer pipe.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "N2H4",
+          "sources": [
+            {
+              "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C302012&Units=CAL",
+              "title": "NIST Chemistry WebBook, SRD 69: Hydrazine",
+              "supporting_text": "The species header identifies the molecular formula and named chemical.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "spacecraft_propulsion_use",
+          "value": "Cassini used a hydrazine monopropellant system for attitude control and small trajectory maneuvers.",
+          "sources": [
+            {
+              "url": "https://science.nasa.gov/mission/cassini/engine/",
+              "title": "NASA Science: Cassini Engine",
+              "supporting_text": "The engine page identifies hydrazine in the monopropellant system and describes its maneuvering role.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "586c4a34-5b7e-48d8-ba43-eda2c25ef269"
+      ]
+    },
+    {
+      "id": "chem:monomethylhydrazine",
+      "name": "Monomethylhydrazine",
+      "formula": "CH6N2",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "C": 1,
+        "H": 6,
+        "N": 2
+      },
+      "aliases": [
+        "Methylhydrazine",
+        "MMH",
+        "1-Methylhydrazine"
+      ],
+      "usefulness": "Design rationale: candidate fuel for a storable bipropellant family distinct from cryogenic hydrogen engines.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "CH6N2",
+          "sources": [
+            {
+              "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C60344&Mask=1",
+              "title": "NIST Chemistry WebBook, SRD 69: Monomethylhydrazine",
+              "supporting_text": "The species header identifies the molecular formula and named chemical.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "spacecraft_propulsion_use",
+          "value": "Cassini main-engine maneuvers used a monomethylhydrazine/nitrogen-tetroxide bipropellant system.",
+          "sources": [
+            {
+              "url": "https://science.nasa.gov/mission/cassini/engine/",
+              "title": "NASA Science: Cassini Engine",
+              "supporting_text": "The page names both bipropellants and associates them with the main engine.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:dinitrogen_tetroxide",
+      "name": "Dinitrogen tetroxide",
+      "formula": "N2O4",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "N": 2,
+        "O": 4
+      },
+      "aliases": [
+        "Nitrogen tetroxide",
+        "NTO",
+        "Dinitrogen tetraoxide"
+      ],
+      "usefulness": "Design rationale: candidate oxidizer paired with hydrazine-family fuels; keep nitric-oxide-containing MON mixtures separate.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "N2O4",
+          "sources": [
+            {
+              "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C10544726&Mask=1",
+              "title": "NIST Chemistry WebBook, SRD 69: Dinitrogen tetroxide",
+              "supporting_text": "The species header identifies the molecular formula and named chemical.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "spacecraft_propulsion_use",
+          "value": "Cassini main-engine bipropellants included nitrogen tetroxide with monomethylhydrazine.",
+          "sources": [
+            {
+              "url": "https://science.nasa.gov/mission/cassini/engine/",
+              "title": "NASA Science: Cassini Engine",
+              "supporting_text": "The page lists nitrogen tetroxide as the named component of the main-engine bipropellant system.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "ff9f5b89-25e9-4c97-9468-fe2ca7113242"
+      ]
+    },
+    {
+      "id": "chem:unsymmetrical_dimethylhydrazine",
+      "name": "Unsymmetrical dimethylhydrazine",
+      "formula": "C2H8N2",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "C": 2,
+        "H": 8,
+        "N": 2
+      },
+      "aliases": [
+        "1,1-Dimethylhydrazine",
+        "UDMH",
+        "N,N-Dimethylhydrazine"
+      ],
+      "usefulness": "Design rationale: candidate for fuel-blending mechanics; an Aerozine-type mixture must have its own composition rather than become an alias.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "C2H8N2",
+          "sources": [
+            {
+              "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C57147&Mask=7FF&Units=SI",
+              "title": "NIST Chemistry WebBook, SRD 69: Unsymmetrical dimethylhydrazine",
+              "supporting_text": "The species header identifies the molecular formula and named chemical.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "rocket_propulsion_research_use",
+          "value": "An Apollo rocket-engine study evaluated nitrogen tetroxide with a blend of hydrazine and unsymmetrical dimethylhydrazine.",
+          "sources": [
+            {
+              "url": "https://ntrs.nasa.gov/citations/19660024164",
+              "title": "NASA NTRS 19660024164: Experimental rocket performance of Apollo storable propellants",
+              "supporting_text": "The report abstract names the hydrazine/UDMH blend and nitrogen tetroxide as the evaluated propellants.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:hydrogen_peroxide",
+      "name": "Hydrogen peroxide",
+      "formula": "H2O2",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "H": 2,
+        "O": 2
+      },
+      "aliases": [],
+      "usefulness": "Design rationale: candidate for catalytic monopropellant and oxidizer pathways, with explicit aqueous concentrations for actual propellant mixtures.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "H2O2",
+          "sources": [
+            {
+              "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C7722841&Mask=8",
+              "title": "NIST Chemistry WebBook, SRD 69: Hydrogen peroxide",
+              "supporting_text": "The species header identifies the molecular formula and named chemical.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "rocket_propulsion_research_use",
+          "value": "A pressure-fed upper-stage engine study demonstrated hydrogen peroxide with JP-8 fuel.",
+          "sources": [
+            {
+              "url": "https://ntrs.nasa.gov/citations/19990062725",
+              "title": "NASA NTRS 19990062725: Development of a Pressure-Fed Rocket Engine Using Hydrogen Peroxide and JP-8",
+              "supporting_text": "The study abstract describes the demonstrated propellant combination and upper-stage application.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "catalytic_propulsion_pathway",
+          "value": "The reported engine used a silver-plated screen catalyst to decompose an aqueous hydrogen-peroxide propellant before fuel combustion.",
+          "sources": [
+            {
+              "url": "https://ntrs.nasa.gov/citations/19990062725",
+              "title": "NASA NTRS 19990062725: Development of a Pressure-Fed Rocket Engine Using Hydrogen Peroxide and JP-8",
+              "supporting_text": "The abstract describes a silver-screen catalyst and decomposition followed by fuel autoignition.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "5aa14ae7-a3fb-4dec-8b93-54af915febe2",
+        "62525765-c478-4060-868a-45ba00bf9265"
+      ]
+    },
+    {
+      "id": "chem:nitrous_oxide",
+      "name": "Nitrous oxide",
+      "formula": "N2O",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "N": 2,
+        "O": 1
+      },
+      "aliases": [
+        "Dinitrogen monoxide",
+        "Dinitrogen oxide"
+      ],
+      "usefulness": "Design rationale: candidate shared tank chemistry for cold-gas, catalytic and bipropellant engines; engine behavior remains a downstream game model.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "N2O",
+          "sources": [
+            {
+              "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C10024972&Mask=2000",
+              "title": "NIST Chemistry WebBook, SRD 69: Nitrous oxide",
+              "supporting_text": "The species header identifies the molecular formula and named chemical.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "rocket_propulsion_research_use",
+          "value": "A DARPA-sponsored study demonstrated nitrous-oxide/propane rocket technology using catalytic nitrous-oxide decomposition to ignite propane.",
+          "sources": [
+            {
+              "url": "https://tfaws.nasa.gov/TFAWS06/Proceedings/Aerothermal-Propulsion/Papers/TFAWS06-1026_Paper_Herdy.pdf",
+              "title": "Roger Herdy, TFAWS06-1026: Nitrous oxide / hydrocarbon fuel advanced chemical propulsion: DARPA contract overview",
+              "supporting_text": "The abstract describes the demonstrated rocket and catalyst experiments; this is research, not a flight-qualified product claim.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "cold_gas_propulsion_candidate",
+          "value": "The study identifies nitrous oxide as a candidate for cold-gas propulsion as well as catalytic monopropellant and bipropellant-oxidizer roles.",
+          "sources": [
+            {
+              "url": "https://tfaws.nasa.gov/TFAWS06/Proceedings/Aerothermal-Propulsion/Papers/TFAWS06-1026_Paper_Herdy.pdf",
+              "title": "Roger Herdy, TFAWS06-1026: Nitrous oxide / hydrocarbon fuel advanced chemical propulsion: DARPA contract overview",
+              "supporting_text": "The abstract and monopropellant section distinguish proposed cold-gas and catalytic uses from the demonstrated propane rocket.",
+              "license_basis": "Only factual identity / original paraphrase; no copied tables or substantial text",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "266172d8-6950-47e9-bd3e-60009bb43ecf",
+        "a76bc9ff-dfe8-4c6c-bacd-3c50660b4029",
+        "d73e8e9f-c2a5-472e-91b0-6d99afe5abb4",
+        "ef29e46d-8704-4a88-a496-b248f51cc4ce"
+      ]
+    }
+  ]
+}

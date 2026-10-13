@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-13",
+  "scope": "refining-batch2",
+  "entries": [
+    {
+      "id": "chem:methyl_isobutyl_carbinol",
+      "name": "Methyl isobutyl carbinol",
+      "formula": "C6H14O",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "C": 6,
+        "H": 14,
+        "O": 1
+      },
+      "aliases": [
+        "MIBC",
+        "4-Methyl-2-pentanol",
+        "4-Methylpentan-2-ol"
+      ],
+      "usefulness": "Proposed ICM role: a distinct frother consumable for mineral flotation and a solvent branch for coatings. No flotation yield or planetary abundance is implied.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "C6H14O",
+          "sources": [
+            {
+              "url": "https://cameochemicals.noaa.gov/chemical/3942",
+              "title": "NOAA CAMEO Chemicals: Methyl isobutyl carbinol; live identity page",
+              "supporting_text": "Identity lists C6H14O for methyl isobutyl carbinol.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "mineral_frother_use",
+          "value": "The manufacturer supplies methyl isobutyl carbinol for use as a foaming agent in mining.",
+          "sources": [
+            {
+              "url": "https://www.solvay.com/en/product/methylisobutylcarbinol",
+              "title": "Solvay: Methylisobutylcarbinol; manufacturer product page",
+              "supporting_text": "The manufacturer identifies MIBC as a mining foaming agent and lists industrial/protective coatings solvent applications.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "coatings_solvent_use",
+          "value": "The manufacturer lists methyl isobutyl carbinol as a solvent for industrial and protective coatings.",
+          "sources": [
+            {
+              "url": "https://www.solvay.com/en/product/methylisobutylcarbinol",
+              "title": "Solvay: Methylisobutylcarbinol; manufacturer product page",
+              "supporting_text": "The manufacturer identifies MIBC as a mining foaming agent and lists industrial/protective coatings solvent applications.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:potassium_ethyl_xanthate",
+      "name": "Potassium ethyl xanthate",
+      "formula": "C3H5KOS2",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "C": 3,
+        "H": 5,
+        "K": 1,
+        "O": 1,
+        "S": 2
+      },
+      "aliases": [
+        "Potassium ethyl xanthogenate",
+        "Potassium O-ethyl dithiocarbonate",
+        "KEX",
+        "PEX"
+      ],
+      "usefulness": "Proposed ICM role: sulfide-ore flotation collector separate from the frother. It is the neutral potassium salt, not the isolated xanthate anion or other alkyl-chain collector.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "C3H5KOS2",
+          "sources": [
+            {
+              "url": "https://www.aladdinsci.com/us_en/faqs/guide-to-mineral-processing-reagents-flotation-collectors-en.html",
+              "title": "Aladdin: Guide to Mineral Processing Reagents: Flotation Collectors; updated 2025-12-14",
+              "supporting_text": "The potassium ethyl xanthate rows identify C3H5KOS2, CAS 140-89-6, and use in preferential flotation of copper, lead and zinc sulfide ores.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "sulfide_flotation_collector_use",
+          "value": "The manufacturer lists potassium ethyl xanthate for preferential flotation of copper, lead and zinc sulfide ores.",
+          "sources": [
+            {
+              "url": "https://www.aladdinsci.com/us_en/faqs/guide-to-mineral-processing-reagents-flotation-collectors-en.html",
+              "title": "Aladdin: Guide to Mineral Processing Reagents: Flotation Collectors; updated 2025-12-14",
+              "supporting_text": "The potassium ethyl xanthate rows identify C3H5KOS2, CAS 140-89-6, and use in preferential flotation of copper, lead and zinc sulfide ores.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:sodium_sulfide",
+      "name": "Sodium sulfide (anhydrous)",
+      "formula": "Na2S",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Na": 2,
+        "S": 1
+      },
+      "aliases": [
+        "Sodium sulphide",
+        "Disodium monosulfide"
+      ],
+      "usefulness": "Proposed ICM role: oxide-ore surface activation and metal-bearing process-water precipitation. Hydrates, polysulfides and sodium hydrosulfide remain distinct.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "Na2S",
+          "sources": [
+            {
+              "url": "https://www.fishersci.com/shop/products/sodium-sulfide-anhydrous-thermo-scientific/AA6512206",
+              "title": "Thermo Scientific Chemicals: Sodium sulfide, anhydrous; product 065122",
+              "supporting_text": "The anhydrous product identity lists Na2S. Applications include sulfiding oxidized lead and copper ores, ore flotation and metal precipitation.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "oxide_ore_sulfiding_use",
+          "value": "The supplied anhydrous sodium sulfide is listed for sulfiding oxidized lead and copper ores and for ore flotation.",
+          "sources": [
+            {
+              "url": "https://www.fishersci.com/shop/products/sodium-sulfide-anhydrous-thermo-scientific/AA6512206",
+              "title": "Thermo Scientific Chemicals: Sodium sulfide, anhydrous; product 065122",
+              "supporting_text": "The anhydrous product identity lists Na2S. Applications include sulfiding oxidized lead and copper ores, ore flotation and metal precipitation.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "metal_precipitation_use",
+          "value": "The supplier lists sodium sulfide as a metal precipitant.",
+          "sources": [
+            {
+              "url": "https://www.fishersci.com/shop/products/sodium-sulfide-anhydrous-thermo-scientific/AA6512206",
+              "title": "Thermo Scientific Chemicals: Sodium sulfide, anhydrous; product 065122",
+              "supporting_text": "The anhydrous product identity lists Na2S. Applications include sulfiding oxidized lead and copper ores, ore flotation and metal precipitation.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "71880bec-517e-4be8-8cc6-54e7ee05de39"
+      ]
+    },
+    {
+      "id": "chem:sodium_cyanide",
+      "name": "Sodium cyanide",
+      "formula": "NaCN",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Na": 1,
+        "C": 1,
+        "N": 1
+      },
+      "aliases": [],
+      "usefulness": "Proposed ICM role: a gold-processing reagent and spent-liquor treatment branch. This slice contains no operational leaching recipe, doses, conditions or recovery claims.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "NaCN",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/sigald/205222",
+              "title": "Sigma-Aldrich 205222: Sodium cyanide",
+              "supporting_text": "The product identity gives the linear formula NaCN, CAS 143-33-9.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "gold_extraction_use",
+          "value": "Sodium cyanide is manufactured and supplied for extraction of gold from ore.",
+          "sources": [
+            {
+              "url": "https://www.orica.com/ArticleDocuments/1475/Sodium%20Cyanide%20Brochure.pdf.aspx",
+              "title": "Orica Mining Chemicals: Sodium Cyanide Information Sheet",
+              "supporting_text": "The manufacturer describes sodium cyanide supply for gold extraction from ore; no operating conditions or efficiency claim are retained.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "bedddab9-4e1b-4485-a3c4-290dffbea381"
+      ]
+    },
+    {
+      "id": "chem:oxalic_acid",
+      "name": "Oxalic acid (anhydrous)",
+      "formula": "C2H2O4",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "C": 2,
+        "H": 2,
+        "O": 4
+      },
+      "aliases": [
+        "Ethanedioic acid"
+      ],
+      "usefulness": "Proposed ICM role: rare-earth separation research and an oxalate-intermediate branch. Equilibrium-study results are modeled evidence; no process dosage or recovery is specified.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "C2H2O4",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/194131",
+              "title": "Sigma-Aldrich 194131: Oxalic acid",
+              "supporting_text": "Identity gives ethanedioic acid, CAS 144-62-7, linear HO2CCO2H and InChI composition C2H2O4; this is not the dihydrate.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "rare_earth_precipitation_modeled_study",
+          "value": "An original solution-equilibrium study examines oxalic acid as a precipitant for cerium, neodymium and yttrium ions.",
+          "sources": [
+            {
+              "url": "https://vtechworks.lib.vt.edu/items/d09d8713-d788-4612-b146-6502fed8f138",
+              "title": "Zhang, Noble, Ji and Li: Effects of contaminant metal ions on precipitation recovery of rare earth elements using oxalic acid; repository date 2022-01-01",
+              "supporting_text": "The original study uses solution-equilibrium calculations for Ce, Nd and Y precipitation by oxalic acid. Its abstract reports interference from trivalent aluminium and iron and consequent changes in reagent requirements; these are modeled results, not universal measured capacities.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "contaminant_interference_modeled_study",
+          "value": "The study models interference by trivalent aluminium and iron in rare-earth oxalate precipitation; reagent requirements depend on contaminant composition.",
+          "sources": [
+            {
+              "url": "https://vtechworks.lib.vt.edu/items/d09d8713-d788-4612-b146-6502fed8f138",
+              "title": "Zhang, Noble, Ji and Li: Effects of contaminant metal ions on precipitation recovery of rare earth elements using oxalic acid; repository date 2022-01-01",
+              "supporting_text": "The original study uses solution-equilibrium calculations for Ce, Nd and Y precipitation by oxalic acid. Its abstract reports interference from trivalent aluminium and iron and consequent changes in reagent requirements; these are modeled results, not universal measured capacities.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "3288057a-f194-47ad-99e3-84df49125afb",
+        "fa59dca1-1975-42ae-b898-a19638d4200f"
+      ]
+    },
+    {
+      "id": "chem:sodium_metasilicate",
+      "name": "Sodium metasilicate (anhydrous)",
+      "formula": "Na2SiO3",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Na": 2,
+        "Si": 1,
+        "O": 3
+      },
+      "aliases": [
+        "Anhydrous sodium metasilicate"
+      ],
+      "usefulness": "Proposed ICM role: alkaline metal-cleaning and corrosion-inhibition reagent. This exact stoichiometry is not every commercial waterglass or variable-ratio sodium silicate mixture.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "Na2SiO3",
+          "sources": [
+            {
+              "url": "https://silmaco.com/en/product/metasilicate-anhydrous",
+              "title": "Silmaco: Metasilicate Anhydrous; manufacturer product page",
+              "supporting_text": "The anhydrous product page gives Na2SiO3 and describes alkaline cleaning and corrosion inhibition, including protection of metal and non-metal surfaces.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "alkaline_cleaning_use",
+          "value": "The manufacturer describes anhydrous sodium metasilicate as an alkaline cleaning and detergent ingredient.",
+          "sources": [
+            {
+              "url": "https://silmaco.com/en/product/metasilicate-anhydrous",
+              "title": "Silmaco: Metasilicate Anhydrous; manufacturer product page",
+              "supporting_text": "The anhydrous product page gives Na2SiO3 and describes alkaline cleaning and corrosion inhibition, including protection of metal and non-metal surfaces.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "corrosion_inhibition_use",
+          "value": "The manufacturer describes corrosion inhibition by its anhydrous sodium metasilicate product for metal and non-metal surfaces.",
+          "sources": [
+            {
+              "url": "https://silmaco.com/en/product/metasilicate-anhydrous",
+              "title": "Silmaco: Metasilicate Anhydrous; manufacturer product page",
+              "supporting_text": "The anhydrous product page gives Na2SiO3 and describes alkaline cleaning and corrosion inhibition, including protection of metal and non-metal surfaces.",
+              "license_basis": "Uncopyrightable factual identity and original factual paraphrase only; no copied tables, substantial text, or manufacturer performance guarantee.",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    }
+  ]
+}

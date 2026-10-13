@@ -1,0 +1,359 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-13",
+  "scope": "batteries-batch2",
+  "entries": [
+    {
+      "id": "chem:lithium_sulfate",
+      "name": "lithium sulfate",
+      "formula": "Li2SO4",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Li": 2,
+        "S": 1,
+        "O": 4
+      },
+      "aliases": [
+        "lithium sulphate",
+        "dilithium sulfate"
+      ],
+      "usefulness": "Candidate lithium-processing intermediate and battery-additive input; no electrode capacity or electrolyte conductivity is assigned.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "Li2SO4",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/920339",
+              "title": "MilliporeSigma Lithium sulfate, product 920339, identity and Application",
+              "supporting_text": "The supplier identifies anhydrous lithium sulfate as Li2SO4 and lists lithium iron phosphate cathode synthesis and lead-acid battery additive applications.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lithium_iron_phosphate_precursor",
+          "value": "Lithium sulfate is used as a precursor in lithium iron phosphate cathode-material synthesis.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/920339",
+              "title": "MilliporeSigma Lithium sulfate, product 920339, identity and Application",
+              "supporting_text": "The supplier identifies anhydrous lithium sulfate as Li2SO4 and lists lithium iron phosphate cathode synthesis and lead-acid battery additive applications.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lead_acid_battery_additive",
+          "value": "Lithium sulfate has an additive application in lead-acid batteries.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/920339",
+              "title": "MilliporeSigma Lithium sulfate, product 920339, identity and Application",
+              "supporting_text": "The supplier identifies anhydrous lithium sulfate as Li2SO4 and lists lithium iron phosphate cathode synthesis and lead-acid battery additive applications.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:lithium_carbonate",
+      "name": "lithium carbonate",
+      "formula": "Li2CO3",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Li": 2,
+        "C": 1,
+        "O": 3
+      },
+      "aliases": [
+        "carbonic acid lithium salt"
+      ],
+      "usefulness": "Candidate battery-material lithium precursor connecting sulfate processing to cathode manufacture; proposed role does not specify processing yields.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "Li2CO3",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/931942",
+              "title": "MilliporeSigma Lithium carbonate, product 931942, identity, General description and Application",
+              "supporting_text": "The supplier gives Li2CO3, describes conversion of lithium sulfate concentrate with sodium carbonate to lithium carbonate, and lists preparation of lithium iron phosphate.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lithium_iron_phosphate_precursor",
+          "value": "Lithium carbonate is used in preparing lithium iron phosphate.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/931942",
+              "title": "MilliporeSigma Lithium carbonate, product 931942, identity, General description and Application",
+              "supporting_text": "The supplier gives Li2CO3, describes conversion of lithium sulfate concentrate with sodium carbonate to lithium carbonate, and lists preparation of lithium iron phosphate.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "sulfate_conversion_process",
+          "value": "Lithium sulfate concentrate can be reacted with sodium carbonate to obtain raw lithium carbonate for subsequent purification and drying.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/931942",
+              "title": "MilliporeSigma Lithium carbonate, product 931942, identity, General description and Application",
+              "supporting_text": "The supplier gives Li2CO3, describes conversion of lithium sulfate concentrate with sodium carbonate to lithium carbonate, and lists preparation of lithium iron phosphate.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:lithium_nitrate",
+      "name": "lithium nitrate",
+      "formula": "LiNO3",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Li": 1,
+        "N": 1,
+        "O": 3
+      },
+      "aliases": [
+        "lithium salt of nitric acid"
+      ],
+      "usefulness": "Candidate lithium-sulfur electrolyte additive for an optional advanced battery chain; no universal performance multiplier is inferred.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "LiNO3",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/930938",
+              "title": "MilliporeSigma Lithium nitrate, product 930938, identity and Application",
+              "supporting_text": "The supplier identifies LiNO3 and describes electrolyte-additive use in lithium-sulfur and lithium-metal batteries, including lithium-surface passivation and suppression of polysulfide redox shuttle.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lithium_sulfur_electrolyte_additive",
+          "value": "Lithium nitrate is used as an electrolyte additive in lithium-sulfur and lithium-metal batteries.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/930938",
+              "title": "MilliporeSigma Lithium nitrate, product 930938, identity and Application",
+              "supporting_text": "The supplier identifies LiNO3 and describes electrolyte-additive use in lithium-sulfur and lithium-metal batteries, including lithium-surface passivation and suppression of polysulfide redox shuttle.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lithium_surface_passivation",
+          "value": "Lithium nitrate can passivate lithium metal surfaces and suppress dissolved-polysulfide redox shuttle at the lithium anode.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/930938",
+              "title": "MilliporeSigma Lithium nitrate, product 930938, identity and Application",
+              "supporting_text": "The supplier identifies LiNO3 and describes electrolyte-additive use in lithium-sulfur and lithium-metal batteries, including lithium-surface passivation and suppression of polysulfide redox shuttle.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:lithium_tetrafluoroborate",
+      "name": "lithium tetrafluoroborate",
+      "formula": "LiBF4",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Li": 1,
+        "B": 1,
+        "F": 4
+      },
+      "aliases": [
+        "lithium borofluoride",
+        "lithium fluoroborate"
+      ],
+      "usefulness": "Candidate alternative electrolyte salt using lithium, boron and fluorine processing; it is not the free tetrafluoroborate anion.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "LiBF4",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/451622",
+              "title": "MilliporeSigma Lithium tetrafluoroborate, product 451622, identity and Application",
+              "supporting_text": "The supplier identifies LiBF4 and describes lithium-ion liquid-electrolyte use and development of a solid composite electrolyte for lithium batteries.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lithium_ion_liquid_electrolyte",
+          "value": "Lithium tetrafluoroborate is used in preparing liquid electrolytes for lithium-ion batteries.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/451622",
+              "title": "MilliporeSigma Lithium tetrafluoroborate, product 451622, identity and Application",
+              "supporting_text": "The supplier identifies LiBF4 and describes lithium-ion liquid-electrolyte use and development of a solid composite electrolyte for lithium batteries.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "solid_composite_electrolyte_research",
+          "value": "Lithium tetrafluoroborate has been used in development of a solid composite electrolyte for lithium batteries.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/451622",
+              "title": "MilliporeSigma Lithium tetrafluoroborate, product 451622, identity and Application",
+              "supporting_text": "The supplier identifies LiBF4 and describes lithium-ion liquid-electrolyte use and development of a solid composite electrolyte for lithium batteries.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:ethylene_carbonate",
+      "name": "ethylene carbonate",
+      "formula": "C3H4O3",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "C": 3,
+        "H": 4,
+        "O": 3
+      },
+      "aliases": [
+        "EC",
+        "1,3-dioxolan-2-one"
+      ],
+      "usefulness": "Candidate cyclic carbonate battery-electrolyte solvent; distinguish neat compound from salt-containing solvent blends.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "C3H4O3",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/809950",
+              "title": "MilliporeSigma Ethylene carbonate, product 809950, identity and General description",
+              "supporting_text": "The supplier gives the ethylene carbonate identity, condensed formula and C3H4O3 InChI formula, describes lithium-ion battery solvent use and blending with other carbonates to lower viscosity and obtain a room-temperature solution.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lithium_ion_electrolyte_solvent",
+          "value": "Ethylene carbonate is used as a solvent in lithium-ion battery production.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/809950",
+              "title": "MilliporeSigma Ethylene carbonate, product 809950, identity and General description",
+              "supporting_text": "The supplier gives the ethylene carbonate identity, condensed formula and C3H4O3 InChI formula, describes lithium-ion battery solvent use and blending with other carbonates to lower viscosity and obtain a room-temperature solution.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "carbonate_solvent_blending",
+          "value": "Ethylene carbonate is often blended with other carbonates to reduce viscosity and obtain a liquid solution at room temperature.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/809950",
+              "title": "MilliporeSigma Ethylene carbonate, product 809950, identity and General description",
+              "supporting_text": "The supplier gives the ethylene carbonate identity, condensed formula and C3H4O3 InChI formula, describes lithium-ion battery solvent use and blending with other carbonates to lower viscosity and obtain a room-temperature solution.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:dimethyl_carbonate",
+      "name": "dimethyl carbonate",
+      "formula": "C3H6O3",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "C": 3,
+        "H": 6,
+        "O": 3
+      },
+      "aliases": [
+        "DMC",
+        "carbonic acid dimethyl ester"
+      ],
+      "usefulness": "Candidate linear carbonate co-solvent for electrolyte blending, with a separate organic-processing role; no blend ratio is a gameplay recipe.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "C3H6O3",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/sial/517127",
+              "title": "MilliporeSigma Dimethyl carbonate, product 517127, identity",
+              "supporting_text": "The supplier identifies dimethyl carbonate, DMC, with condensed formula (CH3O)2CO and C3H6O3 InChI formula.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lithium_ion_electrolyte_cosolvent",
+          "value": "Dimethyl carbonate is a solvent component in lithium hexafluorophosphate electrolyte solutions with ethylene carbonate for lithium-ion batteries.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/746711",
+              "title": "MilliporeSigma Lithium hexafluorophosphate solution in ethylene carbonate and dimethyl carbonate, product 746711, General description",
+              "supporting_text": "The supplier describes a lithium-ion battery electrolyte containing lithium hexafluorophosphate dissolved in ethylene carbonate and dimethyl carbonate; the neat solvents are ingredients of the formulated solution.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "ethylene_carbonate_transesterification",
+          "value": "Dimethyl carbonate can be prepared using ethylene carbonate as a transesterification reactant.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/e26258",
+              "title": "MilliporeSigma Ethylene carbonate, product E26258, Application",
+              "supporting_text": "The supplier lists ethylene carbonate as a reactant for preparing dimethyl carbonate by transesterification.",
+              "license_basis": "Uncopyrightable chemical identities and independently worded factual paraphrases only; no source prose, tables, images or product specifications redistributed",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    }
+  ]
+}

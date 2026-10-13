@@ -1,0 +1,71 @@
+{
+  "decision_schema_version": 1,
+  "record_id": "review-draft:calcium-hydroxide-2026-10-13",
+  "status": "draft",
+  "supersedes_review_id": null,
+  "reviewer": null,
+  "reviewed_on": null,
+  "snapshot": {
+    "database_sha256": "ef07ca81e4a61d1b18e5032962cb690e91be21b475266062c68c51e4d996bae0",
+    "queue_path": "docs/manual-review-queue.json",
+    "queue_sha256": "24dd81d4ef79bf5bc7db7efb9f2fc60dff417cfc03773d739f4225f64f2fc162",
+    "source_slice": "sources/manual-chemistry/planet-life-support-2026-10-13.json",
+    "source_sha256": "f50670c1b653914cac75f44683b4c8e45a000c28a726e0a177c2709e290edeab"
+  },
+  "target_id": "chem:calcium_hydroxide",
+  "identity_resolution": {
+    "decision": null,
+    "canonical_entity_id": null,
+    "scope_rationale": null
+  },
+  "source_checks": [
+    {
+      "url": "https://www.epa.gov/radiation/tenorm-drinking-water-treatment-residuals",
+      "inspection_status": "unchecked",
+      "source_locator": null,
+      "redistribution_decision": null,
+      "redistribution_basis": null
+    },
+    {
+      "url": "https://www.epa.gov/sites/production/files/2017-03/documents/wtp_model_v._2.0_manual_508.pdf",
+      "inspection_status": "unchecked",
+      "source_locator": null,
+      "redistribution_decision": null,
+      "redistribution_basis": null
+    }
+  ],
+  "fact_decisions": [
+    {
+      "field_key": "formula",
+      "decision": null,
+      "provenance_class": null,
+      "applicable_conditions": null,
+      "rationale": null
+    },
+    {
+      "field_key": "water_treatment_ph_alkalinity",
+      "decision": null,
+      "provenance_class": null,
+      "applicable_conditions": null,
+      "rationale": null
+    },
+    {
+      "field_key": "precipitative_water_softening",
+      "decision": null,
+      "provenance_class": null,
+      "applicable_conditions": null,
+      "rationale": null
+    }
+  ],
+  "checks": {
+    "source_inspected": false,
+    "license_basis_verified": false,
+    "identity_scope_verified": false,
+    "units_and_conditions_verified": false,
+    "modeled_measured_curated_distinguished": false
+  },
+  "preferred_observation": null,
+  "correction_or_deprecation_proposal": null,
+  "rationale": null,
+  "notice": "Draft example only; no human review or approval asserted. No tool consumes this record to mutate reviewed data."
+}

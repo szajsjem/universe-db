@@ -35,6 +35,19 @@ Research tables use `unverified_*` names. A combined release does not promote
 those rows into reviewed observations. The full Wikipedia dump and API
 credentials are not bundled.
 
+Manually selected [mod chemistry research](docs/manual-mod-chemistry.md) and
+[its second batch](docs/manual-mod-chemistry-batch2.md) add 36 compound targets
+and 100 cited textual facts to unverified staging, covering propulsion,
+industrial processing, life support, batteries, refining and thermal materials.
+Versioned JSON inputs retain primary citations and identity links; import with
+`python3 scripts/import_manual_chemistry.py`. These records await human review
+and do not automatically become runtime mod recipes.
+
+An offline [manual review queue](docs/manual-review-workflow.md) now compares
+those targets with reviewed species and candidate identities, retaining source
+citations and flagging ambiguous matches without merging or promoting records.
+Regenerate it with `python3 scripts/report_manual_review.py`.
+
 ## Current coverage
 
 See the [missing-data investigation](docs/missing-data-investigation.md) for
@@ -558,3 +571,9 @@ version, retrieval, and license/factual-data metadata. Each reviewed external
 source has its own row in `license` and `source`.
 Future imports must be redistributable before their data can enter the checked-
 in artifact. Citation does not override an upstream license.
+
+
+Contributor [data lifecycle documentation](docs/contributor-data-lifecycle.md)
+now covers source/license admission, review, additive corrections, entity
+deprecation, preference decisions and release checks. A snapshot-bound draft
+record shows the review fields while making no approval or promotion claim.
