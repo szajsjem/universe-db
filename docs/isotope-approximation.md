@@ -17,6 +17,11 @@ remaining source gaps are explicit rather than filled by the mass model.
 
 ## Rebuild and fit
 
+For the separate proton/neutron/electron lifetime and decay-vector approximation,
+see [atomic isotope statistics](atomic-isotope-stats.md) and its
+[scientific review](isotope-fit-review.md). The mass model below remains
+independent; it does not derive decay probabilities from binding energy.
+
 ```powershell
 python scripts/build_isotope_evidence.py
 python scripts/fit_isotope_properties.py --output .build/isotope-core-model.json

@@ -8,5 +8,5 @@
   "sha256": "1585a5eea86c5e17e90307c7e6e786d060049c4039e392a261ff6db977df9859",
   "license_note": "Publicly distributed evaluated numerical facts; citation requested by AMDC. No blanket license inferred.",
   "format": "Original fixed-width ASCII with header documenting all columns",
-  "time_conversion": "Year rendered as exact Julian year (365.25 days). Original unit and all qualifiers preserved."
+  "time_conversion": "Year converted using the published NUBASE2020 tropical-year seconds convention, 31556926 s (section 2.3). Source displays 365.2422 days rounded separately. Original unit and qualifiers preserved. Supersedes the previous incorrect tropical-year transformation; raw source unchanged."
 }

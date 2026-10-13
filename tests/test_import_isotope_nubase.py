@@ -43,13 +43,13 @@ class NubaseImportTests(unittest.TestCase):
         self.assertEqual(Fraction(neutron["value"]), Fraction("609.8"))
         self.assertEqual(Fraction(neutron["uncertainty"]), Fraction("0.6"))
         tritium = self.observations[(1, 3, 0, "half_life")]
-        self.assertEqual(Fraction(tritium["value"]), Fraction("12.32") * 31557600)
-        self.assertIn("Julian year", tritium["method"])
+        self.assertEqual(Fraction(tritium["value"]), Fraction("12.32") * 31556926)
+        self.assertIn("tropical-year", tritium["method"])
 
     def test_tiny_lifetime_preserves_exact_nonzero(self):
         value = self.observations[(1, 4, 0, "half_life")]["value"]
         self.assertEqual(Fraction(value), Fraction(139, 10**24))
-        self.assertEqual(Fraction(exact_seconds("1", "Yy")), 31557600 * 10**24)
+        self.assertEqual(Fraction(exact_seconds("1", "Yy")), 31556926 * 10**24)
 
     def test_state_mass_excess_and_excitation_preserve_source_precision(self):
         mass = self.observations[(43, 99, 1, "mass_excess")]

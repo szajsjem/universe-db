@@ -79,6 +79,14 @@ jobs:
             if [[ -f "$bundle/isotopes.db" ]]; then
               assets+=("$bundle/isotopes.db" "$bundle/isotopes.db.sha256")
             fi
+            if [[ -f "$bundle/crystals.db" ]]; then
+              assets+=("$bundle/crystals.db" "$bundle/crystals.db.sha256")
+            fi
+            for reference in atomic spectra molecules; do
+              if [[ -f "$bundle/$reference.db" ]]; then
+                assets+=("$bundle/$reference.db" "$bundle/$reference.db.sha256")
+              fi
+            done
             if [[ -f "$bundle/universe-wikipedia.db" ]]; then
               assets+=("$bundle/universe-wikipedia.db" "$bundle/universe-wikipedia.db.sha256")
             fi

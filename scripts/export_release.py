@@ -16,15 +16,29 @@ from pathlib import Path
 
 if __package__:
     from .build_alloy_db import build as build_alloys
+    from .build_atomic_evidence import build as build_atomic
+    from .build_crystal_evidence import build as build_crystals
     from .build_db import build, sha256
     from .build_element_evidence import build as build_elements
     from .build_isotope_evidence import build as build_isotopes
+    from .build_molecular_evidence import build as build_molecules
+    from .build_spectral_evidence import build as build_spectra
+    from .crystal_cell import audit_database as audit_crystals
+    from .normalize_nuclear_properties import normalize_database
+    from .review_research_evidence import make_plan
     from .validate_db import validate
 else:
     from build_alloy_db import build as build_alloys
+    from build_atomic_evidence import build as build_atomic
+    from build_crystal_evidence import build as build_crystals
     from build_db import build, sha256
     from build_element_evidence import build as build_elements
     from build_isotope_evidence import build as build_isotopes
+    from build_molecular_evidence import build as build_molecules
+    from build_spectral_evidence import build as build_spectra
+    from crystal_cell import audit_database as audit_crystals
+    from normalize_nuclear_properties import normalize_database
+    from review_research_evidence import make_plan
     from validate_db import validate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -190,12 +204,40 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
         build_elements(elements)
         isotopes = stage / "isotopes.db"
         build_isotopes(isotopes)
+        crystals = stage / "crystals.db"
+        build_crystals(crystals)
+        additional = {
+            "atomic.db": build_atomic,
+            "spectra.db": build_spectra,
+            "molecules.db": build_molecules,
+        }
+        for name, builder in additional.items():
+            builder(stage / name)
+        reports = {
+            "element-review-plan.json": make_plan(reviewed, elements),
+            "crystal-cell-audit.json": audit_crystals(crystals),
+            "nuclear-normalized.json": normalize_database(isotopes),
+        }
+        report_artifacts = {}
+        for name, report in reports.items():
+            path = stage / name
+            path.write_text(
+                json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+            )
+            report_artifacts[name] = {
+                "sha256": sha256(path),
+                "bytes": path.stat().st_size,
+                "data_status": "unverified_review_aid",
+            }
         research = stage / "universe-unverified.db"
         snapshot(reviewed, research)
         import_research(research, wikipedia_snapshot, base_digest)
         import_alloys(research, alloys)
         import_alloys(research, elements, prefix="")
         import_alloys(research, isotopes, prefix="")
+        import_alloys(research, crystals, prefix="")
+        for name in additional:
+            import_alloys(research, stage / name, prefix="")
         with closing(sqlite3.connect(research)) as db:
             with db:
                 db.executemany(
@@ -211,6 +253,7 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
                         ("alloy_review_status", "pending_human_review"),
                         ("element_evidence_review_status", "pending_human_review"),
                         ("isotope_evidence_review_status", "pending_human_review"),
+                        ("crystal_evidence_review_status", "pending_human_review"),
                     ],
                 )
         failures = validate(research)
@@ -238,6 +281,10 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "alloys.db": "pending_human_review",
             "elements.db": "pending_human_review",
             "isotopes.db": "pending_human_review",
+            "crystals.db": "pending_human_review",
+            "atomic.db": "pending_human_review",
+            "spectra.db": "pending_human_review",
+            "molecules.db": "pending_human_review",
             "universe.db": "reviewed_core_with_unverified_research",
         }
         for name, status in statuses.items():
@@ -253,7 +300,8 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "reviewed_base_sha256": base_digest,
             "research_source": str(wikipedia.resolve()),
             "artifacts": artifacts,
-            "review_boundary": "AI-reviewed Wikipedia and imported alloy/element/isotope evidence remain unverified; no automatic promotion.",
+            "review_reports": report_artifacts,
+            "review_boundary": "AI-reviewed Wikipedia and imported alloy/element/isotope/crystal evidence remain unverified; no automatic promotion.",
             "full_wikipedia_dump_included": False,
         }
         (stage / "manifest.json").write_text(
@@ -270,6 +318,11 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
             "Elemental research tables begin unverified_element_.\n"
             "isotopes.db: full evaluated NIST/AME/NUBASE isotope reference, pending human review.\n"
             "Isotope research tables begin unverified_isotope_. Source estimates stay flagged.\n"
+            "crystals.db: sourced crystallography, pending human review; asymmetric units and isotope labels preserved.\n"
+            "atomic.db: evaluated ionization energies and electronic states, pending review.\n"
+            "spectra.db: atomic line lists, pending review; air/vacuum and native intensity preserved.\n"
+            "molecules.db: source molecular graphs, pending review; no measured geometry claim.\n"
+            "Crystal research tables begin unverified_crystal_.\n"
             "In universe.db, alloy tables/views begin unverified_alloy_. Wikipedia candidates\n"
             "remain in unverified_* tables; wikipedia_* tables retain provenance and audit.\n"
             "Model decisions do not constitute scientific verification. NULL means unknown.\n"

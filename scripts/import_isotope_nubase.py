@@ -27,7 +27,7 @@ SECOND_FACTORS = {
     "m": Fraction(60),
     "h": Fraction(3600),
     "d": Fraction(86400),
-    "y": Fraction(31557600),
+    "y": Fraction(31556926),
 }
 for _prefix, _exponent in {
     "k": 3,
@@ -45,7 +45,7 @@ for _prefix, _exponent in {
 def exact_seconds(value: str, unit: str) -> str:
     """Convert an unqualified decimal point to exact rational seconds.
 
-    A year is represented using the explicit Julian-year convention, 365.25 days.
+    A year is represented using the NUBASE2020 tropical-year seconds convention, 31,556,926 seconds.
     This convention is recorded in every affected observation's method.
     """
     if not NUMBER.fullmatch(value) or unit not in SECOND_FACTORS:
@@ -146,7 +146,7 @@ def load_records(source_path: Path = DEFAULT_SOURCE) -> dict:
                     "provenance_class": "curated",
                     "value_kind": value_kind,
                     "source_record": raw,
-                    "method": "NUBASE2020 evaluated recommendation; fixed-width source-native import. Year conversion uses 365.25 days exactly (Julian year).",
+                    "method": "NUBASE2020 evaluated recommendation; fixed-width source-native import. Year conversion uses NUBASE2020 tropical-year seconds convention: 31556926 s per year (section 2.3).",
                     "note": " ".join(filter(None, [note, extra_note])),
                 }
             )

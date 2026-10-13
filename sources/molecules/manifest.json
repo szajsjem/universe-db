@@ -1,0 +1,214 @@
+{
+  "retrieved_at": "2026-10-13",
+  "records": [
+    {
+      "id": "pubchem:783",
+      "name": "hydrogen",
+      "cid": 783,
+      "formula": "H2",
+      "core_entity_id": "chem:hydrogen",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "783.json",
+      "sha256": "34455edd4c4142876544199854e3fc16e5a50eb2a896770fa65e5e07f7963136",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:977",
+      "name": "oxygen",
+      "cid": 977,
+      "formula": "O2",
+      "core_entity_id": "chem:oxygen",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "977.json",
+      "sha256": "863709c4f481889f3cf32bcc5fc62f976a92816c7f73917783915a87ff293d5b",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:1119",
+      "name": "sulfur_dioxide",
+      "cid": 1119,
+      "formula": "O2S",
+      "core_entity_id": "chem:sulfur_dioxide",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "1119.json",
+      "sha256": "a8611fe9624e633fa1d55a86acc8ace0f12a3bb452077df6bdc7a8c0c5d3f749",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:1118",
+      "name": "sulfuric_acid",
+      "cid": 1118,
+      "formula": "H2O4S",
+      "core_entity_id": "chem:sulfuric_acid",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "1118.json",
+      "sha256": "290c689ccb86ff509a53665810cd4623ddd36d9b9b4d05fe37a0fed2a746d028",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:962",
+      "name": "water",
+      "cid": 962,
+      "formula": "H2O",
+      "core_entity_id": "chem:water",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "962.json",
+      "sha256": "43eb35b535506885f9cb735d2bac9ed7c74d82828fa38dfe77584c713a995eca",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:280",
+      "name": "carbon_dioxide",
+      "cid": 280,
+      "formula": "CO2",
+      "core_entity_id": "chem:carbon_dioxide",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "280.json",
+      "sha256": "ae3ae98ad6936a7b6b967331ce43605abb3914aa67ae844ebdb53de0fe9d2e2f",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:281",
+      "name": "carbon_monoxide",
+      "cid": 281,
+      "formula": "CO",
+      "core_entity_id": "chem:carbon_monoxide",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "281.json",
+      "sha256": "edd95c1926840b279a92ee1861d56be001674ade2241108f3da973d18034f604",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:313",
+      "name": "hydrochloric_acid",
+      "cid": 313,
+      "formula": "ClH",
+      "core_entity_id": "chem:hydrochloric_acid",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "313.json",
+      "sha256": "a9f730a92ab7b7ebd2ca285552dad4f7e6e8538c1369667ce262010a5d8b8d09",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:944",
+      "name": "nitric_acid",
+      "cid": 944,
+      "formula": "HNO3",
+      "core_entity_id": "chem:nitric_acid",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "944.json",
+      "sha256": "a00818dd0e533fad94203924c8e77dc5def0b8e91ba7f3f47ca15fb81b3da1bc",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:24682",
+      "name": "sulfur_trioxide",
+      "cid": 24682,
+      "formula": "O3S",
+      "core_entity_id": "chem:sulfur_trioxide",
+      "core_mapping_status": "candidate_identity_mapping",
+      "file": "24682.json",
+      "sha256": "2da73d2b338151ff09c8223d16ec5bbd411795f18521d64e98eb606c1efb4b26",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:241",
+      "name": "benzene",
+      "cid": 241,
+      "formula": "C6H6",
+      "core_entity_id": null,
+      "core_mapping_status": null,
+      "file": "241.json",
+      "sha256": "f8cab4cc91c44e3fd8e0ee23df12775390d7ad2148f508755eee4dd4303dffa9",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:702",
+      "name": "ethanol",
+      "cid": 702,
+      "formula": "C2H6O",
+      "core_entity_id": null,
+      "core_mapping_status": null,
+      "file": "702.json",
+      "sha256": "3f9e592f2c3c320af131ca734b711a7948689f226af7fcc480cb06f360520127",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:887",
+      "name": "methanol",
+      "cid": 887,
+      "formula": "CH4O",
+      "core_entity_id": null,
+      "core_mapping_status": null,
+      "file": "887.json",
+      "sha256": "ae90ba2f796424d1510821c248f234a3ba36fa927bdb2f8b513ee51f85efe388",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:180",
+      "name": "acetone",
+      "cid": 180,
+      "formula": "C3H6O",
+      "core_entity_id": null,
+      "core_mapping_status": null,
+      "file": "180.json",
+      "sha256": "35558ea7f5d95c11c96e1f3090b1f62b7dbdac918a9813348a196493d8fa68b3",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:176",
+      "name": "acetic_acid",
+      "cid": 176,
+      "formula": "C2H4O2",
+      "core_entity_id": null,
+      "core_mapping_status": null,
+      "file": "176.json",
+      "sha256": "6e7258becb0e8b233669af5e381fce11cb0d30defb2c55808120592aa3d26099",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:297",
+      "name": "methane",
+      "cid": 297,
+      "formula": "CH4",
+      "core_entity_id": null,
+      "core_mapping_status": null,
+      "file": "297.json",
+      "sha256": "1c0da9ccc7488989104c162d333e7b4a1700c377b61a4fb69aaf57d1725cdf37",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:222",
+      "name": "ammonia",
+      "cid": 222,
+      "formula": "H3N",
+      "core_entity_id": null,
+      "core_mapping_status": null,
+      "file": "222.json",
+      "sha256": "b9b08632bfa5446313e7144603dea0ad75cc8754f922c03ec6d576fed21a4f60",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:24602",
+      "name": "heavy_water",
+      "cid": 24602,
+      "formula": "H2O",
+      "core_entity_id": null,
+      "core_mapping_status": null,
+      "file": "24602.json",
+      "sha256": "34e60c778a6d89f2ccc4048e88f7189d2b75d65debd038d8948b4a1ec9087681",
+      "electric_charge": 0
+    },
+    {
+      "id": "pubchem:5950",
+      "name": "l_alanine",
+      "cid": 5950,
+      "formula": "C3H7NO2",
+      "core_entity_id": null,
+      "core_mapping_status": null,
+      "file": "5950.json",
+      "sha256": "f4dccea70f2238a62a5a755183ae23725c124c2dbeb13febe1d60adcd63e4062",
+      "electric_charge": 0
+    }
+  ]
+}

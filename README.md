@@ -1,40 +1,80 @@
 # Universe Database
 
-The [local Wikipedia source review](docs/wikipedia-offline-review.md) records
-the stopped OpenRouter run and the replacement candidate, archive, and
-full-dump discovery audits.
+Reproducible SQLite data and Python tools for physics, chemistry, materials,
+and nuclear properties. Source citations, units, conditions, uncertainty,
+provenance, and review status remain attached to the data. Missing values stay
+missing; model predictions are labeled approximations.
 
-`universe.db` is a public, reproducible SQLite database for structured physics,
-chemistry, materials, spectra, and nuclear data. `universe-unverified.db` is a
-separate companion release containing the collected candidate data that has
-not completed scientific review. The goal is one queryable source without
-flattening scientific context into prose or pretending that missing values are
-zero.
+## Database files
 
-The checked-in artifact is built entirely from the versioned SQL in
-[`migrations/`](migrations) and [`seed/`](seed). It is intentionally small
-today. The schema is broad; the reviewed data will grow source by source.
+The repository's `universe.db` contains the reviewed core, rebuilt from
+[`migrations/`](migrations) and [`seed/`](seed). The checked-in
+`universe-unverified.db` contains the Wikipedia research snapshot and source
+review audits. Standalone research references are stored in `alloys.db`,
+`elements.db`, `isotopes.db`, `crystals.db`, `atomic.db`, `spectra.db`, and
+`molecules.db`.
+
+Versioned release bundles contain:
+
+| File | Contents |
+|---|---|
+| `universe.db` | Combined reviewed core and all pending research tables |
+| `universe-reviewed.db` | Reviewed core only |
+| `universe-wikipedia.db` | Wikipedia candidates, parsing provenance, and source audits with their reference core |
+| `universe-unverified.db` | All pending Wikipedia, alloy, element, and isotope research with the reviewed reference core |
+| `alloys.db` | Sourced alloy compositions and properties |
+| `elements.db` | Sourced elemental physical properties |
+| `isotopes.db` | NIST, AME2020, and NUBASE2020 isotope evidence |
+| `crystals.db` | Sourced crystal phases, lattice parameters, and asymmetric-unit sites |
+| `atomic.db` | Evaluated atomic/ionic ground states and ionization energies |
+| `spectra.db` | Sourced atomic spectral-line lists with air/vacuum and ion-stage context |
+| `molecules.db` | Sourced molecular connectivity, charges, isotope and stereochemistry labels |
+| `manifest.json`, `*.sha256` | Versions, review status, row counts, and checksums |
+
+Research tables use `unverified_*` names. A combined release does not promote
+those rows into reviewed observations. The full Wikipedia dump and API
+credentials are not bundled.
 
 ## Current coverage
 
-A separate hand-authored [metal alloy reference](docs/alloys.md) is available
-as `alloys.db`, covering ironâ€“carbon, copper, gold, silver, aluminum,
-magnesium, titanium, and nickel grades with sourced composition limits and
-nominal recipes and condition-specific physical/mechanical properties. These research entries await human review and are separate
-from the reviewed coverage below. Rebuild it with
-`python scripts/build_alloy_db.py`.
+See the [missing-data investigation](docs/missing-data-investigation.md) for
+record gaps, calculation-readiness checks, review blockers, and priorities.
 
-The [elemental property research database](docs/element-evidence.md),
-`elements.db`, adds 187 sourced observations across the 33 alloy constituents.
-Rebuild with `python scripts/build_element_evidence.py`; run
-`python scripts/fit_alloy_properties.py` for the evidence audit. These entries
-remain pending human review.
+### Research references
 
-The [isotope research reference and fitted approximation](docs/isotope-approximation.md)
-add full NIST/AME/NUBASE evidence and a validated ground-state mass model.
-Rebuild with `python scripts/build_isotope_evidence.py` and fit with
-`python scripts/fit_isotope_properties.py`. Imported evidence and model
-predictions retain separate provenance and review status.
+| Reference | Coverage | Review status |
+|---|---|---|
+| [Metal alloys](docs/alloys.md) | 59 grades in eight families; 177 property observations | Pending human review |
+| [Element properties](docs/element-evidence.md) | 187 observations across 33 alloy constituent elements | Pending human review |
+| [Isotope evidence](docs/isotope-approximation.md) | 39,114 observations across 5,843 nuclear-state assignments | Pending human review; source estimates flagged |
+| [Crystallography](docs/crystal-evidence.md) | 36 structures, 182 lattice parameters, 66 site records from 33 sources | Pending human review; source settings and isotope labels retained |
+| [Wikipedia source audits](docs/wikipedia-offline-review.md) | 5,270 candidates and 1,239 archive pages inventoried; 7,053 additional title leads | Discovery and review proposals |
+| [Atomic electronic evidence](docs/atomic-evidence.md) | 6,019 states; 5,847 ionization energies; 108 neutral-atom energies | Pending review; evaluated and modeled qualifiers distinct |
+| [Atomic spectral lines](docs/spectral-evidence.md) | 1,871 lines for 16 elements, with ion stages and air/vacuum context | Pending human review |
+| [Molecular graphs](docs/molecular-evidence.md) | 19 graphs; 103 explicit atoms and 85 bonds, covering all ten core molecule identities | Pending human review |
+
+The alloy families are iron-carbon, copper, gold, silver, aluminum, magnesium,
+titanium, and nickel. Composition ranges, nominal recipes, processing state,
+and measurement conditions retain their source context.
+
+Isotope evidence includes masses, abundances, mass excesses, excitation
+energies, half-lives, spin/parity, and decay descriptions. Evaluation vintages
+coexist: the NIST archive uses AME2012 masses, while AME2020 and NUBASE2020 are
+separate sources. Nuclear-state assignments include historical/withdrawn
+entries; they are not all confirmed isotopes or observed isomers.
+
+The OpenRouter reviewer is stopped. The replacement local audit distinguishes
+computational triage and title discovery from selected article inspections
+and primary-source checks. Its full-dump title scan covered 25.9 million index
+entries; it did not verify every article's scientific claims.
+
+Crystallographic research covers elemental metals, ceramic polytypes/phases,
+molecular crystals, and isotope-specific ice samples. Source temperatures,
+uncertainties, space groups, asymmetric-unit conventions and incomplete cell
+metrics remain explicit. Rebuild with `python scripts/build_crystal_evidence.py`;
+these records are separate from the zero reviewed crystal-structure count below.
+
+### Reviewed core
 
 | Family | Seeded now | Schema ready |
 |---|---:|:---:|
@@ -52,17 +92,48 @@ predictions retain separate provenance and review status.
 | Nuclear decay and capture channels | 0 | yes |
 | Energy-dependent cross sections | 0 | yes |
 
-Zero means â€śnot imported,â€ť never â€śknown to be absent.â€ť Run
+Zero means "not imported," never "known to be absent." Run
 `python3 scripts/report.py universe.db` for the live counts.
 
+### Unreviewed core: Wikipedia staging
+
+The checked-in `universe-unverified.db` has **5,270 candidate records**:
+
+| Candidate kind | Records |
+|---|---:|
+| Materials | 2,104 |
+| Molecules | 1,176 |
+| Reactions | 697 |
+| Nuclides | 520 |
+| Ions | 208 |
+| Particles | 161 |
+| Elements | 153 |
+| Complexes | 92 |
+| Mixtures | 79 |
+| Formula units | 52 |
+| Atoms | 27 |
+| Polymers | 1 |
+
+Supporting records include 2,439 aliases, 4,614 composition entries, 4,548
+candidate facts, 877 fact conditions, 3,241 relations, 43 derived facts,
+1,255 original merged mentions, and 13,683 source-audit results. The 758
+historical agent review entries include errors and retries; 677 candidates
+have a successful recorded action. Those actions do not constitute scientific
+verification.
+
+These are extraction counts, not unique confirmed substances or validated
+property measurements. Kind assignments, aliases, quotes, and numerical
+conditions can still need correction. They are separate from the reviewed
+core and the standalone alloy, element, isotope, and crystallography evidence.
+
 The complete element identity table is generated from a vendored snapshot of
-PubChemâ€™s official PUG REST periodic-table endpoint. It includes names,
+PubChem's official PUG REST periodic-table endpoint. It includes names,
 symbols, atomic numbers, relative atomic masses, chemical group/block,
 electron configurations, and source-authored standard-state labels for
-elements 1â€“118. PubChem values are retained as source-specific observations;
+elements 1-118. PubChem values are retained as source-specific observations;
 they are not relabeled as CIAAW standard atomic weights.
 
-â€śCommon isotopesâ€ť has a reproducible meaning here: the 288 nuclides across 84
+"Common isotopes" has a reproducible meaning here: the 288 nuclides across 84
 elements for which NIST publishes a non-empty representative terrestrial
 isotopic composition. Each stores proton/neutron counts, exact rational
 relative atomic mass and uncertainty, exact rational abundance and uncertainty,
@@ -70,7 +141,7 @@ source notes, and a natural-composition designation. Their abundances sum
 exactly to one per represented element. Trace-only, synthetic, and merely
 well-known laboratory isotopes are not silently added to this set.
 
-The particle identity bootstrap is attributed to the Particle Data Groupâ€™s
+The particle identity bootstrap is attributed to the Particle Data Group's
 2024 *Review of Particle Physics* under CC BY 4.0. The chemistry bootstrap
 comes from the authored Inorganic Engineering catalog
 at commit `af5a553`: 16 elements, 25 species, 12 ore/mineral mappings, cathode
@@ -127,7 +198,10 @@ python scripts/export_release.py
 ```
 
 See [release export instructions](docs/releases.md) for input selection,
-checksums, version labels, and the review boundary.
+checksums, version labels, and the review boundary. The command creates
+`dist/releases/<version>/` plus a ZIP, rebuilding the standalone references
+and selecting the latest available Wikipedia audit/review snapshot. Existing
+version labels are preserved.
 
 Requirements are Python 3.11+ and its standard-library SQLite module. There are
 no third-party runtime or build dependencies. Running the development checks
@@ -201,7 +275,8 @@ reviewed data, resumes around previously found staged values, stores source
 URLs and conditions, and can later include `molecules,reactions` with
 `--scopes`. An unrestricted all-nuclide run can make thousands of paid web
 searches; always review the dry-run count first. Staged facts remain
-unverified and are excluded from normal builds and exports.
+unverified and are excluded from reviewed-core builds and the datapack export.
+Versioned research releases include them in staging tables.
 
 ### Wikipedia chemistry releases and sequential parser
 
@@ -240,10 +315,22 @@ python3 scripts/clean_wikipedia_candidates.py \
   --output .build/wikipedia-cleaned.db --execute
 ```
 
-For the current MiMo-V2.6-Pro / Pi workflow, full local Wikipedia lookup,
-and download/recovery commands, see [the agent review guide](docs/wikipedia-glm-review.md).
-The parser and reviewer default to OpenRouter and use `OPENROUTER_API_KEY`;
-install the Pi dependencies with `npm ci`.
+The model-assisted MiMo-V2.6-Pro / Pi reviewer is optional and currently stopped.
+Its configuration, full local Wikipedia lookup, and download/recovery commands
+are in [the agent review guide](docs/wikipedia-glm-review.md). The parser and
+reviewer default to OpenRouter and use `OPENROUTER_API_KEY`; install the Pi
+dependencies with `npm ci` when using that workflow.
+
+For local candidate triage, archive coverage, and full-dump title discovery:
+
+```sh
+python -m scripts.audit_wikipedia_filtered
+python scripts/audit_wikipedia_archive_coverage.py
+python scripts/discover_wikipedia_science_sources.py --read-priority
+```
+
+See [the local source review](docs/wikipedia-offline-review.md) for prerequisites,
+saved inventories, source-inspection reports, and collected audit artifacts.
 
 Plan candidate review without contacting a model:
 
@@ -256,15 +343,6 @@ recovery instructions are in the
 [Wikipedia candidate workflow](docs/wikipedia-workflow.md). Wikipedia and
 model output remain unverified even after cleanup or agent review; none of
 these commands promotes candidates into reviewed scientific tables.
-
-The release contains:
-
-- `universe.db` â€” release-ready SQLite artifact;
-- `universe.db.sha256` â€” SHA-256 checksum;
-- `universe-unverified.db` â€” all currently collected, unreviewed candidate data;
-- `universe-unverified.db.sha256` â€” companion artifact SHA-256 checksum;
-- `manifest.json` â€” schema versions, hashes, table counts, data status, and
-  Wikipedia parsing progress for both artifacts.
 
 ## Calculate deterministic atomic and composition properties
 
@@ -289,6 +367,63 @@ It reports why structure-, phase-, state-, and evidence-dependent properties
 cannot be identified from an atomic number or elemental composition. See
 [`docs/deterministic-properties.md`](docs/deterministic-properties.md) for the
 equations, method classes, validity limits, and references.
+
+## Fit alloy and isotope approximations
+
+The [data-type audit](docs/data-type-coverage.md) distinguishes missing
+spectra, molecular graphs, electronic properties, nuclear radii/cross sections,
+phonons/diffraction, magnetic/optical response and kinetics from staged evidence:
+
+```powershell
+python scripts/audit_data_types.py --output .build/data-type-coverage.json
+```
+
+The [atomic isotope statistics fit](docs/atomic-isotope-stats.md) accepts integer
+proton, neutron and electron counts and fits half-lives and supported decay-mode
+vectors. A combined profile also includes the fitted atomic-mass model:
+
+```powershell
+python scripts/atomic_isotope_properties.py train --database isotopes.db --allow-unverified-evidence --output .build/atomic-property-profile.json
+python scripts/atomic_isotope_properties.py predict --model .build/atomic-property-profile.json --protons 26 --neutrons 34 --electrons 26
+```
+
+This is an exploratory neutral-ground-state approximation. Half-life holdout
+errors are roughly three orders of magnitude; known source values take priority.
+Gamma photon yields, ionic electron effects and excited-state lifetimes require
+additional evidence. Modeled outputs stay separate from reviewed observations.
+
+The [alloy fitter](docs/alloy-fitting.md) supports linear and quadratic
+composition models with exact elemental mass fractions. Run the evidence
+audit first:
+
+```sh
+python scripts/build_alloy_db.py
+python scripts/build_element_evidence.py
+python scripts/fit_alloy_properties.py
+```
+
+Training needs compatible units, temperature, phase, material state, and
+resolved compositions. Research density sources now cover all alloy
+constituents, but review and condition gaps remain. The current alloy reference
+has no eligible reviewed training rows. Ranged compositions and commercially
+pure specimens are not silently converted into exact pure-element endpoints.
+
+The [isotope fitter](docs/isotope-approximation.md) combines a fitted liquid-drop
+mass model with local corrections from nearby known isotopes:
+
+```sh
+python scripts/build_isotope_evidence.py
+python scripts/fit_isotope_properties.py --output .build/isotope-core-model.json
+python scripts/fit_isotope_properties.py --research-database isotopes.db --allow-unverified --output .build/isotope-ame-model.json
+```
+
+The AME fit uses 2,484 nonestimated ground-state masses with A >= 16. Its
+coordinate-holdout mass RMSE is 0.000714 u; a harder isotope-chain-edge test
+gives 0.00164 u. These known-isotope errors do not calibrate far extrapolation.
+Known reference masses take precedence; extrapolation requires an explicit
+option. The model estimates mass and binding-energy proxies, while half-life,
+spin, decay branching, abundance, and isotope existence require other evidence.
+Models and training data retain separate review status.
 
 ## Describe an unreviewed material
 
@@ -356,10 +491,37 @@ python3 scripts/export_inorganicengineering.py \
 
 ## Design rules
 
+Rebuild the new source-backed references offline:
+
+```powershell
+python scripts/build_atomic_evidence.py
+python scripts/build_spectral_evidence.py
+python scripts/build_molecular_evidence.py
+```
+
+Atomic theoretical/semiempirical values retain modeled provenance. Spectral
+intensities retain their source-relative scale; they are not transition or
+decay probabilities. Molecular depiction coordinates are not measured geometry.
+
+Research readiness tools now expose admission and calculation blockers:
+
+```powershell
+python scripts/review_research_evidence.py --plan .build/element-review-plan.json
+python scripts/crystal_cell.py --db crystals.db --output .build/crystal-cell-audit.json
+python scripts/normalize_nuclear_properties.py --database isotopes.db --output .build/nuclear-normalized.json
+```
+
+See [review and promotion](docs/research-review.md),
+[crystal-cell validation](docs/crystal-cell-validation.md), and
+[nuclear normalization](docs/nuclear-normalization.md). New release bundles
+include these reports. Unsupported source syntax and missing occupancy,
+conditions or state assignments stay explicit; reports do not approve data.
+
 - Every imported dataset identifies its source, version, provenance class, and
   redistribution status.
-- Scientific values use integer rationals plus explicit units; decimal text and
-  binary floating point are not authoritative storage formats.
+- Authoritative scientific values use integer ratios plus explicit units. The
+  isotope research database encodes arbitrary-size numerators and denominators
+  as decimal integer strings; binary floating point is used only by models.
 - Conditions and uncertainty remain attached to observations.
 - Conflicting observations can coexist. A preference is review metadata, not a
   destructive overwrite.
@@ -369,7 +531,7 @@ python3 scripts/export_inorganicengineering.py \
   uncertainty, and source metadata.
 - Nuclear channels use typed parents, daughters, incident/emitted particles,
   branch probabilities, and energy-dependent cross sections.
-- Missing source data stays missing. There are no generated â€śreasonableâ€ť
+- Missing source data stays missing. There are no generated "reasonable"
   measurements, and Wikipedia-derived candidates are never promoted
   automatically.
 
@@ -390,7 +552,9 @@ can therefore evolve independently.
 The schema, scripts, documentation, and original chemistry bootstrap data are
 MIT licensed. Particle identity data is attributed to the Particle Data Group
 under CC BY 4.0. Periodic-table data is attributed to PubChem/NLM, natural
-isotope data to NIST, and the revision-pinned Wikipedia source archive is CC
-BY-SA 4.0. Each external source has its own row in `license` and `source`.
+isotope data to NIST, AME, and NUBASE, and the revision-pinned Wikipedia source
+archive is CC BY-SA 4.0. Research references retain source-specific citation,
+version, retrieval, and license/factual-data metadata. Each reviewed external
+source has its own row in `license` and `source`.
 Future imports must be redistributable before their data can enter the checked-
 in artifact. Citation does not override an upstream license.

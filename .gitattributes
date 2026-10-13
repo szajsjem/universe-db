@@ -4,3 +4,6 @@
 *.json text eol=lf
 *.sha256 text eol=lf
 *.db binary
+sources/atomic/*.csv -text
+sources/molecules/*.json -text
+sources/crystals/*.cif -text

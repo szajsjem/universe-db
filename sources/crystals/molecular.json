@@ -1,0 +1,1677 @@
+{
+  "sources": [
+    {
+      "id": "molecular-cod-9000229",
+      "title": "Refinement of the crystal structure of aragonite",
+      "url": "https://www.crystallography.net/cod/9000229.cif",
+      "version": "COD revision 291269",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Dal Negro, A.",
+        "Ungaretti, L."
+      ],
+      "publication_year": "1971",
+      "journal": "American Mineralogist",
+      "doi": null,
+      "raw_file": "sources/crystals/molecular-9000229.cif",
+      "sha256": "e52a6ee6e1a428c8597ea16f92ab057a844b1437a72091bf8482166a6ffd26ae"
+    },
+    {
+      "id": "molecular-cod-1011097",
+      "title": "Die Bindung im Quarz",
+      "url": "https://www.crystallography.net/cod/1011097.cif",
+      "version": "COD revision 303120",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Wei, P. H."
+      ],
+      "publication_year": "1935",
+      "journal": "Zeitschrift fuer Kristallographie, Kristallgeometrie, Kristallphysik,\nKristallchemie (-144,1977)",
+      "doi": null,
+      "raw_file": "sources/crystals/molecular-1011097.cif",
+      "sha256": "e7014ed2bf991b90c21c0013f261e7f4112b9b51487da043024a96e7cfe62c2a"
+    },
+    {
+      "id": "molecular-cod-9014344",
+      "title": "Temperature dependence of the structural parameters  in the transformation of aragonite to calcite,  as determined from in situ synchrotron powder X-ray-diffraction data  Note: T = 644 C  Note: P = 101 kPa",
+      "url": "https://www.crystallography.net/cod/9014344.cif",
+      "version": "COD revision 292002",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Antao, S. M.",
+        "Hassan, I."
+      ],
+      "publication_year": "2010",
+      "journal": "The Canadian Mineralogist",
+      "doi": "10.3749/canmin.48.5.1225",
+      "raw_file": "sources/crystals/molecular-9014344.cif",
+      "sha256": "c586c29b8cbd3188d8ea1c7fccf54c8c9b3dca30911853480a6a974b04a82674"
+    },
+    {
+      "id": "molecular-cod-1538597",
+      "title": "The equilibrium low-structure of ice",
+      "url": "https://www.crystallography.net/cod/1538597.cif",
+      "version": "COD revision 211196",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Leadbetter, A.J.",
+        "Tucker, P.A.",
+        "Ward, R.C.",
+        "Clark, J.W.",
+        "Suga, H.",
+        "Matsuo, T."
+      ],
+      "publication_year": "1985",
+      "journal": "Journal of Chemical Physics",
+      "doi": null,
+      "raw_file": "sources/crystals/molecular-1538597.cif",
+      "sha256": "5a5bb3cc7593b2eaec9da0173fc7c006b7af3fb3c9d0ed84b53075fe6fc400a6"
+    },
+    {
+      "id": "molecular-cod-1566634",
+      "title": "Ice Ic without stacking disorder by evacuating hydrogen from hydrogen  hydrate",
+      "url": "https://www.crystallography.net/cod/1566634.cif",
+      "version": "COD revision 273828",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Komatsu, K.",
+        "Machida, S.",
+        "Noritake, F.",
+        "Hattori, T.",
+        "Sano-Furukawa, A.",
+        "Yamane, R.",
+        "Yamashita, K.",
+        "Kagi, H."
+      ],
+      "publication_year": "2020",
+      "journal": "Nature Communications",
+      "doi": null,
+      "raw_file": "sources/crystals/molecular-1566634.cif",
+      "sha256": "6e54db9b011b68248f6df0f33dc65d7caeea2f135795a2415730e43ca8707bfe"
+    },
+    {
+      "id": "molecular-cod-1566637",
+      "title": "Ordered Proton Configuration in Ice II, from Single - Crystal Neutron  Diffraction",
+      "url": "https://www.crystallography.net/cod/1566637.cif",
+      "version": "COD revision 273831",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Kamb, B.",
+        "Hamilton, W.C.",
+        "LaPlaca, S.J.",
+        "Prakash, A."
+      ],
+      "publication_year": "1971",
+      "journal": "The Journal of Chemical Physics",
+      "doi": null,
+      "raw_file": "sources/crystals/molecular-1566637.cif",
+      "sha256": "b0b73e551b66b7a1b83b894f7e363a8a65f85e7f88af109b00cd33ed92834fef"
+    },
+    {
+      "id": "molecular-cod-1011160",
+      "title": "The structure of rhombic sulphur",
+      "url": "https://www.crystallography.net/cod/1011160.cif",
+      "version": "COD revision 301772",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Warren, B E",
+        "Burwell, J T"
+      ],
+      "publication_year": "1935",
+      "journal": "Journal of Chemical Physics",
+      "doi": "10.1063/1.1749557",
+      "raw_file": "sources/crystals/molecular-1011160.cif",
+      "sha256": "64edc19be557065905e1432e8cd91f97df5e954c7f40333c35caa6307d28c656"
+    },
+    {
+      "id": "molecular-cod-1537087",
+      "title": "Approaching the gas phase structures of AgS8+ and AgS16+ in the solid  state",
+      "url": "https://www.crystallography.net/cod/1537087.cif",
+      "version": "COD revision 301778",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Krossing, I.",
+        "Cameron, T.S.",
+        "Min Fang",
+        "Dionne, I.",
+        "Decken, A.",
+        "Passmore, J."
+      ],
+      "publication_year": "2002",
+      "journal": "Chemistry - A European Journal",
+      "doi": null,
+      "raw_file": "sources/crystals/molecular-1537087.cif",
+      "sha256": "78516299e314558a8f58ea3ab2571e685e6ad499ac660b40f75ad826e4648e74"
+    },
+    {
+      "id": "molecular-cod-9012486",
+      "title": "Effect of pressure on bonding in black phosphorus  Locality: synthetic  Note: pressures calculated from the measured unit cell volume",
+      "url": "https://www.crystallography.net/cod/9012486.cif",
+      "version": "COD revision 291877",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Cartz, L.",
+        "Srinivasa, S. R.",
+        "Riedner, R. J.",
+        "Jorgensen, J. D.",
+        "Worlton, T. G."
+      ],
+      "publication_year": "1979",
+      "journal": "Journal of Chemical Physics",
+      "doi": "10.1063/1.438523",
+      "raw_file": "sources/crystals/molecular-9012486.cif",
+      "sha256": "8ab859634978ae8491dfadc70ce6b26a2e214ac7938e1a21339b47f71796f5b4"
+    },
+    {
+      "id": "molecular-cod-1011280",
+      "title": "Die Kristallstruktur von Calciumchlorid, Ca Cl2",
+      "url": "https://www.crystallography.net/cod/1011280.cif",
+      "version": "COD revision 130149",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "van Bever, A K",
+        "Nieuwenkamp, W"
+      ],
+      "publication_year": "1935",
+      "journal": "Zeitschrift fuer Kristallographie, Kristallgeometrie, Kristallphysik,\nKristallchemie (-144,1977)",
+      "doi": null,
+      "raw_file": "sources/crystals/molecular-1011280.cif",
+      "sha256": "608555394b6a381f5666a4b3e1734c586084fd93ab87aa6033747c5a4c51dfb6"
+    },
+    {
+      "id": "molecular-cod-2310555",
+      "title": "Refinements of structures containing bonds between Si, P, S or Cl and O  or N",
+      "url": "https://www.crystallography.net/cod/2310555.cif",
+      "version": "COD revision 301809",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD CC0/public-domain dedication. Raw CIF attribution request retained: acknowledge original publication authors.",
+      "authors": [
+        "Cruickshank, D.W.J."
+      ],
+      "publication_year": "1964",
+      "journal": "Acta Crystallographica (1,1948-23,1967)",
+      "doi": null,
+      "raw_file": "sources/crystals/molecular-2310555.cif",
+      "sha256": "0a65c8e434ff91385b2d285e50f412a53ecb2ab76d55d9605e65f1a8742f2840"
+    }
+  ],
+  "structures": [
+    {
+      "id": "molecular-9000229",
+      "name": "Aragonite",
+      "formula": "CaCO3",
+      "phase": "aragonite",
+      "crystal_system": "orthorhombic",
+      "space_group_number": 62,
+      "space_group_symbol": "P m c n",
+      "cell_convention": "orthorhombic Pmcn setting",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.9616",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "7.9705",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "5.7394",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Ca",
+          "element": "Ca",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.25000",
+          "y": "0.41510",
+          "z": "0.24030"
+        },
+        {
+          "label": "C",
+          "element": "C",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.25000",
+          "y": "0.76270",
+          "z": "0.08500"
+        },
+        {
+          "label": "O1",
+          "element": "O",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.25000",
+          "y": "0.92310",
+          "z": "0.09520"
+        },
+        {
+          "label": "O2",
+          "element": "O",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.47290",
+          "y": "0.68010",
+          "z": "0.08700"
+        }
+      ],
+      "source_id": "molecular-cod-9000229",
+      "source_locator": "data_9000229; _cell_* and _atom_site_*; cited original publication",
+      "method": "source crystallographic refinement; consult cited original publication for instrument details",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding.",
+      "source_formula": "C Ca O3",
+      "symmetry_operations": [
+        "x,y,z",
+        "1/2-x,y,z",
+        "1/2+x,-y,-z",
+        "1/2+x,1/2+y,1/2-z",
+        "1/2-x,1/2-y,1/2+z",
+        "x,1/2-y,1/2+z",
+        "-x,1/2+y,1/2-z",
+        "-x,-y,-z"
+      ]
+    },
+    {
+      "id": "molecular-1011097",
+      "name": "Alpha quartz",
+      "formula": "SiO2",
+      "phase": "alpha quartz",
+      "crystal_system": "trigonal",
+      "space_group_number": 152,
+      "space_group_symbol": "P 31 2 1",
+      "cell_convention": "hexagonal axes P31 2 1",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 3,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.913",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "4.913",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "5.404",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Si1",
+          "element": "Si",
+          "occupancy": "1",
+          "multiplicity": 3,
+          "wyckoff": "a",
+          "x": "0.465",
+          "y": "0",
+          "z": "0.3333",
+          "coordinate_uncertainties": {
+            "x": "0.004",
+            "y": null,
+            "z": null
+          }
+        },
+        {
+          "label": "O1",
+          "element": "O",
+          "occupancy": "1",
+          "multiplicity": 6,
+          "wyckoff": "c",
+          "x": "0.417",
+          "y": "0.278",
+          "z": "0.222",
+          "coordinate_uncertainties": {
+            "x": "0.013",
+            "y": "0.013",
+            "z": "0.013"
+          }
+        }
+      ],
+      "source_id": "molecular-cod-1011097",
+      "source_locator": "data_1011097; _cell_* and _atom_site_*; cited original publication",
+      "method": "source crystallographic refinement; consult cited original publication for instrument details",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding.",
+      "source_formula": "O2 Si",
+      "symmetry_operations": [
+        "x,y,z",
+        "-y,x-y,1/3+z",
+        "y-x,-x,2/3+z",
+        "y,x,-z",
+        "-x,y-x,1/3-z",
+        "x-y,-y,2/3-z"
+      ]
+    },
+    {
+      "id": "molecular-9014344",
+      "name": "Calcite at 644 degrees Celsius",
+      "formula": "CaCO3",
+      "phase": "calcite",
+      "crystal_system": "trigonal",
+      "space_group_number": 167,
+      "space_group_symbol": "R -3 c :H",
+      "cell_convention": "hexagonal axes R -3 c :H",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 6,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.9761",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "4.9761",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "17.4163",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "917.15",
+      "pressure_pa": "101000",
+      "sites": [
+        {
+          "label": "Ca",
+          "element": "Ca",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000"
+        },
+        {
+          "label": "C",
+          "element": "C",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.25000"
+        },
+        {
+          "label": "O1",
+          "element": "O",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.25000",
+          "y": "0.00000",
+          "z": "0.25000"
+        }
+      ],
+      "source_id": "molecular-cod-9014344",
+      "source_locator": "data_9014344; _cell_* and _atom_site_*; cited original publication",
+      "method": "source crystallographic refinement; consult cited original publication for instrument details",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding. Conditions exactly converted from title notes: 644 C (917.15 K), 101 kPa.",
+      "source_formula": "C Ca O3",
+      "symmetry_operations": [
+        "x,y,z",
+        "2/3+x,1/3+y,1/3+z",
+        "1/3+x,2/3+y,2/3+z",
+        "x,x-y,1/2+z",
+        "2/3+x,1/3+x-y,5/6+z",
+        "1/3+x,2/3+x-y,1/6+z",
+        "y,x,1/2-z",
+        "2/3+y,1/3+x,5/6-z",
+        "1/3+y,2/3+x,1/6-z",
+        "-x+y,y,1/2+z",
+        "2/3-x+y,1/3+y,5/6+z",
+        "1/3-x+y,2/3+y,1/6+z",
+        "-x,-x+y,1/2-z",
+        "2/3-x,1/3-x+y,5/6-z",
+        "1/3-x,2/3-x+y,1/6-z",
+        "-y,-x,1/2+z",
+        "2/3-y,1/3-x,5/6+z",
+        "1/3-y,2/3-x,1/6+z",
+        "x-y,-y,1/2-z",
+        "2/3+x-y,1/3-y,5/6-z",
+        "1/3+x-y,2/3-y,1/6-z",
+        "y,-x+y,-z",
+        "2/3+y,1/3-x+y,1/3-z",
+        "1/3+y,2/3-x+y,2/3-z",
+        "-x+y,-x,z",
+        "2/3-x+y,1/3-x,1/3+z",
+        "1/3-x+y,2/3-x,2/3+z",
+        "-x,-y,-z",
+        "2/3-x,1/3-y,1/3-z",
+        "1/3-x,2/3-y,2/3-z",
+        "-y,x-y,z",
+        "2/3-y,1/3+x-y,1/3+z",
+        "1/3-y,2/3+x-y,2/3+z",
+        "x-y,x,-z",
+        "2/3+x-y,1/3+x,1/3-z",
+        "1/3+x-y,2/3+x,2/3-z"
+      ]
+    },
+    {
+      "id": "molecular-1538597",
+      "name": "Deuterated hexagonal ice Ih",
+      "formula": "D2O",
+      "phase": "deuterated ice Ih",
+      "crystal_system": "hexagonal",
+      "space_group_number": 194,
+      "space_group_symbol": "P 63/m m c",
+      "cell_convention": "hexagonal conventional cell",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.504",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "4.504",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "7.3337",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "D2",
+          "element": "H",
+          "occupancy": "0.5",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.4532",
+          "y": "0.9064",
+          "z": "0.0164",
+          "isotope_mass_number": 2
+        },
+        {
+          "label": "D1",
+          "element": "H",
+          "occupancy": "0.5",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.3333",
+          "y": "0.6667",
+          "z": "0.1993",
+          "isotope_mass_number": 2
+        },
+        {
+          "label": "O1",
+          "element": "O",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.3333",
+          "y": "0.6667",
+          "z": "0.0636"
+        }
+      ],
+      "source_id": "molecular-cod-1538597",
+      "source_locator": "data_1538597; _cell_* and _atom_site_*; cited original publication",
+      "method": "neutron diffraction",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding. Deuterated specimen, not natural-H2O evidence. H sites have isotope mass number 2. Ice Ih and Ic retain partial proton-site occupancies.",
+      "source_formula": "D2 O",
+      "symmetry_operations": [
+        "x,y,z",
+        "x-y,x,z+1/2",
+        "-y,x-y,z",
+        "-x,-y,z+1/2",
+        "-x+y,-x,z",
+        "y,-x+y,z+1/2",
+        "-y,-x,-z+1/2",
+        "x-y,-y,-z",
+        "x,x-y,-z+1/2",
+        "y,x,-z",
+        "-x+y,y,-z+1/2",
+        "-x,-x+y,-z",
+        "-x,-y,-z",
+        "-x+y,-x,-z-1/2",
+        "y,-x+y,-z",
+        "x,y,-z-1/2",
+        "x-y,x,-z",
+        "-y,x-y,-z-1/2",
+        "y,x,z-1/2",
+        "-x+y,y,z",
+        "-x,-x+y,z-1/2",
+        "-y,-x,z",
+        "x-y,-y,z-1/2",
+        "x,x-y,z"
+      ],
+      "isotopic_composition": {
+        "H": {
+          "mass_number": 2,
+          "description": "deuterated D2O source specimen"
+        }
+      }
+    },
+    {
+      "id": "molecular-1566634",
+      "name": "Deuterated cubic ice Ic",
+      "formula": "D2O",
+      "phase": "deuterated ice Ic",
+      "crystal_system": "cubic",
+      "space_group_number": 227,
+      "space_group_symbol": "F d -3 m :2",
+      "cell_convention": "cubic F d -3 m origin choice 2",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 8,
+      "lattice_parameters": {
+        "a": {
+          "value": "6.35600",
+          "unit": "angstrom",
+          "uncertainty": "0.00021"
+        },
+        "b": {
+          "value": "6.356",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "6.356",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90.0",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90.0",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90.0",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "O",
+          "element": "O",
+          "occupancy": "1.0",
+          "multiplicity": 8,
+          "wyckoff": null,
+          "x": "0.375",
+          "y": "0.375",
+          "z": "0.375"
+        },
+        {
+          "label": "D",
+          "element": "H",
+          "occupancy": "0.5",
+          "multiplicity": 32,
+          "wyckoff": null,
+          "x": "0.46746",
+          "y": "0.46746",
+          "z": "0.46746",
+          "coordinate_uncertainties": {
+            "x": "0.00025",
+            "y": "0.00025",
+            "z": "0.00025"
+          },
+          "isotope_mass_number": 2
+        }
+      ],
+      "source_id": "molecular-cod-1566634",
+      "source_locator": "data_1566634; _cell_* and _atom_site_*; cited original publication",
+      "method": "neutron diffraction",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding. Deuterated specimen, not natural-H2O evidence. H sites have isotope mass number 2. Ice Ih and Ic retain partial proton-site occupancies.",
+      "source_formula": "D2 O",
+      "symmetry_operations": [
+        "x, y, z",
+        "-x, -y, -z",
+        "-x+3/4, -y+1/4, z+1/2",
+        "x+1/4, y+3/4, -z+1/2",
+        "-x+1/4, y+1/2, -z+3/4",
+        "x+3/4, -y+1/2, z+1/4",
+        "x+1/2, -y+3/4, -z+1/4",
+        "-x+1/2, y+1/4, z+3/4",
+        "z, x, y",
+        "-z, -x, -y",
+        "z+1/2, -x+3/4, -y+1/4",
+        "-z+1/2, x+1/4, y+3/4",
+        "-z+3/4, -x+1/4, y+1/2",
+        "z+1/4, x+3/4, -y+1/2",
+        "-z+1/4, x+1/2, -y+3/4",
+        "z+3/4, -x+1/2, y+1/4",
+        "y, z, x",
+        "-y, -z, -x",
+        "-y+1/4, z+1/2, -x+3/4",
+        "y+3/4, -z+1/2, x+1/4",
+        "y+1/2, -z+3/4, -x+1/4",
+        "-y+1/2, z+1/4, x+3/4",
+        "-y+3/4, -z+1/4, x+1/2",
+        "y+1/4, z+3/4, -x+1/2",
+        "y+3/4, x+1/4, -z+1/2",
+        "-y+1/4, -x+3/4, z+1/2",
+        "-y, -x, -z",
+        "y, x, z",
+        "y+1/4, -x+1/2, z+3/4",
+        "-y+3/4, x+1/2, -z+1/4",
+        "-y+1/2, x+3/4, z+1/4",
+        "y+1/2, -x+1/4, -z+3/4",
+        "x+3/4, z+1/4, -y+1/2",
+        "-x+1/4, -z+3/4, y+1/2",
+        "-x+1/2, z+3/4, y+1/4",
+        "x+1/2, -z+1/4, -y+3/4",
+        "-x, -z, -y",
+        "x, z, y",
+        "x+1/4, -z+1/2, y+3/4",
+        "-x+3/4, z+1/2, -y+1/4",
+        "z+3/4, y+1/4, -x+1/2",
+        "-z+1/4, -y+3/4, x+1/2",
+        "z+1/4, -y+1/2, x+3/4",
+        "-z+3/4, y+1/2, -x+1/4",
+        "-z+1/2, y+3/4, x+1/4",
+        "z+1/2, -y+1/4, -x+3/4",
+        "-z, -y, -x",
+        "z, y, x",
+        "x, y+1/2, z+1/2",
+        "-x, -y+1/2, -z+1/2",
+        "-x+3/4, -y+3/4, z",
+        "x+1/4, y+1/4, -z",
+        "-x+1/4, y, -z+1/4",
+        "x+3/4, -y, z+3/4",
+        "x+1/2, -y+1/4, -z+3/4",
+        "-x+1/2, y+3/4, z+1/4",
+        "z, x+1/2, y+1/2",
+        "-z, -x+1/2, -y+1/2",
+        "z+1/2, -x+1/4, -y+3/4",
+        "-z+1/2, x+3/4, y+1/4",
+        "-z+3/4, -x+3/4, y",
+        "z+1/4, x+1/4, -y",
+        "-z+1/4, x, -y+1/4",
+        "z+3/4, -x, y+3/4",
+        "y, z+1/2, x+1/2",
+        "-y, -z+1/2, -x+1/2",
+        "-y+1/4, z, -x+1/4",
+        "y+3/4, -z, x+3/4",
+        "y+1/2, -z+1/4, -x+3/4",
+        "-y+1/2, z+3/4, x+1/4",
+        "-y+3/4, -z+3/4, x",
+        "y+1/4, z+1/4, -x",
+        "y+3/4, x+3/4, -z",
+        "-y+1/4, -x+1/4, z",
+        "-y, -x+1/2, -z+1/2",
+        "y, x+1/2, z+1/2",
+        "y+1/4, -x, z+1/4",
+        "-y+3/4, x, -z+3/4",
+        "-y+1/2, x+1/4, z+3/4",
+        "y+1/2, -x+3/4, -z+1/4",
+        "x+3/4, z+3/4, -y",
+        "-x+1/4, -z+1/4, y",
+        "-x+1/2, z+1/4, y+3/4",
+        "x+1/2, -z+3/4, -y+1/4",
+        "-x, -z+1/2, -y+1/2",
+        "x, z+1/2, y+1/2",
+        "x+1/4, -z, y+1/4",
+        "-x+3/4, z, -y+3/4",
+        "z+3/4, y+3/4, -x",
+        "-z+1/4, -y+1/4, x",
+        "z+1/4, -y, x+1/4",
+        "-z+3/4, y, -x+3/4",
+        "-z+1/2, y+1/4, x+3/4",
+        "z+1/2, -y+3/4, -x+1/4",
+        "-z, -y+1/2, -x+1/2",
+        "z, y+1/2, x+1/2",
+        "x+1/2, y, z+1/2",
+        "-x+1/2, -y, -z+1/2",
+        "-x+1/4, -y+1/4, z",
+        "x+3/4, y+3/4, -z",
+        "-x+3/4, y+1/2, -z+1/4",
+        "x+1/4, -y+1/2, z+3/4",
+        "x, -y+3/4, -z+3/4",
+        "-x, y+1/4, z+1/4",
+        "z+1/2, x, y+1/2",
+        "-z+1/2, -x, -y+1/2",
+        "z, -x+3/4, -y+3/4",
+        "-z, x+1/4, y+1/4",
+        "-z+1/4, -x+1/4, y",
+        "z+3/4, x+3/4, -y",
+        "-z+3/4, x+1/2, -y+1/4",
+        "z+1/4, -x+1/2, y+3/4",
+        "y+1/2, z, x+1/2",
+        "-y+1/2, -z, -x+1/2",
+        "-y+3/4, z+1/2, -x+1/4",
+        "y+1/4, -z+1/2, x+3/4",
+        "y, -z+3/4, -x+3/4",
+        "-y, z+1/4, x+1/4",
+        "-y+1/4, -z+1/4, x",
+        "y+3/4, z+3/4, -x",
+        "y+1/4, x+1/4, -z",
+        "-y+3/4, -x+3/4, z",
+        "-y+1/2, -x, -z+1/2",
+        "y+1/2, x, z+1/2",
+        "y+3/4, -x+1/2, z+1/4",
+        "-y+1/4, x+1/2, -z+3/4",
+        "-y, x+3/4, z+3/4",
+        "y, -x+1/4, -z+1/4",
+        "x+1/4, z+1/4, -y",
+        "-x+3/4, -z+3/4, y",
+        "-x, z+3/4, y+3/4",
+        "x, -z+1/4, -y+1/4",
+        "-x+1/2, -z, -y+1/2",
+        "x+1/2, z, y+1/2",
+        "x+3/4, -z+1/2, y+1/4",
+        "-x+1/4, z+1/2, -y+3/4",
+        "z+1/4, y+1/4, -x",
+        "-z+3/4, -y+3/4, x",
+        "z+3/4, -y+1/2, x+1/4",
+        "-z+1/4, y+1/2, -x+3/4",
+        "-z, y+3/4, x+3/4",
+        "z, -y+1/4, -x+1/4",
+        "-z+1/2, -y, -x+1/2",
+        "z+1/2, y, x+1/2",
+        "x+1/2, y+1/2, z",
+        "-x+1/2, -y+1/2, -z",
+        "-x+1/4, -y+3/4, z+1/2",
+        "x+3/4, y+1/4, -z+1/2",
+        "-x+3/4, y, -z+3/4",
+        "x+1/4, -y, z+1/4",
+        "x, -y+1/4, -z+1/4",
+        "-x, y+3/4, z+3/4",
+        "z+1/2, x+1/2, y",
+        "-z+1/2, -x+1/2, -y",
+        "z, -x+1/4, -y+1/4",
+        "-z, x+3/4, y+3/4",
+        "-z+1/4, -x+3/4, y+1/2",
+        "z+3/4, x+1/4, -y+1/2",
+        "-z+3/4, x, -y+3/4",
+        "z+1/4, -x, y+1/4",
+        "y+1/2, z+1/2, x",
+        "-y+1/2, -z+1/2, -x",
+        "-y+3/4, z, -x+3/4",
+        "y+1/4, -z, x+1/4",
+        "y, -z+1/4, -x+1/4",
+        "-y, z+3/4, x+3/4",
+        "-y+1/4, -z+3/4, x+1/2",
+        "y+3/4, z+1/4, -x+1/2",
+        "y+1/4, x+3/4, -z+1/2",
+        "-y+3/4, -x+1/4, z+1/2",
+        "-y+1/2, -x+1/2, -z",
+        "y+1/2, x+1/2, z",
+        "y+3/4, -x, z+3/4",
+        "-y+1/4, x, -z+1/4",
+        "-y, x+1/4, z+1/4",
+        "y, -x+3/4, -z+3/4",
+        "x+1/4, z+3/4, -y+1/2",
+        "-x+3/4, -z+1/4, y+1/2",
+        "-x, z+1/4, y+1/4",
+        "x, -z+3/4, -y+3/4",
+        "-x+1/2, -z+1/2, -y",
+        "x+1/2, z+1/2, y",
+        "x+3/4, -z, y+3/4",
+        "-x+1/4, z, -y+1/4",
+        "z+1/4, y+3/4, -x+1/2",
+        "-z+3/4, -y+1/4, x+1/2",
+        "z+3/4, -y, x+3/4",
+        "-z+1/4, y, -x+1/4",
+        "-z, y+1/4, x+1/4",
+        "z, -y+3/4, -x+3/4",
+        "-z+1/2, -y+1/2, -x",
+        "z+1/2, y+1/2, x"
+      ],
+      "isotopic_composition": {
+        "H": {
+          "mass_number": 2,
+          "description": "deuterated D2O source specimen"
+        }
+      }
+    },
+    {
+      "id": "molecular-1566637",
+      "name": "Deuterated ice II",
+      "formula": "D2O",
+      "phase": "deuterated ice II",
+      "crystal_system": "trigonal",
+      "space_group_number": 148,
+      "space_group_symbol": "R -3 :R",
+      "cell_convention": "rhombohedral primitive axes R -3 :R",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 12,
+      "lattice_parameters": {
+        "a": {
+          "value": "7.780",
+          "unit": "angstrom",
+          "uncertainty": "0.010"
+        },
+        "b": {
+          "value": "7.780",
+          "unit": "angstrom",
+          "uncertainty": "0.010"
+        },
+        "c": {
+          "value": "7.780",
+          "unit": "angstrom",
+          "uncertainty": "0.010"
+        },
+        "alpha": {
+          "value": "113.1",
+          "unit": "deg",
+          "uncertainty": "0.2"
+        },
+        "beta": {
+          "value": "113.1",
+          "unit": "deg",
+          "uncertainty": "0.2"
+        },
+        "gamma": {
+          "value": "113.1",
+          "unit": "deg",
+          "uncertainty": "0.2"
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "O1",
+          "element": "O",
+          "occupancy": "1.0",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.2716",
+          "y": "0.0259",
+          "z": "0.8529",
+          "coordinate_uncertainties": {
+            "x": "0.0019",
+            "y": "0.0011",
+            "z": "0.0012"
+          }
+        },
+        {
+          "label": "O2",
+          "element": "O",
+          "occupancy": "1.0",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.4798",
+          "y": "0.7571",
+          "z": "0.3389",
+          "coordinate_uncertainties": {
+            "x": "0.0014",
+            "y": "0.0011",
+            "z": "0.0014"
+          }
+        },
+        {
+          "label": "D1",
+          "element": "H",
+          "occupancy": "1.0",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.7284",
+          "y": "0.4038",
+          "z": "0.4034",
+          "coordinate_uncertainties": {
+            "x": "0.0013",
+            "y": "0.0014",
+            "z": "0.0014"
+          },
+          "isotope_mass_number": 2
+        },
+        {
+          "label": "D2",
+          "element": "H",
+          "occupancy": "1.0",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.1491",
+          "y": "0.0412",
+          "z": "0.7977",
+          "coordinate_uncertainties": {
+            "x": "0.0019",
+            "y": "0.0013",
+            "z": "0.0015"
+          },
+          "isotope_mass_number": 2
+        },
+        {
+          "label": "D3",
+          "element": "H",
+          "occupancy": "1.0",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.7420",
+          "y": "0.1978",
+          "z": "0.3708",
+          "coordinate_uncertainties": {
+            "x": "0.0011",
+            "y": "0.0014",
+            "z": "0.0014"
+          },
+          "isotope_mass_number": 2
+        },
+        {
+          "label": "D4",
+          "element": "H",
+          "occupancy": "1.0",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.4232",
+          "y": "0.1954",
+          "z": "0.9836",
+          "coordinate_uncertainties": {
+            "x": "0.0011",
+            "y": "0.0011",
+            "z": "0.0011"
+          },
+          "isotope_mass_number": 2
+        }
+      ],
+      "source_id": "molecular-cod-1566637",
+      "source_locator": "data_1566637; _cell_* and _atom_site_*; cited original publication",
+      "method": "neutron diffraction",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding. Deuterated specimen, not natural-H2O evidence. H sites have isotope mass number 2. Ice Ih and Ic retain partial proton-site occupancies.",
+      "source_formula": "D2 O",
+      "symmetry_operations": [
+        "x, y, z",
+        "-x, -y, -z",
+        "z, x, y",
+        "-z, -x, -y",
+        "y, z, x",
+        "-y, -z, -x"
+      ],
+      "isotopic_composition": {
+        "H": {
+          "mass_number": 2,
+          "description": "deuterated D2O source specimen"
+        }
+      }
+    },
+    {
+      "id": "molecular-1011160",
+      "name": "Alpha sulfur, 1935 determination",
+      "formula": "S8",
+      "phase": "alpha sulfur",
+      "crystal_system": "orthorhombic",
+      "space_group_number": 70,
+      "space_group_symbol": "F d d d :1",
+      "cell_convention": "orthorhombic F d d d origin choice 1",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 16,
+      "lattice_parameters": {
+        "a": {
+          "value": "10.48",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "12.92",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "24.54999",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "S1",
+          "element": "S",
+          "occupancy": "1",
+          "multiplicity": 32,
+          "wyckoff": "h",
+          "x": "-0.017",
+          "y": "0.083",
+          "z": "0.072"
+        },
+        {
+          "label": "S2",
+          "element": "S",
+          "occupancy": "1",
+          "multiplicity": 32,
+          "wyckoff": "h",
+          "x": "-0.094",
+          "y": "0.161",
+          "z": "0.2"
+        },
+        {
+          "label": "S3",
+          "element": "S",
+          "occupancy": "1",
+          "multiplicity": 32,
+          "wyckoff": "h",
+          "x": "-0.167",
+          "y": "0.105",
+          "z": "0.125"
+        },
+        {
+          "label": "S4",
+          "element": "S",
+          "occupancy": "1",
+          "multiplicity": 32,
+          "wyckoff": "h",
+          "x": "-0.094",
+          "y": "0.028",
+          "z": "0.25"
+        }
+      ],
+      "source_id": "molecular-cod-1011160",
+      "source_locator": "data_1011160; _cell_* and _atom_site_*; cited original publication",
+      "method": "source crystallographic refinement; consult cited original publication for instrument details",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding.",
+      "source_formula": "S8",
+      "symmetry_operations": [
+        "x,y,z",
+        "-x,y,-z",
+        "1/4-x,1/4-y,1/4-z",
+        "1/4+x,1/4-y,1/4+z",
+        "x,-y,-z",
+        "-x,-y,z",
+        "1/4-x,1/4+y,1/4+z",
+        "1/4+x,1/4+y,1/4-z",
+        "x,1/2+y,1/2+z",
+        "1/2+x,y,1/2+z",
+        "1/2+x,1/2+y,z",
+        "-x,1/2+y,1/2-z",
+        "1/2-x,y,1/2-z",
+        "1/2-x,1/2+y,-z",
+        "1/4-x,3/4-y,3/4-z",
+        "3/4-x,1/4-y,3/4-z",
+        "3/4-x,3/4-y,1/4-z",
+        "1/4+x,3/4-y,3/4+z",
+        "3/4+x,1/4-y,3/4+z",
+        "3/4+x,3/4-y,1/4+z",
+        "x,1/2-y,1/2-z",
+        "1/2+x,-y,1/2-z",
+        "1/2+x,1/2-y,-z",
+        "-x,1/2-y,1/2+z",
+        "1/2-x,-y,1/2+z",
+        "1/2-x,1/2-y,z",
+        "1/4-x,3/4+y,3/4+z",
+        "3/4-x,1/4+y,3/4+z",
+        "3/4-x,3/4+y,1/4+z",
+        "1/4+x,3/4+y,3/4-z",
+        "3/4+x,1/4+y,3/4-z",
+        "3/4+x,3/4+y,1/4-z"
+      ]
+    },
+    {
+      "id": "molecular-1537087",
+      "name": "Alpha sulfur, 2002 determination",
+      "formula": "S8",
+      "phase": "alpha sulfur",
+      "crystal_system": "orthorhombic",
+      "space_group_number": 70,
+      "space_group_symbol": "F d d d :2",
+      "cell_convention": "orthorhombic F d d d origin choice 2",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 16,
+      "lattice_parameters": {
+        "a": {
+          "value": "10.393",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "12.762",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "24.436",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "S1",
+          "element": "S",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.03531",
+          "y": "0.09156",
+          "z": "0.37963"
+        },
+        {
+          "label": "S2",
+          "element": "S",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.03421",
+          "y": "-0.03206",
+          "z": "0.325989"
+        },
+        {
+          "label": "S3",
+          "element": "S",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.10583",
+          "y": "0.04636",
+          "z": "0.200698"
+        },
+        {
+          "label": "S4",
+          "element": "S",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "-0.04388",
+          "y": "0.01895",
+          "z": "0.253656"
+        }
+      ],
+      "source_id": "molecular-cod-1537087",
+      "source_locator": "data_1537087; _cell_* and _atom_site_*; cited original publication",
+      "method": "source crystallographic refinement; consult cited original publication for instrument details",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding.",
+      "source_formula": "S8",
+      "symmetry_operations": [
+        "x,y,z",
+        "-x+1/4,-y+1/4,z",
+        "x,-y+1/4,-z+1/4",
+        "-x+1/4,y,-z+1/4",
+        "-x,-y,-z",
+        "x-1/4,y-1/4,-z",
+        "-x,y-1/4,z-1/4",
+        "x-1/4,-y,z-1/4",
+        "x,y+1/2,z+1/2",
+        "-x+1/4,-y+3/4,z+1/2",
+        "x,-y+3/4,-z+3/4",
+        "-x+1/4,y+1/2,-z+3/4",
+        "-x,-y+1/2,-z+1/2",
+        "x-1/4,y+1/4,-z+1/2",
+        "-x,y+1/4,z+1/4",
+        "x-1/4,-y+1/2,z+1/4",
+        "x+1/2,y,z+1/2",
+        "-x+3/4,-y+1/4,z+1/2",
+        "x+1/2,-y+1/4,-z+3/4",
+        "-x+3/4,y,-z+3/4",
+        "-x+1/2,-y,-z+1/2",
+        "x+1/4,y-1/4,-z+1/2",
+        "-x+1/2,y-1/4,z+1/4",
+        "x+1/4,-y,z+1/4",
+        "x+1/2,y+1/2,z",
+        "-x+3/4,-y+3/4,z",
+        "x+1/2,-y+3/4,-z+1/4",
+        "-x+3/4,y+1/2,-z+1/4",
+        "-x+1/2,-y+1/2,-z",
+        "x+1/4,y+1/4,-z",
+        "-x+1/2,y+1/4,z-1/4",
+        "x+1/4,-y+1/2,z-1/4"
+      ]
+    },
+    {
+      "id": "molecular-9012486",
+      "name": "Black phosphorus",
+      "formula": "P",
+      "phase": "black phosphorus",
+      "crystal_system": "orthorhombic",
+      "space_group_number": 64,
+      "space_group_symbol": "C m c e",
+      "cell_convention": "orthorhombic C m c e (original C m c a)",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 8,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.3133",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "10.473",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "4.374",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "P",
+          "element": "P",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.00000",
+          "y": "0.10340",
+          "z": "0.08060"
+        }
+      ],
+      "source_id": "molecular-cod-9012486",
+      "source_locator": "data_9012486; _cell_* and _atom_site_*; cited original publication",
+      "method": "source crystallographic refinement; consult cited original publication for instrument details",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding.",
+      "source_formula": "P",
+      "symmetry_operations": [
+        "x,y,z",
+        "1/2+x,1/2+y,z",
+        "x,1/2-y,1/2+z",
+        "1/2+x,-y,1/2+z",
+        "-x,1/2+y,1/2-z",
+        "1/2-x,+y,1/2-z",
+        "-x,y,z",
+        "1/2-x,1/2+y,z",
+        "x,-y,-z",
+        "1/2+x,1/2-y,-z",
+        "x,1/2+y,1/2-z",
+        "1/2+x,+y,1/2-z",
+        "-x,1/2-y,1/2+z",
+        "1/2-x,-y,1/2+z",
+        "-x,-y,-z",
+        "1/2-x,1/2-y,-z"
+      ]
+    },
+    {
+      "id": "molecular-1011280",
+      "name": "Anhydrous calcium chloride",
+      "formula": "CaCl2",
+      "phase": "anhydrous calcium chloride",
+      "crystal_system": "orthorhombic",
+      "space_group_number": 58,
+      "space_group_symbol": "P n n m",
+      "cell_convention": "orthorhombic P n n m",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 2,
+      "lattice_parameters": {
+        "a": {
+          "value": "6.24",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "6.43",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "4.2",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Ca1",
+          "element": "Ca",
+          "occupancy": "1",
+          "multiplicity": 2,
+          "wyckoff": "a",
+          "x": "0",
+          "y": "0",
+          "z": "0"
+        },
+        {
+          "label": "Cl1",
+          "element": "Cl",
+          "occupancy": "1",
+          "multiplicity": 4,
+          "wyckoff": "g",
+          "x": "0.275",
+          "y": "0.325",
+          "z": "0",
+          "coordinate_uncertainties": {
+            "x": "0.008",
+            "y": "0.008",
+            "z": null
+          }
+        }
+      ],
+      "source_id": "molecular-cod-1011280",
+      "source_locator": "data_1011280; _cell_* and _atom_site_*; cited original publication",
+      "method": "source crystallographic refinement; consult cited original publication for instrument details",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding.",
+      "source_formula": "Ca Cl2",
+      "symmetry_operations": [
+        "x,y,z",
+        "-x,-y,z",
+        "1/2+x,1/2-y,1/2-z",
+        "1/2-x,1/2+y,1/2-z",
+        "-x,-y,-z",
+        "x,y,-z",
+        "1/2-x,1/2+y,1/2+z",
+        "1/2+x,1/2-y,1/2+z"
+      ]
+    },
+    {
+      "id": "molecular-2310555",
+      "name": "Molecular phosphorus pentoxide",
+      "formula": "P4O10",
+      "phase": "molecular P4O10",
+      "crystal_system": "trigonal",
+      "space_group_number": 161,
+      "space_group_symbol": "R 3 c :R",
+      "cell_convention": "rhombohedral axes R 3 c :R",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 2,
+      "lattice_parameters": {
+        "a": {
+          "value": "7.43",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "7.43",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "7.43",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "87",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "87",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "87",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "O3",
+          "element": "O",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.0515",
+          "y": "-0.0563",
+          "z": "-0.2149"
+        },
+        {
+          "label": "O1",
+          "element": "O",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.2389",
+          "y": "0.2389",
+          "z": "0.2389"
+        },
+        {
+          "label": "P2",
+          "element": "P",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.1225",
+          "y": "-0.1904",
+          "z": "-0.0568"
+        },
+        {
+          "label": "O2",
+          "element": "O",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.2225",
+          "y": "-0.0542",
+          "z": "0.0588"
+        },
+        {
+          "label": "P1",
+          "element": "P",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.1272",
+          "y": "0.1272",
+          "z": "0.1272"
+        },
+        {
+          "label": "O4",
+          "element": "O",
+          "occupancy": "1",
+          "multiplicity": null,
+          "wyckoff": null,
+          "x": "0.2176",
+          "y": "-0.3498",
+          "z": "-0.1073"
+        }
+      ],
+      "source_id": "molecular-cod-2310555",
+      "source_locator": "data_2310555; _cell_* and _atom_site_*; cited original publication",
+      "method": "source crystallographic refinement; consult cited original publication for instrument details",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Source asymmetric-unit coordinates; apply CIF symmetry to obtain full cell. Missing occupancy, temperature and pressure remain null. Raw CIF retains original standard uncertainties and coordinate rounding.",
+      "source_formula": "O10 P4",
+      "symmetry_operations": [
+        "x,y,z",
+        "z,x,y",
+        "y,z,x",
+        "y+1/2,x+1/2,z+1/2",
+        "z+1/2,y+1/2,x+1/2",
+        "x+1/2,z+1/2,y+1/2"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "topic": "Hydrated calcium chloride",
+      "reason": "Only anhydrous CaCl2 imported; each hydrate needs separate formula, water/H sites, conditions and evidence."
+    },
+    {
+      "topic": "Natural-H ice polymorphs",
+      "reason": "Selected primary CIFs are deuterated D2O and retained separately, never relabeled H2O."
+    },
+    {
+      "topic": "Measurement conditions",
+      "reason": "Most CIFs omit temperature and pressure; no room-temperature/ambient-pressure defaults invented."
+    },
+    {
+      "topic": "Missing site occupancies/multiplicities",
+      "reason": "Some source loops omit these values; null retained with authoritative symmetry operations."
+    }
+  ]
+}

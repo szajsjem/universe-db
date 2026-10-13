@@ -1,0 +1,859 @@
+{
+  "sources": [
+    {
+      "id": "metals-cod-9013045",
+      "title": "Suh, I.-K.; Ohta, H.; Waseda, Y. (1988), High-temperature thermal expansion of six metallic elements measured by dilatation method and X-ray diffraction Sample: at T = 293 K; Journal of Materials Science 23, 757\u00e2\u20ac\u201c760; COD 9013045",
+      "url": "https://crystallography.net/cod/9013045.cif@291877",
+      "version": "COD revision 291877; original paper 1988",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1007/BF01174717",
+      "source_file": "sources/crystals/metals-9013045.cif",
+      "sha256": "c06c37be7a9b8ab6b9afe8bf49426fe8514c178309a1d94f7696a562844a66c8"
+    },
+    {
+      "id": "metals-cod-9012002",
+      "title": "Straumanis, M. E. (1949), The precision determination of lattice constants by the powder and rotation crystal methods and applications Locality: synthetic Sample: at T = 25 C; Journal of Applied Physics 20, 726\u00e2\u20ac\u201c734; COD 9012002",
+      "url": "https://crystallography.net/cod/9012002.cif@264409",
+      "version": "COD revision 264409; original paper 1949",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1063/1.1698520",
+      "source_file": "sources/crystals/metals-9012002.cif",
+      "sha256": "5d636945f873b42085d74cd3a18b9d3f339921f0eb19413087f3fca3f4a87aaa"
+    },
+    {
+      "id": "metals-cod-9013035",
+      "title": "Suh, I.-K.; Ohta, H.; Waseda, Y. (1988), High-temperature thermal expansion of six metallic elements measured by dilatation method and X-ray diffraction Sample: at T = 293 K; Journal of Materials Science 23, 757\u00e2\u20ac\u201c760; COD 9013035",
+      "url": "https://crystallography.net/cod/9013035.cif@282067",
+      "version": "COD revision 282067; original paper 1988",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1007/BF01174717",
+      "source_file": "sources/crystals/metals-9013035.cif",
+      "sha256": "c70facf4cb6637ba4e1d4e170f321d71a7d87b86708724c8a6a4f9c2a447f971"
+    },
+    {
+      "id": "metals-cod-9011997",
+      "title": "Hom, T.; Kiszenick, W.; Post, B. (1975), Accurate lattice constants from multiple reflection mesurements II. lattice constants of germanium, silicon and diamond Sample: at T = 25 C; Journal of Applied Crystallography 8, 457\u00e2\u20ac\u201c458; COD 9011997",
+      "url": "https://crystallography.net/cod/9011997.cif@306922",
+      "version": "COD revision 306922; original paper 1975",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1107/S0021889875010965",
+      "source_file": "sources/crystals/metals-9011997.cif",
+      "sha256": "c934745353cf927f3cb7378282c353d87d0223635ccc06dfc4b31c5958510fea"
+    },
+    {
+      "id": "metals-cod-9013014",
+      "title": "Suh, I.-K.; Ohta, H.; Waseda, Y. (1988), High-temperature thermal expansion of six metallic elements measured by dilatation method and X-ray diffraction Sample: at T = 293 K; Journal of Materials Science 23, 757\u00e2\u20ac\u201c760; COD 9013014",
+      "url": "https://crystallography.net/cod/9013014.cif@291877",
+      "version": "COD revision 291877; original paper 1988",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1007/BF01174717",
+      "source_file": "sources/crystals/metals-9013014.cif",
+      "sha256": "1cd7adce2809c91ea2ce14796e5e81d543541daff89df434dee31f44284d29bd"
+    },
+    {
+      "id": "metals-cod-9006587",
+      "title": "Zhang, J.; Guyot, F. (1999), Thermal equation of iron and Fe0.91Si0.09 Sample: P = 0.0 GPa, T = 298 K, prior to experiment; Physics and Chemistry of Minerals 26, 206\u00e2\u20ac\u201c211; COD 9006587",
+      "url": "https://crystallography.net/cod/9006587.cif@291455",
+      "version": "COD revision 291455; original paper 1999",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1007/s002690050178",
+      "source_file": "sources/crystals/metals-9006587.cif",
+      "sha256": "ac50b132091e30b0deee68f281ec3a524878b9700e216fd988d6c0adf062bfdf"
+    },
+    {
+      "id": "metals-cod-9012706",
+      "title": "Basinski, Z. S.; Hume-Rothery W; Sutton, A. L. (1955), The lattice expansion of iron Sample: at T = 1189 K; Proceedings of the Royal Society of London A 229, 459\u00e2\u20ac\u201c467; COD 9012706",
+      "url": "https://crystallography.net/cod/9012706.cif@291877",
+      "version": "COD revision 291877; original paper 1955",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1098/rspa.1955.0102",
+      "source_file": "sources/crystals/metals-9012706.cif",
+      "sha256": "cb19ceaff0c9e8c0f595d34849d155612c53c45bfd18a0ed0890f4a2438fe882"
+    },
+    {
+      "id": "metals-cod-9012001",
+      "title": "Straumanis, M. E. (1949), The precision determination of lattice constants by the powder and rotation crystal methods and applications Sample: at T = 25 C; Journal of Applied Physics 20, 726\u00e2\u20ac\u201c734; COD 9012001",
+      "url": "https://crystallography.net/cod/9012001.cif@282053",
+      "version": "COD revision 282053; original paper 1949",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1063/1.1698520",
+      "source_file": "sources/crystals/metals-9012001.cif",
+      "sha256": "7e3c81cf33cf8ef315b9f2dc3537e9b4c4efa3c0653214936ee8c7576e1cea6b"
+    },
+    {
+      "id": "metals-cod-9013024",
+      "title": "Suh, I.-K.; Ohta, H.; Waseda, Y. (1988), High-temperature thermal expansion of six metallic elements measured by dilatation method and X-ray diffraction Sample: at T = 293 K; Journal of Materials Science 23, 757\u00e2\u20ac\u201c760; COD 9013024",
+      "url": "https://crystallography.net/cod/9013024.cif@291877",
+      "version": "COD revision 291877; original paper 1988",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1007/BF01174717",
+      "source_file": "sources/crystals/metals-9013024.cif",
+      "sha256": "082db6decdcb35e0e34dbd6945616a6ea3a03e8edeeb078e131243a8195d2492"
+    },
+    {
+      "id": "metals-cod-9011998",
+      "title": "Hom, T.; Kiszenick, W.; Post, B. (1975), Accurate lattice constants from multiple reflection mesurements II. lattice constants of germanium, silicon and diamond Sample: at T = 25 C; Journal of Applied Crystallography 8, 457\u00e2\u20ac\u201c458; COD 9011998",
+      "url": "https://crystallography.net/cod/9011998.cif@291877",
+      "version": "COD revision 291877; original paper 1975",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": "10.1107/S0021889875010965",
+      "source_file": "sources/crystals/metals-9011998.cif",
+      "sha256": "a980f4a864bbf3cbdc146be1440f28ca5b4fa5320631c3d341e94c635940e7a3"
+    },
+    {
+      "id": "metals-cod-9017383",
+      "title": "Fang, Q.; Bai, W.; Yang, J.; Rong, H.; Shi, N.; Li, G.; Xiong, M.; Ma, Z. (2013), Titanium, Ti, a new mineral species from Luobusha, Tibet, China; Acta Geologica Sinica 87, 1275\u00e2\u20ac\u201c1280; COD 9017383",
+      "url": "https://crystallography.net/cod/9017383.cif@292100",
+      "version": "COD revision 292100; original paper 2013",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD data and database dedicated to public domain under CC0; original authors acknowledged. https://www.crystallography.net/cod/",
+      "doi": null,
+      "source_file": "sources/crystals/metals-9017383.cif",
+      "sha256": "28d32caa2fbf5699e3ba7a263155bfc0ef84206c05861f2d12077570f6c5f169"
+    }
+  ],
+  "structures": [
+    {
+      "id": "metals-ag-9013045",
+      "name": "Silver, COD 9013045",
+      "formula": "Ag",
+      "phase": "fcc",
+      "crystal_system": "cubic",
+      "space_group_number": 225,
+      "space_group_symbol": "F m -3 m",
+      "cell_convention": "conventional cubic",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.086",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "4.086",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "4.086",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "293",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Ag",
+          "element": "Ag",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9013045",
+      "source_locator": "data_9013045; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": "X-ray diffraction (publication title)",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. "
+    },
+    {
+      "id": "metals-al-9012002",
+      "name": "Aluminum, COD 9012002",
+      "formula": "Al",
+      "phase": "fcc",
+      "crystal_system": "cubic",
+      "space_group_number": 225,
+      "space_group_symbol": "F m -3 m",
+      "cell_convention": "conventional cubic",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.04961",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "4.04961",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "4.04961",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "298.15",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Al",
+          "element": "Al",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9012002",
+      "source_locator": "data_9012002; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": null,
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. "
+    },
+    {
+      "id": "metals-au-9013035",
+      "name": "Gold, COD 9013035",
+      "formula": "Au",
+      "phase": "fcc",
+      "crystal_system": "cubic",
+      "space_group_number": 225,
+      "space_group_symbol": "F m -3 m",
+      "cell_convention": "conventional cubic",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.072",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "4.072",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "4.072",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "293",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Au",
+          "element": "Au",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9013035",
+      "source_locator": "data_9013035; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": "X-ray diffraction (publication title)",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. "
+    },
+    {
+      "id": "metals-c-9011997",
+      "name": "Diamond, COD 9011997",
+      "formula": "C",
+      "phase": "diamond",
+      "crystal_system": "cubic",
+      "space_group_number": 227,
+      "space_group_symbol": "F d -3 m :1",
+      "cell_convention": "conventional cubic",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 8,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.566986",
+          "unit": "angstrom",
+          "uncertainty": "0.000015"
+        },
+        "b": {
+          "value": "3.566986",
+          "unit": "angstrom",
+          "uncertainty": "0.000015"
+        },
+        "c": {
+          "value": "3.566986",
+          "unit": "angstrom",
+          "uncertainty": "0.000015"
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "298.15",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "C",
+          "element": "C",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9011997",
+      "source_locator": "data_9011997; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": null,
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. "
+    },
+    {
+      "id": "metals-cu-9013014",
+      "name": "Copper, COD 9013014",
+      "formula": "Cu",
+      "phase": "fcc",
+      "crystal_system": "cubic",
+      "space_group_number": 225,
+      "space_group_symbol": "F m -3 m",
+      "cell_convention": "conventional cubic",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.613",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "3.613",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "3.613",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "293",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Cu",
+          "element": "Cu",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9013014",
+      "source_locator": "data_9013014; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": "X-ray diffraction (publication title)",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. "
+    },
+    {
+      "id": "metals-fe-9006587",
+      "name": "Iron, COD 9006587",
+      "formula": "Fe",
+      "phase": "alpha (bcc)",
+      "crystal_system": "cubic",
+      "space_group_number": 229,
+      "space_group_symbol": "I m -3 m",
+      "cell_convention": "conventional cubic",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 2,
+      "lattice_parameters": {
+        "a": {
+          "value": "2.8654",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "2.8654",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "2.8654",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "298",
+      "pressure_pa": "0",
+      "sites": [
+        {
+          "label": "Fe",
+          "element": "Fe",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9006587",
+      "source_locator": "data_9006587; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": null,
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. "
+    },
+    {
+      "id": "metals-fe-9012706",
+      "name": "Iron, COD 9012706",
+      "formula": "Fe",
+      "phase": "gamma (fcc)",
+      "crystal_system": "cubic",
+      "space_group_number": 225,
+      "space_group_symbol": "F m -3 m",
+      "cell_convention": "conventional cubic",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.639",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "3.639",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "3.639",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "1189",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Fe",
+          "element": "Fe",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9012706",
+      "source_locator": "data_9012706; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": null,
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. "
+    },
+    {
+      "id": "metals-mg-9012001",
+      "name": "Magnesium, COD 9012001",
+      "formula": "Mg",
+      "phase": "hcp",
+      "crystal_system": "hexagonal",
+      "space_group_number": 194,
+      "space_group_symbol": "P 63/m m c",
+      "cell_convention": "conventional hexagonal",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 2,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.2093",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "3.2093",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "5.2103",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "298.15",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Mg",
+          "element": "Mg",
+          "x": "0.33333",
+          "y": "0.66667",
+          "z": "0.25000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9012001",
+      "source_locator": "data_9012001; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": null,
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. Source decimals 0.33333/0.66667 retained; not silently replaced by exact thirds. "
+    },
+    {
+      "id": "metals-ni-9013024",
+      "name": "Nickel, COD 9013024",
+      "formula": "Ni",
+      "phase": "fcc",
+      "crystal_system": "cubic",
+      "space_group_number": 225,
+      "space_group_symbol": "F m -3 m",
+      "cell_convention": "conventional cubic",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.524",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "3.524",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "3.524",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "293",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Ni",
+          "element": "Ni",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9013024",
+      "source_locator": "data_9013024; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": "X-ray diffraction (publication title)",
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. "
+    },
+    {
+      "id": "metals-si-9011998",
+      "name": "Silicon, COD 9011998",
+      "formula": "Si",
+      "phase": "diamond cubic",
+      "crystal_system": "cubic",
+      "space_group_number": 227,
+      "space_group_symbol": "F d -3 m :1",
+      "cell_convention": "conventional cubic",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 8,
+      "lattice_parameters": {
+        "a": {
+          "value": "5.430941",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "5.430941",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "5.430941",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "298.15",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Si",
+          "element": "Si",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9011998",
+      "source_locator": "data_9011998; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": null,
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. "
+    },
+    {
+      "id": "metals-ti-9017383",
+      "name": "Titanium, COD 9017383",
+      "formula": "Ti",
+      "phase": "alpha (hcp)",
+      "crystal_system": "hexagonal",
+      "space_group_number": 194,
+      "space_group_symbol": "P 63/m m c",
+      "cell_convention": "conventional hexagonal",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 2,
+      "lattice_parameters": {
+        "a": {
+          "value": "2.950",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "2.950",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "4.686",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Ti",
+          "element": "Ti",
+          "x": "0.33333",
+          "y": "0.66667",
+          "z": "0.25000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "metals-cod-9017383",
+      "source_locator": "data_9017383; _cell_length_*; _cell_angle_*; _atom_site_*; _diffrn_ambient_*; original publication citation in CIF",
+      "method": null,
+      "provenance_class": "measured",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Coordinates are source-native asymmetric-unit values, not an expanded full cell. Missing occupancy, Wyckoff label, multiplicity, uncertainty or pressure is not inferred. Source decimals 0.33333/0.66667 retained; not silently replaced by exact thirds. Natural mineral specimen from Luobusha ophiolite; not a certified pure-metal standard. Temperature unreported. "
+    }
+  ],
+  "gaps": [
+    {
+      "id": "metals-ti-hull-z-conflict",
+      "formula": "Ti",
+      "reason": "Excluded historical COD 9011600 (Hull 1921): CIF Z=4 and diffraction density8.820 conflict with its one-site hcp basis. Raw pinned CIF retained for review; no automatic correction.",
+      "source_file": "sources/crystals/metals-9011600.cif"
+    },
+    {
+      "id": "metals-ti-temperature",
+      "formula": "Ti",
+      "reason": "Natural alpha-Ti COD9017383 does not provide measurement temperature or pressure."
+    },
+    {
+      "id": "metals-site-metadata",
+      "reason": "Selected COD/AMCSD CIFs omit site occupancy, Wyckoff labels and multiplicities; source decimal coordinates retained. Symmetry operators available in raw CIFs; expansion requires reviewed handling of rounded special positions."
+    }
+  ]
+}

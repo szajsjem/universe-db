@@ -52,12 +52,23 @@ Each release contains:
 | `alloys.db` | Rebuilt alloy reference |
 | `elements.db` | Rebuilt elemental physical-property evidence, pending review |
 | `isotopes.db` | Full evaluated isotope evidence, pending review; source estimates flagged |
+| `crystals.db` | Sourced crystal phases, lattice parameters and sites, pending review |
+| `atomic.db` | Evaluated atomic/ionic electronic states and ionization energies, pending review |
+| `spectra.db` | Sourced spectral-line lists, pending review; medium and native intensities preserved |
+| `molecules.db` | Molecular graphs and source identity crosswalks, pending review |
 | `manifest.json` | Version, export time, base identity, file sizes, row counts, review progress, and SHA-256 digests |
 | `*.sha256` | Individual database checksums |
 | `README.txt` | Artifact and review-status guide |
+| `element-review-plan.json` | Source-pinned canonical admission proposals and mapping blockers |
+| `crystal-cell-audit.json` | Source-explicit symmetry expansion and cell-content validation |
+| `nuclear-normalized.json` | Conservative typed nuclear evidence and unsupported-syntax gaps |
 
 The ZIP has its own `.zip.sha256` checksum. The full Wikipedia dump and API
 credentials are not included.
+
+Review reports are included in the ZIP and fingerprinted in the manifest.
+They remain unverified review aids; generating a report does not approve
+scientific observations or replace missing source context.
 
 In the combined `universe.db`, reviewed core tables retain their existing
 names. Wikipedia candidates remain in `unverified_*` staging tables, with
@@ -70,6 +81,15 @@ Isotope research uses `unverified_isotope_`, preserving evaluation vintages,
 source-systematic estimates, nuclear states, and original uncertainty/qualifier
 text. Fitted isotope model JSON is generated separately; see
 [isotope approximation](isotope-approximation.md).
+Crystallographic research uses `unverified_crystal_`; source cell settings,
+isotope labels, incomplete metrics and asymmetric-unit sites remain explicit.
+See [crystal evidence](crystal-evidence.md).
+
+Additional references use `unverified_atomic_`, `unverified_spectral_` and
+`unverified_molecular_` namespaces. The exporter rebuilds their pinned source
+snapshots offline and includes them in both combined and unverified databases,
+as well as standalone reference files. Ionization-energy source qualifiers,
+line air/vacuum context and molecular isotope/stereo labels remain attached.
 
 For example:
 

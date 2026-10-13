@@ -1,0 +1,1078 @@
+{
+  "sources": [
+    {
+      "id": "ceramics-nist-z00631",
+      "title": "NIST SRD30 Z00631; Reeber, Goessel and Wang, Thermal Expansion and Molar Volume of MgO, Periclase, from 5K to2900K (1995)",
+      "url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00631",
+      "version": "SRD30 content last update2002; portal2015",
+      "retrieved_at": "2026-10-12",
+      "license_note": "Only independently transcribed factual numerical data are included; no publisher prose or figures redistributed. NIST SRD30 page attributes underlying journal article; page footer asserts copyright, so this is not a blanket public-domain claim."
+    },
+    {
+      "id": "ceramics-nist-z00623",
+      "title": "NIST SRD30 Z00623; Leszczynski et al., Thermal Expansion of Gallium Nitride (1994), sapphire reference specimen",
+      "url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00623",
+      "version": "SRD30 content last update2002; portal2015",
+      "retrieved_at": "2026-10-12",
+      "license_note": "Only independently transcribed factual numerical data are included; no publisher prose or figures redistributed. NIST SRD30 page attributes underlying journal article; page footer asserts copyright, so this is not a blanket public-domain claim."
+    },
+    {
+      "id": "ceramics-nist-z00390",
+      "title": "NIST SRD30 Z00390; Li and Bradt, Thermal Expansion of the Hexagonal (4H) Polytype of SiC (1986)",
+      "url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00390",
+      "version": "SRD30 content last update2002; portal2015",
+      "retrieved_at": "2026-10-12",
+      "license_note": "Only independently transcribed factual numerical data are included; no publisher prose or figures redistributed. NIST SRD30 page attributes underlying journal article; page footer asserts copyright, so this is not a blanket public-domain claim."
+    },
+    {
+      "id": "ceramics-nist-z00077",
+      "title": "NIST SRD30 Z00077; Li and Bradt, Thermal Expansion of the Hexagonal (6H) Polytype of Silicon Carbide (1986)",
+      "url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00077",
+      "version": "SRD30 content last update2002; portal2015",
+      "retrieved_at": "2026-10-12",
+      "license_note": "Only independently transcribed factual numerical data are included; no publisher prose or figures redistributed. NIST SRD30 page attributes underlying journal article; page footer asserts copyright, so this is not a blanket public-domain claim."
+    },
+    {
+      "id": "ceramics-nist-z00093",
+      "title": "NIST SRD30 Z00093; Engineering Properties of Carbides (1991)",
+      "url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00093",
+      "version": "SRD30 content last update2002; portal2015",
+      "retrieved_at": "2026-10-12",
+      "license_note": "Only independently transcribed factual numerical data are included; no publisher prose or figures redistributed. NIST SRD30 page attributes underlying journal article; page footer asserts copyright, so this is not a blanket public-domain claim."
+    },
+    {
+      "id": "ceramics-cod-1001238",
+      "title": "Billy et al., Modifications structurales du nitrure de silicium en fonction de la temperature (1983); DOI:10.1016/0025-5408(83)90003-X",
+      "url": "https://www.crystallography.net/cod/1001238.html",
+      "version": "COD revision130149",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD information card dedicates data and database to public domain under CC0; original paper attribution retained. Raw CIF, when available, preserves historical attribution notice."
+    },
+    {
+      "id": "ceramics-cod-2102550",
+      "title": "du Boulay et al., Synchrotron X-ray and ab initio studies of beta-Si3N4 (2004); DOI:10.1107/S010876810401393X",
+      "url": "https://www.crystallography.net/cod/2102550.html",
+      "version": "COD revision201912",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD information card dedicates data and database to public domain under CC0; original paper attribution retained. Raw CIF, when available, preserves historical attribution notice."
+    },
+    {
+      "id": "ceramics-cod-9015929",
+      "title": "Howard, Sabine and Dickson, Structural and thermal parameters for rutile and anatase (1991); DOI:10.1107/S010876819100335X",
+      "url": "https://www.crystallography.net/cod/9015929.html",
+      "version": "COD revision303136",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD information card dedicates data and database to public domain under CC0; original paper attribution retained. Raw CIF, when available, preserves historical attribution notice."
+    },
+    {
+      "id": "ceramics-cod-9016714",
+      "title": "Howard, Hill and Reichert, Structures of the ZrO2 polymorphs at room temperature by high-resolution neutron powder diffraction (1988); DOI:10.1107/S0108768187010279",
+      "url": "https://www.crystallography.net/cod/9016714.html",
+      "version": "COD revision303136",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD information card dedicates data and database to public domain under CC0; original paper attribution retained. Raw CIF, when available, preserves historical attribution notice."
+    },
+    {
+      "id": "ceramics-cod-9004141",
+      "title": "Meagher and Lager, Polyhedral thermal expansion in the TiO2 polymorphs (1979), Canadian Mineralogist17:77-85",
+      "url": "https://www.crystallography.net/cod/9004141.html",
+      "version": "COD revision291351",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD information card dedicates data and database to public domain under CC0; original paper attribution retained. Raw CIF preserves historical attribution notice."
+    },
+    {
+      "id": "ceramics-cod-1011031",
+      "title": "Burdick and Owen, The Atomic Structure of Carborundum Determined by X-Rays (1918); DOI10.1021/ja02245a001",
+      "url": "https://www.crystallography.net/cod/1011031.html",
+      "version": "COD revision130149",
+      "retrieved_at": "2026-10-12",
+      "license_note": "COD information card dedicates data and database to public domain under CC0; original paper attribution retained. Raw CIF preserves historical attribution notice."
+    }
+  ],
+  "structures": [
+    {
+      "id": "ceramics-mgo-298",
+      "name": "Periclase MgO lattice",
+      "formula": "MgO",
+      "phase": "periclase (rocksalt)",
+      "crystal_system": "cubic",
+      "space_group_number": null,
+      "space_group_symbol": null,
+      "cell_convention": "conventional cubic axes",
+      "site_convention": null,
+      "cell_formula_units": null,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.21154",
+          "unit": "angstrom",
+          "uncertainty": "0.00030"
+        }
+      },
+      "temperature_k": "298",
+      "pressure_pa": null,
+      "sites": [],
+      "source_id": "ceramics-nist-z00631",
+      "source_locator": "Material1; Crystal Cell Axes; 298K row",
+      "method": "X-ray diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Only independent axes are published in this table. Symmetry-implied b/angles are stored only in derived metadata; measured lattice rows contain the independent axes published in this source. Space group and atomic coordinates are not supplied; left absent. Pressure is unreported. Evaluated by NIST acceptance criteria. Annealing, oxygen fugacity, trace impurities and moisture affect lattice constant; reported sample99.95% MgO.",
+      "derived_lattice_parameters": {
+        "b": {
+          "value": "4.21154",
+          "unit": "angstrom",
+          "uncertainty": "0.00030"
+        },
+        "c": {
+          "value": "4.21154",
+          "unit": "angstrom",
+          "uncertainty": "0.00030"
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "derived_lattice_parameters_note": "Conventional symmetry constraints only; not published or independently measured. Excluded from measured lattice rows."
+    },
+    {
+      "id": "ceramics-alumina-294",
+      "name": "Sapphire alumina lattice",
+      "formula": "Al2O3",
+      "phase": "sapphire (corundum)",
+      "crystal_system": "trigonal",
+      "space_group_number": null,
+      "space_group_symbol": null,
+      "cell_convention": "conventional hexagonal axes",
+      "site_convention": null,
+      "cell_formula_units": null,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.7577",
+          "unit": "angstrom",
+          "uncertainty": "0.0001"
+        },
+        "c": {
+          "value": "12.9907",
+          "unit": "angstrom",
+          "uncertainty": "0.0001"
+        }
+      },
+      "temperature_k": "294",
+      "pressure_pa": null,
+      "sites": [],
+      "source_id": "ceramics-nist-z00623",
+      "source_locator": "Material3 bulk sapphire; Crystal Cell Axes; 294K row",
+      "method": "X-ray diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Only independent axes are published in this table. Symmetry-implied b/angles are stored only in derived metadata; measured lattice rows contain the independent axes published in this source. Space group and atomic coordinates are not supplied; left absent. Pressure is unreported. Reported standard deviations for both independent axes. Evaluated by NIST acceptance criteria; bulk reference sapphire, not GaN thin film.",
+      "derived_lattice_parameters": {
+        "b": {
+          "value": "4.7577",
+          "unit": "angstrom",
+          "uncertainty": "0.0001"
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "derived_lattice_parameters_note": "Conventional symmetry constraints only; not published or independently measured. Excluded from measured lattice rows."
+    },
+    {
+      "id": "ceramics-alumina-753",
+      "name": "Sapphire alumina lattice",
+      "formula": "Al2O3",
+      "phase": "sapphire (corundum)",
+      "crystal_system": "trigonal",
+      "space_group_number": null,
+      "space_group_symbol": null,
+      "cell_convention": "conventional hexagonal axes",
+      "site_convention": null,
+      "cell_formula_units": null,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.7713",
+          "unit": "angstrom",
+          "uncertainty": "0.0001"
+        },
+        "c": {
+          "value": "13.0291",
+          "unit": "angstrom",
+          "uncertainty": "0.0001"
+        }
+      },
+      "temperature_k": "753",
+      "pressure_pa": null,
+      "sites": [],
+      "source_id": "ceramics-nist-z00623",
+      "source_locator": "Material3 bulk sapphire; Crystal Cell Axes; 753K row",
+      "method": "X-ray diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Only independent axes are published in this table. Symmetry-implied b/angles are stored only in derived metadata; measured lattice rows contain the independent axes published in this source. Space group and atomic coordinates are not supplied; left absent. Pressure is unreported. Reported standard deviations for both independent axes. Evaluated by NIST acceptance criteria; bulk reference sapphire, not GaN thin film.",
+      "derived_lattice_parameters": {
+        "b": {
+          "value": "4.7713",
+          "unit": "angstrom",
+          "uncertainty": "0.0001"
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "derived_lattice_parameters_note": "Conventional symmetry constraints only; not published or independently measured. Excluded from measured lattice rows."
+    },
+    {
+      "id": "ceramics-sic-4h-293.15",
+      "name": "4H silicon carbide lattice",
+      "formula": "SiC",
+      "phase": "4H",
+      "crystal_system": "hexagonal",
+      "space_group_number": null,
+      "space_group_symbol": null,
+      "cell_convention": "conventional hexagonal axes",
+      "site_convention": null,
+      "cell_formula_units": null,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.0803",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "10.086",
+          "unit": "angstrom",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "293.15",
+      "pressure_pa": null,
+      "sites": [],
+      "source_id": "ceramics-nist-z00390",
+      "source_locator": "Material1; Crystal Cell Axes; 20degC row",
+      "method": "X-ray diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Only independent axes are published in this table. Symmetry-implied b/angles are stored only in derived metadata; measured lattice rows contain the independent axes published in this source. Space group and atomic coordinates are not supplied; left absent. Pressure is unreported. Temperature converted exactly from Celsius by+273.15. Predominantly4H sample includes<15%6H,<5%15R and metal impurities. Table values derive polynomial fits; equation residual standard deviations0.0003Angstrom(a),0.0011Angstrom(c) are not individual point uncertainties.",
+      "derived_lattice_parameters": {
+        "b": {
+          "value": "3.0803",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "derived_lattice_parameters_note": "Conventional symmetry constraints only; not published or independently measured. Excluded from measured lattice rows."
+    },
+    {
+      "id": "ceramics-sic-4h-1273.15",
+      "name": "4H silicon carbide lattice",
+      "formula": "SiC",
+      "phase": "4H",
+      "crystal_system": "hexagonal",
+      "space_group_number": null,
+      "space_group_symbol": null,
+      "cell_convention": "conventional hexagonal axes",
+      "site_convention": null,
+      "cell_formula_units": null,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.0938",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "10.126",
+          "unit": "angstrom",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "1273.15",
+      "pressure_pa": null,
+      "sites": [],
+      "source_id": "ceramics-nist-z00390",
+      "source_locator": "Material1; Crystal Cell Axes; 1000degC row",
+      "method": "X-ray diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Only independent axes are published in this table. Symmetry-implied b/angles are stored only in derived metadata; measured lattice rows contain the independent axes published in this source. Space group and atomic coordinates are not supplied; left absent. Pressure is unreported. Temperature converted exactly from Celsius by+273.15. Predominantly4H sample includes<15%6H,<5%15R and metal impurities. Table values derive polynomial fits; equation residual standard deviations0.0003Angstrom(a),0.0011Angstrom(c) are not individual point uncertainties.",
+      "derived_lattice_parameters": {
+        "b": {
+          "value": "3.0938",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "derived_lattice_parameters_note": "Conventional symmetry constraints only; not published or independently measured. Excluded from measured lattice rows."
+    },
+    {
+      "id": "ceramics-sic-6h-293.15",
+      "name": "6H silicon carbide lattice",
+      "formula": "SiC",
+      "phase": "6H",
+      "crystal_system": "hexagonal",
+      "space_group_number": null,
+      "space_group_symbol": null,
+      "cell_convention": "conventional hexagonal axes",
+      "site_convention": null,
+      "cell_formula_units": null,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.0815",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "15.117",
+          "unit": "angstrom",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "293.15",
+      "pressure_pa": null,
+      "sites": [],
+      "source_id": "ceramics-nist-z00077",
+      "source_locator": "Material1; Crystal Cell Axes; 20degC row",
+      "method": "X-ray diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Only independent axes are published in this table. Symmetry-implied b/angles are stored only in derived metadata; measured lattice rows contain the independent axes published in this source. Space group and atomic coordinates are not supplied; left absent. Pressure is unreported. Temperature converted exactly from Celsius by+273.15. Predominantly6H specimen contains a small4H fraction. NIST table parameters derived from reference equations1a/1b; helium atmosphere prevents oxidation/nitridation. No individual uncertainties reported.",
+      "derived_lattice_parameters": {
+        "b": {
+          "value": "3.0815",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "derived_lattice_parameters_note": "Conventional symmetry constraints only; not published or independently measured. Excluded from measured lattice rows."
+    },
+    {
+      "id": "ceramics-sic-6h-1373.15",
+      "name": "6H silicon carbide lattice",
+      "formula": "SiC",
+      "phase": "6H",
+      "crystal_system": "hexagonal",
+      "space_group_number": null,
+      "space_group_symbol": null,
+      "cell_convention": "conventional hexagonal axes",
+      "site_convention": null,
+      "cell_formula_units": null,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.0966",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "15.186",
+          "unit": "angstrom",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "1373.15",
+      "pressure_pa": null,
+      "sites": [],
+      "source_id": "ceramics-nist-z00077",
+      "source_locator": "Material1; Crystal Cell Axes; 1100degC row",
+      "method": "X-ray diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Only independent axes are published in this table. Symmetry-implied b/angles are stored only in derived metadata; measured lattice rows contain the independent axes published in this source. Space group and atomic coordinates are not supplied; left absent. Pressure is unreported. Temperature converted exactly from Celsius by+273.15. Predominantly6H specimen contains a small4H fraction. NIST table parameters derived from reference equations1a/1b; helium atmosphere prevents oxidation/nitridation. No individual uncertainties reported.",
+      "derived_lattice_parameters": {
+        "b": {
+          "value": "3.0966",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "derived_lattice_parameters_note": "Conventional symmetry constraints only; not published or independently measured. Excluded from measured lattice rows."
+    },
+    {
+      "id": "ceramics-sic-3c-typical",
+      "name": "3C silicon carbide typical lattice",
+      "formula": "SiC",
+      "phase": "3C",
+      "crystal_system": "cubic",
+      "space_group_number": null,
+      "space_group_symbol": null,
+      "cell_convention": "conventional cubic axes",
+      "site_convention": null,
+      "cell_formula_units": null,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.358",
+          "unit": "angstrom",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "296.15",
+      "pressure_pa": null,
+      "sites": [],
+      "source_id": "ceramics-nist-z00093",
+      "source_locator": "Material2; Crystal Cell Axes; designation3C,23degC",
+      "method": null,
+      "provenance_class": "curated",
+      "kind": "evaluated_reference",
+      "review_status": "pending_human_review",
+      "note": "Only independent axes are published in this table. Symmetry-implied b/angles are stored only in derived metadata; measured lattice rows contain the independent axes published in this source. Space group and atomic coordinates are not supplied; left absent. Pressure is unreported. NIST evaluation: typical values only, not necessarily measured. This record is a representative compilation and is not a substitute for experimental reference data.",
+      "derived_lattice_parameters": {
+        "b": {
+          "value": "4.358",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "4.358",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "derived_lattice_parameters_note": "Conventional symmetry constraints only; not published or independently measured. Excluded from measured lattice rows."
+    },
+    {
+      "id": "ceramics-si3n4-alpha",
+      "name": "Alpha silicon nitride",
+      "formula": "Si3N4",
+      "phase": "alpha",
+      "crystal_system": "trigonal",
+      "space_group_number": 159,
+      "space_group_symbol": "P 3 1 c",
+      "cell_convention": "conventional hexagonal axes",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "7.7523",
+          "unit": "angstrom",
+          "uncertainty": "0.0002"
+        },
+        "b": {
+          "value": "7.7523",
+          "unit": "angstrom",
+          "uncertainty": "0.0002"
+        },
+        "c": {
+          "value": "5.6198",
+          "unit": "angstrom",
+          "uncertainty": "0.0002"
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "N1",
+          "element": "N",
+          "x": "0",
+          "y": "0",
+          "z": "0.5",
+          "occupancy": "1",
+          "multiplicity": 2,
+          "wyckoff": "a"
+        },
+        {
+          "label": "N2",
+          "element": "N",
+          "x": "0.3333",
+          "y": "0.6667",
+          "z": "0.6351",
+          "occupancy": "1",
+          "multiplicity": 2,
+          "wyckoff": "b"
+        },
+        {
+          "label": "N3",
+          "element": "N",
+          "x": "0.6533",
+          "y": "0.6109",
+          "z": "0.4592",
+          "occupancy": "1",
+          "multiplicity": 6,
+          "wyckoff": "c"
+        },
+        {
+          "label": "N4",
+          "element": "N",
+          "x": "0.3169",
+          "y": "0.3198",
+          "z": "0.7288",
+          "occupancy": "1",
+          "multiplicity": 6,
+          "wyckoff": "c"
+        },
+        {
+          "label": "Si1",
+          "element": "Si",
+          "x": "0.0821",
+          "y": "0.5089",
+          "z": "0.6828",
+          "occupancy": "1",
+          "multiplicity": 6,
+          "wyckoff": "c"
+        },
+        {
+          "label": "Si2",
+          "element": "Si",
+          "x": "0.2563",
+          "y": "0.1712",
+          "z": "0.4726",
+          "occupancy": "1",
+          "multiplicity": 6,
+          "wyckoff": "c"
+        }
+      ],
+      "source_id": "ceramics-cod-1001238",
+      "source_locator": "sources/crystals/ceramics-cod-1001238.cif; _cell_* and _atom_site_*",
+      "method": null,
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Temperature and pressure absent from CIF; not inferred from paper title. Trigonal space group159 in conventional hexagonal axes. Fractional sites are asymmetric unit representatives, not28 full-cell atoms."
+    },
+    {
+      "id": "ceramics-si3n4-beta",
+      "name": "Beta silicon nitride",
+      "formula": "Si3N4",
+      "phase": "beta",
+      "crystal_system": "hexagonal",
+      "space_group_number": 176,
+      "space_group_symbol": "P 63/m",
+      "cell_convention": "conventional hexagonal axes",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": null,
+      "lattice_parameters": {
+        "a": {
+          "value": "7.60440",
+          "unit": "angstrom",
+          "uncertainty": "0.00010"
+        },
+        "b": {
+          "value": "7.60440",
+          "unit": "angstrom",
+          "uncertainty": "0.00010"
+        },
+        "c": {
+          "value": "2.90630",
+          "unit": "angstrom",
+          "uncertainty": "0.00010"
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "120",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "295",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Si",
+          "element": "Si",
+          "x": "0.768477",
+          "y": "0.174557",
+          "z": "0.25000",
+          "occupancy": "1.00000",
+          "multiplicity": null,
+          "wyckoff": null
+        },
+        {
+          "label": "N1",
+          "element": "N",
+          "x": "0.03050",
+          "y": "0.33024",
+          "z": "0.25000",
+          "occupancy": "1.00000",
+          "multiplicity": null,
+          "wyckoff": null
+        },
+        {
+          "label": "N2",
+          "element": "N",
+          "x": "0.66666",
+          "y": "0.33333",
+          "z": "0.25000",
+          "occupancy": "1.00000",
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "ceramics-cod-2102550",
+      "source_locator": "sources/crystals/ceramics-cod-2102550.cif; _cell_* and _atom_site_*",
+      "method": "Synchrotron single-crystal X-ray diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Raw CIF Z=1.5 conflicts with COD card Z=2; cell_formula_units left unknown pending review. Sites are asymmetric, multiplicities not supplied. Coordinate standard uncertainties retained in rawCIF: Si x0.000016,y0.000015; N1 x/y0.00004. Experimental P63/m refinement, distinct from calculated geometries in paper. Pressure unreported."
+    },
+    {
+      "id": "ceramics-tio2-anatase",
+      "name": "Anatase titanium dioxide",
+      "formula": "TiO2",
+      "phase": "anatase",
+      "crystal_system": "tetragonal",
+      "space_group_number": 141,
+      "space_group_symbol": "I 41/a m d :1",
+      "cell_convention": "conventional tetragonal axes",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "3.7845",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "3.7845",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "9.5143",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Ti",
+          "element": "Ti",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        },
+        {
+          "label": "O",
+          "element": "O",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.20806",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "ceramics-cod-9015929",
+      "source_locator": "sources/crystals/ceramics-cod-9015929.cif; _cell_* and _atom_site_*",
+      "method": null,
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Origin choice1 retained exactly. Temperature, occupancy and multiplicity absent from CIF; not inferred. Asymmetric sites do not constitute a full-cell atom list."
+    },
+    {
+      "id": "ceramics-zro2-monoclinic",
+      "name": "Baddeleyite zirconium dioxide",
+      "formula": "ZrO2",
+      "phase": "monoclinic baddeleyite",
+      "crystal_system": "monoclinic",
+      "space_group_number": 14,
+      "space_group_symbol": "P 1 21/c 1",
+      "cell_convention": "conventional unique-b cell",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "5.1505",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "5.2116",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "5.3173",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "99.23",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Zr",
+          "element": "Zr",
+          "x": "0.27540",
+          "y": "0.03950",
+          "z": "0.20830",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        },
+        {
+          "label": "O1",
+          "element": "O",
+          "x": "0.07000",
+          "y": "0.33170",
+          "z": "0.34470",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        },
+        {
+          "label": "O2",
+          "element": "O",
+          "x": "0.44960",
+          "y": "0.75690",
+          "z": "0.47920",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "ceramics-cod-9016714",
+      "source_locator": "sources/crystals/ceramics-cod-9016714.cif; _cell_* and _atom_site_*",
+      "method": "High-resolution neutron powder diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Room temperature is stated in original paper title but no numeric kelvin temperature supplied; left null. Not interchangeable with tetragonal/cubic stabilized zirconia. Fractional coordinates asymmetric; occupancies/multiplicities not reported in CIF."
+    },
+    {
+      "id": "ceramics-tio2-rutile",
+      "name": "Rutile titanium dioxide",
+      "formula": "TiO2",
+      "phase": "rutile",
+      "crystal_system": "tetragonal",
+      "space_group_number": 136,
+      "space_group_symbol": "P 42/m n m",
+      "cell_convention": "conventional tetragonal axes",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 2,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.593",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "4.593",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "2.959",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": "298.15",
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Ti",
+          "element": "Ti",
+          "x": "0.00000",
+          "y": "0.00000",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        },
+        {
+          "label": "O",
+          "element": "O",
+          "x": "0.30510",
+          "y": "0.30510",
+          "z": "0.00000",
+          "occupancy": null,
+          "multiplicity": null,
+          "wyckoff": null
+        }
+      ],
+      "source_id": "ceramics-cod-9004141",
+      "source_locator": "sources/crystals/ceramics-cod-9004141.cif; _cell_* and _atom_site_*; sample25degC in _publ_section_title",
+      "method": null,
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Temperature converted exactly from explicit25degC sample title. Atomic occupancies and multiplicities not supplied. Asymmetric sites; no full-cell expansion. Individual lattice uncertainties absent."
+    },
+    {
+      "id": "ceramics-sic-3c-experimental",
+      "name": "3C silicon carbide (1918 X-ray determination)",
+      "formula": "SiC",
+      "phase": "3C",
+      "crystal_system": "cubic",
+      "space_group_number": 216,
+      "space_group_symbol": "F -4 3 m",
+      "cell_convention": "conventional cubic axes",
+      "site_convention": "asymmetric_unit",
+      "cell_formula_units": 4,
+      "lattice_parameters": {
+        "a": {
+          "value": "4.358",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "b": {
+          "value": "4.358",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "c": {
+          "value": "4.358",
+          "unit": "angstrom",
+          "uncertainty": null
+        },
+        "alpha": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "beta": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        },
+        "gamma": {
+          "value": "90",
+          "unit": "deg",
+          "uncertainty": null
+        }
+      },
+      "temperature_k": null,
+      "pressure_pa": null,
+      "sites": [
+        {
+          "label": "Si1",
+          "element": "Si",
+          "x": "0",
+          "y": "0",
+          "z": "0",
+          "occupancy": "1",
+          "multiplicity": 4,
+          "wyckoff": "a"
+        },
+        {
+          "label": "C1",
+          "element": "C",
+          "x": "0.25",
+          "y": "0.25",
+          "z": "0.25",
+          "occupancy": "1",
+          "multiplicity": 4,
+          "wyckoff": "c"
+        }
+      ],
+      "source_id": "ceramics-cod-1011031",
+      "source_locator": "sources/crystals/ceramics-cod-1011031.cif; _cell_* and _atom_site_*",
+      "method": "X-ray diffraction",
+      "provenance_class": "curated",
+      "kind": "experimental",
+      "review_status": "pending_human_review",
+      "note": "Historical experimental determination; temperature, pressure and parameter uncertainties absent. Distinct from typical compiled3C values. Fractional sites asymmetric unit; multiplicities4+4 provide8-atom conventional cell. Modern precision/stress/temperature requirements need a newer dataset."
+    }
+  ],
+  "gaps": [
+    {
+      "subject": "NaCl",
+      "reason": "Rocksalt coordinates/lattice evidence not acquired in this bounded pass; avoid ideal coordinates labeled experimental."
+    },
+    {
+      "subject": "ZrO2 tetragonal/cubic",
+      "reason": "Available room-temperature datasets are doped/stabilized zirconia; do not mislabel as pure ZrO2. Need matched composition and source."
+    },
+    {
+      "subject": "ceramic cell sites",
+      "reason": "NIST lattice tables lack atomic coordinates and space groups; crystal geometry alone cannot infer them."
+    },
+    {
+      "subject": "beta-Si3N4 Z",
+      "reason": "Raw COD2102550 CIF reportsZ1.5 whereas COD card reportsZ2; not silently corrected."
+    }
+  ]
+}

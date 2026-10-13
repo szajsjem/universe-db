@@ -1,0 +1,15 @@
+{
+  "source_id": "nist-asd-5.12-ionization",
+  "title": "NIST Atomic Spectra Database, ground states and ionization energies",
+  "url": "https://physics.nist.gov/cgi-bin/ASD/ie.pl?spectra=H-Ds&units=1&format=2&at_num_out=on&sp_name_out=on&ion_charge_out=on&el_name_out=on&seq_out=on&shells_out=on&conf_out=on&level_out=on&e_out=0&unc_out=on&biblio=on",
+  "version": "5.12 (2024)",
+  "doi": "10.18434/T4W30F",
+  "retrieved_at": "2026-10-13T20:26:56.447214+00:00",
+  "license_note": "Only factual numerical data and scientific identity labels from the US government NIST database are represented; no publisher prose or article content is redistributed. NIST standard reference data citation retained.",
+  "citation": "Kramida, A., Ralchenko, Yu., Reader, J., and NIST ASD Team (2024), NIST Atomic Spectra Database (ver. 5.12), DOI 10.18434/T4W30F.",
+  "file": "nist-asd-ionization.csv",
+  "sha256": "2b7b9f2fd1c38be09452b6650b33e35c1015fcbf91717d64c471314316be64d3",
+  "help_url": "https://physics.nist.gov/PhysRefData/ASD/Html/iehelp.html",
+  "scope": "H-Ds, all available ionization stages; isotope-unspecified entries only",
+  "unit": "eV"
+}
