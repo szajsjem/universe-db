@@ -7,6 +7,10 @@ formula/atom counts and existing candidate links, and imported them into
 [DATA_POLICY.md](../DATA_POLICY.md); neither parallel agents nor database
 integrity checks constitute scientific promotion.
 
+The [second batch](manual-mod-chemistry-batch2.md) adds another 18 targets and
+52 cited facts. Totals across both batches are 36 targets, 100 textual facts
+and 36 structured identity records; the counts below describe batch 1 only.
+
 ## Coverage
 
 | Slice | Compounds | Potential mod use |
@@ -91,8 +95,9 @@ The loader checks that the input companion's reviewed-base SHA-256 matches the
 current checked-in `universe.db`. Numeric formula counts use integers; simple
 parenthesized groups are supported, while isotope/complex/hydrate notation is
 outside this authoring format. Candidate links require matching composition
-when a candidate has a formula, and matching charge when recorded. No reviewed
-entity is linked solely because a name looks similar.
+when a candidate has a formula, and matching charge when recorded. Any reused reviewed species ID must match its composition and charge; IDs
+owned by another entity kind are rejected. No reviewed entity is linked solely
+because a name looks similar.
 
 Read the identity/engineering facts with their primary citations:
 

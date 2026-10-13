@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-13",
+  "scope": "thermal-ceramics-batch2",
+  "entries": [
+    {
+      "id": "chem:aluminum_oxide",
+      "name": "Aluminum oxide",
+      "formula": "Al2O3",
+      "composition": {
+        "Al": 2,
+        "O": 3
+      },
+      "aliases": [
+        "Aluminium oxide",
+        "Alumina"
+      ],
+      "usefulness": "Proposed ICM/Orbital Engineering role: ceramic insulation, electronics substrates and wear-resistant components. An engineered ceramic grade or a specific crystal polymorph needs a separate material identity; no operating limit or crafting recipe is implied.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "Al2O3",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/alumina/",
+              "title": "CoorsTek: Alumina; current undated manufacturer material-family page",
+              "supporting_text": "The family overview identifies aluminum oxide as Al2O3 and describes electrical-insulator and electronic-substrate uses. Commercial alumina grades have different compositions; no grade table values are represented.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "electrical_insulation_use",
+          "value": "Alumina-based ceramics are used as electrical insulators; the cited manufacturer offers several distinct ceramic compositions rather than one universal pure-compound grade.",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/alumina/",
+              "title": "CoorsTek: Alumina; current undated manufacturer material-family page",
+              "supporting_text": "The family overview identifies aluminum oxide as Al2O3 and describes electrical-insulator and electronic-substrate uses. Commercial alumina grades have different compositions; no grade table values are represented.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "electronic_substrate_use",
+          "value": "Alumina ceramics are used for electronic circuit substrates and aerospace electronic substrates; composition and microstructure are selected for the application.",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/alumina/",
+              "title": "CoorsTek: Alumina; current undated manufacturer material-family page",
+              "supporting_text": "The family overview identifies aluminum oxide as Al2O3 and describes electrical-insulator and electronic-substrate uses. Commercial alumina grades have different compositions; no grade table values are represented.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "kind": "formula_unit",
+      "charge": 0,
+      "existing_candidate_ids": [
+        "e0284f9d-18bf-46e7-bf72-5295a99b2b39",
+        "2a0265e3-1b76-4918-8520-23150d49dbf7",
+        "abdc51ff-025b-464b-8c2b-b23163e63db1",
+        "107a6d28-a045-4e82-bf79-9deef866193e",
+        "df900eac-6e09-4b11-b6c8-c72a2938e156",
+        "ae6662dc-7e96-4c55-913a-880f508e275d",
+        "98f101e4-6a16-413e-add9-1a0b2ba64c6e",
+        "1c4c99b5-cf6b-4331-a008-99d3f80008ec",
+        "9f969ff6-22b5-4eac-a61f-35dfd2a9fd6e",
+        "3b832a43-e5b2-488d-8c6f-ca7d3cd74781",
+        "aeee00fe-cd98-4f8a-adf8-e548edbdd222",
+        "d6727651-aa54-4ad0-ae08-0997f19e9dfe"
+      ]
+    },
+    {
+      "id": "chem:boron_nitride",
+      "name": "Boron nitride",
+      "formula": "BN",
+      "composition": {
+        "B": 1,
+        "N": 1
+      },
+      "aliases": [],
+      "usefulness": "Proposed mod role: a separately modeled hexagonal-BN material for electrically insulating thermal management and molten-metal processing components. Generic BN stoichiometry does not identify a crystal phase; cubic BN must remain distinct.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "BN",
+          "sources": [
+            {
+              "url": "https://janaf.nist.gov/tables/B-index.html",
+              "title": "NIST-JANAF Thermochemical Tables: Boron index; Fourth Edition (1998), online index",
+              "supporting_text": "The index lists crystalline boron nitride with formula BN and CAS 10043-11-5. Only factual identity is retained, without thermochemical tables or gas-state properties.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "hexagonal_bn_thermal_management_use",
+          "value": "For hexagonal boron nitride, the manufacturer describes thermal conduction with electrical insulation and use as a heat-dissipation filler in polymers. Filled polymers remain separate composite materials.",
+          "sources": [
+            {
+              "url": "https://www.bn.saint-gobain.com/",
+              "title": "Saint-Gobain Boron Nitride: About Boron Nitride; current undated manufacturer page",
+              "supporting_text": "The page identifies the manufacturer material as hexagonal BN and describes electrical insulation with thermal conduction, use as heat-dissipation filler in polymers, and use in high-temperature and molten-metal processes. The scope is hexagonal BN, not cubic BN or a pure-polymer identity.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "hexagonal_bn_molten_metal_use",
+          "value": "The manufacturer describes solid hexagonal-boron-nitride materials for high-temperature and molten-metal processing; this is an application lead rather than a universal service-temperature or corrosion limit.",
+          "sources": [
+            {
+              "url": "https://www.bn.saint-gobain.com/",
+              "title": "Saint-Gobain Boron Nitride: About Boron Nitride; current undated manufacturer page",
+              "supporting_text": "The page identifies the manufacturer material as hexagonal BN and describes electrical insulation with thermal conduction, use as heat-dissipation filler in polymers, and use in high-temperature and molten-metal processes. The scope is hexagonal BN, not cubic BN or a pure-polymer identity.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "kind": "formula_unit",
+      "charge": 0,
+      "existing_candidate_ids": [
+        "61d68e9c-5bdc-4eaa-8470-b8a7a29e71f7",
+        "65d1a92b-66f8-4852-8110-f75ef7328364"
+      ]
+    },
+    {
+      "id": "chem:silicon_carbide",
+      "name": "Silicon carbide",
+      "formula": "SiC",
+      "composition": {
+        "Si": 1,
+        "C": 1
+      },
+      "aliases": [],
+      "usefulness": "Proposed mod role: abrasive-processing consumable and a ceramic component feedstock. Crystal polytypes, silicon-infiltrated ceramics and graphite-containing formulations need distinct runtime material records.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "SiC",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/silicon-carbide/",
+              "title": "CoorsTek: Silicon Carbide; current undated manufacturer material-family page",
+              "supporting_text": "The family page identifies SiC and explains that reaction-bonded silicon carbide includes infiltrated silicon metal. No mixed-grade performance values are assigned to the formula-defined compound.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "abrasive_powder_use",
+          "value": "Silicon carbide powder is used as a loose abrasive for lapping, grinding and polishing.",
+          "sources": [
+            {
+              "url": "https://www.metallographic.com/metallographic-consumables/grinding/belts-rolls-powders",
+              "title": "PACE Technologies: Abrasive Belts, Rolls, and Powders; current undated manufacturer page",
+              "supporting_text": "The manufacturer identifies silicon carbide as SiC and supplies loose silicon-carbide abrasive powder for lapping, grinding and polishing. No abrasive-belt composite or grit value is assigned to neat SiC.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "reaction_bonded_material_boundary",
+          "value": "Reaction-bonded silicon carbide is a silicon-metal-infiltrated ceramic; its formulated material properties must not be assigned to pure SiC.",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/silicon-carbide/",
+              "title": "CoorsTek: Silicon Carbide; current undated manufacturer material-family page",
+              "supporting_text": "The family page identifies SiC and explains that reaction-bonded silicon carbide includes infiltrated silicon metal. No mixed-grade performance values are assigned to the formula-defined compound.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "kind": "formula_unit",
+      "charge": 0,
+      "existing_candidate_ids": [
+        "3a3cf02f-8800-40d3-89cb-be86f24c6815",
+        "d9fdabf4-9615-48f0-8817-2c054ad3a321",
+        "4c527a29-1f18-4ba5-ae1a-86b105b87b4a",
+        "ab00e32f-412b-4d33-ace7-d29db4f98b95",
+        "0640489c-04f3-4120-b6d8-bd406f1e8cdf"
+      ]
+    },
+    {
+      "id": "chem:zirconium_dioxide",
+      "name": "Zirconium dioxide",
+      "formula": "ZrO2",
+      "composition": {
+        "Zr": 1,
+        "O": 2
+      },
+      "aliases": [
+        "Zirconia",
+        "Zirconium(IV) oxide"
+      ],
+      "usefulness": "Proposed mod role: feedstock for separately identified stabilized ceramics, severe-service valves or oxygen-transport membranes. Stabilizer chemistry and crystal phase must be represented before assigning a performance benefit.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "ZrO2",
+          "sources": [
+            {
+              "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=1314-23-4&Units=SI",
+              "title": "NIST Chemistry WebBook, SRD 69: zirconium dioxide; current online identity page",
+              "supporting_text": "The zirconium dioxide identity gives O2Zr and CAS 1314-23-4, corresponding to ZrO2. This is not the zirconium monoxide page, which has formula OZr.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "stabilized_zirconia_material_boundary",
+          "value": "Magnesia-partially-stabilized and yttria-partially-stabilized zirconia are separately formulated ceramics used in demanding machinery applications; neither is identical to pure unstabilized ZrO2.",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/zirconia/",
+              "title": "CoorsTek: Zirconia; current undated manufacturer material-family page",
+              "supporting_text": "The manufacturer separately describes magnesia-partially-stabilized and yttria-partially-stabilized zirconia, and oxygen-ion transport in fully stabilized zirconia. Those formulated ceramics are distinct from pure unstabilized ZrO2.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "fully_stabilized_zirconia_membrane_lead",
+          "value": "The manufacturer describes oxygen-ion transport and active-membrane applications for fully stabilized zirconia. This does not establish oxygen-ion transport performance for pure unstabilized ZrO2.",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/zirconia/",
+              "title": "CoorsTek: Zirconia; current undated manufacturer material-family page",
+              "supporting_text": "The manufacturer separately describes magnesia-partially-stabilized and yttria-partially-stabilized zirconia, and oxygen-ion transport in fully stabilized zirconia. Those formulated ceramics are distinct from pure unstabilized ZrO2.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "kind": "formula_unit",
+      "charge": 0,
+      "existing_candidate_ids": [
+        "406e2b4f-7178-4b3a-97be-1fb3b0f4040b",
+        "b5623192-dd41-4044-9fad-7c9127744791",
+        "27a25c16-fc8e-4d5b-ba65-bf4c22258f46",
+        "be9d0d35-a3a5-47de-ad1c-b8155b556b9f"
+      ]
+    },
+    {
+      "id": "chem:magnesium_oxide",
+      "name": "Magnesium oxide",
+      "formula": "MgO",
+      "composition": {
+        "Mg": 1,
+        "O": 1
+      },
+      "aliases": [
+        "Magnesia"
+      ],
+      "usefulness": "Proposed mod role: refractory and mineral-insulated heating/sensor components. Engineered porosity and ceramic grade remain separately modeled; no furnace temperature, electrical resistivity or planet deposit is assigned.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "MgO",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/magnesia/",
+              "title": "CoorsTek: Magnesia; current undated manufacturer material-family page",
+              "supporting_text": "The overview identifies magnesia as MgO and lists thermal engineering, heating elements and refractories, including crushable tubes for mineral-insulated thermoelectric couples, instrument leads and heating conductors.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "thermal_engineering_use",
+          "value": "Magnesia ceramics are used in thermal engineering, heating elements and refractory applications.",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/magnesia/",
+              "title": "CoorsTek: Magnesia; current undated manufacturer material-family page",
+              "supporting_text": "The overview identifies magnesia as MgO and lists thermal engineering, heating elements and refractories, including crushable tubes for mineral-insulated thermoelectric couples, instrument leads and heating conductors.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "mineral_insulated_component_use",
+          "value": "Magnesia is used in crushable tubes for mineral-insulated thermoelectric couples, instrument leads and heating conductors.",
+          "sources": [
+            {
+              "url": "https://www2.coorstek.com/en/materials/magnesia/",
+              "title": "CoorsTek: Magnesia; current undated manufacturer material-family page",
+              "supporting_text": "The overview identifies magnesia as MgO and lists thermal engineering, heating elements and refractories, including crushable tubes for mineral-insulated thermoelectric couples, instrument leads and heating conductors.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "kind": "formula_unit",
+      "charge": 0,
+      "existing_candidate_ids": [
+        "2de48df4-1660-430d-8b43-d914572541c8",
+        "28ac2c6b-9eab-4570-94e7-a797f8d6628d",
+        "a23157bd-1452-4136-9ec8-029aa2c2face",
+        "260de2fb-ca83-47b2-a292-f9a6731a0f28",
+        "7ced4e95-915e-4309-b566-14d9204e95db",
+        "68f6c82e-5dbe-40cf-a9f5-b2e74b1a197c"
+      ]
+    },
+    {
+      "id": "chem:lithium_fluoride",
+      "name": "Lithium fluoride",
+      "formula": "LiF",
+      "composition": {
+        "Li": 1,
+        "F": 1
+      },
+      "aliases": [
+        "Lithium monofluoride"
+      ],
+      "usefulness": "Proposed mod role: optical-component feedstock and a component in separately modeled molten-salt coolant mixtures. No nuclear recipe, lithium isotope enrichment, dosimeter dopant, molten-mixture property or coolant capacity is inferred.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "LiF",
+          "sources": [
+            {
+              "url": "https://www.fishersci.com/shop/products/lithium-fluoride-optical-grade-99-5-thermo-scientific/AA1405606",
+              "title": "Thermo Scientific Chemicals / Fisher Scientific: Lithium fluoride, Optical Grade, product 14056",
+              "supporting_text": "The product identity gives FLi (equivalent to LiF), CAS 7789-24-4 and ionic SMILES. The application description lists specialized ultraviolet optics, X-ray spectrometry crystals and molten-salt-component use. No doped dosimeter identity, isotope-specific composition or mixture property is inferred.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "specialized_optics_use",
+          "value": "Optical-grade lithium fluoride is used in specialized ultraviolet optics and as a crystal in X-ray spectrometry.",
+          "sources": [
+            {
+              "url": "https://www.fishersci.com/shop/products/lithium-fluoride-optical-grade-99-5-thermo-scientific/AA1405606",
+              "title": "Thermo Scientific Chemicals / Fisher Scientific: Lithium fluoride, Optical Grade, product 14056",
+              "supporting_text": "The product identity gives FLi (equivalent to LiF), CAS 7789-24-4 and ionic SMILES. The application description lists specialized ultraviolet optics, X-ray spectrometry crystals and molten-salt-component use. No doped dosimeter identity, isotope-specific composition or mixture property is inferred.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "molten_salt_component_use",
+          "value": "Lithium fluoride is used as a molten-salt component. This does not identify a complete mixture or establish its composition, operating range or heat-transfer performance.",
+          "sources": [
+            {
+              "url": "https://www.fishersci.com/shop/products/lithium-fluoride-optical-grade-99-5-thermo-scientific/AA1405606",
+              "title": "Thermo Scientific Chemicals / Fisher Scientific: Lithium fluoride, Optical Grade, product 14056",
+              "supporting_text": "The product identity gives FLi (equivalent to LiF), CAS 7789-24-4 and ionic SMILES. The application description lists specialized ultraviolet optics, X-ray spectrometry crystals and molten-salt-component use. No doped dosimeter identity, isotope-specific composition or mixture property is inferred.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "kind": "formula_unit",
+      "charge": 0,
+      "existing_candidate_ids": [
+        "ebfc46a4-753c-40f5-b3fe-20943fb892b2"
+      ]
+    }
+  ]
+}

@@ -95,6 +95,22 @@ def load_slice(path: Path, db: sqlite3.Connection) -> dict:
             raise ValueError(f"Invalid elemental composition: {identity}")
         if formula_composition(entry["formula"]) != composition:
             raise ValueError(f"Formula/composition disagreement: {identity}")
+        existing = db.execute(
+            "SELECT formula, electric_charge FROM chemical_species WHERE entity_id = ?",
+            (identity,),
+        ).fetchone()
+        if existing is not None:
+            if (
+                formula_composition(existing[0]) != composition
+                or existing[1] != entry["charge"]
+            ):
+                raise ValueError(f"Reviewed species identity disagreement: {identity}")
+        elif db.execute(
+            "SELECT 1 FROM entity WHERE entity_id = ?", (identity,)
+        ).fetchone():
+            raise ValueError(
+                f"Proposed compound ID belongs to another entity: {identity}"
+            )
         if not entry["name"] or not entry["usefulness"]:
             raise ValueError(f"Missing identity or proposed usefulness: {identity}")
         for candidate in entry.get("existing_candidate_ids", []):

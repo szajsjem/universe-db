@@ -101,3 +101,10 @@ coverage report.
 - [ ] Independently review source, classification, aliases, conditions and
   redistribution basis before reviewed promotion or mod-catalog integration.
   See `docs/manual-mod-chemistry.md`.
+
+- [x] Add a second manual research batch: 18 other compounds / 52 sourced facts
+  for refining, batteries and thermal materials; retain hydrate, polymorph,
+  composite and modeled-evidence boundaries. See
+  `docs/manual-mod-chemistry-batch2.md`.
+- [x] Reject reused reviewed compound IDs with mismatching formula/charge or
+  another entity kind during manual import (source implementation).
