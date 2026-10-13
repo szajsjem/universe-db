@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-13",
+  "scope": "planet-life-support",
+  "entries": [
+    {
+      "id": "chem:lithium_hydroxide",
+      "name": "lithium hydroxide",
+      "formula": "LiOH",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Li": 1,
+        "O": 1,
+        "H": 1
+      },
+      "aliases": [],
+      "usefulness": "Candidate consumable cabin or suit CO2 scrubber reagent; a distinct consumable loop alongside regenerable sorbents, without invented removal capacity.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "LiOH",
+          "sources": [
+            {
+              "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
+              "title": "NASA OCHMO-TB-004 Carbon Dioxide, existing technology",
+              "supporting_text": "NASA identifies LiOH canisters as carbon-dioxide-removal equipment and describes carbonate and water products and single-use canisters.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "carbon_dioxide_scrubbing",
+          "value": "Spacecraft LiOH canisters remove carbon dioxide by an exothermic reaction producing lithium carbonate and water.",
+          "sources": [
+            {
+              "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
+              "title": "NASA OCHMO-TB-004 Carbon Dioxide, existing technology",
+              "supporting_text": "NASA identifies LiOH canisters as carbon-dioxide-removal equipment and describes carbonate and water products and single-use canisters.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "scrubber_regeneration",
+          "value": "NASA describes the LiOH canisters in this system as nonregenerated and single-use.",
+          "sources": [
+            {
+              "url": "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/",
+              "title": "NASA OCHMO-TB-004 Carbon Dioxide, existing technology",
+              "supporting_text": "NASA identifies LiOH canisters as carbon-dioxide-removal equipment and describes carbonate and water products and single-use canisters.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    },
+    {
+      "id": "chem:calcium_hydroxide",
+      "name": "calcium hydroxide",
+      "formula": "Ca(OH)2",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Ca": 1,
+        "O": 2,
+        "H": 2
+      },
+      "aliases": [],
+      "usefulness": "Extend the existing species with water-recycling and purification relevance; no new lime identity or claim about planet deposits.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "Ca(OH)2",
+          "sources": [
+            {
+              "url": "https://www.epa.gov/sites/production/files/2017-03/documents/wtp_model_v._2.0_manual_508.pdf",
+              "title": "EPA Water Treatment Plant Model Version 2.0 User Manual, May 18 2001, sections 5.4.10\u20135.4.11",
+              "supporting_text": "The manual gives Ca(OH)2 and Na2CO3 formulas and explains that lime and soda ash increase water-treatment pH and alkalinity.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "water_treatment_ph_alkalinity",
+          "value": "Calcium hydroxide is added to increase pH and alkalinity in drinking-water treatment.",
+          "sources": [
+            {
+              "url": "https://www.epa.gov/sites/production/files/2017-03/documents/wtp_model_v._2.0_manual_508.pdf",
+              "title": "EPA Water Treatment Plant Model Version 2.0 User Manual, May 18 2001, sections 5.4.10\u20135.4.11",
+              "supporting_text": "The manual gives Ca(OH)2 and Na2CO3 formulas and explains that lime and soda ash increase water-treatment pH and alkalinity.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "precipitative_water_softening",
+          "value": "Lime softening uses calcium hydroxide to raise water pH, causing calcium and magnesium to form solid sludge removed by sedimentation and filtration.",
+          "sources": [
+            {
+              "url": "https://www.epa.gov/radiation/tenorm-drinking-water-treatment-residuals",
+              "title": "EPA TENORM: Drinking Water Treatment Residuals, lime softening",
+              "supporting_text": "EPA describes calcium hydroxide raising pH so dissolved calcium and magnesium form removable solid sludge.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "814e93e8-135d-4e26-add3-828f93d1ff15"
+      ]
+    },
+    {
+      "id": "chem:sodium_carbonate",
+      "name": "sodium carbonate",
+      "formula": "Na2CO3",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Na": 2,
+        "C": 1,
+        "O": 3
+      },
+      "aliases": [],
+      "usefulness": "Extend the existing species with water-treatment chemistry useful to closed-loop habitats and ICM processing.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "Na2CO3",
+          "sources": [
+            {
+              "url": "https://www.epa.gov/sites/production/files/2017-03/documents/wtp_model_v._2.0_manual_508.pdf",
+              "title": "EPA Water Treatment Plant Model Version 2.0 User Manual, May 18 2001, sections 5.4.10\u20135.4.11",
+              "supporting_text": "The manual gives Ca(OH)2 and Na2CO3 formulas and explains that lime and soda ash increase water-treatment pH and alkalinity.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "water_treatment_ph_alkalinity",
+          "value": "Soda ash is added to increase alkalinity and pH in drinking-water treatment.",
+          "sources": [
+            {
+              "url": "https://www.epa.gov/sites/production/files/2017-03/documents/wtp_model_v._2.0_manual_508.pdf",
+              "title": "EPA Water Treatment Plant Model Version 2.0 User Manual, May 18 2001, sections 5.4.10\u20135.4.11",
+              "supporting_text": "The manual gives Ca(OH)2 and Na2CO3 formulas and explains that lime and soda ash increase water-treatment pH and alkalinity.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "carbonate_assisted_softening",
+          "value": "Sodium carbonate can supply carbonate when there is insufficient carbonate to precipitate calcium during water softening.",
+          "sources": [
+            {
+              "url": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=200021WV.TXT",
+              "title": "EPA Enhanced Coagulation and Enhanced Precipitative Softening Guidance Manual, Appendix A.4.2",
+              "supporting_text": "EPA identifies soda ash as sodium carbonate and describes adding it when carbonate availability is insufficient to precipitate calcium.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "30d638ed-9f74-411c-bc52-fad472032e04",
+        "4f834181-adb0-451e-a226-c74237864f5c",
+        "be438603-780d-4b14-b3a0-d7b6b87778e9"
+      ]
+    },
+    {
+      "id": "chem:ethylene_glycol",
+      "name": "ethylene glycol",
+      "formula": "C2H6O2",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "C": 2,
+        "H": 6,
+        "O": 2
+      },
+      "aliases": [],
+      "usefulness": "Candidate closed-loop coolant base for machinery and spacecraft thermal control; formulated coolant properties must not be assigned to pure glycol.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "C2H6O2",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/mm/194604",
+              "title": "MilliporeSigma Ethylene glycol, product 1.94604",
+              "supporting_text": "The manufacturer identifies ethylene glycol with molecular formula C2H6O2 and CAS 107-21-1.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "heat_transfer_fluid_comparison",
+          "value": "Dow describes ethylene-glycol-based heat-transfer fluids as generally having lower viscosity and better heat-transfer efficiency and pumping-power characteristics than propylene-glycol-based fluids.",
+          "sources": [
+            {
+              "url": "https://www.dow.com/en-us/market/mkt-building-construction/sub-build-heating-cooling-refrigeration/heat-transfer-fluids-calculators.html",
+              "title": "Dow FLUIDFILE Heat Transfer Fluids Calculators, glycol fluid comparison",
+              "supporting_text": "Dow contrasts ethylene-glycol and propylene-glycol heat-transfer fluids, including relative viscosity and applications requiring lower acute oral toxicity.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "aircraft_deicing_fluid_base",
+          "value": "Ethylene glycol is one base used in aircraft deicing and anti-icing fluid formulations.",
+          "sources": [
+            {
+              "url": "https://www.dow.com/en-us/product-technology/pt-lubricants.html",
+              "title": "Dow Lubricants, Heat Transfer and Deicing Fluids",
+              "supporting_text": "Dow identifies both ethylene-glycol and propylene-glycol bases for aircraft deicing and anti-icing fluids.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "c7b86cc4-0ddb-4e01-966b-23a086b28f3e"
+      ]
+    },
+    {
+      "id": "chem:propylene_glycol",
+      "name": "propylene glycol",
+      "formula": "C3H8O2",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "C": 3,
+        "H": 8,
+        "O": 2
+      },
+      "aliases": [
+        "1,2-propanediol"
+      ],
+      "usefulness": "Candidate coolant base for habitat-adjacent loops; 1,2-propanediol identity is distinct from 1,3-propanediol and stereoisomers are not asserted.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "C3H8O2",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/deepweb/assets/sigmaaldrich/product/documents/221/858/p6209pis.pdf",
+              "title": "Sigma 1,2-Propanediol Product Information P1009, March 2003, page 1",
+              "supporting_text": "The product document identifies propylene glycol as 1,2-propanediol, gives C3H8O2 and CAS 57-55-6, and describes water miscibility.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "heat_transfer_fluid_application",
+          "value": "Dow describes propylene-glycol-based fluids as common where low acute oral toxicity or incidental drinking-water or food contact matters.",
+          "sources": [
+            {
+              "url": "https://www.dow.com/en-us/market/mkt-building-construction/sub-build-heating-cooling-refrigeration/heat-transfer-fluids-calculators.html",
+              "title": "Dow FLUIDFILE Heat Transfer Fluids Calculators, glycol fluid comparison",
+              "supporting_text": "Dow contrasts ethylene-glycol and propylene-glycol heat-transfer fluids, including relative viscosity and applications requiring lower acute oral toxicity.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "water_miscibility",
+          "value": "The Sigma product document describes 1,2-propanediol as completely miscible with water.",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/deepweb/assets/sigmaaldrich/product/documents/221/858/p6209pis.pdf",
+              "title": "Sigma 1,2-Propanediol Product Information P1009, March 2003, page 1",
+              "supporting_text": "The product document identifies propylene glycol as 1,2-propanediol, gives C3H8O2 and CAS 57-55-6, and describes water miscibility.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "566bb41f-5603-4a23-af54-11cd698efa91",
+        "77068407-1620-4b76-b110-0f7531a64967"
+      ]
+    },
+    {
+      "id": "chem:lithium_hexafluorophosphate",
+      "name": "lithium hexafluorophosphate",
+      "formula": "LiPF6",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Li": 1,
+        "P": 1,
+        "F": 6
+      },
+      "aliases": [],
+      "usefulness": "Candidate battery-electrolyte salt linking lithium, phosphorus and fluorine processing; an electrolyte ingredient rather than a complete cell recipe.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "LiPF6",
+          "sources": [
+            {
+              "url": "https://www.energy.gov/documents/ea-1711-fea-2010pdf",
+              "title": "DOE/EA-1711 Final Environmental Assessment for Saft America, March 2010, section 2.2, page 2-7",
+              "supporting_text": "DOE identifies lithium hexafluorophosphate as LiPF6, describes its use dissolved in organic solvents as a lithium-battery electrolyte, and notes moisture hydrolysis.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lithium_battery_electrolyte",
+          "value": "Lithium hexafluorophosphate can be dissolved in organic solvents for use as electrolyte in lithium batteries.",
+          "sources": [
+            {
+              "url": "https://www.energy.gov/documents/ea-1711-fea-2010pdf",
+              "title": "DOE/EA-1711 Final Environmental Assessment for Saft America, March 2010, section 2.2, page 2-7",
+              "supporting_text": "DOE identifies lithium hexafluorophosphate as LiPF6, describes its use dissolved in organic solvents as a lithium-battery electrolyte, and notes moisture hydrolysis.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "moisture_hydrolysis",
+          "value": "Lithium hexafluorophosphate readily hydrolyzes in contact with water or moisture.",
+          "sources": [
+            {
+              "url": "https://www.energy.gov/documents/ea-1711-fea-2010pdf",
+              "title": "DOE/EA-1711 Final Environmental Assessment for Saft America, March 2010, section 2.2, page 2-7",
+              "supporting_text": "DOE identifies lithium hexafluorophosphate as LiPF6, describes its use dissolved in organic solvents as a lithium-battery electrolyte, and notes moisture hydrolysis.",
+              "license_basis": "Uncopyrightable identity/original factual paraphrase only; no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": []
+    }
+  ]
+}

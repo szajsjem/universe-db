@@ -88,3 +88,16 @@ SQLite artifact, and deterministic exports.
 Release readiness requires passing all integrity gates, an updated
 source/license inventory, byte-for-byte reproducibility, and an honest
 coverage report.
+
+
+## Manual mod chemistry research
+
+- [x] Add three browser-researched, source-cited chemistry slices (18 compounds,
+  48 factual assertions plus identity records) to unverified research staging,
+  retaining existing identity links, attribution and separate design rationale.
+- [x] Add an offline staged importer and regenerate companion checksum/manifest.
+- [ ] Locally exercise importer malformed-input/replay/rollback/regeneration
+  cases; no project test suites or compilation ran on this server.
+- [ ] Independently review source, classification, aliases, conditions and
+  redistribution basis before reviewed promotion or mod-catalog integration.
+  See `docs/manual-mod-chemistry.md`.

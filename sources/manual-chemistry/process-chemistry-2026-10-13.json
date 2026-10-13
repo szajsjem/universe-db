@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "retrieved_on": "2026-10-13",
+  "scope": "process-chemistry",
+  "entries": [
+    {
+      "id": "chem:ammonium_bifluoride",
+      "name": "Ammonium bifluoride",
+      "formula": "NH4HF2",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "N": 1,
+        "H": 5,
+        "F": 2
+      },
+      "aliases": [
+        "Ammonium hydrogen difluoride"
+      ],
+      "usefulness": "Proposed ICM role: reagent for glass surface treatment and optical component processing; no game recipe, dose or performance is implied.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "NH4HF2",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/sial/01110",
+              "title": "Sigma-Aldrich 01110: Ammonium hydrogen difluoride",
+              "supporting_text": "Product identity lists NH4HF2 and ammonium bifluoride as a synonym.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "glass_etching_use",
+          "value": "The original glass-treatment patent includes ammonium bifluoride as an ingredient in a bath intended to give transparent glass a less reflective etched surface.",
+          "sources": [
+            {
+              "url": "https://patents.google.com/patent/US3551228A/en",
+              "title": "US3551228A: Glass etching composition and method of preparing nonreflective glass, published 1970-12-29",
+              "supporting_text": "The original patent names ammonium bifluoride among components of its glass-etching bath and identifies it as the preferred ammonium ingredient.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem:sodium_aluminate",
+      "name": "Sodium aluminate (anhydrous NaAlO2)",
+      "formula": "NaAlO2",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Na": 1,
+        "Al": 1,
+        "O": 2
+      },
+      "aliases": [
+        "Sodium metaaluminate"
+      ],
+      "usefulness": "Proposed ICM role: alumina/caustic processing intermediate and coagulant supply chain. Do not treat aqueous aluminate species or commercial alkaline solutions as this pure anhydrous identity.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "NaAlO2",
+          "sources": [
+            {
+              "url": "https://cameochemicals.noaa.gov/chemical/1468",
+              "title": "NOAA CAMEO Chemicals: Sodium aluminate, solid; version 3.1.0 rev 1",
+              "supporting_text": "The identity page lists sodium metaaluminate (NaAlO2); only that defined anhydrous formula unit is represented here, not every trade mixture on the page.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "water_treatment_use",
+          "value": "Sodium aluminate is used to coagulate drinking-water impurities, particularly in low-alkalinity water, and may be combined with alum for pH and alkalinity control.",
+          "sources": [
+            {
+              "url": "https://guidelines.nhmrc.gov.au/australian-drinking-water-guidelines/part-5/treatment-chemicals/sodium-aluminate",
+              "title": "Australian Drinking Water Guidelines: Sodium aluminate; endorsed 2005",
+              "supporting_text": "The treatment guidance describes coagulation, use with alum for alkalinity/pH adjustment, and production using aluminium oxide and excess caustic soda. Its Na2Al2O4 formula has the same reduced stoichiometry as NaAlO2.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "production_route",
+          "value": "The drinking-water guidance describes manufacture by combining aluminium oxide with excess caustic soda.",
+          "sources": [
+            {
+              "url": "https://guidelines.nhmrc.gov.au/australian-drinking-water-guidelines/part-5/treatment-chemicals/sodium-aluminate",
+              "title": "Australian Drinking Water Guidelines: Sodium aluminate; endorsed 2005",
+              "supporting_text": "The treatment guidance describes coagulation, use with alum for alkalinity/pH adjustment, and production using aluminium oxide and excess caustic soda. Its Na2Al2O4 formula has the same reduced stoichiometry as NaAlO2.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem:lithium_chloride",
+      "name": "Lithium chloride",
+      "formula": "LiCl",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Li": 1,
+        "Cl": 1
+      },
+      "aliases": [],
+      "usefulness": "Proposed ICM role: preparation of lithium-exchanged zeolite media for oxygen separation and a distinct liquid-desiccant drying option. Existing unverified lithium chloride identity must be reconciled rather than duplicated.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "LiCl",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/US/en/product/sigald/746460",
+              "title": "Sigma-Aldrich 746460: Lithium chloride, anhydrous",
+              "supporting_text": "The anhydrous product identity gives LiCl, CAS 7447-41-8.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "humidity_control_use",
+          "value": "Lithium chloride solutions are used in humidity-control and drying equipment.",
+          "sources": [
+            {
+              "url": "https://www.albemarle.com/us/en/what-we-offer/industries/industrial-processes",
+              "title": "Albemarle: Industrial Processes; Gas and Air Treatment",
+              "supporting_text": "The manufacturer identifies lithium chloride solutions for humidity control/drying and lithium-chloride-brine-produced Li-zeolites for oxygen pressure-swing adsorption.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "lithium_zeolite_precursor_use",
+          "value": "Lithium chloride brine is used to produce lithium zeolites employed in pressure-swing adsorption for medical oxygen production; the zeolite material is a separate identity from LiCl.",
+          "sources": [
+            {
+              "url": "https://www.albemarle.com/us/en/what-we-offer/industries/industrial-processes",
+              "title": "Albemarle: Industrial Processes; Gas and Air Treatment",
+              "supporting_text": "The manufacturer identifies lithium chloride solutions for humidity control/drying and lithium-chloride-brine-produced Li-zeolites for oxygen pressure-swing adsorption.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ],
+      "existing_candidate_ids": [
+        "2bf36e7a-7aed-4c18-9ac8-1def3d305cd8"
+      ]
+    },
+    {
+      "id": "chem:ethanolamine",
+      "name": "Ethanolamine",
+      "formula": "C2H7NO",
+      "kind": "molecule",
+      "charge": 0,
+      "composition": {
+        "C": 2,
+        "H": 7,
+        "N": 1,
+        "O": 1
+      },
+      "aliases": [
+        "Monoethanolamine",
+        "2-Aminoethanol",
+        "2-Aminoethyl alcohol"
+      ],
+      "usefulness": "Proposed ICM role: a regenerable acid-gas absorption loop alongside solid adsorption media. Regeneration conditions and quantitative capacities require separate evidence before implementation.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "C2H7NO",
+          "sources": [
+            {
+              "url": "https://www.sigmaaldrich.com/AO/en/product/sial/398136",
+              "title": "Sigma-Aldrich 398136: Ethanolamine",
+              "supporting_text": "The identity lists NH2CH2CH2OH, InChI composition C2H7NO, and monoethanolamine as a synonym.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "acid_gas_removal_use",
+          "value": "Monoethanolamine is supplied as an acid-gas-removal solvent.",
+          "sources": [
+            {
+              "url": "https://www.dow.com/en-us/pdp.monoethanolamine-100-gt-grade.90459z.html",
+              "title": "Dow: Monoethanolamine 100%, GT Grade",
+              "supporting_text": "The manufacturer describes monoethanolamine as a solvent for acid gas removal. No proprietary solvent-mixture identity is inferred.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem:sodium_metabisulfite",
+      "name": "Sodium metabisulfite",
+      "formula": "Na2S2O5",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Na": 2,
+        "S": 2,
+        "O": 5
+      },
+      "aliases": [
+        "Sodium metabisulphite",
+        "Sodium pyrosulfite",
+        "Sodium disulfite"
+      ],
+      "usefulness": "Proposed ICM role: an industrial reducing reagent and bleaching consumable. This source slice does not establish a universal gas-purification capacity or equate it with sodium sulfite.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "Na2S2O5",
+          "sources": [
+            {
+              "url": "https://www.fishersci.ca/shop/products/sodium-metabisulfite-powder-certified-acs-fisher-chemical-2/p-33948",
+              "title": "Thermo Fisher: Sodium Metabisulfite, Fisher Chemical, S244",
+              "supporting_text": "The identity gives Na2O5S2 and synonyms sodium pyrosulfite/disulfite; this is the same elemental stoichiometry as Na2S2O5.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "industrial_reducing_use",
+          "value": "Sodium metabisulfite is used as a reducing agent in chemical and pharmaceutical processing.",
+          "sources": [
+            {
+              "url": "https://chemicals.basf.com/global/en/Monomers/bulk-chemicals/sulfite",
+              "title": "BASF: Sulfites; Sodium metabisulfite section",
+              "supporting_text": "The sodium metabisulfite section describes its use as a reducing agent in chemical/pharmaceutical processing and for bleaching plant fibres/textiles. Uses stated for sodium sulfite are not transferred here.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "bleaching_use",
+          "value": "Sodium metabisulfite is used to bleach plant fibres and textiles.",
+          "sources": [
+            {
+              "url": "https://chemicals.basf.com/global/en/Monomers/bulk-chemicals/sulfite",
+              "title": "BASF: Sulfites; Sodium metabisulfite section",
+              "supporting_text": "The sodium metabisulfite section describes its use as a reducing agent in chemical/pharmaceutical processing and for bleaching plant fibres/textiles. Uses stated for sodium sulfite are not transferred here.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chem:zinc_chloride",
+      "name": "Zinc chloride (anhydrous)",
+      "formula": "ZnCl2",
+      "kind": "formula_unit",
+      "charge": 0,
+      "composition": {
+        "Zn": 1,
+        "Cl": 2
+      },
+      "aliases": [
+        "Zinc dichloride"
+      ],
+      "usefulness": "Proposed ICM role: flux and surface-treatment feedstock, with a separate electrolyte pathway for electroplating or zinc-based cells. Hydrates and solutions require separate composition handling.",
+      "facts": [
+        {
+          "key": "formula",
+          "value": "ZnCl2",
+          "sources": [
+            {
+              "url": "https://www.fishersci.com/shop/products/zinc-chloride-anhydrous-98-thermo-scientific/AAA162810E",
+              "title": "Thermo Scientific: Zinc chloride, anhydrous, A16281",
+              "supporting_text": "The anhydrous product lists ZnCl2 and describes soldering flux/metal etchant applications and electrolyte use in dry cells and electroplating.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "metal_surface_processing_use",
+          "value": "Anhydrous zinc chloride is supplied for use as soldering flux and a metal etchant.",
+          "sources": [
+            {
+              "url": "https://www.fishersci.com/shop/products/zinc-chloride-anhydrous-98-thermo-scientific/AAA162810E",
+              "title": "Thermo Scientific: Zinc chloride, anhydrous, A16281",
+              "supporting_text": "The anhydrous product lists ZnCl2 and describes soldering flux/metal etchant applications and electrolyte use in dry cells and electroplating.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "key": "electrolyte_use",
+          "value": "Zinc chloride is used as an electrolyte in dry-cell batteries and in electroplating.",
+          "sources": [
+            {
+              "url": "https://www.fishersci.com/shop/products/zinc-chloride-anhydrous-98-thermo-scientific/AAA162810E",
+              "title": "Thermo Scientific: Zinc chloride, anhydrous, A16281",
+              "supporting_text": "The anhydrous product lists ZnCl2 and describes soldering flux/metal etchant applications and electrolyte use in dry cells and electroplating.",
+              "license_basis": "Uncopyrightable factual identity/original paraphrase only, no copied tables",
+              "retrieved_on": "2026-10-13"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

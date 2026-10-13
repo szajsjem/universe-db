@@ -15,6 +15,13 @@ The checked-in artifact is built entirely from the versioned SQL in
 [`migrations/`](migrations) and [`seed/`](seed). It is intentionally small
 today. The schema is broad; the reviewed data will grow source by source.
 
+A manually selected [mod chemistry research slice](docs/manual-mod-chemistry.md)
+adds 18 compound targets and 48 cited textual facts to unverified staging,
+covering propulsion, industrial processing, life support, coolants and batteries.
+Versioned JSON inputs retain primary citations and identity links; import with
+`python3 scripts/import_manual_chemistry.py`. These records await human review
+and do not automatically become runtime mod recipes.
+
 ## Current coverage
 
 A separate hand-authored [metal alloy reference](docs/alloys.md) is available
