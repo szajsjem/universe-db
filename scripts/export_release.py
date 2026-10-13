@@ -7,6 +7,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import sqlite3
 import tempfile
 import zipfile
@@ -225,7 +226,9 @@ def export_release(version: str, output_dir: Path, wikipedia: Path, archive=True
                 raise ValueError("Canonical reviewed core checksum mismatch")
             inspect(reference)
             verify_equivalent_core(reviewed, reference)
-            snapshot(reference, reviewed)
+            shutil.copyfile(reference, reviewed)
+            if sha256(reviewed) != expected:
+                raise ValueError("Canonical core changed while copying")
         base_digest = sha256(reviewed)
         wikipedia_snapshot = stage / "universe-wikipedia.db"
         snapshot(wikipedia, wikipedia_snapshot)
