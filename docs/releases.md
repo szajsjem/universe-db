@@ -26,9 +26,11 @@ pinned isotope evaluations, and takes a consistent SQLite
 backup of the current Wikipedia review database. The background reviewer can
 continue working during export; the release contains one committed snapshot.
 
-The default research input is `.build/wikipedia-codex-source-audit.db` when
-available, then `.build/wikipedia-glm-full-reviewed.db`, then the repository's
-`universe-unverified.db`. The legacy GLM filename may contain
+The default research input is the repository's `universe-unverified.db`, so
+checked-in manual research is included and stale local review snapshots do not
+override it. If absent, the exporter falls back to
+`.build/wikipedia-codex-source-audit.db`, then `.build/wikipedia-glm-full-reviewed.db`.
+Use `--wikipedia-db` to select a newer local snapshot explicitly. The legacy GLM filename may contain
 reviews from subsequent models; their actual model names remain in the audit
 tables. Override the input or choose a release label as follows:
 

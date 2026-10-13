@@ -358,9 +358,9 @@ if __name__ == "__main__":
         (
             path
             for path in (
+                ROOT / "universe-unverified.db",
                 ROOT / ".build/wikipedia-codex-source-audit.db",
                 ROOT / ".build/wikipedia-glm-full-reviewed.db",
-                ROOT / "universe-unverified.db",
             )
             if path.exists()
         ),

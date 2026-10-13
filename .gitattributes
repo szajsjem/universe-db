@@ -7,3 +7,4 @@
 sources/atomic/*.csv -text
 sources/molecules/*.json -text
 sources/crystals/*.cif -text
+sources/spectra/*.json -text
