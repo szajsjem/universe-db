@@ -108,3 +108,19 @@ coverage report.
   `docs/manual-mod-chemistry-batch2.md`.
 - [x] Reject reused reviewed compound IDs with mismatching formula/charge or
   another entity kind during manual import (source implementation).
+
+
+## Manual identity review queue
+
+- [x] Generate an offline, read-only manual-chemistry identity/provenance review
+  queue against reviewed species and Wikipedia candidates; preserve formula,
+  charge, classification, aliases, source citations and existing link evidence.
+- [x] Add manual label/composition overlap groups and source-preserving textual
+  difference groups, with no automatic merges, averaging or promotion.
+- [x] Publish deterministic coverage and Markdown/JSON reports bound to source,
+  generator and database hashes; see `docs/manual-review-workflow.md`.
+- [ ] Run the eight authored report regression cases locally and validate CLI
+  reproducibility, read-only behavior and snapshot/input-change handling.
+- [ ] Extend review clustering to numeric observations and nonmanual staging
+  families, and implement the separately authorized human-decision/promotion
+  workflow. Existing global review/promotion TODOs remain open.

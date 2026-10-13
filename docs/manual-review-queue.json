@@ -1,0 +1,2049 @@
+{
+  "coverage": {
+    "citation_domains": {
+      "cameochemicals.noaa.gov": 2,
+      "chemicals.basf.com": 2,
+      "guidelines.nhmrc.gov.au": 2,
+      "janaf.nist.gov": 1,
+      "nepis.epa.gov": 1,
+      "ntrs.nasa.gov": 3,
+      "patents.google.com": 1,
+      "science.nasa.gov": 3,
+      "silmaco.com": 3,
+      "tfaws.nasa.gov": 2,
+      "vtechworks.lib.vt.edu": 2,
+      "webbook.nist.gov": 7,
+      "www.aladdinsci.com": 2,
+      "www.albemarle.com": 2,
+      "www.bn.saint-gobain.com": 2,
+      "www.dow.com": 4,
+      "www.energy.gov": 3,
+      "www.epa.gov": 5,
+      "www.fishersci.ca": 1,
+      "www.fishersci.com": 9,
+      "www.metallographic.com": 1,
+      "www.nasa.gov": 3,
+      "www.orica.com": 1,
+      "www.sigmaaldrich.com": 26,
+      "www.solvay.com": 2,
+      "www2.coorstek.com": 10
+    },
+    "scopes": {
+      "batteries-batch2": 6,
+      "planet-life-support": 6,
+      "process-chemistry": 6,
+      "propellants": 6,
+      "refining-batch2": 6,
+      "thermal-ceramics-batch2": 6
+    },
+    "slices": 6,
+    "states": {
+      "candidate_identity_review": 19,
+      "existing_reviewed_id": 2,
+      "new_identity_review": 15
+    },
+    "target_records": 36,
+    "targets": 36,
+    "targets_with_flags": 19,
+    "textual_facts": 100
+  },
+  "data_status": "unverified_review_queue",
+  "database": {
+    "artifact": "universe-unverified.db",
+    "sha256": "ef07ca81e4a61d1b18e5032962cb690e91be21b475266062c68c51e4d996bae0"
+  },
+  "differing_textual_claims": [],
+  "generator": {
+    "path": "scripts/report_manual_review.py",
+    "sha256": "2afd3dfee676aad8ada7d926311278434ef7834dfe7e926a9421c3d1be54d595"
+  },
+  "manual_composition_overlap_groups": [],
+  "manual_name_overlap_groups": [],
+  "policy": "Read-only discovery leads; no merging, averaging, promotion or proof of identity. Human source/license/structure review required.",
+  "queue": [
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "composition_only_identity_leads",
+        "matched_identity_charge_unknown",
+        "matched_identity_formula_unknown_or_unsupported"
+      ],
+      "formula": "Al2O3",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "107a6d28-a045-4e82-bf79-9deef866193e",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "alumina",
+          "origin": "candidate",
+          "source_title": "Ceramography",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1220980959"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "1c4c99b5-cf6b-4331-a008-99d3f80008ec",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Aluminium oxide",
+          "origin": "candidate",
+          "source_title": "Electroplasticity",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1291811999"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "2a0265e3-1b76-4918-8520-23150d49dbf7",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Aluminium oxide",
+          "origin": "candidate",
+          "source_title": "Aluminium-ion battery",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1346710610"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "3597aadf-fadc-4e9e-a79f-2c20b0f3fdfb",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Aluminium oxide",
+          "origin": "candidate",
+          "source_title": "Aluminium joining",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1329218640"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "3b832a43-e5b2-488d-8c6f-ca7d3cd74781",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "aluminum oxide",
+          "origin": "candidate",
+          "source_title": "Grain boundary",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1320589068"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "83372ea2-1cef-4f1b-b94f-69b3b8cad26f",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Aluminum oxide",
+          "origin": "candidate",
+          "source_title": "Aluminum cycle",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1364106909"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "84f0af9c-20b4-41ae-b491-43b05aba27fe",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Aluminium oxide",
+          "origin": "candidate",
+          "source_title": "Aluminum building wiring",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1319551422"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "8be196da-6591-47a3-83df-d403fa36d6c4",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "alumina",
+          "origin": "candidate",
+          "source_title": "Functionally graded material",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1328001022"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "98f101e4-6a16-413e-add9-1a0b2ba64c6e",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "aluminium oxide",
+          "origin": "candidate",
+          "source_title": "Dopant",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1345482212"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "9f969ff6-22b5-4eac-a61f-35dfd2a9fd6e",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Al2O3",
+          "origin": "candidate",
+          "source_title": "Electroplasticity",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1291811999"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "abdc51ff-025b-464b-8c2b-b23163e63db1",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "alumina",
+          "origin": "candidate",
+          "source_title": "Bioceramic",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1334302390"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "ae6662dc-7e96-4c55-913a-880f508e275d",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Alumina",
+          "origin": "candidate",
+          "source_title": "Differential scanning calorimetry",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1364956613"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "aeee00fe-cd98-4f8a-adf8-e548edbdd222",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "aluminum oxide",
+          "origin": "candidate",
+          "source_title": "Grain boundary",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1320589068"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "b5fff529-cdc7-4d0f-8218-be8b483a6e3d",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "corundum",
+          "origin": "candidate",
+          "source_title": "Coupled substitution",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1326858523"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "d6727651-aa54-4ad0-ae08-0997f19e9dfe",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Aluminum Oxide",
+          "origin": "candidate",
+          "source_title": "Inversion domain boundary",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1331217337"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "df900eac-6e09-4b11-b6c8-c72a2938e156",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "aluminum oxide",
+          "origin": "candidate",
+          "source_title": "Crystal growth",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1350718723"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Al2O3",
+          "formula_interpretation": "original formula",
+          "id": "e0284f9d-18bf-46e7-bf72-5295a99b2b39",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Alumina",
+          "origin": "candidate",
+          "source_title": "Abnormal grain growth",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1351580707"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "fd67861e-2d96-44d8-ba83-fc1c148d5dab",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Aluminium oxide",
+          "origin": "candidate",
+          "source_title": "Aluminium dross recycling",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1334547417"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Aluminum oxide",
+      "review_status": "pending_human_review",
+      "scope": "thermal-ceramics-batch2",
+      "source_slice": "sources/manual-chemistry/thermal-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www2.coorstek.com/en/materials/alumina/"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:aluminum_oxide"
+    },
+    {
+      "fact_count": 2,
+      "flags": [],
+      "formula": "NH4HF2",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "Ammonium bifluoride",
+      "review_status": "pending_human_review",
+      "scope": "process-chemistry",
+      "source_slice": "sources/manual-chemistry/process-chemistry-2026-10-13.json",
+      "source_urls": [
+        "https://patents.google.com/patent/US3551228A/en",
+        "https://www.sigmaaldrich.com/US/en/product/sial/01110"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:ammonium_bifluoride"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs"
+      ],
+      "formula": "BN",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "BN",
+          "formula_interpretation": "original formula",
+          "id": "61d68e9c-5bdc-4eaa-8470-b8a7a29e71f7",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "boron nitride",
+          "origin": "candidate",
+          "source_title": "Bioceramic",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1334302390"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "BN",
+          "formula_interpretation": "original formula",
+          "id": "65d1a92b-66f8-4852-8110-f75ef7328364",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "boron nitride",
+          "origin": "candidate",
+          "source_title": "Diamond anvil cell",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1365967708"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Boron nitride",
+      "review_status": "pending_human_review",
+      "scope": "thermal-ceramics-batch2",
+      "source_slice": "sources/manual-chemistry/thermal-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://janaf.nist.gov/tables/B-index.html",
+        "https://www.bn.saint-gobain.com/"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:boron_nitride"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs"
+      ],
+      "formula": "Ca(OH)2",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Ca(OH)2",
+          "formula_interpretation": "original formula",
+          "id": "814e93e8-135d-4e26-add3-828f93d1ff15",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "calcium hydroxide",
+          "origin": "candidate",
+          "source_title": "Combination reaction",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1365523711"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_reviewed_id",
+            "name_or_alias"
+          ],
+          "formula": "Ca(OH)2",
+          "formula_interpretation": "original formula",
+          "id": "chem:calcium_hydroxide",
+          "identity_verified": false,
+          "kind": "formula_unit",
+          "name": "calcium hydroxide",
+          "origin": "reviewed",
+          "source_title": "Universe DB industrial chemistry seed",
+          "source_url": "https://github.com/szajsjem/universe-db/blob/main/seed/006_industrial_chemistry.sql"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "calcium hydroxide",
+      "review_status": "pending_human_review",
+      "scope": "planet-life-support",
+      "source_slice": "sources/manual-chemistry/planet-life-support-2026-10-13.json",
+      "source_urls": [
+        "https://www.epa.gov/radiation/tenorm-drinking-water-treatment-residuals",
+        "https://www.epa.gov/sites/production/files/2017-03/documents/wtp_model_v._2.0_manual_508.pdf"
+      ],
+      "state": "existing_reviewed_id",
+      "target_id": "chem:calcium_hydroxide"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "composition_only_identity_leads"
+      ],
+      "formula": "C3H6O3",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead"
+          ],
+          "formula": "C3H6O3",
+          "formula_interpretation": "original formula",
+          "id": "3e875a4c-b78a-45a7-9852-07e9593bc436",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "lactic acid",
+          "origin": "candidate",
+          "source_title": "Functional magnetic resonance spectroscopy of the brain",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1330973305"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "dimethyl carbonate",
+      "review_status": "pending_human_review",
+      "scope": "batteries-batch2",
+      "source_slice": "sources/manual-chemistry/batteries-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.sigmaaldrich.com/US/en/product/aldrich/746711",
+        "https://www.sigmaaldrich.com/US/en/product/aldrich/e26258",
+        "https://www.sigmaaldrich.com/US/en/product/sial/517127"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:dimethyl_carbonate"
+    },
+    {
+      "fact_count": 2,
+      "flags": [],
+      "formula": "N2O4",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "N2O4",
+          "formula_interpretation": "original formula",
+          "id": "ff9f5b89-25e9-4c97-9468-fe2ca7113242",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "Dinitrogen tetroxide",
+          "origin": "candidate",
+          "source_title": "Dinitrogen trioxide",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1346192195"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Dinitrogen tetroxide",
+      "review_status": "pending_human_review",
+      "scope": "propellants",
+      "source_slice": "sources/manual-chemistry/propellants-2026-10-13.json",
+      "source_urls": [
+        "https://science.nasa.gov/mission/cassini/engine/",
+        "https://webbook.nist.gov/cgi/cbook.cgi?ID=C10544726&Mask=1"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:dinitrogen_tetroxide"
+    },
+    {
+      "fact_count": 2,
+      "flags": [],
+      "formula": "C2H7NO",
+      "kind": "molecule",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "Ethanolamine",
+      "review_status": "pending_human_review",
+      "scope": "process-chemistry",
+      "source_slice": "sources/manual-chemistry/process-chemistry-2026-10-13.json",
+      "source_urls": [
+        "https://www.dow.com/en-us/pdp.monoethanolamine-100-gt-grade.90459z.html",
+        "https://www.sigmaaldrich.com/AO/en/product/sial/398136"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:ethanolamine"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "composition_only_identity_leads",
+        "matched_identity_charge_unknown"
+      ],
+      "formula": "C3H4O3",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead"
+          ],
+          "formula": "C3H4O3",
+          "formula_interpretation": "original formula",
+          "id": "776cc2b0-eb2f-4589-87cf-b18f15b134a3",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "pyruvate",
+          "origin": "candidate",
+          "source_title": "3-Hydroxypropionate/4-hydroxybutyrate cycle",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1354782459"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "ethylene carbonate",
+      "review_status": "pending_human_review",
+      "scope": "batteries-batch2",
+      "source_slice": "sources/manual-chemistry/batteries-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.sigmaaldrich.com/US/en/product/aldrich/809950"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:ethylene_carbonate"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "matched_identity_charge_unknown",
+        "matched_identity_formula_unknown_or_unsupported"
+      ],
+      "formula": "C2H6O2",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "c7b86cc4-0ddb-4e01-966b-23a086b28f3e",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "ethylene glycol",
+          "origin": "candidate",
+          "source_title": "Antifreeze",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1365924588"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "ethylene glycol",
+      "review_status": "pending_human_review",
+      "scope": "planet-life-support",
+      "source_slice": "sources/manual-chemistry/planet-life-support-2026-10-13.json",
+      "source_urls": [
+        "https://www.dow.com/en-us/market/mkt-building-construction/sub-build-heating-cooling-refrigeration/heat-transfer-fluids-calculators.html",
+        "https://www.dow.com/en-us/product-technology/pt-lubricants.html",
+        "https://www.sigmaaldrich.com/US/en/product/mm/194604"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:ethylene_glycol"
+    },
+    {
+      "fact_count": 2,
+      "flags": [],
+      "formula": "N2H4",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "N2H4",
+          "formula_interpretation": "original formula",
+          "id": "586c4a34-5b7e-48d8-ba43-eda2c25ef269",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "hydrazine",
+          "origin": "candidate",
+          "source_title": "Dinitrogen trioxide",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1346192195"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Hydrazine",
+      "review_status": "pending_human_review",
+      "scope": "propellants",
+      "source_slice": "sources/manual-chemistry/propellants-2026-10-13.json",
+      "source_urls": [
+        "https://science.nasa.gov/mission/cassini/engine/",
+        "https://webbook.nist.gov/cgi/cbook.cgi?ID=C302012&Units=CAL"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:hydrazine"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "matched_identity_charge_unknown",
+        "matched_identity_formula_unknown_or_unsupported"
+      ],
+      "formula": "H2O2",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "H2O2",
+          "formula_interpretation": "original formula",
+          "id": "5aa14ae7-a3fb-4dec-8b93-54af915febe2",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "Hydrogen peroxide",
+          "origin": "candidate",
+          "source_title": "Catechol",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1365634593"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "62525765-c478-4060-868a-45ba00bf9265",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "hydrogen peroxide",
+          "origin": "candidate",
+          "source_title": "Chemical oscillator",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1300062249"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Hydrogen peroxide",
+      "review_status": "pending_human_review",
+      "scope": "propellants",
+      "source_slice": "sources/manual-chemistry/propellants-2026-10-13.json",
+      "source_urls": [
+        "https://ntrs.nasa.gov/citations/19990062725",
+        "https://webbook.nist.gov/cgi/cbook.cgi?ID=C7722841&Mask=8"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:hydrogen_peroxide"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "Li2CO3",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "lithium carbonate",
+      "review_status": "pending_human_review",
+      "scope": "batteries-batch2",
+      "source_slice": "sources/manual-chemistry/batteries-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.sigmaaldrich.com/US/en/product/aldrich/931942"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:lithium_carbonate"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs"
+      ],
+      "formula": "LiCl",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "LiCl",
+          "formula_interpretation": "original formula",
+          "id": "2bf36e7a-7aed-4c18-9ac8-1def3d305cd8",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "lithium chloride",
+          "origin": "candidate",
+          "source_title": "1,2-Bis(diphenylphosphino)ethylene",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1326115302"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Lithium chloride",
+      "review_status": "pending_human_review",
+      "scope": "process-chemistry",
+      "source_slice": "sources/manual-chemistry/process-chemistry-2026-10-13.json",
+      "source_urls": [
+        "https://www.albemarle.com/us/en/what-we-offer/industries/industrial-processes",
+        "https://www.sigmaaldrich.com/US/en/product/sigald/746460"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:lithium_chloride"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs"
+      ],
+      "formula": "LiF",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "LiF",
+          "formula_interpretation": "original formula",
+          "id": "ebfc46a4-753c-40f5-b3fe-20943fb892b2",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Lithium fluoride",
+          "origin": "candidate",
+          "source_title": "Helium atom scattering",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1352968986"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Lithium fluoride",
+      "review_status": "pending_human_review",
+      "scope": "thermal-ceramics-batch2",
+      "source_slice": "sources/manual-chemistry/thermal-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.fishersci.com/shop/products/lithium-fluoride-optical-grade-99-5-thermo-scientific/AA1405606"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:lithium_fluoride"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "LiPF6",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "lithium hexafluorophosphate",
+      "review_status": "pending_human_review",
+      "scope": "planet-life-support",
+      "source_slice": "sources/manual-chemistry/planet-life-support-2026-10-13.json",
+      "source_urls": [
+        "https://www.energy.gov/documents/ea-1711-fea-2010pdf"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:lithium_hexafluorophosphate"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "LiOH",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "lithium hydroxide",
+      "review_status": "pending_human_review",
+      "scope": "planet-life-support",
+      "source_slice": "sources/manual-chemistry/planet-life-support-2026-10-13.json",
+      "source_urls": [
+        "https://www.nasa.gov/ochmo-tb-004-carbon-dioxide-2/"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:lithium_hydroxide"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "LiNO3",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "lithium nitrate",
+      "review_status": "pending_human_review",
+      "scope": "batteries-batch2",
+      "source_slice": "sources/manual-chemistry/batteries-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.sigmaaldrich.com/US/en/product/aldrich/930938"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:lithium_nitrate"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "Li2SO4",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "lithium sulfate",
+      "review_status": "pending_human_review",
+      "scope": "batteries-batch2",
+      "source_slice": "sources/manual-chemistry/batteries-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.sigmaaldrich.com/US/en/product/aldrich/920339"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:lithium_sulfate"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "LiBF4",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "lithium tetrafluoroborate",
+      "review_status": "pending_human_review",
+      "scope": "batteries-batch2",
+      "source_slice": "sources/manual-chemistry/batteries-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.sigmaaldrich.com/US/en/product/aldrich/451622"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:lithium_tetrafluoroborate"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "matched_identity_charge_unknown"
+      ],
+      "formula": "MgO",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "MgO",
+          "formula_interpretation": "original formula",
+          "id": "260de2fb-ca83-47b2-a292-f9a6731a0f28",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "magnesium oxide",
+          "origin": "candidate",
+          "source_title": "Grain boundary",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1320589068"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "MgO",
+          "formula_interpretation": "original formula",
+          "id": "28ac2c6b-9eab-4570-94e7-a797f8d6628d",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "magnesium oxide",
+          "origin": "candidate",
+          "source_title": "Combination reaction",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1365523711"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "MgO",
+          "formula_interpretation": "original formula",
+          "id": "2de48df4-1660-430d-8b43-d914572541c8",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "magnesium oxide",
+          "origin": "candidate",
+          "source_title": "Carbothermic reaction",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1360625549"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "MgO",
+          "formula_interpretation": "original formula",
+          "id": "68f6c82e-5dbe-40cf-a9f5-b2e74b1a197c",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "magnesium oxide",
+          "origin": "candidate",
+          "source_title": "Grain boundary",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1320589068"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "MgO",
+          "formula_interpretation": "original formula",
+          "id": "7ced4e95-915e-4309-b566-14d9204e95db",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "magnesium oxide",
+          "origin": "candidate",
+          "source_title": "Grain boundary",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1320589068"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "MgO",
+          "formula_interpretation": "original formula",
+          "id": "a23157bd-1452-4136-9ec8-029aa2c2face",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "magnesium oxide",
+          "origin": "candidate",
+          "source_title": "FKM",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1330076163"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Magnesium oxide",
+      "review_status": "pending_human_review",
+      "scope": "thermal-ceramics-batch2",
+      "source_slice": "sources/manual-chemistry/thermal-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www2.coorstek.com/en/materials/magnesia/"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:magnesium_oxide"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "C6H14O",
+      "kind": "molecule",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "Methyl isobutyl carbinol",
+      "review_status": "pending_human_review",
+      "scope": "refining-batch2",
+      "source_slice": "sources/manual-chemistry/refining-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://cameochemicals.noaa.gov/chemical/3942",
+        "https://www.solvay.com/en/product/methylisobutylcarbinol"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:methyl_isobutyl_carbinol"
+    },
+    {
+      "fact_count": 2,
+      "flags": [],
+      "formula": "CH6N2",
+      "kind": "molecule",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "Monomethylhydrazine",
+      "review_status": "pending_human_review",
+      "scope": "propellants",
+      "source_slice": "sources/manual-chemistry/propellants-2026-10-13.json",
+      "source_urls": [
+        "https://science.nasa.gov/mission/cassini/engine/",
+        "https://webbook.nist.gov/cgi/cbook.cgi?ID=C60344&Mask=1"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:monomethylhydrazine"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "matched_identity_charge_unknown"
+      ],
+      "formula": "N2O",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "N2O",
+          "formula_interpretation": "original formula",
+          "id": "266172d8-6950-47e9-bd3e-60009bb43ecf",
+          "identity_verified": false,
+          "kind": "element",
+          "name": "nitrous oxide",
+          "origin": "candidate",
+          "source_title": "Breathalyzer",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1358712427"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "N2O",
+          "formula_interpretation": "original formula",
+          "id": "a76bc9ff-dfe8-4c6c-bacd-3c50660b4029",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "nitrous oxide",
+          "origin": "candidate",
+          "source_title": "Barking dog reaction",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1291932236"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "N2O",
+          "formula_interpretation": "original formula",
+          "id": "d73e8e9f-c2a5-472e-91b0-6d99afe5abb4",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "nitrous oxide",
+          "origin": "candidate",
+          "source_title": "HITRAN",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1363823749"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "N2O",
+          "formula_interpretation": "original formula",
+          "id": "ef29e46d-8704-4a88-a496-b248f51cc4ce",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "nitrous oxide",
+          "origin": "candidate",
+          "source_title": "Denitrification",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1364963051"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Nitrous oxide",
+      "review_status": "pending_human_review",
+      "scope": "propellants",
+      "source_slice": "sources/manual-chemistry/propellants-2026-10-13.json",
+      "source_urls": [
+        "https://tfaws.nasa.gov/TFAWS06/Proceedings/Aerothermal-Propulsion/Papers/TFAWS06-1026_Paper_Herdy.pdf",
+        "https://webbook.nist.gov/cgi/cbook.cgi?ID=C10024972&Mask=2000"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:nitrous_oxide"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "composition_only_identity_leads",
+        "matched_identity_charge_unknown",
+        "matched_identity_formula_unknown_or_unsupported"
+      ],
+      "formula": "C2H2O4",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "declared_candidate_link"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "3288057a-f194-47ad-99e3-84df49125afb",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "oxalic acid",
+          "origin": "candidate",
+          "source_title": "Anisotropic terahertz microspectroscopy",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1337853549"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead"
+          ],
+          "formula": "HOOC COOH",
+          "formula_interpretation": "whitespace-normalized lead",
+          "id": "878eb527-b398-44c9-a930-fd184a5eac16",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "oxalic acid",
+          "origin": "candidate",
+          "source_title": "Acid strength",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1338512089"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "declared_candidate_link"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "fa59dca1-1975-42ae-b898-a19638d4200f",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "oxalic acid",
+          "origin": "candidate",
+          "source_title": "Antifreeze",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1365924588"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Oxalic acid (anhydrous)",
+      "review_status": "pending_human_review",
+      "scope": "refining-batch2",
+      "source_slice": "sources/manual-chemistry/refining-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://vtechworks.lib.vt.edu/items/d09d8713-d788-4612-b146-6502fed8f138",
+        "https://www.sigmaaldrich.com/US/en/product/aldrich/194131"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:oxalic_acid"
+    },
+    {
+      "fact_count": 2,
+      "flags": [],
+      "formula": "C3H5KOS2",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "Potassium ethyl xanthate",
+      "review_status": "pending_human_review",
+      "scope": "refining-batch2",
+      "source_slice": "sources/manual-chemistry/refining-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.aladdinsci.com/us_en/faqs/guide-to-mineral-processing-reagents-flotation-collectors-en.html"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:potassium_ethyl_xanthate"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "matched_identity_charge_unknown",
+        "matched_identity_formula_unknown_or_unsupported"
+      ],
+      "formula": "C3H8O2",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "566bb41f-5603-4a23-af54-11cd698efa91",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "propylene glycol",
+          "origin": "candidate",
+          "source_title": "Antifreeze",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1365924588"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "C3H8O2",
+          "formula_interpretation": "original formula",
+          "id": "77068407-1620-4b76-b110-0f7531a64967",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "propylene glycol",
+          "origin": "candidate",
+          "source_title": "Denaturation (biochemistry)",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1364962401"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "propylene glycol",
+      "review_status": "pending_human_review",
+      "scope": "planet-life-support",
+      "source_slice": "sources/manual-chemistry/planet-life-support-2026-10-13.json",
+      "source_urls": [
+        "https://www.dow.com/en-us/market/mkt-building-construction/sub-build-heating-cooling-refrigeration/heat-transfer-fluids-calculators.html",
+        "https://www.sigmaaldrich.com/deepweb/assets/sigmaaldrich/product/documents/221/858/p6209pis.pdf"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:propylene_glycol"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "matched_identity_charge_unknown",
+        "matched_identity_formula_unknown_or_unsupported"
+      ],
+      "formula": "SiC",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "SiC",
+          "formula_interpretation": "original formula",
+          "id": "0640489c-04f3-4120-b6d8-bd406f1e8cdf",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "silicon carbide",
+          "origin": "candidate",
+          "source_title": "Globar",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1343627830"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "SiC",
+          "formula_interpretation": "original formula",
+          "id": "3a3cf02f-8800-40d3-89cb-be86f24c6815",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Silicon carbide",
+          "origin": "candidate",
+          "source_title": "Abnormal grain growth",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1351580707"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "SiC",
+          "formula_interpretation": "original formula",
+          "id": "4c527a29-1f18-4ba5-ae1a-86b105b87b4a",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "silicon carbide",
+          "origin": "candidate",
+          "source_title": "Bioceramic",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1334302390"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "SiC",
+          "formula_interpretation": "original formula",
+          "id": "ab00e32f-412b-4d33-ace7-d29db4f98b95",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "silicon carbide",
+          "origin": "candidate",
+          "source_title": "Ceramography",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1220980959"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "SiC",
+          "formula_interpretation": "original formula",
+          "id": "d9fdabf4-9615-48f0-8817-2c054ad3a321",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Silicon carbide",
+          "origin": "candidate",
+          "source_title": "Aluminium-26",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1314207202"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "dd42670b-0eb8-43d5-9941-1f591251d3a2",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "silicon carbide",
+          "origin": "candidate",
+          "source_title": "Brittleness",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1348177754"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Silicon carbide",
+      "review_status": "pending_human_review",
+      "scope": "thermal-ceramics-batch2",
+      "source_slice": "sources/manual-chemistry/thermal-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.metallographic.com/metallographic-consumables/grinding/belts-rolls-powders",
+        "https://www2.coorstek.com/en/materials/silicon-carbide/"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:silicon_carbide"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "NaAlO2",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "Sodium aluminate (anhydrous NaAlO2)",
+      "review_status": "pending_human_review",
+      "scope": "process-chemistry",
+      "source_slice": "sources/manual-chemistry/process-chemistry-2026-10-13.json",
+      "source_urls": [
+        "https://cameochemicals.noaa.gov/chemical/1468",
+        "https://guidelines.nhmrc.gov.au/australian-drinking-water-guidelines/part-5/treatment-chemicals/sodium-aluminate"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:sodium_aluminate"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "matched_identity_charge_unknown",
+        "matched_identity_formula_unknown_or_unsupported"
+      ],
+      "formula": "Na2CO3",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Na2CO3",
+          "formula_interpretation": "original formula",
+          "id": "30d638ed-9f74-411c-bc52-fad472032e04",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "sodium carbonate",
+          "origin": "candidate",
+          "source_title": "Hydrolyzed vegetable protein",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1361982634"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "Na2CO3",
+          "formula_interpretation": "original formula",
+          "id": "4f834181-adb0-451e-a226-c74237864f5c",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "sodium carbonate",
+          "origin": "candidate",
+          "source_title": "Carbothermic reaction",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1360625549"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "be438603-780d-4b14-b3a0-d7b6b87778e9",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "sodium carbonate",
+          "origin": "candidate",
+          "source_title": "Alkaliphile",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1342295724"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_reviewed_id",
+            "name_or_alias"
+          ],
+          "formula": "Na2CO3",
+          "formula_interpretation": "original formula",
+          "id": "chem:sodium_carbonate",
+          "identity_verified": false,
+          "kind": "formula_unit",
+          "name": "sodium carbonate",
+          "origin": "reviewed",
+          "source_title": "Universe DB industrial chemistry seed",
+          "source_url": "https://github.com/szajsjem/universe-db/blob/main/seed/006_industrial_chemistry.sql"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "sodium carbonate",
+      "review_status": "pending_human_review",
+      "scope": "planet-life-support",
+      "source_slice": "sources/manual-chemistry/planet-life-support-2026-10-13.json",
+      "source_urls": [
+        "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=200021WV.TXT",
+        "https://www.epa.gov/sites/production/files/2017-03/documents/wtp_model_v._2.0_manual_508.pdf"
+      ],
+      "state": "existing_reviewed_id",
+      "target_id": "chem:sodium_carbonate"
+    },
+    {
+      "fact_count": 2,
+      "flags": [
+        "candidate_classification_differs"
+      ],
+      "formula": "NaCN",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "NaCN",
+          "formula_interpretation": "original formula",
+          "id": "bedddab9-4e1b-4485-a3c4-290dffbea381",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "sodium cyanide",
+          "origin": "candidate",
+          "source_title": "Cyanation",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1346440440"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Sodium cyanide",
+      "review_status": "pending_human_review",
+      "scope": "refining-batch2",
+      "source_slice": "sources/manual-chemistry/refining-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.orica.com/ArticleDocuments/1475/Sodium%20Cyanide%20Brochure.pdf.aspx",
+        "https://www.sigmaaldrich.com/US/en/product/sigald/205222"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:sodium_cyanide"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "Na2S2O5",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "Sodium metabisulfite",
+      "review_status": "pending_human_review",
+      "scope": "process-chemistry",
+      "source_slice": "sources/manual-chemistry/process-chemistry-2026-10-13.json",
+      "source_urls": [
+        "https://chemicals.basf.com/global/en/Monomers/bulk-chemicals/sulfite",
+        "https://www.fishersci.ca/shop/products/sodium-metabisulfite-powder-certified-acs-fisher-chemical-2/p-33948"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:sodium_metabisulfite"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "Na2SiO3",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "Sodium metasilicate (anhydrous)",
+      "review_status": "pending_human_review",
+      "scope": "refining-batch2",
+      "source_slice": "sources/manual-chemistry/refining-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://silmaco.com/en/product/metasilicate-anhydrous"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:sodium_metasilicate"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "matched_identity_charge_unknown"
+      ],
+      "formula": "Na2S",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link"
+          ],
+          "formula": "Na2S",
+          "formula_interpretation": "original formula",
+          "id": "71880bec-517e-4be8-8cc6-54e7ee05de39",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "sodium sulfide",
+          "origin": "candidate",
+          "source_title": "Carbothermic reaction",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1360625549"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Sodium sulfide (anhydrous)",
+      "review_status": "pending_human_review",
+      "scope": "refining-batch2",
+      "source_slice": "sources/manual-chemistry/refining-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://www.fishersci.com/shop/products/sodium-sulfide-anhydrous-thermo-scientific/AA6512206"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:sodium_sulfide"
+    },
+    {
+      "fact_count": 2,
+      "flags": [
+        "candidate_classification_differs",
+        "composition_only_identity_leads",
+        "matched_identity_charge_unknown"
+      ],
+      "formula": "C2H8N2",
+      "kind": "molecule",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead"
+          ],
+          "formula": "C2H8N2",
+          "formula_interpretation": "original formula",
+          "id": "5257c627-2490-4c7b-a490-eb79ca6374e8",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "ethylenediamine",
+          "origin": "candidate",
+          "source_title": "Dion-Jacobson phase",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1329105464"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead"
+          ],
+          "formula": "C2H8N2",
+          "formula_interpretation": "original formula",
+          "id": "ea61e1c8-dbb4-4124-be0c-8c9f47f5d1f8",
+          "identity_verified": false,
+          "kind": "molecule",
+          "name": "ethylene diamine",
+          "origin": "candidate",
+          "source_title": "Carcerand",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1245189324"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Unsymmetrical dimethylhydrazine",
+      "review_status": "pending_human_review",
+      "scope": "propellants",
+      "source_slice": "sources/manual-chemistry/propellants-2026-10-13.json",
+      "source_urls": [
+        "https://ntrs.nasa.gov/citations/19660024164",
+        "https://webbook.nist.gov/cgi/cbook.cgi?ID=C57147&Mask=7FF&Units=SI"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:unsymmetrical_dimethylhydrazine"
+    },
+    {
+      "fact_count": 3,
+      "flags": [],
+      "formula": "ZnCl2",
+      "kind": "formula_unit",
+      "matches": [],
+      "missing_candidate_links": [],
+      "name": "Zinc chloride (anhydrous)",
+      "review_status": "pending_human_review",
+      "scope": "process-chemistry",
+      "source_slice": "sources/manual-chemistry/process-chemistry-2026-10-13.json",
+      "source_urls": [
+        "https://www.fishersci.com/shop/products/zinc-chloride-anhydrous-98-thermo-scientific/AAA162810E"
+      ],
+      "state": "new_identity_review",
+      "target_id": "chem:zinc_chloride"
+    },
+    {
+      "fact_count": 3,
+      "flags": [
+        "candidate_classification_differs",
+        "matched_identity_charge_unknown",
+        "matched_identity_formula_unknown_or_unsupported"
+      ],
+      "formula": "ZrO2",
+      "kind": "formula_unit",
+      "matches": [
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link"
+          ],
+          "formula": "ZrO2",
+          "formula_interpretation": "original formula",
+          "id": "27a25c16-fc8e-4d5b-ba65-bf4c22258f46",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "ZrO2",
+          "origin": "candidate",
+          "source_title": "Functionally graded material",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1328001022"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "2b40ec74-4c67-4bbe-ab84-396103a8f606",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "zirconia",
+          "origin": "candidate",
+          "source_title": "Brittleness",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1348177754"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "ZrO2",
+          "formula_interpretation": "original formula",
+          "id": "406e2b4f-7178-4b3a-97be-1fb3b0f4040b",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "zirconia",
+          "origin": "candidate",
+          "source_title": "Bioceramic",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1334302390"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "92cdf065-c90e-4f55-9fd5-b32906e29041",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "zirconia",
+          "origin": "candidate",
+          "source_title": "Functionally graded material",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1328001022"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "unknown",
+          "evidence": [
+            "name_or_alias"
+          ],
+          "formula": null,
+          "formula_interpretation": "original formula",
+          "id": "9e7a7b3b-0423-42fe-ba36-ff213120404f",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "Zirconia",
+          "origin": "candidate",
+          "source_title": "Electroceramics",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1323546891"
+        },
+        {
+          "charge": null,
+          "charge_status": "unknown",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "ZrO2",
+          "formula_interpretation": "original formula",
+          "id": "b5623192-dd41-4044-9fad-7c9127744791",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "zirconia",
+          "origin": "candidate",
+          "source_title": "Ceramography",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1220980959"
+        },
+        {
+          "charge": 0,
+          "charge_status": "match",
+          "composition_status": "match",
+          "evidence": [
+            "composition_only_lead",
+            "declared_candidate_link",
+            "name_or_alias"
+          ],
+          "formula": "ZrO2",
+          "formula_interpretation": "original formula",
+          "id": "be9d0d35-a3a5-47de-ad1c-b8155b556b9f",
+          "identity_verified": false,
+          "kind": "material",
+          "name": "zirconium dioxide",
+          "origin": "candidate",
+          "source_title": "High-power impulse magnetron sputtering",
+          "source_url": "https://en.wikipedia.org/w/index.php?oldid=1364728859"
+        }
+      ],
+      "missing_candidate_links": [],
+      "name": "Zirconium dioxide",
+      "review_status": "pending_human_review",
+      "scope": "thermal-ceramics-batch2",
+      "source_slice": "sources/manual-chemistry/thermal-batch2-2026-10-13.json",
+      "source_urls": [
+        "https://webbook.nist.gov/cgi/cbook.cgi?ID=1314-23-4&Units=SI",
+        "https://www2.coorstek.com/en/materials/zirconia/"
+      ],
+      "state": "candidate_identity_review",
+      "target_id": "chem:zirconium_dioxide"
+    }
+  ],
+  "report_schema_version": 1,
+  "source_inputs": [
+    {
+      "imported_in_snapshot": true,
+      "path": "sources/manual-chemistry/batteries-batch2-2026-10-13.json",
+      "sha256": "3ffd107927b853672a5a17fb5ec7b68f9f5967ca14883217710a6b2618f5e8b8"
+    },
+    {
+      "imported_in_snapshot": true,
+      "path": "sources/manual-chemistry/planet-life-support-2026-10-13.json",
+      "sha256": "f50670c1b653914cac75f44683b4c8e45a000c28a726e0a177c2709e290edeab"
+    },
+    {
+      "imported_in_snapshot": true,
+      "path": "sources/manual-chemistry/process-chemistry-2026-10-13.json",
+      "sha256": "95850775966d2bb0be1ca3131cf5f7934d7f8d435930c9bda1efd9edbced2e05"
+    },
+    {
+      "imported_in_snapshot": true,
+      "path": "sources/manual-chemistry/propellants-2026-10-13.json",
+      "sha256": "b5d8dc73bcbeb319977a61a010edbf068bfab8e20c6c86038832c1f0760508d0"
+    },
+    {
+      "imported_in_snapshot": true,
+      "path": "sources/manual-chemistry/refining-batch2-2026-10-13.json",
+      "sha256": "218e36d0c5054c168693b86a435747b59af82a9bd4bead7b0b96436ced88ca33"
+    },
+    {
+      "imported_in_snapshot": true,
+      "path": "sources/manual-chemistry/thermal-batch2-2026-10-13.json",
+      "sha256": "713dc1c92d65f1958deffae6a9ad68049b416929437f89272563daf63bf9e258"
+    }
+  ]
+}

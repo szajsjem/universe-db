@@ -21,7 +21,10 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import urlparse
 
-from build_db import write_release_files
+try:
+    from scripts.build_db import write_release_files
+except ModuleNotFoundError:
+    from build_db import write_release_files
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL = "Codex browser-assisted manual source research; pending human review"

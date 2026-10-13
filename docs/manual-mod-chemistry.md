@@ -131,3 +131,10 @@ regression coverage for malformed formulas, conflicting/unknown candidate links,
 changed-input rejection, replay, transaction rollback and byte-level
 reproducibility. Human review of every primary source and identity mapping remains
 the scientific admission gate before enabling these records as game chemistry.
+
+
+## Identity review report
+
+The [manual review workflow](manual-review-workflow.md) now supplies a read-only
+Markdown/JSON queue with identity leads, source citations, missing provenance
+and ambiguity flags. It does not promote this research or alter database rows.

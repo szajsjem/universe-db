@@ -23,6 +23,11 @@ Versioned JSON inputs retain primary citations and identity links; import with
 `python3 scripts/import_manual_chemistry.py`. These records await human review
 and do not automatically become runtime mod recipes.
 
+An offline [manual review queue](docs/manual-review-workflow.md) now compares
+those targets with reviewed species and candidate identities, retaining source
+citations and flagging ambiguous matches without merging or promoting records.
+Regenerate it with `python3 scripts/report_manual_review.py`.
+
 ## Current coverage
 
 A separate hand-authored [metal alloy reference](docs/alloys.md) is available
