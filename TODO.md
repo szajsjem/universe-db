@@ -126,3 +126,9 @@ coverage report.
 - [ ] Extend review clustering to numeric observations and nonmanual staging
   families, and implement the separately authorized human-decision/promotion
   workflow. Existing global review/promotion TODOs remain open.
+
+## Mechanical property profiles
+
+- [x] Independent explicit-state mechanical fitting and alloy/isotope calculation interface, with exact rational alloy output and labeled brittleness proxy.
+- [ ] Review specimen-matched mechanical records and publish independently validated strength/toughness profiles; pending grade recipes are not training specimens.
+- [ ] Execute authored mechanical-profile regression cases on a development/test host.

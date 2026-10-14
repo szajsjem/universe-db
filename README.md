@@ -577,3 +577,5 @@ Contributor [data lifecycle documentation](docs/contributor-data-lifecycle.md)
 now covers source/license admission, review, additive corrections, entity
 deprecation, preference decisions and release checks. A snapshot-bound draft
 record shows the review fields while making no approval or promotion claim.
+
+Mechanical alloy profiles and the shared alloy/isotope calculation interface are documented in [mechanical-stats.md](docs/mechanical-stats.md).

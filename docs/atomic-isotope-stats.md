@@ -83,3 +83,10 @@ under `missing_stat_approximations`. Existing source points, bounds, estimates a
 stable assignments are preserved. The separate result is explicitly modeled;
 stable source assignments are never given a modeled finite lifetime or decay
 vector. Without that option, a known identity returns source references only.
+
+Combined atomic profiles now carry a schema version and SHA-256 identity.
+Predictions include the profile identity, independent mass/decay training hashes,
+source snapshot and summarized mass holdout diagnostics alongside decay validation.
+Existing profiles without these optional fields remain readable; missing identity
+metadata stays null rather than being fabricated. The shared alloy/isotope
+query interface is documented in [mechanical-stats.md](mechanical-stats.md).

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -29,7 +30,8 @@ else:
 def fit_atomic_properties(database, *, allow_unverified=False):
     """Fit independent mass/decay targets; source provenance remains attached."""
     records, metadata = load_records(database)
-    return {
+    profile = {
+        "schema_version": 1,
         "algorithm": "atomic-composition-property-profile-1",
         "input": metadata,
         "mass_model": fit_isotope_model(
@@ -37,6 +39,10 @@ def fit_atomic_properties(database, *, allow_unverified=False):
         ),
         "decay_model": fit_model(records, metadata, allow_unverified=allow_unverified),
     }
+    profile["profile_sha256"] = hashlib.sha256(
+        json.dumps(profile, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+    return profile
 
 
 def atomic_properties(
@@ -64,6 +70,28 @@ def atomic_properties(
     except IsotopeFitError as error:
         mass = {"status": "unavailable", "reason": str(error)}
     return {
+        "profile_sha256": profile.get("profile_sha256"),
+        "model_context": {
+            "mass_training_sha256": profile["mass_model"].get("training_sha256"),
+            "decay_records_sha256": profile["decay_model"].get("records_sha256"),
+            "source_snapshot": profile.get("input"),
+            "model_review_status": "unreviewed",
+        },
+        "mass_validation_context": {
+            name: {
+                key: value
+                for key, value in report.items()
+                if key not in ("holdout_ids", "training_ids")
+            }
+            for name, report in profile["mass_model"].get("diagnostics", {}).items()
+            if name
+            in (
+                "coordinate_holdout",
+                "baseline_coordinate_holdout",
+                "isotope_chain_edge_holdout",
+            )
+            and isinstance(report, dict)
+        },
         "composition": {
             "protons": protons,
             "neutrons": neutrons,
